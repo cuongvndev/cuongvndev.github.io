@@ -7,47 +7,46 @@ on:
 
 
 jobs:
-  # deploy:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #       with:
-  #         submodules: false  # Fetch Hugo themes (true OR recursive)
-  #         fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
-
-  #     - name: Setup Hugo
-  #       uses: peaceiris/actions-hugo@v2
-  #       with:
-  #         hugo-version: 'latest'
-  #         extended: true
-
-  #     - name: Build
-  #       run: hugo --minify
-
-  #     - name: Deploy
-  #       uses: peaceiris/actions-gh-pages@v3
-  #       if: github.ref == 'refs/heads/master'
-  #       with:
-  #         github_token: ${{ secrets.GITHUB_TOKEN }}
-  #         publish_dir: ./public
-
-  copy-file:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+        with:
+          submodules: false  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
-    - name: Push to another repo
-      uses: dmnemec/copy_file_to_another_repo_action@main
-      env:
-        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }} 
-      with:
-        source_file: 'public/'
-        destination_repo: 'cuongvndev/cuongvndev.github.io'
-        destination_branch: master
-        user_email: 'vucuong1112@email.com'# your email
-        user_name: 'cuongvndev'           # your login
-        commit_message: 'update blog'
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Build
+        run: hugo --minify
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/master'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+
+  copy_branch:
+    runs-on: ubuntu-latest
+    needs: deploy
+    steps:
+      - name: Checkout Source Repository
+        uses: actions/checkout@v2
+
+      - name: Copy Branch
+        run: |
+          git config user.name "cuongvndev"
+          git config user.email "vucuong1112@gmail.com"
+          git fetch --prune --unshallow origin +refs/heads/*:refs/remotes/origin/*
+          git checkout -b origin/gh-pages
+          git push https://cuongvndev:${{ secrets.PAT }}@github.com/cuongvndev/cuongvndev.github.io.git origin/gh-pages:origin/master
+        env:
+          PAT: ${{ secrets.PAT }}
         
 # jobs:
 #   copy-file: // coppy folder public to branch master of another repo
