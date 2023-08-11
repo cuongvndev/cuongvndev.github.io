@@ -1,18 +1,18 @@
 ---
 title: Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 1
 date: 2023-08-10T11:18:56+07:00
-tags: []
-series: []
+tags: ["Microservice", "Eureka", "Zuul Gateway","Hướng dẫn sử dụng Microservice","Kiến thức Microservice","Triển khai Microservice", "Tích hợp Eureka và Zuul Gateway", "Microservice architecture", "Microservices tutorial", "Eureka service registry", "Zuul API gateway", "Spring Cloud", "Load balancing", "Service discovery", "Distributed systems", "Microservices communication", "Spring Boot", "Spring Cloud Netflix", "Microservices design"]
+series: ["Microservice2"]
 featured: true
 ---
-Bài viết này cung cấp một hướng dẫn chi tiết về việc triển khai và sử dụng kiến trúc Microservice kết hợp với các công cụ Eureka và Zuul Gateway. Đây là những bước cơ bản để xây dựng một hệ thống phân tán linh hoạt và có khả năng mở rộng.
+Bài viết này cung cấp một hướng dẫn chi tiết về việc triển khai và sử dụng kiến trúc **Microservice** kết hợp với các công cụ **Eureka** và Zuul **Gateway**. Đây là những bước cơ bản để xây dựng một hệ thống phân tán linh hoạt và có khả năng mở rộng.
 
 <!--more-->
 # 1. Giới thệu
 **Microservices** là một mô hình kiến trúc phần mềm đột phá, cho phép các ứng dụng được chia thành các phần nhỏ hơn và độc lập, được gọi là "microservices". Mỗi microservice có thể phát triển, triển khai và quản lý riêng biệt, giúp tối ưu hóa khả năng mở rộng và duy trì.
 
 Bây giờ tôi sẽ triển khai một hệ thống đơn giản như sau:
-![Scenario 1: Across columns](/model.png)
+![Scenario 1: Across columns](/blog/microservice/model.png)
 
 # 2. Eureka server
 Là máy chủ dùng để quản lý, đặt tên cho các service hay còn gọi là `service registry`, mục đích của nó là thay vì phải nhớ 64.233.181.99 thì bạn có thể vào trực tiếp google bằng địa chỉ google.com và khi mà các service thay đổi địa chỉ thì Eureka sẽ tự động cập nhật mà bạn không cần phải thay đổi code.
@@ -187,7 +187,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
 
-    @GetMapping("/user")
+    @GetMapping("/user-info")
     public String getUser() {
         // Hardcode user info
         String userInfo = "Username: john_doe\nFull Name: John Doe\nEmail: john@example.com";
@@ -202,15 +202,15 @@ public class UserController {
 Ok, như vậy là chúng ta đã tạo xong bộ khung cho hệ thống microservice
 Tiến hành run các service theo thứ tự: Eureka, Zuul và User
 Để kiểm tra các service của chúng ta vào `localhost://8761` đây là cổng của Eureka Server, và bạn có thể thấy các service đang chạy như hình:
-![Scenario 1: Across columns](/service-eureka.png)
+![Scenario 1: Across columns](/blog/microservice/service-eureka.png)
 
 Tiến hành run api để get user info
-![Scenario 2: Across columns](/api-user-info.png#center)
+![Scenario 2: Across columns](/blog/microservice/api-user-info.png#center)
 >khi call api `http://localhost:8083/user-info` đang thực hiện call trực tiếp đến user service port 8083
 
-![Scenario 2: Across columns](/api-user-info2.png#center)
+![Scenario 2: Across columns](/blog/microservice/api-user-info2.png#center)
 
 >khi call api `http://localhost:8080/user/user-info` đang thực hiện call thông qua zuul gateway port 8080
 >zuul gateway sẽ dựa vào path: /user/** để điều hướng tới user service
 
-Kết thúc phần đầu tiên ở đây, ở phần tiếp theo chúng ta sẽ tìm hiều về cách để xác thực user trong hệ thống microservice và sử dụng Spring Cloud Configuration để config các biến được sử dụng chung cho nhiều service nhé!
+Kết thúc phần đầu tiên ở đây, ở phần tiếp theo chúng ta sẽ tìm hiều về cách để xác thực user trong hệ thống microservice và tạo common sử dụng chung cho nhiều service nhé!

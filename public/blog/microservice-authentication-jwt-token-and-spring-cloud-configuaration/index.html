@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 2</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Ladder@Ở bài trước chúng ta đã dựng được một hệ thống microservice đơn giản với User service, Eureka server và Zuul gateway.
+Trong bài viết này chúng ta sẽ cùng tìm hiểu về JWT và cách để xác thực và bảo mật trong hệ thống Microservice bằng JWT.">
+    <meta name="author" content="Cương Vũ">
+    <link rel="canonical" href="https://cuongvndev.github.io/blog/microservice-authentication-jwt-token-and-spring-cloud-configuaration/">
+        <meta name="google-site-verification" content="cNWPyAe0dni0K3m6i73pyaWDStJa7rPPmpZPshKnlos">
+
+    <link rel="alternate" type="application/rss+xml" href="https://cuongvndev.github.io/index.xml" title="Cương Vũ Blog">
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-xxx"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-xxx', { 'anonymize_ip': false });
+}
+</script>
+
+
+
+    <meta property="og:title" content="Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 2" />
+<meta property="og:description" content="Ở bài trước chúng ta đã dựng được một hệ thống microservice đơn giản với User service, Eureka server và Zuul gateway.
+Trong bài viết này chúng ta sẽ cùng tìm hiểu về JWT và cách để xác thực và bảo mật trong hệ thống Microservice bằng JWT." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cuongvndev.github.io/blog/microservice-authentication-jwt-token-and-spring-cloud-configuaration/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2023-08-11T09:25:25+07:00" />
+<meta property="article:modified_time" content="2023-08-11T09:25:25+07:00" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 2"/>
+<meta name="twitter:description" content="Ở bài trước chúng ta đã dựng được một hệ thống microservice đơn giản với User service, Eureka server và Zuul gateway.
+Trong bài viết này chúng ta sẽ cùng tìm hiểu về JWT và cách để xác thực và bảo mật trong hệ thống Microservice bằng JWT."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Blogs",
+      "item": "https://cuongvndev.github.io/blog/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 2",
+      "item": "https://cuongvndev.github.io/blog/microservice-authentication-jwt-token-and-spring-cloud-configuaration/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 2",
+  "name": "Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 2",
+  "description": "Ở bài trước chúng ta đã dựng được một hệ thống microservice đơn giản với User service, Eureka server và Zuul gateway. Trong bài viết này chúng ta sẽ cùng tìm hiểu về JWT và cách để xác thực và bảo mật trong hệ thống Microservice bằng JWT.\n",
+  "keywords": [
+    "Microservice", "Eureka", "Zuul Gateway", "Hướng dẫn sử dụng Microservice", "Kiến thức Microservice", "Triển khai Microservice", "Tích hợp Eureka và Zuul Gateway", "Microservice architecture", "Microservices tutorial", "Eureka service registry", "Zuul API gateway", "Spring Cloud", "Load balancing", "Service discovery", "Distributed systems", "Microservices communication", "Spring Boot", "Spring Cloud Netflix", "Microservices design"
+  ],
+  "articleBody": "Ở bài trước chúng ta đã dựng được một hệ thống microservice đơn giản với User service, Eureka server và Zuul gateway. Trong bài viết này chúng ta sẽ cùng tìm hiểu về JWT và cách để xác thực và bảo mật trong hệ thống Microservice bằng JWT.\nChúng ta sẽ tạo 1 service mới là auth service có nhiệm vụ xác minh danh tính và tạo jwt token khi user login Còn việc xác thực token sẽ do Zuul gateway đảm nhận, khi có 1 request gửi đến thì Zuul gateway sẽ dựa vào token được cung cấp và xác thực quyền truy cập, xác thực thành công thì mới tiến hành điều hướng request tới các service bussiness khác.\n1. JWT (Json Based Token) Token là 1 chuỗi string được mã hoá được tạo ra từ hệ thống của chúng ta sau khi xác thực thành công. Và được đính kèm trong các request để cung cấp quyền truy cập vào ứng dụng.\nJWT là 1 chuẩn JSON để tạo token, được bao gồm bởi 3 phần\nHeader: chứa thuật toán hash {type: “JWT”, hash: “HS256”} Payload: chứa các thuộc tính user name, email,… và các giá trị của nó {username: \"Omar\", email: \"omar@example.com\", admin: true } Signature: là giá trị hash của Header + “.” + Payload + Secret key 2. Zuul gateway Ở trong gateway sẽ thực hiện 2 chức năng: một xác thực token và 2 là chặn tất cả request nếu xác thực không thành công. Trong file pom.xml chúng ta cần thêm spring security và JWT\norg.springframework.boot spring-boot-starter-security io.jsonwebtoken jjwt Để sử dụng security thì chúng ta cần tạo 1 class extend từ WebSecurityConfigurerAdapter và dùng anotation @EnableWebSecurity\npackage com.example.zuulserver.security; import com.example.commonservice.security.JwtConfig; import org.springframework.beans.factory.annotation.Autowired; import org.springframework.context.annotation.Bean; import org.springframework.security.config.annotation.web.builders.HttpSecurity; import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity; import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter; import org.springframework.security.config.http.SessionCreationPolicy; import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter; import javax.servlet.http.HttpServletResponse; import javax.ws.rs.HttpMethod; @EnableWebSecurity public class SecurityConfig extends WebSecurityConfigurerAdapter { @Autowired private JwtConfig jwtConfig; @Override protected void configure(HttpSecurity http) throws Exception { http .csrf().disable() // make sure we use stateless session; session won't be used to store user's state. .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) .and() // handle an authorized attempts .exceptionHandling().authenticationEntryPoint((req, rsp, e) -\u003e rsp.sendError(HttpServletResponse.SC_UNAUTHORIZED)) .and() // Add a filter to validate the tokens with every request .addFilterAfter(new JwtTokenAuthenticationFilter(jwtConfig), UsernamePasswordAuthenticationFilter.class) // authorization requests config .authorizeRequests() // allow all who are accessing \"auth\" service .antMatchers(HttpMethod.POST, jwtConfig.getUri()).permitAll() // Any other request must be authenticated .anyRequest().authenticated(); } @Bean public JwtConfig jwtConfig() { return new JwtConfig(); } } Class JwtConfig sẽ được tạo sau ở trong phần common service\nTiếp theo chúng ta sẽ viết class filter để xác thực token được đặt tên là JwtTokenAuthenticationFilter, class này sẽ extend từ OncePerRequestFilter filter này sẽ được kích hoạt mỗi khi request được gửi tới.\npackage com.example.zuulserver.security; import com.example.commonservice.security.JwtConfig; import org.springframework.security.authentication.UsernamePasswordAuthenticationToken; import org.springframework.security.core.authority.SimpleGrantedAuthority; import org.springframework.security.core.context.SecurityContextHolder; import org.springframework.web.filter.OncePerRequestFilter; import javax.servlet.FilterChain; import javax.servlet.ServletException; import javax.servlet.http.HttpServletRequest; import javax.servlet.http.HttpServletResponse; import java.io.IOException; import java.util.List; import java.util.stream.Collectors; import io.jsonwebtoken.Claims; import io.jsonwebtoken.Jwts; public class JwtTokenAuthenticationFilter extends OncePerRequestFilter { private final JwtConfig jwtConfig; public JwtTokenAuthenticationFilter(JwtConfig jwtConfig) { this.jwtConfig = jwtConfig; } @Override protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException { // 1. get the authentication header. Tokens are supposed to be passed in the authentication header String header = request.getHeader(jwtConfig.getHeader()); // 2. validate the header and check the prefix if (header == null || !header.startsWith(jwtConfig.getPrefix())) { filterChain.doFilter(request, response); // if not valid go to the next filter return; } // If there is no token provided and hence the user won't be authenticated. // It's Ok. Maybe the user accessing a public path or asking for a token. // All secured paths that needs a token are already defined and secured in config class. // And If user tried to access without access token, then he won't be authenticated and an exception will be thrown. // 3. Get the token String token = header.replace(jwtConfig.getPrefix(), \"\"); try { // exceptions might be thrown in creating the claims if for example the token is expired // 4. Validate the token Claims claims = Jwts.parser().setSigningKey(jwtConfig.getSecret().getBytes()).parseClaimsJws(token).getBody(); String userName = claims.getSubject(); if (userName != null) { List authorities = (List) claims.get(\"authorities\"); // 5. Create auth object // UsernamePasswordAuthenticationToken: A built-in object, used by spring to represent the current authenticated / being authenticated user. // It needs a list of authorities, which has type of GrantedAuthority interface, where SimpleGrantedAuthority is an implementation of that interface UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(userName, null, authorities.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList())); // 6. Authenticate the user // Now, user is authenticated SecurityContextHolder.getContext().setAuthentication(auth); } } catch (Exception e) { // In case of failure. Make sure it's clear; so guarantee user won't be authenticated e.printStackTrace(); SecurityContextHolder.clearContext(); } // go to the next filter in the filter chain filterChain.doFilter(request, response); } } 4. Common service Service này sẽ chứa những config được sử dụng chung cho nhiều service khác Chúng ta sẽ tạo class JwtConfig để chứa các config JWT và class này sẽ được sử dụng trong Auth service và Zuul gateway\nCũng tương tự như việc tạo các service khác hãy tạo mới project Spring boot và config file pom.xml như sau:\norg.springframework.boot spring-boot-starter-web org.springframework.boot spring-boot-starter-test test Tạo class JwtConfig như sau:\npackage com.example.commonservice.security; import org.springframework.beans.factory.annotation.Value; public class JwtConfig { @Value(\"${security.jwt.uri:/auth/**}\") private String uri; @Value(\"${security.jwt.header:Authorization}\") private String header; @Value(\"${security.jwt.prefix:Bearer }\") private String prefix; @Value(\"${security.jwt.expiration:#{24*60*60}}\") private int expiration; @Value(\"${security.jwt.secret:JwtSecretKey}\") private String secret; public String getUri() { return uri; } public void setUri(String uri) { this.uri = uri; } public String getHeader() { return header; } public void setHeader(String header) { this.header = header; } public String getPrefix() { return prefix; } public void setPrefix(String prefix) { this.prefix = prefix; } public int getExpiration() { return expiration; } public void setExpiration(int expiration) { this.expiration = expiration; } public String getSecret() { return secret; } public void setSecret(String secret) { this.secret = secret; } } Tiếp theo ở các service khác, chẳng hạn như ở Zuul gateway chúng ta cần khai báo dependency common service trong file pom.xml:\ncom.example artifactId\u003ecommon-service 0.0.1-SNAPSHOT Thêm dependency common-service vào trong các service muốn sử dụng JwtConfig Ở đây tạm thời chỉ có 1 class JwtConfig là sẽ được dùng chung, tương lai sẽ có nhiều hơn nên mình tách ra thành common luôn để sử dụng sau này\nNhư vậy là đã xong phần security trong Zuull gateway, tiếp theo đây sẽ tạo mới Auth service\n5. Auth Service Trong auth service, chúng ta sẽ làm hai việc: một là xác thực định danh mà người dùng cung cấp và hai là gen ra một token trong trường hợp xác thực hợp lệ hoặc trả về một exception nếu nó không hợp lệ. Trong file pom.xml chúng ta cần các dependencies sau: Web, Eureka Client, Spring Security và JWT.\norg.springframework.boot spring-boot-starter-web org.springframework.cloud spring-cloud-starter-netflix-eureka-client org.springframework.boot spring-boot-starter-security io.jsonwebtoken jjwt 0.9.0 com.example common-service 0.0.1-SNAPSHOT org.springframework.boot spring-boot-starter-test test File application.yml khai báo như các service khác:\nserver: port: 8082 eureka: client: service-url: defaultZone: http://localhost:8761/eureka spring: application: name: auth-service cloud: config: uri: http://localhost:8888 Ở trong class application cũng cần khai báo đây là Eureka client và đánh anotation @EnableWebSecurity cho nó:\npackage com.example.authservice; import org.springframework.boot.SpringApplication; import org.springframework.boot.autoconfigure.SpringBootApplication; import org.springframework.cloud.netflix.eureka.EnableEurekaClient; @SpringBootApplication @EnableEurekaClient public class AuthServiceApplication { public static void main(String[] args) { SpringApplication.run(AuthServiceApplication.class, args); } } Giống như cấu hình cổng Gateway, chúng ta cần tạo một lớp extends từ WebSecurityConfigurerAdapter:\npackage com.example.authservice.security; import com.example.commonservice.security.JwtConfig; import org.springframework.beans.factory.annotation.Autowired; import org.springframework.context.annotation.Bean; import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder; import org.springframework.security.config.annotation.web.builders.HttpSecurity; import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity; import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter; import org.springframework.security.config.http.SessionCreationPolicy; import org.springframework.security.core.userdetails.UserDetailsService; import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder; import javax.servlet.http.HttpServletResponse; import javax.ws.rs.HttpMethod; @EnableWebSecurity public class SecurityCredentialsConfig extends WebSecurityConfigurerAdapter { @Autowired private UserDetailsService userDetailsService; @Autowired private JwtConfig jwtConfig; @Override protected void configure(HttpSecurity http) throws Exception { http .csrf().disable() // make sure we use stateless session; session won't be used to store user's state. .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) .and() // handle an authorized attempts .exceptionHandling().authenticationEntryPoint((req, rsp, e) -\u003e rsp.sendError(HttpServletResponse.SC_UNAUTHORIZED)) .and() // Add a filter to validate user credentials and add token in the response header // What's the authenticationManager()? // An object provided by WebSecurityConfigurerAdapter, used to authenticate the user passing user's credentials // The filter needs this auth manager to authenticate the user. .addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager(), jwtConfig)) .authorizeRequests() // allow all POST requests .antMatchers(HttpMethod.POST, jwtConfig.getUri()).permitAll() .antMatchers(HttpMethod.GET, \"/auth/test\").permitAll() // any other requests must be authenticated .anyRequest().authenticated(); } // Spring has UserDetailsService interface, which can be overriden to provide our implementation for fetching user from database (or any other source). // The UserDetailsService object is used by the auth manager to load the user from database. // In addition, we need to define the password encoder also. So, auth manager can compare and verify passwords. @Override protected void configure(AuthenticationManagerBuilder auth) throws Exception { auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder()); } @Bean public BCryptPasswordEncoder passwordEncoder() { return new BCryptPasswordEncoder(); } @Bean public JwtConfig jwtConfig(){ return new JwtConfig(); } } Trong đoạn code trên, chúng ta sử dụng interface UserDetailsService nên chúng ta cần implement nó:\npackage com.example.authservice.security; import org.springframework.beans.factory.annotation.Autowired; import org.springframework.security.core.GrantedAuthority; import org.springframework.security.core.authority.AuthorityUtils; import org.springframework.security.core.userdetails.User; import org.springframework.security.core.userdetails.UserDetails; import org.springframework.security.core.userdetails.UserDetailsService; import org.springframework.security.core.userdetails.UsernameNotFoundException; import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder; import org.springframework.stereotype.Service; import java.util.Arrays; import java.util.List; @Service public class UserDetailsServiceImpl implements UserDetailsService { @Autowired private BCryptPasswordEncoder encoder; @Override public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException { // TODO get user by username in db currently we hardcode user for test // hard coding the users. All passwords must be encoded. final List users = Arrays.asList( new AppUser(1, \"user\", encoder.encode(\"12345\"), \"USER\"), new AppUser(2, \"admin\", encoder.encode(\"12345\"), \"ADMIN\") ); for(AppUser appUser: users) { if(appUser.getUsername().equals(username)) { // Remember that Spring needs roles to be in this format: \"ROLE_\" + userRole (i.e. \"ROLE_ADMIN\") // So, we need to set it to that format, so we can verify and compare roles (i.e. hasRole(\"ADMIN\")). List grantedAuthorities = AuthorityUtils .commaSeparatedStringToAuthorityList(\"ROLE_\" + appUser.getRole()); // The \"User\" class is provided by Spring and represents a model class for user to be returned by UserDetailsService // And used by auth manager to verify and check user authentication. return new User(appUser.getUsername(), appUser.getPassword(), grantedAuthorities); } } // If user not found. Throw this exception. throw new UsernameNotFoundException(\"Username: \" + username + \" not found\"); } // A (temporary) class represent the user saved in the database. private static class AppUser { private Integer id; private String username, password; private String role; public AppUser(Integer id, String username, String password, String role) { this.id = id; this.username = username; this.password = password; this.role = role; } public Integer getId() { return id; } public void setId(Integer id) { this.id = id; } public String getUsername() { return username; } public void setUsername(String username) { this.username = username; } public String getPassword() { return password; } public void setPassword(String password) { this.password = password; } public String getRole() { return role; } public void setRole(String role) { this.role = role; } } } Bước tiếp theo cũng là bước cuối cùng, chúng ta cần một filter. Ở đây chúng ta sử dụng JwtUsernameAndPasswordAuthenticationFilter để xác thực định danh người dùng và tạo token. Các thông tin về username hay password phải được gửi dưới dạng POST request.\npackage com.example.authservice.security; import com.example.commonservice.security.JwtConfig; import com.fasterxml.jackson.databind.ObjectMapper; import io.jsonwebtoken.Jwts; import io.jsonwebtoken.SignatureAlgorithm; import org.springframework.security.authentication.AuthenticationManager; import org.springframework.security.authentication.UsernamePasswordAuthenticationToken; import org.springframework.security.core.Authentication; import org.springframework.security.core.AuthenticationException; import org.springframework.security.core.GrantedAuthority; import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter; import org.springframework.security.web.util.matcher.AntPathRequestMatcher; import javax.servlet.FilterChain; import javax.servlet.ServletException; import javax.servlet.http.HttpServletRequest; import javax.servlet.http.HttpServletResponse; import java.io.IOException; import java.util.Collections; import java.util.Date; import java.util.stream.Collectors; public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePasswordAuthenticationFilter { // We use auth manager to validate the user credentials private AuthenticationManager authManager; private final JwtConfig jwtConfig; public JwtUsernameAndPasswordAuthenticationFilter(AuthenticationManager authManager, JwtConfig jwtConfig) { this.authManager = authManager; this.jwtConfig = jwtConfig; // By default, UsernamePasswordAuthenticationFilter listens to \"/login\" path. // In our case, we use \"/auth\". So, we need to override the defaults. this.setRequiresAuthenticationRequestMatcher(new AntPathRequestMatcher(jwtConfig.getUri(), \"POST\")); } @Override public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException { try { // 1. Get credentials from request UserCredentials creds = new ObjectMapper().readValue(request.getInputStream(), UserCredentials.class); // 2. Create auth object (contains credentials) which will be used by auth manager UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken( creds.getUsername(), creds.getPassword(), Collections.emptyList()); // 3. Authentication manager authenticate the user, and use UserDetialsServiceImpl::loadUserByUsername() method to load the user. return authManager.authenticate(authToken); } catch (IOException e) { throw new RuntimeException(e); } } // Upon successful authentication, generate a token. // The 'auth' passed to successfulAuthentication() is the current authenticated user. @Override protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication auth) throws IOException, ServletException { Long now = System.currentTimeMillis(); String token = Jwts.builder() .setSubject(auth.getName()) // Convert to list of strings. // This is important because it affects the way we get them back in the Gateway. .claim(\"authorities\", auth.getAuthorities().stream() .map(GrantedAuthority::getAuthority).collect(Collectors.toList())) .setIssuedAt(new Date(now)) .setExpiration(new Date(now + jwtConfig.getExpiration() * 1000)) // in milliseconds .signWith(SignatureAlgorithm.HS512, jwtConfig.getSecret().getBytes()) .compact(); // Add token to header response.addHeader(jwtConfig.getHeader(), jwtConfig.getPrefix() + token); } // A (temporary) class just to represent the user credentials private static class UserCredentials { private String username, password; public String getUsername() { return username; } public void setUsername(String username) { this.username = username; } public String getPassword() { return password; } public void setPassword(String password) { this.password = password; } } } Trong Auth service cũng đã sử dụng đến JwtConfig việc này tránh trùng lặp code\n6. Testing Chạy lần lượt các service Eureka, Zuul, Auth và User.\nĐầu tiên chúng ta thử truy cập vào user service thông qua đường dẫn localhost:8762/user/user-info mà không có token. Chúng ta sẽ nhận về một lỗi 401 như sau:\n{ \"timestamp\": \"2023-08-11T09:26:08.131+0000\", \"status\": 401, \"error\": \"Unauthorized\", \"message\": \"No message available\", \"path\": \"/user/user-info\" } Để nhận token, chúng ta call api authentication localhost:8762/auth Bây giờ gọi lại user service kèm theo một token trong header: Ngoài ta thì bạn có thể thử chạy nhiều instance của user service để test xem các request được phân tán như thế nào. Trong phần tiếp theo, chúng ta sẽ tìm hiểu các xử lý lỗi và theo dõi trong mô hình microservice.\n",
+  "wordCount" : "2282",
+  "inLanguage": "vi",
+  "datePublished": "2023-08-11T09:25:25+07:00",
+  "dateModified": "2023-08-11T09:25:25+07:00",
+  "author":{
+    "@type": "Person",
+    "name": "Cương Vũ"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://cuongvndev.github.io/blog/microservice-authentication-jwt-token-and-spring-cloud-configuaration/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Cương Vũ Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://cuongvndev.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+    <link rel="icon" href="/images/avatar.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/avatar.png">
+
+<link rel="manifest" href="/images/avatar.png">
+
+    <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-webfont/1.6.0/style.css" />
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/main.min.ceb8c5fea2a3640fb422787e317dec5f3a3ef344b4d1d27376310d0ad2c746eb.css" integrity="sha256-zrjF/qKjZA&#43;0Inh&#43;MX3sXzo&#43;80S00dJzdjENCtLHRus=" crossorigin="anonymous" media="screen" />
+    
+
+
+    
+    <link rel="stylesheet" href="/scss/highlight/github-dark.min.min.66034289ee9a113219a2c4aae0a8bd2095ab255c832a42efcf5863f10814e7a1.css" />
+
+    
+    <script src="/js/highlight.min.min.294725d6634a4b99d13d57b152b522eeb7e97cbcc1630f8527d04bfe539bb4a9.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
+    </head>
+<body>
+      <main class="wrapper"><nav class="navigation">
+    <section class="container">
+        <a class="navigation-brand" href="/">
+            Cương Vũ Blog
+        </a>
+        <input type="checkbox" id="menu-toggle" />
+        <label class="menu-button float-right" for="menu-toggle">
+            <span></span><span></span><span></span>
+        </label>
+        
+        <ul class="navigation-list" id="navigation-list">
+            
+            
+            <li class="navigation-item navigation-menu">
+                <a class="navigation-link" href="/blog">Blog</a>
+            </li>
+            
+            
+
+            <li class="navigation-item menu-separator">
+                <span>|</span>
+            </li>
+
+            
+            
+            <li class="navigation-item navigation-social">
+                <a class="navigation-link" href="https://github.com/cuongvndev"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+            </li>
+            
+            
+
+            <li class="navigation-item navigation-dark">
+                <button id="mode" type="button" aria-label="toggle user light or dark theme">
+                    <span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+                    <span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+                </button>
+            </li>
+
+            
+            
+        </ul>
+        
+    </section>
+</nav>
+<div id="content">
+<article class="blog-single">
+  <header class="blog-title">
+    <h1>Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 2</h1>
+  </header>
+
+  <p>
+  <small>
+    11 tháng 8, 2023&nbsp;· &nbsp;· </small>
+
+  
+<p>
+
+  <div class="blog-toc">
+    <nav id="TableOfContents"></nav>
+  </div>
+
+  <section class="blog-content"><p>Ở bài trước chúng ta đã dựng được một hệ thống microservice đơn giản với User service, Eureka server và Zuul gateway.
+Trong bài viết này chúng ta sẽ cùng tìm hiểu về <strong>JWT</strong> và cách để <strong>xác thực và bảo mật</strong> trong hệ thống <strong>Microservice</strong> bằng JWT.</p>
+<p>Chúng ta sẽ tạo 1 service mới là <code>auth service</code> có nhiệm vụ xác minh danh tính và tạo jwt token khi user login
+Còn việc xác thực token sẽ do Zuul gateway đảm nhận, khi có 1 request gửi đến thì Zuul gateway sẽ dựa vào token được cung cấp và xác thực quyền truy cập, xác thực thành công thì mới tiến hành điều hướng request tới các service bussiness khác.</p>
+<h1 id="1-jwt-json-based-token">1. JWT (Json Based Token)</h1>
+<p><strong>Token</strong> là 1 chuỗi string được mã hoá được tạo ra từ hệ thống của chúng ta sau khi xác thực thành công. Và được đính kèm trong các request để cung cấp quyền truy cập vào ứng dụng.</p>
+<p><strong>JWT</strong> là 1 chuẩn JSON để tạo token, được bao gồm bởi 3 phần</p>
+<ul>
+<li>Header: chứa thuật toán hash
+<code>{type: “JWT”, hash: “HS256”}</code></li>
+<li>Payload: chứa các thuộc tính user name, email,&hellip; và các giá trị của nó
+<code>{username: &quot;Omar&quot;, email: &quot;omar@example.com&quot;, admin: true }</code></li>
+<li>Signature: là giá trị hash của <code>Header + “.” + Payload + Secret key</code></li>
+</ul>
+<h1 id="2-zuul-gateway">2. Zuul gateway</h1>
+<p>Ở trong gateway sẽ thực hiện 2 chức năng: một xác thực token và 2 là chặn tất cả request nếu xác thực không thành công.
+Trong file <code>pom.xml</code> chúng ta cần thêm spring security và JWT</p>
+<pre tabindex="0"><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-security&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;io.jsonwebtoken&lt;/groupId&gt;
+    &lt;artifactId&gt;jjwt&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre><p>Để sử dụng security thì chúng ta cần tạo 1 class extend từ <code>WebSecurityConfigurerAdapter</code> và dùng anotation <code>@EnableWebSecurity</code></p>
+<pre tabindex="0"><code>package com.example.zuulserver.security;
+
+import com.example.commonservice.security.JwtConfig;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.HttpMethod;
+
+@EnableWebSecurity
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+    
+    @Autowired
+    private JwtConfig jwtConfig;
+    
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+                .csrf().disable()
+                // make sure we use stateless session; session won&#39;t be used to store user&#39;s state.
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
+                // handle an authorized attempts
+                .exceptionHandling().authenticationEntryPoint((req, rsp, e) -&gt; rsp.sendError(HttpServletResponse.SC_UNAUTHORIZED))
+                .and()
+                // Add a filter to validate the tokens with every request
+                .addFilterAfter(new JwtTokenAuthenticationFilter(jwtConfig), UsernamePasswordAuthenticationFilter.class)
+                // authorization requests config
+                .authorizeRequests()
+                // allow all who are accessing &#34;auth&#34; service
+                .antMatchers(HttpMethod.POST, jwtConfig.getUri()).permitAll()
+                // Any other request must be authenticated
+                .anyRequest().authenticated();
+    }
+    
+    @Bean
+    public JwtConfig jwtConfig() {
+        return new JwtConfig();
+    }
+}
+</code></pre><blockquote>
+<p>Class JwtConfig sẽ được tạo sau ở trong phần common service</p>
+</blockquote>
+<p>Tiếp theo chúng ta sẽ viết class filter để xác thực token được đặt tên là <code>JwtTokenAuthenticationFilter</code>, class này sẽ extend từ <code>OncePerRequestFilter</code> filter này sẽ được kích hoạt mỗi khi request được gửi tới.</p>
+<pre tabindex="0"><code>package com.example.zuulserver.security;
+
+import com.example.commonservice.security.JwtConfig;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.filter.OncePerRequestFilter;
+
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+
+public class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
+    
+    private final JwtConfig jwtConfig;
+    
+    public JwtTokenAuthenticationFilter(JwtConfig jwtConfig) {
+        this.jwtConfig = jwtConfig;
+    }
+    
+    @Override
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+        // 1. get the authentication header. Tokens are supposed to be passed in the authentication header
+        String header = request.getHeader(jwtConfig.getHeader());
+        
+        // 2. validate the header and check the prefix
+        if (header == null || !header.startsWith(jwtConfig.getPrefix())) {
+            filterChain.doFilter(request, response); // if not valid go to the next filter
+            return;
+        }
+        // If there is no token provided and hence the user won&#39;t be authenticated.
+        // It&#39;s Ok. Maybe the user accessing a public path or asking for a token.
+        // All secured paths that needs a token are already defined and secured in config class.
+        // And If user tried to access without access token, then he won&#39;t be authenticated and an exception will be thrown.
+        // 3. Get the token
+        String token = header.replace(jwtConfig.getPrefix(), &#34;&#34;);
+        try {  // exceptions might be thrown in creating the claims if for example the token is expired
+            // 4. Validate the token
+            Claims claims = Jwts.parser().setSigningKey(jwtConfig.getSecret().getBytes()).parseClaimsJws(token).getBody();
+            
+            String userName = claims.getSubject();
+            if (userName != null) {
+                List&lt;String&gt; authorities = (List&lt;String&gt;) claims.get(&#34;authorities&#34;);
+                
+                // 5. Create auth object
+                // UsernamePasswordAuthenticationToken: A built-in object, used by spring to represent the current authenticated / being authenticated user. // It needs a list of authorities, which has type of GrantedAuthority interface, where SimpleGrantedAuthority is an implementation of that interface
+                UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(userName, null, authorities.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList()));
+                // 6. Authenticate the user
+                // Now, user is authenticated
+                SecurityContextHolder.getContext().setAuthentication(auth);
+            }
+        } catch (Exception e) {
+            // In case of failure. Make sure it&#39;s clear; so guarantee user won&#39;t be authenticated
+            e.printStackTrace();
+            SecurityContextHolder.clearContext();
+        }
+        // go to the next filter in the filter chain
+        filterChain.doFilter(request, response);
+    }
+}
+</code></pre><h1 id="4-common-service">4. Common service</h1>
+<p>Service này sẽ chứa những config được sử dụng chung cho nhiều service khác
+Chúng ta sẽ tạo class JwtConfig để chứa các config JWT và class này sẽ được sử dụng trong Auth service và Zuul gateway</p>
+<p>Cũng tương tự như việc tạo các service khác hãy tạo mới project Spring boot và config file <code>pom.xml</code> như sau:</p>
+<pre tabindex="0"><code>&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+        &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+</code></pre><p>Tạo class JwtConfig như sau:</p>
+<pre tabindex="0"><code>package com.example.commonservice.security;
+
+import org.springframework.beans.factory.annotation.Value;
+
+public class JwtConfig {
+    
+    @Value(&#34;${security.jwt.uri:/auth/**}&#34;)
+    private String uri;
+    
+    @Value(&#34;${security.jwt.header:Authorization}&#34;)
+    private String header;
+    
+    @Value(&#34;${security.jwt.prefix:Bearer }&#34;)
+    private String prefix;
+    
+    @Value(&#34;${security.jwt.expiration:#{24*60*60}}&#34;)
+    private int expiration;
+    
+    @Value(&#34;${security.jwt.secret:JwtSecretKey}&#34;)
+    private String secret;
+    
+    public String getUri() {
+        return uri;
+    }
+    
+    public void setUri(String uri) {
+        this.uri = uri;
+    }
+    
+    public String getHeader() {
+        return header;
+    }
+    
+    public void setHeader(String header) {
+        this.header = header;
+    }
+    
+    public String getPrefix() {
+        return prefix;
+    }
+    
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
+    }
+    
+    public int getExpiration() {
+        return expiration;
+    }
+    
+    public void setExpiration(int expiration) {
+        this.expiration = expiration;
+    }
+    
+    public String getSecret() {
+        return secret;
+    }
+    
+    public void setSecret(String secret) {
+        this.secret = secret;
+    }
+}
+</code></pre><p>Tiếp theo ở các service khác, chẳng hạn như ở Zuul gateway chúng ta cần khai báo dependency common service trong file <code>pom.xml</code>:</p>
+<pre tabindex="0"><code>&lt;!-- common dependency--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.example&lt;/groupId&gt;
+    artifactId&gt;common-service&lt;/artifactId&gt;
+    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre><blockquote>
+<p>Thêm dependency common-service vào trong các service muốn sử dụng JwtConfig
+Ở đây tạm thời chỉ có 1 class JwtConfig là sẽ được dùng chung, tương lai sẽ có nhiều hơn nên mình tách ra thành common luôn để sử dụng sau này</p>
+</blockquote>
+<p>Như vậy là đã xong phần security trong <strong>Zuull gateway</strong>, tiếp theo đây sẽ tạo mới <strong>Auth service</strong></p>
+<h1 id="5-auth-service">5. Auth Service</h1>
+<p>Trong auth service, chúng ta sẽ làm hai việc: một là xác thực định danh mà người dùng cung cấp và hai là gen ra một token trong trường hợp xác thực hợp lệ hoặc trả về một exception nếu nó không hợp lệ.
+Trong file <code>pom.xml</code> chúng ta cần các dependencies sau: Web, Eureka Client, Spring Security và JWT.</p>
+<pre tabindex="0"><code>    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-client&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-security&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;io.jsonwebtoken&lt;/groupId&gt;
+            &lt;artifactId&gt;jjwt&lt;/artifactId&gt;
+            &lt;version&gt;0.9.0&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!--common dependency--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.example&lt;/groupId&gt;
+            &lt;artifactId&gt;common-service&lt;/artifactId&gt;
+            &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+</code></pre><p>File <code>application.yml</code> khai báo như các service khác:</p>
+<pre tabindex="0"><code>server:
+  port: 8082
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+spring:
+  application:
+    name: auth-service
+  cloud:
+    config:
+      uri: http://localhost:8888
+</code></pre><p>Ở trong class application cũng cần khai báo đây là Eureka client và đánh anotation <code>@EnableWebSecurity</code> cho nó:</p>
+<pre tabindex="0"><code>package com.example.authservice;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+
+@SpringBootApplication
+@EnableEurekaClient
+public class AuthServiceApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(AuthServiceApplication.class, args);
+    }
+}
+</code></pre><p>Giống như cấu hình cổng Gateway, chúng ta cần tạo một lớp extends từ <code>WebSecurityConfigurerAdapter</code>:</p>
+<pre tabindex="0"><code>package com.example.authservice.security;
+
+import com.example.commonservice.security.JwtConfig;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.HttpMethod;
+
+@EnableWebSecurity
+public class SecurityCredentialsConfig  extends WebSecurityConfigurerAdapter {
+    
+    @Autowired
+    private UserDetailsService userDetailsService;
+    
+    @Autowired
+    private JwtConfig jwtConfig;
+    
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+                .csrf().disable()
+                // make sure we use stateless session; session won&#39;t be used to store user&#39;s state.
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
+                // handle an authorized attempts
+                .exceptionHandling().authenticationEntryPoint((req, rsp, e) -&gt; rsp.sendError(HttpServletResponse.SC_UNAUTHORIZED))
+                .and()
+                // Add a filter to validate user credentials and add token in the response header
+                // What&#39;s the authenticationManager()?
+                // An object provided by WebSecurityConfigurerAdapter, used to authenticate the user passing user&#39;s credentials
+                // The filter needs this auth manager to authenticate the user.
+                .addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager(), jwtConfig))
+                .authorizeRequests()
+                // allow all POST requests
+                .antMatchers(HttpMethod.POST, jwtConfig.getUri()).permitAll()
+                .antMatchers(HttpMethod.GET, &#34;/auth/test&#34;).permitAll()
+                // any other requests must be authenticated
+                .anyRequest().authenticated();
+    }
+    
+    // Spring has UserDetailsService interface, which can be overriden to provide our implementation for fetching user from database (or any other source).
+    // The UserDetailsService object is used by the auth manager to load the user from database. // In addition, we need to define the password encoder also. So, auth manager can compare and verify passwords.  @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+    }
+    
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+    
+    @Bean
+    public JwtConfig jwtConfig(){
+        return new JwtConfig();
+    }
+}
+</code></pre><p>Trong đoạn code trên, chúng ta sử dụng interface <code>UserDetailsService</code> nên chúng ta cần implement nó:</p>
+<pre tabindex="0"><code>package com.example.authservice.security;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import java.util.Arrays;
+import java.util.List;
+
+@Service
+public class UserDetailsServiceImpl implements UserDetailsService {
+    @Autowired
+    private BCryptPasswordEncoder encoder;
+    
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        
+        // TODO get user by username in db currently we hardcode user for test
+        // hard coding the users. All passwords must be encoded.
+        final List&lt;AppUser&gt; users = Arrays.asList(
+                new AppUser(1, &#34;user&#34;, encoder.encode(&#34;12345&#34;), &#34;USER&#34;),
+                new AppUser(2, &#34;admin&#34;, encoder.encode(&#34;12345&#34;), &#34;ADMIN&#34;)
+        );
+        
+        
+        for(AppUser appUser: users) {
+            if(appUser.getUsername().equals(username)) {
+                
+                // Remember that Spring needs roles to be in this format: &#34;ROLE_&#34; + userRole (i.e. &#34;ROLE_ADMIN&#34;)
+                // So, we need to set it to that format, so we can verify and compare roles (i.e. hasRole(&#34;ADMIN&#34;)).
+                List&lt;GrantedAuthority&gt; grantedAuthorities = AuthorityUtils
+                         .commaSeparatedStringToAuthorityList(&#34;ROLE_&#34; + appUser.getRole());
+                
+                // The &#34;User&#34; class is provided by Spring and represents a model class for user to be returned by UserDetailsService
+                // And used by auth manager to verify and check user authentication.
+                return new User(appUser.getUsername(), appUser.getPassword(), grantedAuthorities);
+            }
+        }
+        
+        // If user not found. Throw this exception.
+        throw new UsernameNotFoundException(&#34;Username: &#34; + username + &#34; not found&#34;);
+    }
+    
+    // A (temporary) class represent the user saved in the database.
+    private static class AppUser {
+        private Integer id;
+        private String username, password;
+        private String role;
+        
+        public AppUser(Integer id, String username, String password, String role) {
+            this.id = id;
+            this.username = username;
+            this.password = password;
+            this.role = role;
+        }
+        
+        public Integer getId() {
+            return id;
+        }
+        
+        public void setId(Integer id) {
+            this.id = id;
+        }
+        
+        public String getUsername() {
+            return username;
+        }
+        
+        public void setUsername(String username) {
+            this.username = username;
+        }
+        
+        public String getPassword() {
+            return password;
+        }
+        
+        public void setPassword(String password) {
+            this.password = password;
+        }
+        
+        public String getRole() {
+            return role;
+        }
+        
+        public void setRole(String role) {
+            this.role = role;
+        }
+    }
+}
+</code></pre><p>Bước tiếp theo cũng là bước cuối cùng, chúng ta cần một filter. Ở đây chúng ta sử dụng <code>JwtUsernameAndPasswordAuthenticationFilter</code> để xác thực định danh người dùng và tạo token. Các thông tin về username hay password phải được gửi dưới dạng POST request.</p>
+<pre tabindex="0"><code>package com.example.authservice.security;
+
+import com.example.commonservice.security.JwtConfig;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.Collections;
+import java.util.Date;
+import java.util.stream.Collectors;
+
+public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
+    // We use auth manager to validate the user credentials
+    private AuthenticationManager authManager;
+    
+    private final JwtConfig jwtConfig;
+    
+    public JwtUsernameAndPasswordAuthenticationFilter(AuthenticationManager authManager, JwtConfig jwtConfig) {
+        this.authManager = authManager;
+        this.jwtConfig = jwtConfig;
+        
+        // By default, UsernamePasswordAuthenticationFilter listens to &#34;/login&#34; path.
+        // In our case, we use &#34;/auth&#34;. So, we need to override the defaults.
+        this.setRequiresAuthenticationRequestMatcher(new AntPathRequestMatcher(jwtConfig.getUri(), &#34;POST&#34;));
+    }
+    
+    @Override
+    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
+            throws AuthenticationException {
+        
+        try {
+            
+            // 1. Get credentials from request
+            UserCredentials creds = new ObjectMapper().readValue(request.getInputStream(), UserCredentials.class);
+            
+            // 2. Create auth object (contains credentials) which will be used by auth manager
+            UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
+                    creds.getUsername(), creds.getPassword(), Collections.emptyList());
+            
+            // 3. Authentication manager authenticate the user, and use UserDetialsServiceImpl::loadUserByUsername() method to load the user.
+            return authManager.authenticate(authToken);
+            
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    
+    // Upon successful authentication, generate a token.
+    // The &#39;auth&#39; passed to successfulAuthentication() is the current authenticated user.  @Override
+    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
+                                            Authentication auth) throws IOException, ServletException {
+        
+        Long now = System.currentTimeMillis();
+        String token = Jwts.builder()
+                .setSubject(auth.getName())
+                // Convert to list of strings.
+                // This is important because it affects the way we get them back in the Gateway.
+                .claim(&#34;authorities&#34;, auth.getAuthorities().stream()
+                        .map(GrantedAuthority::getAuthority).collect(Collectors.toList()))
+                .setIssuedAt(new Date(now))
+                .setExpiration(new Date(now + jwtConfig.getExpiration() * 1000))  // in milliseconds
+                .signWith(SignatureAlgorithm.HS512, jwtConfig.getSecret().getBytes())
+                .compact();
+        
+        // Add token to header
+        response.addHeader(jwtConfig.getHeader(), jwtConfig.getPrefix() + token);
+    }
+    
+    // A (temporary) class just to represent the user credentials
+    private static class UserCredentials {
+        private String username, password;
+        
+        public String getUsername() {
+            return username;
+        }
+        
+        public void setUsername(String username) {
+            this.username = username;
+        }
+        
+        public String getPassword() {
+            return password;
+        }
+        
+        public void setPassword(String password) {
+            this.password = password;
+        }
+    }
+}
+</code></pre><blockquote>
+<p>Trong Auth service cũng đã sử dụng đến JwtConfig việc này tránh trùng lặp code</p>
+</blockquote>
+<h1 id="6-testing">6. Testing</h1>
+<p>Chạy lần lượt các service Eureka, Zuul, Auth và User.</p>
+<p>Đầu tiên chúng ta thử truy cập vào user service thông qua đường dẫn <code>localhost:8762/user/user-info</code> mà không có token. Chúng ta sẽ nhận về một lỗi 401 như sau:</p>
+<pre tabindex="0"><code>{
+    &#34;timestamp&#34;: &#34;2023-08-11T09:26:08.131+0000&#34;,
+    &#34;status&#34;: 401,
+    &#34;error&#34;: &#34;Unauthorized&#34;,
+    &#34;message&#34;: &#34;No message available&#34;,
+    &#34;path&#34;: &#34;/user/user-info&#34;
+}
+</code></pre><p>Để nhận <strong>token</strong>, chúng ta call api authentication <code>localhost:8762/auth</code>
+<img src="/blog/microservice/authen.png" alt="Scenario 1: Across columns"></p>
+<p>Bây giờ gọi lại <strong>user service</strong> kèm theo một <strong>token</strong> trong header:
+<img src="/blog/microservice/user-info-auth.png" alt="Scenario 1: Across columns"></p>
+<p>Ngoài ta thì bạn có thể thử chạy nhiều instance của user service để test xem các request được phân tán như thế nào. Trong phần tiếp theo, chúng ta sẽ tìm hiểu các xử lý lỗi và theo dõi trong mô hình microservice.</p></section>
+
+  
+  
+  <div class="paginator">
+    
+    
+    <a class="next" href="https://cuongvndev.github.io/blog/microservice-with-spring-boot-eureka-and-zuul-gateway/"><span>Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 1</span>
+      <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3.77086 21.1546C11.0491 22.698 21.4339 21.7773 21.4339 16.3608V4.63375C21.4339 3.93962 21.3581 3.30535 21.1917 2.76787M3.77086 21.1546C1.9934 20.7777 0.973585 18.7264 1.08749 16.688C1.2668 13.479 1.15721 9.43135 1.00513 6.21507C0.87809 3.52811 3.12891 1.16316 5.51029 1.25008C9.76594 1.40542 15.377 1.20229 18.7912 1.00542C20.0864 0.930734 20.8406 1.63385 21.1917 2.76787M3.77086 21.1546C4.56586 21.4723 5.49168 21.7879 6.5 22.0658M21.1917 2.76787C23.1097 4.18217 23.13 12.4191 22.9004 16.3608C20.8478 24.0194 12.3061 23.6662 6.5 22.0658M21.1917 2.76787C21.7612 4.51192 22.7203 9.67216 22 16.3608C21.2797 23.0494 11.3665 22.9511 6.5 22.0658M12.055 9C12.711 9.61644 14.3679 10.997 15.9519 11.7966C16.0174 11.8297 16.0154 11.9753 15.9494 12.0063C14.945 12.4779 13.0706 13.9264 12.055 15M15.5556 11.9667C13.1345 12.0608 8 12 6 11" stroke="currentColor" stroke-linecap="round"/>
+      </svg>
+    </a>
+    
+  </div>
+  
+
+  
+
+<div class="related-resources">
+  
+    
+    
+    
+  
+</div>
+
+
+  
+  
+  
+</article>
+
+
+        </div><footer class="footer">
+  <span class="copyrights">
+    &copy; 2023 <a href="https://cuongvndev.github.io">Cương Vũ Blog</a>. All Rights Reserved
+  </span>
+</footer>
+
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10.5376 22.7916C11.0152 22.7207 22.5795 21.1781 22.0978 10.4211C22.0536 9.43274 21.9303 8.53367 21.7387 7.71865M10.5376 22.7916C16.876 22.3728 20.0969 19.8899 21.5383 16.9142M10.5376 22.7916C9.7707 22.9055 8.97982 22.8964 8.19743 22.7725M21.7387 7.71865C21.4988 6.69828 21.1518 5.80967 20.7188 5.04257M21.7387 7.71865C22.6022 10.1105 23.0542 13.7848 21.5383 16.9142M20.7188 5.04257C17.1684 -1.24629 7.83127 0.632493 4.27577 5.04257C2.88063 6.77451 -0.0433281 11.1668 1.38159 16.6571C2.27481 20.0988 5.17269 22.2936 8.19743 22.7725M20.7188 5.04257C22.0697 6.9404 24.0299 11.3848 22.3541 15.4153M21.5383 16.9142C21.8737 16.4251 22.1428 15.9235 22.3541 15.4153M8.19743 22.7725C12.1971 23.4683 20.6281 22.971 22.3541 15.4153M14 10.945C13.3836 10.289 12.003 8.63215 11.2034 7.04814C11.1703 6.98257 11.0247 6.98456 10.9937 7.05061C10.5221 8.05496 9.07362 9.92941 8 10.945M11.0333 7.44444C10.9392 9.86549 11 15 12 17" stroke="currentColor" stroke-linecap="round"/>
+    </svg>
+</a>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'Copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'Copied';
+            setTimeout(() => {
+                copybutton.innerHTML = 'Copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+        codeblock.parentNode.appendChild(copybutton);
+    });
+</script></main>
+    </body><script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.0.6/medium-zoom.min.js" integrity="sha512-N9IJRoc3LaP3NDoiGkcPa4gG94kapGpaA5Zq9/Dr04uf5TbLFU5q0o8AbRhLKUUlp8QFS2u7S+Yti0U7QtuZvQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script>
+      const images = Array.from(document.querySelectorAll(".blog-content img"));
+      images.forEach(img => {
+          mediumZoom(img, {
+              margin: 10,  
+              scrollOffset: 40,  
+              container: null,  
+              template: null,  
+              background: 'rgba(0, 0, 0, 0.5)'
+          });
+      });
+  </script>
+
+  
+  <script src="/main.min.6bb26b69159420159c74dc9e097b06a578ed2b68c701466a91a44a9632d851bd0af167a1b30012387b4c512b48ad9ad4d3394e04d77ae38d57e1920fe4ed34fe.js" integrity="sha512-a7JraRWUIBWcdNyeCXsGpXjtK2jHAUZqkaRKljLYUb0K8WehswASOHtMUStIrZrU0zlOBNd6441X4ZIP5O00/g==" crossorigin="anonymous" defer></script></html>
