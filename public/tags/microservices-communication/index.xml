@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Microservices communication on Cương Vũ Blog</title>
+    <title>Microservices communication on Vũ Cương</title>
     <link>https://cuongvndev.github.io/tags/microservices-communication/</link>
-    <description>Recent content in Microservices communication on Cương Vũ Blog</description>
+    <description>Recent content in Microservices communication on Vũ Cương</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>vi</language>
     <lastBuildDate>Fri, 11 Aug 2023 09:25:25 +0700</lastBuildDate><atom:link href="https://cuongvndev.github.io/tags/microservices-communication/index.xml" rel="self" type="application/rss+xml" />

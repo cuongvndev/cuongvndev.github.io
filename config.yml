@@ -1,17 +1,17 @@
 baseURL: 'https://cuongvndev.github.io'
-title: Cương Vũ Blog
+title: Vũ Cương
 theme: ladder
 license: MIT
 licenselink: 'https://github.com/guangzhengli/hugo-theme-ladder/blob/master/LICENSE'
-description: 'A fast, clean Hugo theme'
+description: 'xxx'
 homepage: 'https://cuongvndev.github.io'
 defaultContentLanguage: 'vi'
-googleAnalytics: G-xxx
+googleAnalytics: G-MPBTRXJEZK
 paginate: 10
 params:
-  brand: 'Cương Vũ Blog'
+  brand: Vũ Cương
   avatarURL: /images/avatar.png
-  author: 'Cương Vũ'
+  author: Vũ Cương
   authorDescription: 'Cứ mãi ở ao làng rồi sẽ cạn, sao không ra biển lớn để vẫy vùng'
   info: 'Đây là blog cá nhân, tôi ghi chép và chia sẻ những gì tôi học được ở đây về kiến thức lập trình Java'
   favicon: /images/avatar.png
