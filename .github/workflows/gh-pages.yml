@@ -5,21 +5,62 @@ on:
     branches:
       - master  # Set a branch to deploy
 
+
 jobs:
-  copy-file:
+  deploy:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: false  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Build
+        run: hugo --minify
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/master'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+
+  copy-branch:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-    - name: Push to another repo
-      uses: dmnemec/copy_file_to_another_repo_action@main
-      env:
-        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }} 
-      with:
-        source_file: public
-        destination_repo: 'cuongvndev/cuongvndev.github.io'
-        destination_branch: master
-        user_email: 'vucuong1112@email.com'# your email
-        user_name: 'cuongvndev'           # your login
-        commit_message: 'update blog'
+      - name: Push to Target Repository
+        run: |
+          git config user.name "cuongvndev"
+          git config user.email "vucuong1112@email.com"
+          git remote add target-repo https://github.com/cuongvndev/cuongvndev.github.io.git
+          git push target-repo gh-pages:master
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+# jobs:
+#   copy-file: // coppy folder public to branch master of another repo
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: Checkout
+#       uses: actions/checkout@v2
+
+#     - name: Push to another repo
+#       uses: dmnemec/copy_file_to_another_repo_action@main
+#       env:
+#         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }} 
+#       with:
+#         source_file: public
+#         destination_repo: 'cuongvndev/cuongvndev.github.io'
+#         destination_branch: master
+#         user_email: 'vucuong1112@email.com'# your email
+#         user_name: 'cuongvndev'           # your login
+#         commit_message: 'update blog'
