@@ -17,7 +17,7 @@ jobs:
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }} 
       with:
-        source_file: ./public
+        source_file: public
         destination_repo: 'cuongvndev/cuongvndev.github.io'
         destination_branch: master
         user_email: 'vucuong1112@email.com'# your email
