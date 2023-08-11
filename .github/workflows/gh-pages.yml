@@ -18,7 +18,7 @@ jobs:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }} 
       with:
         source_file: ./public
-        destination_repo: 'cuongvndev.github.io'
+        destination_repo: 'cuongvndev/cuongvndev.github.io'
         user_email: 'vucuong1112@email.com'# your email
         user_name: 'cuongvndev'           # your login
         commit_message: 'update blog'
