@@ -44,9 +44,9 @@ jobs:
           git config user.email "vucuong1112@gmail.com"
           git fetch --prune --unshallow origin +refs/heads/*:refs/remotes/origin/*
           git checkout -b origin/gh-pages
-          git push https://cuongvndev:${{ secrets.API_TOKEN_GITHUB }}@github.com/cuongvndev/cuongvndev.github.io.git origin/gh-pages:origin/master
+          git push https://cuongvndev:${{ secrets.GITHUB_TOKEN }}@github.com/cuongvndev/cuongvndev.github.io.git origin/gh-pages:origin/master
         env:
-          PAT: ${{ secrets.API_TOKEN_GITHUB }}
+          PAT: ${{ secrets.GITHUB_TOKEN }}
         
 # jobs:
 #   copy-file: // coppy folder public to branch master of another repo
