@@ -1,7 +1,7 @@
 ---
 title: Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 2
 date: 2023-08-11T09:25:25+07:00
-tags: ["Microservice", "Eureka", "Zuul Gateway","Hướng dẫn sử dụng Microservice","Kiến thức Microservice","Triển khai Microservice", "Tích hợp Eureka và Zuul Gateway", "Microservice architecture", "Microservices tutorial", "Eureka service registry", "Zuul API gateway", "Spring Cloud", "Load balancing", "Service discovery", "Distributed systems", "Microservices communication", "Spring Boot", "Spring Cloud Netflix", "Microservices design"]
+tags: ["Microservice", "Eureka", "Zuul Gateway", "Spring Boot Security", "Spring Cloud Configuration", "Spring Cloud Netflix"]
 series: ["Microservice1"]
 featured: true
 ---
@@ -158,7 +158,17 @@ public class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
     }
 }
 ```
-
+Và đừng quên thêm security config để sử dụng cho class JwtConfig nhé:
+```
+...
+security:
+  jwt:
+    uri: /auth/**
+    header: Authorization
+    prefix: Bearer
+    expiration: 86400
+    secret: JwtSecretKey
+```
 # 4. Common service
 Service này sẽ chứa những config được sử dụng chung cho nhiều service khác
 Chúng ta sẽ tạo class JwtConfig để chứa các config JWT và class này sẽ được sử dụng trong Auth service và Zuul gateway
@@ -186,19 +196,19 @@ import org.springframework.beans.factory.annotation.Value;
 
 public class JwtConfig {
     
-    @Value("${security.jwt.uri:/auth/**}")
+    @Value("${security.jwt.uri}")
     private String uri;
     
-    @Value("${security.jwt.header:Authorization}")
+    @Value("${security.jwt.header}")
     private String header;
     
-    @Value("${security.jwt.prefix:Bearer }")
+    @Value("${security.jwt.prefix}")
     private String prefix;
     
-    @Value("${security.jwt.expiration:#{24*60*60}}")
+    @Value("${security.jwt.expiration}")
     private int expiration;
     
-    @Value("${security.jwt.secret:JwtSecretKey}")
+    @Value("${security.jwt.secret}")
     private String secret;
     
     public String getUri() {
@@ -255,6 +265,8 @@ Tiếp theo ở các service khác, chẳng hạn như ở Zuul gateway chúng t
 > Thêm dependency common-service vào trong các service muốn sử dụng JwtConfig
 > Ở đây tạm thời chỉ có 1 class JwtConfig là sẽ được dùng chung, tương lai sẽ có nhiều hơn nên mình tách ra thành common luôn để sử dụng sau này
 
+**Note**: *Các service khác sẽ dùng chung class JwtConfig, còn về các value security.jwt.uri, security.jwt.header, ... sẽ được config riêng trong file ```application.yml``` của từng service.*
+
 Như vậy là đã xong phần security trong **Zuull gateway**, tiếp theo đây sẽ tạo mới **Auth service**
 
 # 5. Auth Service
@@ -310,6 +322,14 @@ spring:
   cloud:
     config:
       uri: http://localhost:8888
+
+security:
+  jwt:
+    uri: /auth/**
+    header: Authorization
+    prefix: Bearer
+    expiration: 86400
+    secret: JwtSecretKey
 ```
 Ở trong class application cũng cần khai báo đây là Eureka client và đánh anotation ```@EnableWebSecurity``` cho nó:
 ```
