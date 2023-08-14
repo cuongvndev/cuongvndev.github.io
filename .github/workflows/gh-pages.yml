@@ -44,9 +44,8 @@ jobs:
         source_file: public/
         destination_repo: 'cuongvndev/cuongvndev.github.io'
         destination_branch: gh-pages
-        # user_email: 'vucuong1112@email.com'# your email
-        # user_name: 'cuongvndev'           # your login
-        # password: 'Vu6110129@'
+        user_email: 'vucuong1112@email.com'# your email
+        user_name: 'cuongvndev'           # your login
         commit_message: 'update blog'
         github_token: ${{ secrets.GITHUB_TOKEN }}
         
