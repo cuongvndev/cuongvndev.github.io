@@ -45,7 +45,7 @@ jobs:
       with:
         source_file: public/
         destination_repo: 'cuongvndev/cuongvndev.github.io'
-        target_branch: gh-pages
+        destination_branch: gh-pages
         commit_message: 'update blog'
       
 # jobs:
