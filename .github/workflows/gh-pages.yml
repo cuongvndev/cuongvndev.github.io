@@ -24,15 +24,15 @@ jobs:
       - name: Build
         run: hugo --minify
 
-      - name: Copy Branch
-        run: |
-          git config user.name "cuongvndev"
-          git config user.email "vucuong1112@gmail.com"
-          git fetch --prune --unshallow origin +refs/heads/*:refs/remotes/origin/*
-          git checkout -b origin/gh-pages
-          git push https://cuongvndev:${{ secrets.GITHUB_TOKEN }}@github.com/cuongvndev/cuongvndev.github.io.git origin/gh-pages:origin/master
-        env:
-          PAT: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Copy Branch
+      #   run: |
+      #     git config user.name "cuongvndev"
+      #     git config user.email "vucuong1112@gmail.com"
+      #     git fetch --prune --unshallow origin +refs/heads/*:refs/remotes/origin/*
+      #     git checkout -b origin/gh-pages
+      #     git push https://cuongvndev:${{ secrets.GITHUB_TOKEN }}@github.com/cuongvndev/cuongvndev.github.io.git origin/gh-pages:origin/master
+      #   env:
+      #     PAT: ${{ secrets.GITHUB_TOKEN }}
 
       # - name: Deploy
       #   uses: peaceiris/actions-gh-pages@v3
