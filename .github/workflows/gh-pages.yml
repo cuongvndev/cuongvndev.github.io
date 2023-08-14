@@ -47,7 +47,7 @@ jobs:
         user_email: 'vucuong1112@email.com'# your email
         user_name: 'cuongvndev'           # your login
         commit_message: 'update blog'
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         
 # jobs:
 #   copy-file: // coppy folder public to branch master of another repo
