@@ -1,19 +1,49 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Vũ Cương</title>
+    <title>Cuong Vu - A super concise theme for Hugo</title>
     <link>https://cuongvndev.github.io/</link>
-    <description>Recent content on Vũ Cương</description>
+    <description>Recent content on Cuong Vu - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>vi</language>
-    <lastBuildDate>Fri, 11 Aug 2023 09:25:25 +0700</lastBuildDate><atom:link href="https://cuongvndev.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Mon, 14 Aug 2023 15:33:23 +0700</lastBuildDate>
+    
+        <atom:link href="https://cuongvndev.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About</title>
+      <link>https://cuongvndev.github.io/about/</link>
+      <pubDate>Sun, 20 Aug 2017 21:38:52 +0800</pubDate>
+      
+      <guid>https://cuongvndev.github.io/about/</guid>
+      
+        <description>&lt;p&gt;Cứ mãi ở ao làng rồi sẽ cạn, sao không ra biển lớn để vẫy vùng.&lt;/p&gt;
+&lt;p&gt;Đây là blog cá nhân, tôi ghi chép và chia sẻ những gì tôi học được ở đây về kiến thức lập trình Java&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 3</title>
+      <link>https://cuongvndev.github.io/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/</link>
+      <pubDate>Mon, 14 Aug 2023 15:33:23 +0700</pubDate>
+      
+      <guid>https://cuongvndev.github.io/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/</guid>
+      
+        <description>&lt;p&gt;Comming soon.&lt;/p&gt;
+&lt;p&gt;Comming soon.&lt;/p&gt;</description>
+      
+    </item>
+    
     <item>
       <title>Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 2</title>
-      <link>https://cuongvndev.github.io/blog/microservice-authentication-jwt-token-and-spring-cloud-configuaration/</link>
+      <link>https://cuongvndev.github.io/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration/</link>
       <pubDate>Fri, 11 Aug 2023 09:25:25 +0700</pubDate>
       
-      <guid>https://cuongvndev.github.io/blog/microservice-authentication-jwt-token-and-spring-cloud-configuaration/</guid>
-      <description>&lt;p&gt;Ở bài trước chúng ta đã dựng được một hệ thống microservice đơn giản với User service, Eureka server và Zuul gateway.
+      <guid>https://cuongvndev.github.io/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration/</guid>
+      
+        <description>&lt;p&gt;Ở bài trước chúng ta đã dựng được một hệ thống microservice đơn giản với User service, Eureka server và Zuul gateway.
 Trong bài viết này chúng ta sẽ cùng tìm hiểu về &lt;strong&gt;JWT&lt;/strong&gt; và cách để &lt;strong&gt;xác thực và bảo mật&lt;/strong&gt; trong hệ thống &lt;strong&gt;Microservice&lt;/strong&gt; bằng JWT.&lt;/p&gt;
 &lt;p&gt;Chúng ta sẽ tạo 1 service mới là &lt;code&gt;auth service&lt;/code&gt; có nhiệm vụ xác minh danh tính và tạo jwt token khi user login
 Còn việc xác thực token sẽ do Zuul gateway đảm nhận, khi có 1 request gửi đến thì Zuul gateway sẽ dựa vào token được cung cấp và xác thực quyền truy cập, xác thực thành công thì mới tiến hành điều hướng request tới các service bussiness khác.&lt;/p&gt;
@@ -155,6 +185,15 @@ public class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 }
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Và đừng quên thêm security config để sử dụng cho class JwtConfig nhé:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;...
+security:
+  jwt:
+    uri: /auth/**
+    header: Authorization
+    prefix: Bearer
+    expiration: 86400
+    secret: JwtSecretKey
 &lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;4-common-service&#34;&gt;4. Common service&lt;/h1&gt;
 &lt;p&gt;Service này sẽ chứa những config được sử dụng chung cho nhiều service khác
 Chúng ta sẽ tạo class JwtConfig để chứa các config JWT và class này sẽ được sử dụng trong Auth service và Zuul gateway&lt;/p&gt;
@@ -177,19 +216,19 @@ import org.springframework.beans.factory.annotation.Value;
 
 public class JwtConfig {
     
-    @Value(&amp;#34;${security.jwt.uri:/auth/**}&amp;#34;)
+    @Value(&amp;#34;${security.jwt.uri}&amp;#34;)
     private String uri;
     
-    @Value(&amp;#34;${security.jwt.header:Authorization}&amp;#34;)
+    @Value(&amp;#34;${security.jwt.header}&amp;#34;)
     private String header;
     
-    @Value(&amp;#34;${security.jwt.prefix:Bearer }&amp;#34;)
+    @Value(&amp;#34;${security.jwt.prefix}&amp;#34;)
     private String prefix;
     
-    @Value(&amp;#34;${security.jwt.expiration:#{24*60*60}}&amp;#34;)
+    @Value(&amp;#34;${security.jwt.expiration}&amp;#34;)
     private int expiration;
     
-    @Value(&amp;#34;${security.jwt.secret:JwtSecretKey}&amp;#34;)
+    @Value(&amp;#34;${security.jwt.secret}&amp;#34;)
     private String secret;
     
     public String getUri() {
@@ -243,6 +282,7 @@ public class JwtConfig {
 &lt;p&gt;Thêm dependency common-service vào trong các service muốn sử dụng JwtConfig
 Ở đây tạm thời chỉ có 1 class JwtConfig là sẽ được dùng chung, tương lai sẽ có nhiều hơn nên mình tách ra thành common luôn để sử dụng sau này&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: &lt;em&gt;Các service khác sẽ dùng chung class JwtConfig, còn về các value security.jwt.uri, security.jwt.header, &amp;hellip; sẽ được config riêng trong file &lt;code&gt;application.yml&lt;/code&gt; của từng service.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Như vậy là đã xong phần security trong &lt;strong&gt;Zuull gateway&lt;/strong&gt;, tiếp theo đây sẽ tạo mới &lt;strong&gt;Auth service&lt;/strong&gt;&lt;/p&gt;
 &lt;h1 id=&#34;5-auth-service&#34;&gt;5. Auth Service&lt;/h1&gt;
 &lt;p&gt;Trong auth service, chúng ta sẽ làm hai việc: một là xác thực định danh mà người dùng cung cấp và hai là gen ra một token trong trường hợp xác thực hợp lệ hoặc trả về một exception nếu nó không hợp lệ.
@@ -294,6 +334,14 @@ spring:
   cloud:
     config:
       uri: http://localhost:8888
+
+security:
+  jwt:
+    uri: /auth/**
+    header: Authorization
+    prefix: Bearer
+    expiration: 86400
+    secret: JwtSecretKey
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Ở trong class application cũng cần khai báo đây là Eureka client và đánh anotation &lt;code&gt;@EnableWebSecurity&lt;/code&gt; cho nó:&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;package com.example.authservice;
 
@@ -589,15 +637,17 @@ public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePassword
 &lt;p&gt;Bây giờ gọi lại &lt;strong&gt;user service&lt;/strong&gt; kèm theo một &lt;strong&gt;token&lt;/strong&gt; trong header:
 &lt;img src=&#34;https://cuongvndev.github.io/blog/microservice/user-info-auth.png&#34; alt=&#34;Scenario 1: Across columns&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Ngoài ta thì bạn có thể thử chạy nhiều instance của user service để test xem các request được phân tán như thế nào. Trong phần tiếp theo, chúng ta sẽ tìm hiểu các xử lý lỗi và theo dõi trong mô hình microservice.&lt;/p&gt;</description>
+      
     </item>
     
     <item>
       <title>Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 1</title>
-      <link>https://cuongvndev.github.io/blog/microservice-with-spring-boot-eureka-and-zuul-gateway/</link>
+      <link>https://cuongvndev.github.io/post/microservice-with-spring-boot-eureka-and-zuul-gateway/</link>
       <pubDate>Thu, 10 Aug 2023 11:18:56 +0700</pubDate>
       
-      <guid>https://cuongvndev.github.io/blog/microservice-with-spring-boot-eureka-and-zuul-gateway/</guid>
-      <description>&lt;p&gt;Bài viết này cung cấp một hướng dẫn chi tiết về việc triển khai và sử dụng kiến trúc &lt;strong&gt;Microservice&lt;/strong&gt; kết hợp với các công cụ &lt;strong&gt;Eureka&lt;/strong&gt; và Zuul &lt;strong&gt;Gateway&lt;/strong&gt;. Đây là những bước cơ bản để xây dựng một hệ thống phân tán linh hoạt và có khả năng mở rộng.&lt;/p&gt;
+      <guid>https://cuongvndev.github.io/post/microservice-with-spring-boot-eureka-and-zuul-gateway/</guid>
+      
+        <description>&lt;p&gt;Bài viết này cung cấp một hướng dẫn chi tiết về việc triển khai và sử dụng kiến trúc &lt;strong&gt;Microservice&lt;/strong&gt; kết hợp với các công cụ &lt;strong&gt;Eureka&lt;/strong&gt; và Zuul &lt;strong&gt;Gateway&lt;/strong&gt;. Đây là những bước cơ bản để xây dựng một hệ thống phân tán linh hoạt và có khả năng mở rộng.&lt;/p&gt;
 &lt;h1 id=&#34;1-giới-thệu&#34;&gt;1. Giới thệu&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;Microservices&lt;/strong&gt; là một mô hình kiến trúc phần mềm đột phá, cho phép các ứng dụng được chia thành các phần nhỏ hơn và độc lập, được gọi là &amp;ldquo;microservices&amp;rdquo;. Mỗi microservice có thể phát triển, triển khai và quản lý riêng biệt, giúp tối ưu hóa khả năng mở rộng và duy trì.&lt;/p&gt;
 &lt;p&gt;Bây giờ tôi sẽ triển khai một hệ thống đơn giản như sau:
@@ -777,6 +827,7 @@ Tiến hành run các service theo thứ tự: Eureka, Zuul và User
 zuul gateway sẽ dựa vào path: /user/** để điều hướng tới user service&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Kết thúc phần đầu tiên ở đây, ở phần tiếp theo chúng ta sẽ tìm hiều về cách để xác thực user trong hệ thống microservice và tạo common sử dụng chung cho nhiều service nhé!&lt;/p&gt;</description>
+      
     </item>
     
   </channel>
