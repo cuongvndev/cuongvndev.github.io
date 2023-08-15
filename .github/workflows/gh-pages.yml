@@ -24,18 +24,18 @@ jobs:
         run: hugo --minify
 
       - name: Create SSH Key
-      run: |
-        mkdir ~/.ssh/
-        cd ~/.ssh
-        echo "$SSH_PRIVATE_KEY" > id_rsa
-        pwd
-        sudo chmod 600 id_rsa
-        echo "$SSH_KNOWN_HOSTS" > known_hosts
-      shell: bash
-      env:
-        SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
-        SSH_KNOWN_HOSTS: ${{secrets.SSH_KNOWN_HOSTS}}
-        SSH_KEY_PATH: ${{ github.workspace }}/../private.key
+        run: |
+          mkdir ~/.ssh/
+          cd ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > id_rsa
+          pwd
+          sudo chmod 600 id_rsa
+          echo "$SSH_KNOWN_HOSTS" > known_hosts
+        shell: bash
+        env:
+          SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
+          SSH_KNOWN_HOSTS: ${{secrets.SSH_KNOWN_HOSTS}}
+          SSH_KEY_PATH: ${{ github.workspace }}/../private.key
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
@@ -45,7 +45,7 @@ jobs:
           publish_dir: ./public
       
       - name: Deploy Files
-      run: |
-        git remote add www git@github.com:cuongvndev/cuongvndev.github.io.git
-          git fetch www
-          git push -u www gh-pages:master
+        run: |
+          git remote add www git@github.com:cuongvndev/cuongvndev.github.io.git
+            git fetch www
+            git push -u www gh-pages:master
