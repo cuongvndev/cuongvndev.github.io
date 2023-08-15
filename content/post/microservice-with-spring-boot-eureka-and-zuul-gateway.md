@@ -20,7 +20,7 @@ Là máy chủ dùng để quản lý, đặt tên cho các service hay còn g�
 Mỗi service sẽ được đăng ký với Eureka và sẽ ping cho Eureka để đảm bảo chúng vẫn còn hoạt động, Nếu Eureka không nhận được thông báo nào từ service thì service đó sẽ tự động bị xoá.
 
 Ok bây giờ hãy tạo mới project spring boot dùng Maven để quản lý dependencies và khai báo file `pom.xml` như sau:
-```
+```java
 <dependencies>  
     <dependency>  
         <groupId>org.springframework.boot</groupId>  
@@ -44,7 +44,7 @@ Ok bây giờ hãy tạo mới project spring boot dùng Maven để quản lý 
 ```
 
 Tiếp theo trong file `application.yml` cần config như sau:
-```
+```java
 server:
   port: 8761
 spring:
@@ -57,7 +57,7 @@ eureka:
 ```
 
 Cuối cùng trong class Application, chúng ta sử dụng `@EnableEurekaServer` để khai báo đây là một Eureka Server:
-```
+```java
 @SpringBootApplication
 @EnableEurekaServer
 public class EurekaServerApplication {
@@ -76,7 +76,7 @@ Zuul Gateway có các chức năng chính sau:
 * Authentication và Security (xác thực và bảo mật).
 
 Tiến hành cài đặt Zuul Gateway bằng cách tạo mới project Spring boot sử dụng các dependency sau:
-```
+```java
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -91,7 +91,7 @@ Tiến hành cài đặt Zuul Gateway bằng cách tạo mới project Spring bo
         </dependency>
 ```
 Sử dụng anotation `@EnableZuulProxy` và `@EnableEurekaClient` để khai báo đây là Zuul và Eureka Client:
-```
+```java
 @SpringBootApplication
 @EnableZuulProxy
 @EnableEurekaClient
@@ -103,7 +103,7 @@ public class ZuulServerApplication {
 ```
 
 Và đừng quên config nữa nhé:
-```
+```java
 server:
   port: 8080
 
@@ -137,7 +137,7 @@ Các Eureka client service là một service độc lập trong kiến trúc mic
 **User Service**
 
 Ok, cũng như Eureka Server, chúng ta sẽ tạo một project Spring Boot mới nhưng sử dụng Eureka Client trong file `pom.xml`:
-```
+```java
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -156,7 +156,7 @@ Ok, cũng như Eureka Server, chúng ta sẽ tạo một project Spring Boot m�
 ```
 
 Trong file `application.yml` chúng ta sẽ ghi nhận lại địa chỉ của Eureka Server:
-```
+```java
 server:
   port: 8083
 spring:
@@ -168,7 +168,7 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
 ```
 Sau đó để chỉ cho Spring Boot biết đây là một Eureka client, chúng ta dùng annotation `@EnableEurekaClient` trong class main:
-```
+```java
 @SpringBootApplication
 @EnableEurekaClient
 public class UserServiceApplication {
@@ -180,7 +180,7 @@ public class UserServiceApplication {
 
 Tiến hành tạo controller để test:
 * **UserController.java**
-```
+```java
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

@@ -25,7 +25,7 @@ Còn việc xác thực token sẽ do Zuul gateway đảm nhận, khi có 1 requ
 ## 2. Zuul gateway
 Ở trong gateway sẽ thực hiện 2 chức năng: một xác thực token và 2 là chặn tất cả request nếu xác thực không thành công.
 Trong file ```pom.xml``` chúng ta cần thêm spring security và JWT
-```
+```java
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-security</artifactId>
@@ -37,7 +37,7 @@ Trong file ```pom.xml``` chúng ta cần thêm spring security và JWT
 ```
 
 Để sử dụng security thì chúng ta cần tạo 1 class extend từ ```WebSecurityConfigurerAdapter``` và dùng anotation ```@EnableWebSecurity```
-```
+```java
 package com.example.zuulserver.security;
 
 import com.example.commonservice.security.JwtConfig;
@@ -89,7 +89,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
 Tiếp theo chúng ta sẽ viết class filter để xác thực token được đặt tên là ```JwtTokenAuthenticationFilter```, class này sẽ extend từ ```OncePerRequestFilter``` filter này sẽ được kích hoạt mỗi khi request được gửi tới.
-```
+```java
 package com.example.zuulserver.security;
 
 import com.example.commonservice.security.JwtConfig;
@@ -159,7 +159,7 @@ public class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
 }
 ```
 Và đừng quên thêm security config để sử dụng cho class JwtConfig nhé:
-```
+```java
 ...
 security:
   jwt:
@@ -174,7 +174,7 @@ Service này sẽ chứa những config được sử dụng chung cho nhiều s
 Chúng ta sẽ tạo class JwtConfig để chứa các config JWT và class này sẽ được sử dụng trong Auth service và Zuul gateway
 
 Cũng tương tự như việc tạo các service khác hãy tạo mới project Spring boot và config file ```pom.xml``` như sau:
-```
+```java
 <dependencies>
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -189,7 +189,7 @@ Cũng tương tự như việc tạo các service khác hãy tạo mới project
 ```
 
 Tạo class JwtConfig như sau:
-```
+```java
 package com.example.commonservice.security;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -254,7 +254,7 @@ public class JwtConfig {
 ```
 
 Tiếp theo ở các service khác, chẳng hạn như ở Zuul gateway chúng ta cần khai báo dependency common service trong file ```pom.xml```:
-```
+```java
 <!-- common dependency-->
 <dependency>
     <groupId>com.example</groupId>
@@ -272,7 +272,7 @@ Như vậy là đã xong phần security trong **Zuull gateway**, tiếp theo đ
 ## 4. Auth Service
 Trong auth service, chúng ta sẽ làm hai việc: một là xác thực định danh mà người dùng cung cấp và hai là gen ra một token trong trường hợp xác thực hợp lệ hoặc trả về một exception nếu nó không hợp lệ.
 Trong file ```pom.xml``` chúng ta cần các dependencies sau: Web, Eureka Client, Spring Security và JWT.
-```
+```java
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -307,7 +307,7 @@ Trong file ```pom.xml``` chúng ta cần các dependencies sau: Web, Eureka Clie
     </dependencies>
 ```
 File ```application.yml``` khai báo như các service khác:
-```
+```java
 server:
   port: 8082
 
@@ -332,7 +332,7 @@ security:
     secret: JwtSecretKey
 ```
 Ở trong class application cũng cần khai báo đây là Eureka client và đánh anotation ```@EnableWebSecurity``` cho nó:
-```
+```java
 package com.example.authservice;
 
 import org.springframework.boot.SpringApplication;
@@ -349,7 +349,7 @@ public class AuthServiceApplication {
 ```
 
 Giống như cấu hình cổng Gateway, chúng ta cần tạo một lớp extends từ ```WebSecurityConfigurerAdapter```:
-```
+```java
 package com.example.authservice.security;
 
 import com.example.commonservice.security.JwtConfig;
@@ -416,7 +416,7 @@ public class SecurityCredentialsConfig  extends WebSecurityConfigurerAdapter {
 }
 ```
 Trong đoạn code trên, chúng ta sử dụng interface ```UserDetailsService``` nên chúng ta cần implement nó:
-```
+```java
 package com.example.authservice.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -514,7 +514,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 }
 ```
 Bước tiếp theo cũng là bước cuối cùng, chúng ta cần một filter. Ở đây chúng ta sử dụng ```JwtUsernameAndPasswordAuthenticationFilter``` để xác thực định danh người dùng và tạo token. Các thông tin về username hay password phải được gửi dưới dạng POST request.
-```
+```java
 package com.example.authservice.security;
 
 import com.example.commonservice.security.JwtConfig;
@@ -623,7 +623,7 @@ public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePassword
 Chạy lần lượt các service Eureka, Zuul, Auth và User.
 
 Đầu tiên chúng ta thử truy cập vào user service thông qua đường dẫn ```localhost:8762/user/user-info``` mà không có token. Chúng ta sẽ nhận về một lỗi 401 như sau:
-```
+```json
 {
     "timestamp": "2023-08-11T09:26:08.131+0000",
     "status": 401,
