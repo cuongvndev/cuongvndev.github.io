@@ -365,45 +365,45 @@ if (!doNotTrack) {
 <p>Là máy chủ dùng để quản lý, đặt tên cho các service hay còn gọi là <code>service registry</code>, mục đích của nó là thay vì phải nhớ 64.233.181.99 thì bạn có thể vào trực tiếp google bằng địa chỉ google.com và khi mà các service thay đổi địa chỉ thì Eureka sẽ tự động cập nhật mà bạn không cần phải thay đổi code.</p>
 <p>Mỗi service sẽ được đăng ký với Eureka và sẽ ping cho Eureka để đảm bảo chúng vẫn còn hoạt động, Nếu Eureka không nhận được thông báo nào từ service thì service đó sẽ tự động bị xoá.</p>
 <p>Ok bây giờ hãy tạo mới project spring boot dùng Maven để quản lý dependencies và khai báo file <code>pom.xml</code> như sau:</p>
-<pre tabindex="0"><code>&lt;dependencies&gt;  
-    &lt;dependency&gt;  
-        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;  
-        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;  
-    &lt;/dependency&gt;  
-    &lt;dependency&gt;  
-        &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;  
-        &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-server&lt;/artifactId&gt;  
-    &lt;/dependency&gt;  
-    &lt;dependency&gt;  
-        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;  
-        &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;  
-        &lt;scope&gt;runtime&lt;/scope&gt;  
-    &lt;/dependency&gt;  
-    &lt;dependency&gt;  
-        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;  
-        &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;  
-        &lt;scope&gt;test&lt;/scope&gt;  
-    &lt;/dependency&gt;  
-&lt;/dependencies&gt;
-</code></pre><p>Tiếp theo trong file <code>application.yml</code> cần config như sau:</p>
-<pre tabindex="0"><code>server:
-  port: 8761
-spring:
-  application:
-    name: eureka-server
-eureka:
-  client:
-    register-with-eureka: false
-    fetch-registry: true
-</code></pre><p>Cuối cùng trong class Application, chúng ta sử dụng <code>@EnableEurekaServer</code> để khai báo đây là một Eureka Server:</p>
-<pre tabindex="0"><code>@SpringBootApplication
-@EnableEurekaServer
-public class EurekaServerApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(EurekaServerApplication.class, args);
-    }
-}
-</code></pre><h2 id="3-zuul-gateway">3. Zuul Gateway</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">&lt;</span>dependencies<span style="color:#f92672">&gt;</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>  
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">springframework</span><span style="color:#f92672">.</span><span style="color:#a6e22e">boot</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>  
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>spring<span style="color:#f92672">-</span>boot<span style="color:#f92672">-</span>starter<span style="color:#f92672">-</span>web<span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>  
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">springframework</span><span style="color:#f92672">.</span><span style="color:#a6e22e">cloud</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>  
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>spring<span style="color:#f92672">-</span>cloud<span style="color:#f92672">-</span>starter<span style="color:#f92672">-</span>netflix<span style="color:#f92672">-</span>eureka<span style="color:#f92672">-</span>server<span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>  
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">springframework</span><span style="color:#f92672">.</span><span style="color:#a6e22e">boot</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>  
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>spring<span style="color:#f92672">-</span>boot<span style="color:#f92672">-</span>devtools<span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>  
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>scope<span style="color:#f92672">&gt;</span>runtime<span style="color:#f92672">&lt;/</span>scope<span style="color:#f92672">&gt;</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>  
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">springframework</span><span style="color:#f92672">.</span><span style="color:#a6e22e">boot</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>  
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>spring<span style="color:#f92672">-</span>boot<span style="color:#f92672">-</span>starter<span style="color:#f92672">-</span>test<span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>  
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>scope<span style="color:#f92672">&gt;</span>test<span style="color:#f92672">&lt;/</span>scope<span style="color:#f92672">&gt;</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/</span>dependencies<span style="color:#f92672">&gt;</span>
+</span></span></code></pre></div><p>Tiếp theo trong file <code>application.yml</code> cần config như sau:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>server:
+</span></span><span style="display:flex;"><span>  port<span style="color:#f92672">:</span> 8761
+</span></span><span style="display:flex;"><span>spring:
+</span></span><span style="display:flex;"><span>  application<span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    name<span style="color:#f92672">:</span> eureka<span style="color:#f92672">-</span>server
+</span></span><span style="display:flex;"><span>eureka:
+</span></span><span style="display:flex;"><span>  client<span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    register<span style="color:#f92672">-</span>with<span style="color:#f92672">-</span>eureka<span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>    fetch<span style="color:#f92672">-</span>registry<span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
+</span></span></code></pre></div><p>Cuối cùng trong class Application, chúng ta sử dụng <code>@EnableEurekaServer</code> để khai báo đây là một Eureka Server:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@SpringBootApplication</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@EnableEurekaServer</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">EurekaServerApplication</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        SpringApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>EurekaServerApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> args<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="3-zuul-gateway">3. Zuul Gateway</h2>
 <p>Zuul là thành phần của hệ thống microservices được phát triển bởi Netflix. Nó hoạt động như một dịch vụ cổng (gateway) trong mô hình kiến trúc ứng dụng microservices, giúp quản lý và điều phối yêu cầu từ clients tới các dịch vụ microservices tương ứng.</p>
 <p>Zuul Gateway có các chức năng chính sau:</p>
 <ul>
@@ -412,53 +412,53 @@ public class EurekaServerApplication {
 <li>Authentication và Security (xác thực và bảo mật).</li>
 </ul>
 <p>Tiến hành cài đặt Zuul Gateway bằng cách tạo mới project Spring boot sử dụng các dependency sau:</p>
-<pre tabindex="0"><code>        &lt;dependency&gt;
-            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
-        &lt;/dependency&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-            &lt;artifactId&gt;spring-cloud-starter-netflix-zuul&lt;/artifactId&gt;
-        &lt;/dependency&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-            &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-client&lt;/artifactId&gt;
-        &lt;/dependency&gt;
-</code></pre><p>Sử dụng anotation <code>@EnableZuulProxy</code> và <code>@EnableEurekaClient</code> để khai báo đây là Zuul và Eureka Client:</p>
-<pre tabindex="0"><code>@SpringBootApplication
-@EnableZuulProxy
-@EnableEurekaClient
-public class ZuulServerApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(ZuulServerApplication.class, args);
-    }
-}
-</code></pre><p>Và đừng quên config nữa nhé:</p>
-<pre tabindex="0"><code>server:
-  port: 8080
-
-zuul:
-  routes:
-    user-service:
-      path: /user/**
-      service-id: user-service
-    product-service:
-      path: /product/**
-      service-id: product-service
-
-spring:
-  application:
-    name: zuul-server
-
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-    register-with-eureka: true
-    fetch-registry: true
-  instance:
-    prefer-ip-address: true
-</code></pre><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">springframework</span><span style="color:#f92672">.</span><span style="color:#a6e22e">boot</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>spring<span style="color:#f92672">-</span>boot<span style="color:#f92672">-</span>starter<span style="color:#f92672">-</span>web<span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">springframework</span><span style="color:#f92672">.</span><span style="color:#a6e22e">cloud</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>spring<span style="color:#f92672">-</span>cloud<span style="color:#f92672">-</span>starter<span style="color:#f92672">-</span>netflix<span style="color:#f92672">-</span>zuul<span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">springframework</span><span style="color:#f92672">.</span><span style="color:#a6e22e">cloud</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>spring<span style="color:#f92672">-</span>cloud<span style="color:#f92672">-</span>starter<span style="color:#f92672">-</span>netflix<span style="color:#f92672">-</span>eureka<span style="color:#f92672">-</span>client<span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span></code></pre></div><p>Sử dụng anotation <code>@EnableZuulProxy</code> và <code>@EnableEurekaClient</code> để khai báo đây là Zuul và Eureka Client:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@SpringBootApplication</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@EnableZuulProxy</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@EnableEurekaClient</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ZuulServerApplication</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        SpringApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>ZuulServerApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> args<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Và đừng quên config nữa nhé:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>server:
+</span></span><span style="display:flex;"><span>  port<span style="color:#f92672">:</span> 8080
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>zuul:
+</span></span><span style="display:flex;"><span>  routes<span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    user<span style="color:#f92672">-</span>service<span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>      path<span style="color:#f92672">:</span> <span style="color:#f92672">/</span>user<span style="color:#f92672">/**</span>
+</span></span><span style="display:flex;"><span>      service<span style="color:#f92672">-</span>id<span style="color:#f92672">:</span> user<span style="color:#f92672">-</span>service
+</span></span><span style="display:flex;"><span>    product<span style="color:#f92672">-</span>service<span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>      path<span style="color:#f92672">:</span> <span style="color:#f92672">/</span>product<span style="color:#f92672">/**</span>
+</span></span><span style="display:flex;"><span>      service<span style="color:#f92672">-</span>id<span style="color:#f92672">:</span> product<span style="color:#f92672">-</span>service
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>spring:
+</span></span><span style="display:flex;"><span>  application<span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    name<span style="color:#f92672">:</span> zuul<span style="color:#f92672">-</span>server
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>eureka:
+</span></span><span style="display:flex;"><span>  client<span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    serviceUrl<span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>      defaultZone<span style="color:#f92672">:</span> http<span style="color:#f92672">:</span><span style="color:#75715e">//localhost:8761/eureka/
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    register<span style="color:#f92672">-</span>with<span style="color:#f92672">-</span>eureka<span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    fetch<span style="color:#f92672">-</span>registry<span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  instance<span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    prefer<span style="color:#f92672">-</span>ip<span style="color:#f92672">-</span>address<span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
+</span></span></code></pre></div><blockquote>
 <p>Định nghĩa routers ở trong zuul nói cho zuul biết rằng khi user truy cập với đường dẫn <code>/user/**</code> thì chuyển hướng tới user-service
 , còn service-id như ở trên mình đã nói Eureka sẽ đăng ký user service với cái tên là user-service thay vì sử dụng <code>http://localhost:8083</code></p>
 </blockquote>
@@ -466,58 +466,58 @@ eureka:
 <p>Các Eureka client service là một service độc lập trong kiến trúc microservice. Mỗi client service chỉ thực hiện duy nhất một nghiệp vụ nào đó trong hệ thống như thanh toán, tài khoản, thông báo, xác thực, cấu hình,…</p>
 <p><strong>User Service</strong></p>
 <p>Ok, cũng như Eureka Server, chúng ta sẽ tạo một project Spring Boot mới nhưng sử dụng Eureka Client trong file <code>pom.xml</code>:</p>
-<pre tabindex="0"><code>    &lt;dependencies&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
-        &lt;/dependency&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-            &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-client&lt;/artifactId&gt;
-        &lt;/dependency&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
-            &lt;scope&gt;test&lt;/scope&gt;
-        &lt;/dependency&gt;
-    &lt;/dependencies&gt;
-</code></pre><p>Trong file <code>application.yml</code> chúng ta sẽ ghi nhận lại địa chỉ của Eureka Server:</p>
-<pre tabindex="0"><code>server:
-  port: 8083
-spring:
-  application:
-    name: user-service
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
-</code></pre><p>Sau đó để chỉ cho Spring Boot biết đây là một Eureka client, chúng ta dùng annotation <code>@EnableEurekaClient</code> trong class main:</p>
-<pre tabindex="0"><code>@SpringBootApplication
-@EnableEurekaClient
-public class UserServiceApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(UserServiceApplication.class, args);
-    }
-}
-</code></pre><p>Tiến hành tạo controller để test:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span>dependencies<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">springframework</span><span style="color:#f92672">.</span><span style="color:#a6e22e">boot</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>spring<span style="color:#f92672">-</span>boot<span style="color:#f92672">-</span>starter<span style="color:#f92672">-</span>web<span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">springframework</span><span style="color:#f92672">.</span><span style="color:#a6e22e">cloud</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>spring<span style="color:#f92672">-</span>cloud<span style="color:#f92672">-</span>starter<span style="color:#f92672">-</span>netflix<span style="color:#f92672">-</span>eureka<span style="color:#f92672">-</span>client<span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">springframework</span><span style="color:#f92672">.</span><span style="color:#a6e22e">boot</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>spring<span style="color:#f92672">-</span>boot<span style="color:#f92672">-</span>starter<span style="color:#f92672">-</span>test<span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>scope<span style="color:#f92672">&gt;</span>test<span style="color:#f92672">&lt;/</span>scope<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/</span>dependencies<span style="color:#f92672">&gt;</span>
+</span></span></code></pre></div><p>Trong file <code>application.yml</code> chúng ta sẽ ghi nhận lại địa chỉ của Eureka Server:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>server:
+</span></span><span style="display:flex;"><span>  port<span style="color:#f92672">:</span> 8083
+</span></span><span style="display:flex;"><span>spring:
+</span></span><span style="display:flex;"><span>  application<span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    name<span style="color:#f92672">:</span> user<span style="color:#f92672">-</span>service
+</span></span><span style="display:flex;"><span>eureka:
+</span></span><span style="display:flex;"><span>  client<span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    service<span style="color:#f92672">-</span>url<span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>      defaultZone<span style="color:#f92672">:</span> http<span style="color:#f92672">:</span><span style="color:#75715e">//localhost:8761/eureka/
+</span></span></span></code></pre></div><p>Sau đó để chỉ cho Spring Boot biết đây là một Eureka client, chúng ta dùng annotation <code>@EnableEurekaClient</code> trong class main:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@SpringBootApplication</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@EnableEurekaClient</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserServiceApplication</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        SpringApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>UserServiceApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> args<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Tiến hành tạo controller để test:</p>
 <ul>
 <li><strong>UserController.java</strong></li>
 </ul>
-<pre tabindex="0"><code>import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-@RestController
-public class UserController {
-
-    @GetMapping(&#34;/user-info&#34;)
-    public String getUser() {
-        // Hardcode user info
-        String userInfo = &#34;Username: john_doe\nFull Name: John Doe\nEmail: john@example.com&#34;;
-
-        return userInfo;
-    }
-}
-</code></pre><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.web.bind.annotation.GetMapping<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.web.bind.annotation.RestController<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@RestController</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserController</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@GetMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/user-info&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getUser</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Hardcode user info
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        String userInfo <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Username: john_doe\nFull Name: John Doe\nEmail: john@example.com&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> userInfo<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><blockquote>
 <p>ở đây mình sẽ hardcode cho nhanh gọn lẹ</p>
 </blockquote>
 <h2 id="5-testing">5. Testing</h2>

@@ -376,225 +376,225 @@ Còn việc xác thực token sẽ do Zuul gateway đảm nhận, khi có 1 requ
 <h2 id="2-zuul-gateway">2. Zuul gateway</h2>
 <p>Ở trong gateway sẽ thực hiện 2 chức năng: một xác thực token và 2 là chặn tất cả request nếu xác thực không thành công.
 Trong file <code>pom.xml</code> chúng ta cần thêm spring security và JWT</p>
-<pre tabindex="0"><code>&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-security&lt;/artifactId&gt;
-&lt;/dependency&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;io.jsonwebtoken&lt;/groupId&gt;
-    &lt;artifactId&gt;jjwt&lt;/artifactId&gt;
-&lt;/dependency&gt;
-</code></pre><p>Để sử dụng security thì chúng ta cần tạo 1 class extend từ <code>WebSecurityConfigurerAdapter</code> và dùng anotation <code>@EnableWebSecurity</code></p>
-<pre tabindex="0"><code>package com.example.zuulserver.security;
-
-import com.example.commonservice.security.JwtConfig;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-
-import javax.servlet.http.HttpServletResponse;
-import javax.ws.rs.HttpMethod;
-
-@EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    
-    @Autowired
-    private JwtConfig jwtConfig;
-    
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-                .csrf().disable()
-                // make sure we use stateless session; session won&#39;t be used to store user&#39;s state.
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
-                // handle an authorized attempts
-                .exceptionHandling().authenticationEntryPoint((req, rsp, e) -&gt; rsp.sendError(HttpServletResponse.SC_UNAUTHORIZED))
-                .and()
-                // Add a filter to validate the tokens with every request
-                .addFilterAfter(new JwtTokenAuthenticationFilter(jwtConfig), UsernamePasswordAuthenticationFilter.class)
-                // authorization requests config
-                .authorizeRequests()
-                // allow all who are accessing &#34;auth&#34; service
-                .antMatchers(HttpMethod.POST, jwtConfig.getUri()).permitAll()
-                // Any other request must be authenticated
-                .anyRequest().authenticated();
-    }
-    
-    @Bean
-    public JwtConfig jwtConfig() {
-        return new JwtConfig();
-    }
-}
-</code></pre><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">springframework</span><span style="color:#f92672">.</span><span style="color:#a6e22e">boot</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>spring<span style="color:#f92672">-</span>boot<span style="color:#f92672">-</span>starter<span style="color:#f92672">-</span>security<span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>io<span style="color:#f92672">.</span><span style="color:#a6e22e">jsonwebtoken</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>jjwt<span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span></code></pre></div><p>Để sử dụng security thì chúng ta cần tạo 1 class extend từ <code>WebSecurityConfigurerAdapter</code> và dùng anotation <code>@EnableWebSecurity</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example.zuulserver.security<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.example.commonservice.security.JwtConfig<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.beans.factory.annotation.Autowired<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.context.annotation.Bean<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.security.config.annotation.web.builders.HttpSecurity<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.security.config.annotation.web.configuration.EnableWebSecurity<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.security.config.http.SessionCreationPolicy<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> javax.servlet.http.HttpServletResponse<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> javax.ws.rs.HttpMethod<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@EnableWebSecurity</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SecurityConfig</span> <span style="color:#66d9ef">extends</span> WebSecurityConfigurerAdapter <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Autowired</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> JwtConfig jwtConfig<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">configure</span><span style="color:#f92672">(</span>HttpSecurity http<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        http
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">csrf</span><span style="color:#f92672">().</span><span style="color:#a6e22e">disable</span><span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// make sure we use stateless session; session won&#39;t be used to store user&#39;s state.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">sessionManagement</span><span style="color:#f92672">().</span><span style="color:#a6e22e">sessionCreationPolicy</span><span style="color:#f92672">(</span>SessionCreationPolicy<span style="color:#f92672">.</span><span style="color:#a6e22e">STATELESS</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">and</span><span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// handle an authorized attempts
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">exceptionHandling</span><span style="color:#f92672">().</span><span style="color:#a6e22e">authenticationEntryPoint</span><span style="color:#f92672">((</span>req<span style="color:#f92672">,</span> rsp<span style="color:#f92672">,</span> e<span style="color:#f92672">)</span> <span style="color:#f92672">-&gt;</span> rsp<span style="color:#f92672">.</span><span style="color:#a6e22e">sendError</span><span style="color:#f92672">(</span>HttpServletResponse<span style="color:#f92672">.</span><span style="color:#a6e22e">SC_UNAUTHORIZED</span><span style="color:#f92672">))</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">and</span><span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// Add a filter to validate the tokens with every request
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">addFilterAfter</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> JwtTokenAuthenticationFilter<span style="color:#f92672">(</span>jwtConfig<span style="color:#f92672">),</span> UsernamePasswordAuthenticationFilter<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// authorization requests config
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">authorizeRequests</span><span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// allow all who are accessing &#34;auth&#34; service
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">antMatchers</span><span style="color:#f92672">(</span>HttpMethod<span style="color:#f92672">.</span><span style="color:#a6e22e">POST</span><span style="color:#f92672">,</span> jwtConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">getUri</span><span style="color:#f92672">()).</span><span style="color:#a6e22e">permitAll</span><span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// Any other request must be authenticated
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">anyRequest</span><span style="color:#f92672">().</span><span style="color:#a6e22e">authenticated</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Bean</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> JwtConfig <span style="color:#a6e22e">jwtConfig</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> JwtConfig<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><blockquote>
 <p>Class JwtConfig sẽ được tạo sau ở trong phần common service</p>
 </blockquote>
 <p>Tiếp theo chúng ta sẽ viết class filter để xác thực token được đặt tên là <code>JwtTokenAuthenticationFilter</code>, class này sẽ extend từ <code>OncePerRequestFilter</code> filter này sẽ được kích hoạt mỗi khi request được gửi tới.</p>
-<pre tabindex="0"><code>package com.example.zuulserver.security;
-
-import com.example.commonservice.security.JwtConfig;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.filter.OncePerRequestFilter;
-
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
-
-public class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
-    
-    private final JwtConfig jwtConfig;
-    
-    public JwtTokenAuthenticationFilter(JwtConfig jwtConfig) {
-        this.jwtConfig = jwtConfig;
-    }
-    
-    @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        // 1. get the authentication header. Tokens are supposed to be passed in the authentication header
-        String header = request.getHeader(jwtConfig.getHeader());
-        
-        // 2. validate the header and check the prefix
-        if (header == null || !header.startsWith(jwtConfig.getPrefix())) {
-            filterChain.doFilter(request, response); // if not valid go to the next filter
-            return;
-        }
-        // If there is no token provided and hence the user won&#39;t be authenticated.
-        // It&#39;s Ok. Maybe the user accessing a public path or asking for a token.
-        // All secured paths that needs a token are already defined and secured in config class.
-        // And If user tried to access without access token, then he won&#39;t be authenticated and an exception will be thrown.
-        // 3. Get the token
-        String token = header.replace(jwtConfig.getPrefix(), &#34;&#34;);
-        try {  // exceptions might be thrown in creating the claims if for example the token is expired
-            // 4. Validate the token
-            Claims claims = Jwts.parser().setSigningKey(jwtConfig.getSecret().getBytes()).parseClaimsJws(token).getBody();
-            
-            String userName = claims.getSubject();
-            if (userName != null) {
-                List&lt;String&gt; authorities = (List&lt;String&gt;) claims.get(&#34;authorities&#34;);
-                
-                // 5. Create auth object
-                // UsernamePasswordAuthenticationToken: A built-in object, used by spring to represent the current authenticated / being authenticated user. // It needs a list of authorities, which has type of GrantedAuthority interface, where SimpleGrantedAuthority is an implementation of that interface
-                UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(userName, null, authorities.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList()));
-                // 6. Authenticate the user
-                // Now, user is authenticated
-                SecurityContextHolder.getContext().setAuthentication(auth);
-            }
-        } catch (Exception e) {
-            // In case of failure. Make sure it&#39;s clear; so guarantee user won&#39;t be authenticated
-            e.printStackTrace();
-            SecurityContextHolder.clearContext();
-        }
-        // go to the next filter in the filter chain
-        filterChain.doFilter(request, response);
-    }
-}
-</code></pre><p>Và đừng quên thêm security config để sử dụng cho class JwtConfig nhé:</p>
-<pre tabindex="0"><code>...
-security:
-  jwt:
-    uri: /auth/**
-    header: Authorization
-    prefix: Bearer
-    expiration: 86400
-    secret: JwtSecretKey
-</code></pre><h2 id="3-common-service">3. Common service</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example.zuulserver.security<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.example.commonservice.security.JwtConfig<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.security.authentication.UsernamePasswordAuthenticationToken<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.security.core.authority.SimpleGrantedAuthority<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.security.core.context.SecurityContextHolder<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.web.filter.OncePerRequestFilter<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> javax.servlet.FilterChain<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> javax.servlet.ServletException<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> javax.servlet.http.HttpServletRequest<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> javax.servlet.http.HttpServletResponse<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.io.IOException<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.List<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.stream.Collectors<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> io.jsonwebtoken.Claims<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> io.jsonwebtoken.Jwts<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">JwtTokenAuthenticationFilter</span> <span style="color:#66d9ef">extends</span> OncePerRequestFilter <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> JwtConfig jwtConfig<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">JwtTokenAuthenticationFilter</span><span style="color:#f92672">(</span>JwtConfig jwtConfig<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">jwtConfig</span> <span style="color:#f92672">=</span> jwtConfig<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">doFilterInternal</span><span style="color:#f92672">(</span>HttpServletRequest request<span style="color:#f92672">,</span> HttpServletResponse response<span style="color:#f92672">,</span> FilterChain filterChain<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException<span style="color:#f92672">,</span> IOException <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 1. get the authentication header. Tokens are supposed to be passed in the authentication header
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        String header <span style="color:#f92672">=</span> request<span style="color:#f92672">.</span><span style="color:#a6e22e">getHeader</span><span style="color:#f92672">(</span>jwtConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">getHeader</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 2. validate the header and check the prefix
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>header <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">||</span> <span style="color:#f92672">!</span>header<span style="color:#f92672">.</span><span style="color:#a6e22e">startsWith</span><span style="color:#f92672">(</span>jwtConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">getPrefix</span><span style="color:#f92672">()))</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            filterChain<span style="color:#f92672">.</span><span style="color:#a6e22e">doFilter</span><span style="color:#f92672">(</span>request<span style="color:#f92672">,</span> response<span style="color:#f92672">);</span> <span style="color:#75715e">// if not valid go to the next filter
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// If there is no token provided and hence the user won&#39;t be authenticated.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// It&#39;s Ok. Maybe the user accessing a public path or asking for a token.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// All secured paths that needs a token are already defined and secured in config class.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// And If user tried to access without access token, then he won&#39;t be authenticated and an exception will be thrown.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// 3. Get the token
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        String token <span style="color:#f92672">=</span> header<span style="color:#f92672">.</span><span style="color:#a6e22e">replace</span><span style="color:#f92672">(</span>jwtConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">getPrefix</span><span style="color:#f92672">(),</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>  <span style="color:#75715e">// exceptions might be thrown in creating the claims if for example the token is expired
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#75715e">// 4. Validate the token
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            Claims claims <span style="color:#f92672">=</span> Jwts<span style="color:#f92672">.</span><span style="color:#a6e22e">parser</span><span style="color:#f92672">().</span><span style="color:#a6e22e">setSigningKey</span><span style="color:#f92672">(</span>jwtConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">getSecret</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getBytes</span><span style="color:#f92672">()).</span><span style="color:#a6e22e">parseClaimsJws</span><span style="color:#f92672">(</span>token<span style="color:#f92672">).</span><span style="color:#a6e22e">getBody</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            String userName <span style="color:#f92672">=</span> claims<span style="color:#f92672">.</span><span style="color:#a6e22e">getSubject</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>userName <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> authorities <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;)</span> claims<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;authorities&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// 5. Create auth object
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#75715e">// UsernamePasswordAuthenticationToken: A built-in object, used by spring to represent the current authenticated / being authenticated user. // It needs a list of authorities, which has type of GrantedAuthority interface, where SimpleGrantedAuthority is an implementation of that interface
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                UsernamePasswordAuthenticationToken auth <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> UsernamePasswordAuthenticationToken<span style="color:#f92672">(</span>userName<span style="color:#f92672">,</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">,</span> authorities<span style="color:#f92672">.</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">().</span><span style="color:#a6e22e">map</span><span style="color:#f92672">(</span>SimpleGrantedAuthority<span style="color:#f92672">::</span><span style="color:#66d9ef">new</span><span style="color:#f92672">).</span><span style="color:#a6e22e">collect</span><span style="color:#f92672">(</span>Collectors<span style="color:#f92672">.</span><span style="color:#a6e22e">toList</span><span style="color:#f92672">()));</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// 6. Authenticate the user
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#75715e">// Now, user is authenticated
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                SecurityContextHolder<span style="color:#f92672">.</span><span style="color:#a6e22e">getContext</span><span style="color:#f92672">().</span><span style="color:#a6e22e">setAuthentication</span><span style="color:#f92672">(</span>auth<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>Exception e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// In case of failure. Make sure it&#39;s clear; so guarantee user won&#39;t be authenticated
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>            SecurityContextHolder<span style="color:#f92672">.</span><span style="color:#a6e22e">clearContext</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// go to the next filter in the filter chain
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        filterChain<span style="color:#f92672">.</span><span style="color:#a6e22e">doFilter</span><span style="color:#f92672">(</span>request<span style="color:#f92672">,</span> response<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Và đừng quên thêm security config để sử dụng cho class JwtConfig nhé:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>security:
+</span></span><span style="display:flex;"><span>  jwt<span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    uri<span style="color:#f92672">:</span> <span style="color:#f92672">/</span>auth<span style="color:#f92672">/**</span>
+</span></span><span style="display:flex;"><span>    header<span style="color:#f92672">:</span> Authorization
+</span></span><span style="display:flex;"><span>    prefix<span style="color:#f92672">:</span> Bearer
+</span></span><span style="display:flex;"><span>    expiration<span style="color:#f92672">:</span> 86400
+</span></span><span style="display:flex;"><span>    secret<span style="color:#f92672">:</span> JwtSecretKey
+</span></span></code></pre></div><h2 id="3-common-service">3. Common service</h2>
 <p>Service này sẽ chứa những config được sử dụng chung cho nhiều service khác
 Chúng ta sẽ tạo class JwtConfig để chứa các config JWT và class này sẽ được sử dụng trong Auth service và Zuul gateway</p>
 <p>Cũng tương tự như việc tạo các service khác hãy tạo mới project Spring boot và config file <code>pom.xml</code> như sau:</p>
-<pre tabindex="0"><code>&lt;dependencies&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
-        &lt;scope&gt;test&lt;/scope&gt;
-    &lt;/dependency&gt;
-&lt;/dependencies&gt;
-</code></pre><p>Tạo class JwtConfig như sau:</p>
-<pre tabindex="0"><code>package com.example.commonservice.security;
-
-import org.springframework.beans.factory.annotation.Value;
-
-public class JwtConfig {
-    
-    @Value(&#34;${security.jwt.uri}&#34;)
-    private String uri;
-    
-    @Value(&#34;${security.jwt.header}&#34;)
-    private String header;
-    
-    @Value(&#34;${security.jwt.prefix}&#34;)
-    private String prefix;
-    
-    @Value(&#34;${security.jwt.expiration}&#34;)
-    private int expiration;
-    
-    @Value(&#34;${security.jwt.secret}&#34;)
-    private String secret;
-    
-    public String getUri() {
-        return uri;
-    }
-    
-    public void setUri(String uri) {
-        this.uri = uri;
-    }
-    
-    public String getHeader() {
-        return header;
-    }
-    
-    public void setHeader(String header) {
-        this.header = header;
-    }
-    
-    public String getPrefix() {
-        return prefix;
-    }
-    
-    public void setPrefix(String prefix) {
-        this.prefix = prefix;
-    }
-    
-    public int getExpiration() {
-        return expiration;
-    }
-    
-    public void setExpiration(int expiration) {
-        this.expiration = expiration;
-    }
-    
-    public String getSecret() {
-        return secret;
-    }
-    
-    public void setSecret(String secret) {
-        this.secret = secret;
-    }
-}
-</code></pre><p>Tiếp theo ở các service khác, chẳng hạn như ở Zuul gateway chúng ta cần khai báo dependency common service trong file <code>pom.xml</code>:</p>
-<pre tabindex="0"><code>&lt;!-- common dependency--&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;com.example&lt;/groupId&gt;
-    artifactId&gt;common-service&lt;/artifactId&gt;
-    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">&lt;</span>dependencies<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">springframework</span><span style="color:#f92672">.</span><span style="color:#a6e22e">boot</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>spring<span style="color:#f92672">-</span>boot<span style="color:#f92672">-</span>starter<span style="color:#f92672">-</span>web<span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">springframework</span><span style="color:#f92672">.</span><span style="color:#a6e22e">boot</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>spring<span style="color:#f92672">-</span>boot<span style="color:#f92672">-</span>starter<span style="color:#f92672">-</span>test<span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>scope<span style="color:#f92672">&gt;</span>test<span style="color:#f92672">&lt;/</span>scope<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/</span>dependencies<span style="color:#f92672">&gt;</span>
+</span></span></code></pre></div><p>Tạo class JwtConfig như sau:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example.commonservice.security<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.beans.factory.annotation.Value<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">JwtConfig</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Value</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;${security.jwt.uri}&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String uri<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Value</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;${security.jwt.header}&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String header<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Value</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;${security.jwt.prefix}&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String prefix<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Value</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;${security.jwt.expiration}&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> expiration<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Value</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;${security.jwt.secret}&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String secret<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getUri</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> uri<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setUri</span><span style="color:#f92672">(</span>String uri<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">uri</span> <span style="color:#f92672">=</span> uri<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getHeader</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> header<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setHeader</span><span style="color:#f92672">(</span>String header<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">header</span> <span style="color:#f92672">=</span> header<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getPrefix</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> prefix<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setPrefix</span><span style="color:#f92672">(</span>String prefix<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">prefix</span> <span style="color:#f92672">=</span> prefix<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getExpiration</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> expiration<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setExpiration</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> expiration<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">expiration</span> <span style="color:#f92672">=</span> expiration<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getSecret</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> secret<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setSecret</span><span style="color:#f92672">(</span>String secret<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">secret</span> <span style="color:#f92672">=</span> secret<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Tiếp theo ở các service khác, chẳng hạn như ở Zuul gateway chúng ta cần khai báo dependency common service trong file <code>pom.xml</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">&lt;!--</span> common dependency<span style="color:#f92672">--&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>com<span style="color:#f92672">.</span><span style="color:#a6e22e">example</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    artifactId<span style="color:#f92672">&gt;</span>common<span style="color:#f92672">-</span>service<span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span>version<span style="color:#f92672">&gt;</span>0<span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#f92672">.</span><span style="color:#a6e22e">1</span><span style="color:#f92672">-</span>SNAPSHOT<span style="color:#f92672">&lt;/</span>version<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span></code></pre></div><blockquote>
 <p>Thêm dependency common-service vào trong các service muốn sử dụng JwtConfig
 Ở đây tạm thời chỉ có 1 class JwtConfig là sẽ được dùng chung, tương lai sẽ có nhiều hơn nên mình tách ra thành common luôn để sử dụng sau này</p>
 </blockquote>
@@ -603,352 +603,352 @@ public class JwtConfig {
 <h2 id="4-auth-service">4. Auth Service</h2>
 <p>Trong auth service, chúng ta sẽ làm hai việc: một là xác thực định danh mà người dùng cung cấp và hai là gen ra một token trong trường hợp xác thực hợp lệ hoặc trả về một exception nếu nó không hợp lệ.
 Trong file <code>pom.xml</code> chúng ta cần các dependencies sau: Web, Eureka Client, Spring Security và JWT.</p>
-<pre tabindex="0"><code>    &lt;dependencies&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
-        &lt;/dependency&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-            &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-client&lt;/artifactId&gt;
-        &lt;/dependency&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-            &lt;artifactId&gt;spring-boot-starter-security&lt;/artifactId&gt;
-        &lt;/dependency&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;io.jsonwebtoken&lt;/groupId&gt;
-            &lt;artifactId&gt;jjwt&lt;/artifactId&gt;
-            &lt;version&gt;0.9.0&lt;/version&gt;
-        &lt;/dependency&gt;
-
-        &lt;!--common dependency--&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;com.example&lt;/groupId&gt;
-            &lt;artifactId&gt;common-service&lt;/artifactId&gt;
-            &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
-        &lt;/dependency&gt;
-
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
-            &lt;scope&gt;test&lt;/scope&gt;
-        &lt;/dependency&gt;
-    &lt;/dependencies&gt;
-</code></pre><p>File <code>application.yml</code> khai báo như các service khác:</p>
-<pre tabindex="0"><code>server:
-  port: 8082
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka
-
-spring:
-  application:
-    name: auth-service
-  cloud:
-    config:
-      uri: http://localhost:8888
-
-security:
-  jwt:
-    uri: /auth/**
-    header: Authorization
-    prefix: Bearer
-    expiration: 86400
-    secret: JwtSecretKey
-</code></pre><p>Ở trong class application cũng cần khai báo đây là Eureka client và đánh anotation <code>@EnableWebSecurity</code> cho nó:</p>
-<pre tabindex="0"><code>package com.example.authservice;
-
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-
-@SpringBootApplication
-@EnableEurekaClient
-public class AuthServiceApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(AuthServiceApplication.class, args);
-    }
-}
-</code></pre><p>Giống như cấu hình cổng Gateway, chúng ta cần tạo một lớp extends từ <code>WebSecurityConfigurerAdapter</code>:</p>
-<pre tabindex="0"><code>package com.example.authservice.security;
-
-import com.example.commonservice.security.JwtConfig;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
-import javax.servlet.http.HttpServletResponse;
-import javax.ws.rs.HttpMethod;
-
-@EnableWebSecurity
-public class SecurityCredentialsConfig  extends WebSecurityConfigurerAdapter {
-    
-    @Autowired
-    private UserDetailsService userDetailsService;
-    
-    @Autowired
-    private JwtConfig jwtConfig;
-    
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-                .csrf().disable()
-                // make sure we use stateless session; session won&#39;t be used to store user&#39;s state.
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
-                // handle an authorized attempts
-                .exceptionHandling().authenticationEntryPoint((req, rsp, e) -&gt; rsp.sendError(HttpServletResponse.SC_UNAUTHORIZED))
-                .and()
-                // Add a filter to validate user credentials and add token in the response header
-                // What&#39;s the authenticationManager()?
-                // An object provided by WebSecurityConfigurerAdapter, used to authenticate the user passing user&#39;s credentials
-                // The filter needs this auth manager to authenticate the user.
-                .addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager(), jwtConfig))
-                .authorizeRequests()
-                // allow all POST requests
-                .antMatchers(HttpMethod.POST, jwtConfig.getUri()).permitAll()
-                .antMatchers(HttpMethod.GET, &#34;/auth/test&#34;).permitAll()
-                // any other requests must be authenticated
-                .anyRequest().authenticated();
-    }
-    
-    // Spring has UserDetailsService interface, which can be overriden to provide our implementation for fetching user from database (or any other source).
-    // The UserDetailsService object is used by the auth manager to load the user from database. // In addition, we need to define the password encoder also. So, auth manager can compare and verify passwords.  @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-    }
-    
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-    
-    @Bean
-    public JwtConfig jwtConfig(){
-        return new JwtConfig();
-    }
-}
-</code></pre><p>Trong đoạn code trên, chúng ta sử dụng interface <code>UserDetailsService</code> nên chúng ta cần implement nó:</p>
-<pre tabindex="0"><code>package com.example.authservice.security;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.AuthorityUtils;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Service;
-
-import java.util.Arrays;
-import java.util.List;
-
-@Service
-public class UserDetailsServiceImpl implements UserDetailsService {
-    @Autowired
-    private BCryptPasswordEncoder encoder;
-    
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        
-        // TODO get user by username in db currently we hardcode user for test
-        // hard coding the users. All passwords must be encoded.
-        final List&lt;AppUser&gt; users = Arrays.asList(
-                new AppUser(1, &#34;user&#34;, encoder.encode(&#34;12345&#34;), &#34;USER&#34;),
-                new AppUser(2, &#34;admin&#34;, encoder.encode(&#34;12345&#34;), &#34;ADMIN&#34;)
-        );
-        
-        
-        for(AppUser appUser: users) {
-            if(appUser.getUsername().equals(username)) {
-                
-                // Remember that Spring needs roles to be in this format: &#34;ROLE_&#34; + userRole (i.e. &#34;ROLE_ADMIN&#34;)
-                // So, we need to set it to that format, so we can verify and compare roles (i.e. hasRole(&#34;ADMIN&#34;)).
-                List&lt;GrantedAuthority&gt; grantedAuthorities = AuthorityUtils
-                         .commaSeparatedStringToAuthorityList(&#34;ROLE_&#34; + appUser.getRole());
-                
-                // The &#34;User&#34; class is provided by Spring and represents a model class for user to be returned by UserDetailsService
-                // And used by auth manager to verify and check user authentication.
-                return new User(appUser.getUsername(), appUser.getPassword(), grantedAuthorities);
-            }
-        }
-        
-        // If user not found. Throw this exception.
-        throw new UsernameNotFoundException(&#34;Username: &#34; + username + &#34; not found&#34;);
-    }
-    
-    // A (temporary) class represent the user saved in the database.
-    private static class AppUser {
-        private Integer id;
-        private String username, password;
-        private String role;
-        
-        public AppUser(Integer id, String username, String password, String role) {
-            this.id = id;
-            this.username = username;
-            this.password = password;
-            this.role = role;
-        }
-        
-        public Integer getId() {
-            return id;
-        }
-        
-        public void setId(Integer id) {
-            this.id = id;
-        }
-        
-        public String getUsername() {
-            return username;
-        }
-        
-        public void setUsername(String username) {
-            this.username = username;
-        }
-        
-        public String getPassword() {
-            return password;
-        }
-        
-        public void setPassword(String password) {
-            this.password = password;
-        }
-        
-        public String getRole() {
-            return role;
-        }
-        
-        public void setRole(String role) {
-            this.role = role;
-        }
-    }
-}
-</code></pre><p>Bước tiếp theo cũng là bước cuối cùng, chúng ta cần một filter. Ở đây chúng ta sử dụng <code>JwtUsernameAndPasswordAuthenticationFilter</code> để xác thực định danh người dùng và tạo token. Các thông tin về username hay password phải được gửi dưới dạng POST request.</p>
-<pre tabindex="0"><code>package com.example.authservice.security;
-
-import com.example.commonservice.security.JwtConfig;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.util.Collections;
-import java.util.Date;
-import java.util.stream.Collectors;
-
-public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
-    // We use auth manager to validate the user credentials
-    private AuthenticationManager authManager;
-    
-    private final JwtConfig jwtConfig;
-    
-    public JwtUsernameAndPasswordAuthenticationFilter(AuthenticationManager authManager, JwtConfig jwtConfig) {
-        this.authManager = authManager;
-        this.jwtConfig = jwtConfig;
-        
-        // By default, UsernamePasswordAuthenticationFilter listens to &#34;/login&#34; path.
-        // In our case, we use &#34;/auth&#34;. So, we need to override the defaults.
-        this.setRequiresAuthenticationRequestMatcher(new AntPathRequestMatcher(jwtConfig.getUri(), &#34;POST&#34;));
-    }
-    
-    @Override
-    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
-            throws AuthenticationException {
-        
-        try {
-            
-            // 1. Get credentials from request
-            UserCredentials creds = new ObjectMapper().readValue(request.getInputStream(), UserCredentials.class);
-            
-            // 2. Create auth object (contains credentials) which will be used by auth manager
-            UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
-                    creds.getUsername(), creds.getPassword(), Collections.emptyList());
-            
-            // 3. Authentication manager authenticate the user, and use UserDetialsServiceImpl::loadUserByUsername() method to load the user.
-            return authManager.authenticate(authToken);
-            
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-    
-    // Upon successful authentication, generate a token.
-    // The &#39;auth&#39; passed to successfulAuthentication() is the current authenticated user.  @Override
-    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
-                                            Authentication auth) throws IOException, ServletException {
-        
-        Long now = System.currentTimeMillis();
-        String token = Jwts.builder()
-                .setSubject(auth.getName())
-                // Convert to list of strings.
-                // This is important because it affects the way we get them back in the Gateway.
-                .claim(&#34;authorities&#34;, auth.getAuthorities().stream()
-                        .map(GrantedAuthority::getAuthority).collect(Collectors.toList()))
-                .setIssuedAt(new Date(now))
-                .setExpiration(new Date(now + jwtConfig.getExpiration() * 1000))  // in milliseconds
-                .signWith(SignatureAlgorithm.HS512, jwtConfig.getSecret().getBytes())
-                .compact();
-        
-        // Add token to header
-        response.addHeader(jwtConfig.getHeader(), jwtConfig.getPrefix() + token);
-    }
-    
-    // A (temporary) class just to represent the user credentials
-    private static class UserCredentials {
-        private String username, password;
-        
-        public String getUsername() {
-            return username;
-        }
-        
-        public void setUsername(String username) {
-            this.username = username;
-        }
-        
-        public String getPassword() {
-            return password;
-        }
-        
-        public void setPassword(String password) {
-            this.password = password;
-        }
-    }
-}
-</code></pre><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span>dependencies<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">springframework</span><span style="color:#f92672">.</span><span style="color:#a6e22e">boot</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>spring<span style="color:#f92672">-</span>boot<span style="color:#f92672">-</span>starter<span style="color:#f92672">-</span>web<span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">springframework</span><span style="color:#f92672">.</span><span style="color:#a6e22e">cloud</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>spring<span style="color:#f92672">-</span>cloud<span style="color:#f92672">-</span>starter<span style="color:#f92672">-</span>netflix<span style="color:#f92672">-</span>eureka<span style="color:#f92672">-</span>client<span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">springframework</span><span style="color:#f92672">.</span><span style="color:#a6e22e">boot</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>spring<span style="color:#f92672">-</span>boot<span style="color:#f92672">-</span>starter<span style="color:#f92672">-</span>security<span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>io<span style="color:#f92672">.</span><span style="color:#a6e22e">jsonwebtoken</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>jjwt<span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>version<span style="color:#f92672">&gt;</span>0<span style="color:#f92672">.</span><span style="color:#a6e22e">9</span><span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#f92672">&lt;/</span>version<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;!--</span>common dependency<span style="color:#f92672">--&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>com<span style="color:#f92672">.</span><span style="color:#a6e22e">example</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>common<span style="color:#f92672">-</span>service<span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>version<span style="color:#f92672">&gt;</span>0<span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#f92672">.</span><span style="color:#a6e22e">1</span><span style="color:#f92672">-</span>SNAPSHOT<span style="color:#f92672">&lt;/</span>version<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">springframework</span><span style="color:#f92672">.</span><span style="color:#a6e22e">boot</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>spring<span style="color:#f92672">-</span>boot<span style="color:#f92672">-</span>starter<span style="color:#f92672">-</span>test<span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>scope<span style="color:#f92672">&gt;</span>test<span style="color:#f92672">&lt;/</span>scope<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/</span>dependencies<span style="color:#f92672">&gt;</span>
+</span></span></code></pre></div><p>File <code>application.yml</code> khai báo như các service khác:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>server:
+</span></span><span style="display:flex;"><span>  port<span style="color:#f92672">:</span> 8082
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>eureka:
+</span></span><span style="display:flex;"><span>  client<span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    service<span style="color:#f92672">-</span>url<span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>      defaultZone<span style="color:#f92672">:</span> http<span style="color:#f92672">:</span><span style="color:#75715e">//localhost:8761/eureka
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>spring:
+</span></span><span style="display:flex;"><span>  application<span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    name<span style="color:#f92672">:</span> auth<span style="color:#f92672">-</span>service
+</span></span><span style="display:flex;"><span>  cloud<span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    config<span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>      uri<span style="color:#f92672">:</span> http<span style="color:#f92672">:</span><span style="color:#75715e">//localhost:8888
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>security:
+</span></span><span style="display:flex;"><span>  jwt<span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    uri<span style="color:#f92672">:</span> <span style="color:#f92672">/</span>auth<span style="color:#f92672">/**</span>
+</span></span><span style="display:flex;"><span>    header<span style="color:#f92672">:</span> Authorization
+</span></span><span style="display:flex;"><span>    prefix<span style="color:#f92672">:</span> Bearer
+</span></span><span style="display:flex;"><span>    expiration<span style="color:#f92672">:</span> 86400
+</span></span><span style="display:flex;"><span>    secret<span style="color:#f92672">:</span> JwtSecretKey
+</span></span></code></pre></div><p>Ở trong class application cũng cần khai báo đây là Eureka client và đánh anotation <code>@EnableWebSecurity</code> cho nó:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example.authservice<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.boot.SpringApplication<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.boot.autoconfigure.SpringBootApplication<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.cloud.netflix.eureka.EnableEurekaClient<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@SpringBootApplication</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@EnableEurekaClient</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AuthServiceApplication</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        SpringApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>AuthServiceApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> args<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Giống như cấu hình cổng Gateway, chúng ta cần tạo một lớp extends từ <code>WebSecurityConfigurerAdapter</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example.authservice.security<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.example.commonservice.security.JwtConfig<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.beans.factory.annotation.Autowired<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.context.annotation.Bean<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.security.config.annotation.web.builders.HttpSecurity<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.security.config.annotation.web.configuration.EnableWebSecurity<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.security.config.http.SessionCreationPolicy<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.security.core.userdetails.UserDetailsService<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> javax.servlet.http.HttpServletResponse<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> javax.ws.rs.HttpMethod<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@EnableWebSecurity</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SecurityCredentialsConfig</span>  <span style="color:#66d9ef">extends</span> WebSecurityConfigurerAdapter <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Autowired</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> UserDetailsService userDetailsService<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Autowired</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> JwtConfig jwtConfig<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">configure</span><span style="color:#f92672">(</span>HttpSecurity http<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        http
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">csrf</span><span style="color:#f92672">().</span><span style="color:#a6e22e">disable</span><span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// make sure we use stateless session; session won&#39;t be used to store user&#39;s state.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">sessionManagement</span><span style="color:#f92672">().</span><span style="color:#a6e22e">sessionCreationPolicy</span><span style="color:#f92672">(</span>SessionCreationPolicy<span style="color:#f92672">.</span><span style="color:#a6e22e">STATELESS</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">and</span><span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// handle an authorized attempts
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">exceptionHandling</span><span style="color:#f92672">().</span><span style="color:#a6e22e">authenticationEntryPoint</span><span style="color:#f92672">((</span>req<span style="color:#f92672">,</span> rsp<span style="color:#f92672">,</span> e<span style="color:#f92672">)</span> <span style="color:#f92672">-&gt;</span> rsp<span style="color:#f92672">.</span><span style="color:#a6e22e">sendError</span><span style="color:#f92672">(</span>HttpServletResponse<span style="color:#f92672">.</span><span style="color:#a6e22e">SC_UNAUTHORIZED</span><span style="color:#f92672">))</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">and</span><span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// Add a filter to validate user credentials and add token in the response header
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#75715e">// What&#39;s the authenticationManager()?
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#75715e">// An object provided by WebSecurityConfigurerAdapter, used to authenticate the user passing user&#39;s credentials
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#75715e">// The filter needs this auth manager to authenticate the user.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">addFilter</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> JwtUsernameAndPasswordAuthenticationFilter<span style="color:#f92672">(</span>authenticationManager<span style="color:#f92672">(),</span> jwtConfig<span style="color:#f92672">))</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">authorizeRequests</span><span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// allow all POST requests
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">antMatchers</span><span style="color:#f92672">(</span>HttpMethod<span style="color:#f92672">.</span><span style="color:#a6e22e">POST</span><span style="color:#f92672">,</span> jwtConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">getUri</span><span style="color:#f92672">()).</span><span style="color:#a6e22e">permitAll</span><span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">antMatchers</span><span style="color:#f92672">(</span>HttpMethod<span style="color:#f92672">.</span><span style="color:#a6e22e">GET</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;/auth/test&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">permitAll</span><span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// any other requests must be authenticated
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">anyRequest</span><span style="color:#f92672">().</span><span style="color:#a6e22e">authenticated</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Spring has UserDetailsService interface, which can be overriden to provide our implementation for fetching user from database (or any other source).
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// The UserDetailsService object is used by the auth manager to load the user from database. // In addition, we need to define the password encoder also. So, auth manager can compare and verify passwords.  @Override
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">configure</span><span style="color:#f92672">(</span>AuthenticationManagerBuilder auth<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        auth<span style="color:#f92672">.</span><span style="color:#a6e22e">userDetailsService</span><span style="color:#f92672">(</span>userDetailsService<span style="color:#f92672">).</span><span style="color:#a6e22e">passwordEncoder</span><span style="color:#f92672">(</span>passwordEncoder<span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Bean</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> BCryptPasswordEncoder <span style="color:#a6e22e">passwordEncoder</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> BCryptPasswordEncoder<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Bean</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> JwtConfig <span style="color:#a6e22e">jwtConfig</span><span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> JwtConfig<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Trong đoạn code trên, chúng ta sử dụng interface <code>UserDetailsService</code> nên chúng ta cần implement nó:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example.authservice.security<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.beans.factory.annotation.Autowired<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.security.core.GrantedAuthority<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.security.core.authority.AuthorityUtils<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.security.core.userdetails.User<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.security.core.userdetails.UserDetails<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.security.core.userdetails.UserDetailsService<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.security.core.userdetails.UsernameNotFoundException<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.stereotype.Service<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Arrays<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.List<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Service</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserDetailsServiceImpl</span> <span style="color:#66d9ef">implements</span> UserDetailsService <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Autowired</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> BCryptPasswordEncoder encoder<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> UserDetails <span style="color:#a6e22e">loadUserByUsername</span><span style="color:#f92672">(</span>String username<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> UsernameNotFoundException <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// TODO get user by username in db currently we hardcode user for test
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// hard coding the users. All passwords must be encoded.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">final</span> List<span style="color:#f92672">&lt;</span>AppUser<span style="color:#f92672">&gt;</span> users <span style="color:#f92672">=</span> Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">asList</span><span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">new</span> AppUser<span style="color:#f92672">(</span>1<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;user&#34;</span><span style="color:#f92672">,</span> encoder<span style="color:#f92672">.</span><span style="color:#a6e22e">encode</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;12345&#34;</span><span style="color:#f92672">),</span> <span style="color:#e6db74">&#34;USER&#34;</span><span style="color:#f92672">),</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">new</span> AppUser<span style="color:#f92672">(</span>2<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;admin&#34;</span><span style="color:#f92672">,</span> encoder<span style="color:#f92672">.</span><span style="color:#a6e22e">encode</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;12345&#34;</span><span style="color:#f92672">),</span> <span style="color:#e6db74">&#34;ADMIN&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>AppUser appUser<span style="color:#f92672">:</span> users<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>appUser<span style="color:#f92672">.</span><span style="color:#a6e22e">getUsername</span><span style="color:#f92672">().</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>username<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// Remember that Spring needs roles to be in this format: &#34;ROLE_&#34; + userRole (i.e. &#34;ROLE_ADMIN&#34;)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#75715e">// So, we need to set it to that format, so we can verify and compare roles (i.e. hasRole(&#34;ADMIN&#34;)).
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                List<span style="color:#f92672">&lt;</span>GrantedAuthority<span style="color:#f92672">&gt;</span> grantedAuthorities <span style="color:#f92672">=</span> AuthorityUtils
+</span></span><span style="display:flex;"><span>                         <span style="color:#f92672">.</span><span style="color:#a6e22e">commaSeparatedStringToAuthorityList</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;ROLE_&#34;</span> <span style="color:#f92672">+</span> appUser<span style="color:#f92672">.</span><span style="color:#a6e22e">getRole</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>                
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// The &#34;User&#34; class is provided by Spring and represents a model class for user to be returned by UserDetailsService
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#75715e">// And used by auth manager to verify and check user authentication.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span>appUser<span style="color:#f92672">.</span><span style="color:#a6e22e">getUsername</span><span style="color:#f92672">(),</span> appUser<span style="color:#f92672">.</span><span style="color:#a6e22e">getPassword</span><span style="color:#f92672">(),</span> grantedAuthorities<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// If user not found. Throw this exception.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> UsernameNotFoundException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Username: &#34;</span> <span style="color:#f92672">+</span> username <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; not found&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// A (temporary) class represent the user saved in the database.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppUser</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> Integer id<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> String username<span style="color:#f92672">,</span> password<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> String role<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">AppUser</span><span style="color:#f92672">(</span>Integer id<span style="color:#f92672">,</span> String username<span style="color:#f92672">,</span> String password<span style="color:#f92672">,</span> String role<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> id<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">username</span> <span style="color:#f92672">=</span> username<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">password</span> <span style="color:#f92672">=</span> password<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">role</span> <span style="color:#f92672">=</span> role<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> Integer <span style="color:#a6e22e">getId</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> id<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setId</span><span style="color:#f92672">(</span>Integer id<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> id<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getUsername</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> username<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setUsername</span><span style="color:#f92672">(</span>String username<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">username</span> <span style="color:#f92672">=</span> username<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getPassword</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> password<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setPassword</span><span style="color:#f92672">(</span>String password<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">password</span> <span style="color:#f92672">=</span> password<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getRole</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> role<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setRole</span><span style="color:#f92672">(</span>String role<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">role</span> <span style="color:#f92672">=</span> role<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Bước tiếp theo cũng là bước cuối cùng, chúng ta cần một filter. Ở đây chúng ta sử dụng <code>JwtUsernameAndPasswordAuthenticationFilter</code> để xác thực định danh người dùng và tạo token. Các thông tin về username hay password phải được gửi dưới dạng POST request.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example.authservice.security<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.example.commonservice.security.JwtConfig<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.fasterxml.jackson.databind.ObjectMapper<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> io.jsonwebtoken.Jwts<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> io.jsonwebtoken.SignatureAlgorithm<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.security.authentication.AuthenticationManager<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.security.authentication.UsernamePasswordAuthenticationToken<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.security.core.Authentication<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.security.core.AuthenticationException<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.security.core.GrantedAuthority<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.security.web.util.matcher.AntPathRequestMatcher<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> javax.servlet.FilterChain<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> javax.servlet.ServletException<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> javax.servlet.http.HttpServletRequest<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> javax.servlet.http.HttpServletResponse<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.io.IOException<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Collections<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Date<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.stream.Collectors<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">JwtUsernameAndPasswordAuthenticationFilter</span> <span style="color:#66d9ef">extends</span> UsernamePasswordAuthenticationFilter <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// We use auth manager to validate the user credentials
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> AuthenticationManager authManager<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> JwtConfig jwtConfig<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">JwtUsernameAndPasswordAuthenticationFilter</span><span style="color:#f92672">(</span>AuthenticationManager authManager<span style="color:#f92672">,</span> JwtConfig jwtConfig<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">authManager</span> <span style="color:#f92672">=</span> authManager<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">jwtConfig</span> <span style="color:#f92672">=</span> jwtConfig<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// By default, UsernamePasswordAuthenticationFilter listens to &#34;/login&#34; path.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// In our case, we use &#34;/auth&#34;. So, we need to override the defaults.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">setRequiresAuthenticationRequestMatcher</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> AntPathRequestMatcher<span style="color:#f92672">(</span>jwtConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">getUri</span><span style="color:#f92672">(),</span> <span style="color:#e6db74">&#34;POST&#34;</span><span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Authentication <span style="color:#a6e22e">attemptAuthentication</span><span style="color:#f92672">(</span>HttpServletRequest request<span style="color:#f92672">,</span> HttpServletResponse response<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">throws</span> AuthenticationException <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// 1. Get credentials from request
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            UserCredentials creds <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ObjectMapper<span style="color:#f92672">().</span><span style="color:#a6e22e">readValue</span><span style="color:#f92672">(</span>request<span style="color:#f92672">.</span><span style="color:#a6e22e">getInputStream</span><span style="color:#f92672">(),</span> UserCredentials<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// 2. Create auth object (contains credentials) which will be used by auth manager
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            UsernamePasswordAuthenticationToken authToken <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> UsernamePasswordAuthenticationToken<span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>                    creds<span style="color:#f92672">.</span><span style="color:#a6e22e">getUsername</span><span style="color:#f92672">(),</span> creds<span style="color:#f92672">.</span><span style="color:#a6e22e">getPassword</span><span style="color:#f92672">(),</span> Collections<span style="color:#f92672">.</span><span style="color:#a6e22e">emptyList</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// 3. Authentication manager authenticate the user, and use UserDetialsServiceImpl::loadUserByUsername() method to load the user.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#66d9ef">return</span> authManager<span style="color:#f92672">.</span><span style="color:#a6e22e">authenticate</span><span style="color:#f92672">(</span>authToken<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>IOException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> RuntimeException<span style="color:#f92672">(</span>e<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Upon successful authentication, generate a token.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// The &#39;auth&#39; passed to successfulAuthentication() is the current authenticated user.  @Override
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">successfulAuthentication</span><span style="color:#f92672">(</span>HttpServletRequest request<span style="color:#f92672">,</span> HttpServletResponse response<span style="color:#f92672">,</span> FilterChain chain<span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span>                                            Authentication auth<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException<span style="color:#f92672">,</span> ServletException <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        Long now <span style="color:#f92672">=</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">currentTimeMillis</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        String token <span style="color:#f92672">=</span> Jwts<span style="color:#f92672">.</span><span style="color:#a6e22e">builder</span><span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">setSubject</span><span style="color:#f92672">(</span>auth<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">())</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// Convert to list of strings.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#75715e">// This is important because it affects the way we get them back in the Gateway.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">claim</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;authorities&#34;</span><span style="color:#f92672">,</span> auth<span style="color:#f92672">.</span><span style="color:#a6e22e">getAuthorities</span><span style="color:#f92672">().</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">.</span><span style="color:#a6e22e">map</span><span style="color:#f92672">(</span>GrantedAuthority<span style="color:#f92672">::</span>getAuthority<span style="color:#f92672">).</span><span style="color:#a6e22e">collect</span><span style="color:#f92672">(</span>Collectors<span style="color:#f92672">.</span><span style="color:#a6e22e">toList</span><span style="color:#f92672">()))</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">setIssuedAt</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Date<span style="color:#f92672">(</span>now<span style="color:#f92672">))</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">setExpiration</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Date<span style="color:#f92672">(</span>now <span style="color:#f92672">+</span> jwtConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">getExpiration</span><span style="color:#f92672">()</span> <span style="color:#f92672">*</span> 1000<span style="color:#f92672">))</span>  <span style="color:#75715e">// in milliseconds
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">signWith</span><span style="color:#f92672">(</span>SignatureAlgorithm<span style="color:#f92672">.</span><span style="color:#a6e22e">HS512</span><span style="color:#f92672">,</span> jwtConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">getSecret</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getBytes</span><span style="color:#f92672">())</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">compact</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Add token to header
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        response<span style="color:#f92672">.</span><span style="color:#a6e22e">addHeader</span><span style="color:#f92672">(</span>jwtConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">getHeader</span><span style="color:#f92672">(),</span> jwtConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">getPrefix</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> token<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// A (temporary) class just to represent the user credentials
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserCredentials</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> String username<span style="color:#f92672">,</span> password<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getUsername</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> username<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setUsername</span><span style="color:#f92672">(</span>String username<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">username</span> <span style="color:#f92672">=</span> username<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getPassword</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> password<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setPassword</span><span style="color:#f92672">(</span>String password<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">password</span> <span style="color:#f92672">=</span> password<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><blockquote>
 <p>Trong Auth service cũng đã sử dụng đến JwtConfig việc này tránh trùng lặp code</p>
 </blockquote>
 <h2 id="5-testing">5. Testing</h2>
 <p>Chạy lần lượt các service Eureka, Zuul, Auth và User.</p>
 <p>Đầu tiên chúng ta thử truy cập vào user service thông qua đường dẫn <code>localhost:8762/user/user-info</code> mà không có token. Chúng ta sẽ nhận về một lỗi 401 như sau:</p>
-<pre tabindex="0"><code>{
-    &#34;timestamp&#34;: &#34;2023-08-11T09:26:08.131+0000&#34;,
-    &#34;status&#34;: 401,
-    &#34;error&#34;: &#34;Unauthorized&#34;,
-    &#34;message&#34;: &#34;No message available&#34;,
-    &#34;path&#34;: &#34;/user/user-info&#34;
-}
-</code></pre><p>Để nhận <strong>token</strong>, chúng ta call api authentication <code>localhost:8762/auth</code>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;timestamp&#34;</span>: <span style="color:#e6db74">&#34;2023-08-11T09:26:08.131+0000&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;status&#34;</span>: <span style="color:#ae81ff">401</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;error&#34;</span>: <span style="color:#e6db74">&#34;Unauthorized&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;No message available&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;/user/user-info&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Để nhận <strong>token</strong>, chúng ta call api authentication <code>localhost:8762/auth</code>
 <img src="/blog/microservice/authen.png" alt="Scenario 1: Across columns"></p>
 <p>Bây giờ gọi lại <strong>user service</strong> kèm theo một <strong>token</strong> trong header:
 <img src="/blog/microservice/user-info-auth.png" alt="Scenario 1: Across columns"></p>
