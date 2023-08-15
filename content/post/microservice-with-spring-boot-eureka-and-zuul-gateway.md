@@ -8,13 +8,13 @@ featured: true
 Bài viết này cung cấp một hướng dẫn chi tiết về việc triển khai và sử dụng kiến trúc **Microservice** kết hợp với các công cụ **Eureka** và Zuul **Gateway**. Đây là những bước cơ bản để xây dựng một hệ thống phân tán linh hoạt và có khả năng mở rộng.
 
 <!--more-->
-# 1. Giới thệu
+## 1. Giới thệu
 **Microservices** là một mô hình kiến trúc phần mềm đột phá, cho phép các ứng dụng được chia thành các phần nhỏ hơn và độc lập, được gọi là "microservices". Mỗi microservice có thể phát triển, triển khai và quản lý riêng biệt, giúp tối ưu hóa khả năng mở rộng và duy trì.
 
 Bây giờ tôi sẽ triển khai một hệ thống đơn giản như sau:
 ![Scenario 1: Across columns](/blog/microservice/model.png)
 
-# 2. Eureka server
+## 2. Eureka server
 Là máy chủ dùng để quản lý, đặt tên cho các service hay còn gọi là `service registry`, mục đích của nó là thay vì phải nhớ 64.233.181.99 thì bạn có thể vào trực tiếp google bằng địa chỉ google.com và khi mà các service thay đổi địa chỉ thì Eureka sẽ tự động cập nhật mà bạn không cần phải thay đổi code.
 
 Mỗi service sẽ được đăng ký với Eureka và sẽ ping cho Eureka để đảm bảo chúng vẫn còn hoạt động, Nếu Eureka không nhận được thông báo nào từ service thì service đó sẽ tự động bị xoá.
@@ -67,7 +67,7 @@ public class EurekaServerApplication {
 }
 ```
 
-# 3. Zuul Gateway
+## 3. Zuul Gateway
 Zuul là thành phần của hệ thống microservices được phát triển bởi Netflix. Nó hoạt động như một dịch vụ cổng (gateway) trong mô hình kiến trúc ứng dụng microservices, giúp quản lý và điều phối yêu cầu từ clients tới các dịch vụ microservices tương ứng.
 
 Zuul Gateway có các chức năng chính sau:
@@ -131,7 +131,7 @@ eureka:
 ```
 >Định nghĩa routers ở trong zuul nói cho zuul biết rằng khi user truy cập với đường dẫn `/user/**` thì chuyển hướng tới user-service
 >, còn service-id như ở trên mình đã nói Eureka sẽ đăng ký user service với cái tên là user-service thay vì sử dụng `http://localhost:8083`
-# 4. Bussiness service
+## 4. Bussiness service
 Các Eureka client service là một service độc lập trong kiến trúc microservice. Mỗi client service chỉ thực hiện duy nhất một nghiệp vụ nào đó trong hệ thống như thanh toán, tài khoản, thông báo, xác thực, cấu hình,…
 
 **User Service**
@@ -198,7 +198,7 @@ public class UserController {
 ```
 >ở đây mình sẽ hardcode cho nhanh gọn lẹ
 
-# 5. Testing
+## 5. Testing
 Ok, như vậy là chúng ta đã tạo xong bộ khung cho hệ thống microservice
 Tiến hành run các service theo thứ tự: Eureka, Zuul và User
 Để kiểm tra các service của chúng ta vào `localhost://8761` đây là cổng của Eureka Server, và bạn có thể thấy các service đang chạy như hình:

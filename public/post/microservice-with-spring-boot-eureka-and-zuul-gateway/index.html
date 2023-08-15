@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>
-          Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 1 - Cuong Vu - A super concise theme for Hugo
+          Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 1 - Cuong Vu
         </title>
     
 
@@ -357,11 +357,11 @@ if (!doNotTrack) {
         
         <div class="post-content">
           <p>Bài viết này cung cấp một hướng dẫn chi tiết về việc triển khai và sử dụng kiến trúc <strong>Microservice</strong> kết hợp với các công cụ <strong>Eureka</strong> và Zuul <strong>Gateway</strong>. Đây là những bước cơ bản để xây dựng một hệ thống phân tán linh hoạt và có khả năng mở rộng.</p>
-<h1 id="1-giới-thệu">1. Giới thệu</h1>
+<h2 id="1-giới-thệu">1. Giới thệu</h2>
 <p><strong>Microservices</strong> là một mô hình kiến trúc phần mềm đột phá, cho phép các ứng dụng được chia thành các phần nhỏ hơn và độc lập, được gọi là &ldquo;microservices&rdquo;. Mỗi microservice có thể phát triển, triển khai và quản lý riêng biệt, giúp tối ưu hóa khả năng mở rộng và duy trì.</p>
 <p>Bây giờ tôi sẽ triển khai một hệ thống đơn giản như sau:
 <img src="/blog/microservice/model.png" alt="Scenario 1: Across columns"></p>
-<h1 id="2-eureka-server">2. Eureka server</h1>
+<h2 id="2-eureka-server">2. Eureka server</h2>
 <p>Là máy chủ dùng để quản lý, đặt tên cho các service hay còn gọi là <code>service registry</code>, mục đích của nó là thay vì phải nhớ 64.233.181.99 thì bạn có thể vào trực tiếp google bằng địa chỉ google.com và khi mà các service thay đổi địa chỉ thì Eureka sẽ tự động cập nhật mà bạn không cần phải thay đổi code.</p>
 <p>Mỗi service sẽ được đăng ký với Eureka và sẽ ping cho Eureka để đảm bảo chúng vẫn còn hoạt động, Nếu Eureka không nhận được thông báo nào từ service thì service đó sẽ tự động bị xoá.</p>
 <p>Ok bây giờ hãy tạo mới project spring boot dùng Maven để quản lý dependencies và khai báo file <code>pom.xml</code> như sau:</p>
@@ -403,7 +403,7 @@ public class EurekaServerApplication {
         SpringApplication.run(EurekaServerApplication.class, args);
     }
 }
-</code></pre><h1 id="3-zuul-gateway">3. Zuul Gateway</h1>
+</code></pre><h2 id="3-zuul-gateway">3. Zuul Gateway</h2>
 <p>Zuul là thành phần của hệ thống microservices được phát triển bởi Netflix. Nó hoạt động như một dịch vụ cổng (gateway) trong mô hình kiến trúc ứng dụng microservices, giúp quản lý và điều phối yêu cầu từ clients tới các dịch vụ microservices tương ứng.</p>
 <p>Zuul Gateway có các chức năng chính sau:</p>
 <ul>
@@ -462,7 +462,7 @@ eureka:
 <p>Định nghĩa routers ở trong zuul nói cho zuul biết rằng khi user truy cập với đường dẫn <code>/user/**</code> thì chuyển hướng tới user-service
 , còn service-id như ở trên mình đã nói Eureka sẽ đăng ký user service với cái tên là user-service thay vì sử dụng <code>http://localhost:8083</code></p>
 </blockquote>
-<h1 id="4-bussiness-service">4. Bussiness service</h1>
+<h2 id="4-bussiness-service">4. Bussiness service</h2>
 <p>Các Eureka client service là một service độc lập trong kiến trúc microservice. Mỗi client service chỉ thực hiện duy nhất một nghiệp vụ nào đó trong hệ thống như thanh toán, tài khoản, thông báo, xác thực, cấu hình,…</p>
 <p><strong>User Service</strong></p>
 <p>Ok, cũng như Eureka Server, chúng ta sẽ tạo một project Spring Boot mới nhưng sử dụng Eureka Client trong file <code>pom.xml</code>:</p>
@@ -520,7 +520,7 @@ public class UserController {
 </code></pre><blockquote>
 <p>ở đây mình sẽ hardcode cho nhanh gọn lẹ</p>
 </blockquote>
-<h1 id="5-testing">5. Testing</h1>
+<h2 id="5-testing">5. Testing</h2>
 <p>Ok, như vậy là chúng ta đã tạo xong bộ khung cho hệ thống microservice
 Tiến hành run các service theo thứ tự: Eureka, Zuul và User
 Để kiểm tra các service của chúng ta vào <code>localhost://8761</code> đây là cổng của Eureka Server, và bạn có thể thấy các service đang chạy như hình:
@@ -671,7 +671,20 @@ zuul gateway sẽ dựa vào path: /user/** để điều hướng tới user se
     </div>
 
     
-    
+    <nav class="toc" id="toc">
+    <div class="toc-title">Nội dung bài viết</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-giới-thệu">1. Giới thệu</a></li>
+    <li><a href="#2-eureka-server">2. Eureka server</a></li>
+    <li><a href="#3-zuul-gateway">3. Zuul Gateway</a></li>
+    <li><a href="#4-bussiness-service">4. Bussiness service</a></li>
+    <li><a href="#5-testing">5. Testing</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
 
 
   </div>

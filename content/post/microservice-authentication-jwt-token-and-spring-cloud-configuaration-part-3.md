@@ -3,7 +3,7 @@ title: Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần
 date: 2023-08-14T15:33:23+07:00
 tags: ["Microservice", "Eureka", "Zuul Gateway", "Spring Boot Security", "Spring Cloud Configuration", "Spring Cloud Netflix"]
 series: [Microservice2]
-featured: true
+featured: false
 ---
 Comming soon.
 

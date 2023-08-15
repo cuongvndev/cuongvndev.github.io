@@ -1,5 +1,5 @@
 baseURL: https://cuongvndev.github.io/
-title: Cuong Vu - A super concise theme for Hugo
+title: Cuong Vu
 enableRobotsTXT: true
 enableEmoji: true
 theme: jane
@@ -47,7 +47,7 @@ params:
     - Hugo
     - theme
     - jane
-  description: Hugo theme jane example site.
+  description: xxx.
   dateFormatToUse: 2006-01-02
   toc: true
   photoswipe: true

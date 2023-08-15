@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>
-          Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 2 - Cuong Vu - A super concise theme for Hugo
+          Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 2 - Cuong Vu
         </title>
     
 
@@ -363,7 +363,7 @@ if (!doNotTrack) {
 Trong bài viết này chúng ta sẽ cùng tìm hiểu về <strong>JWT</strong> và cách để <strong>xác thực và bảo mật</strong> trong hệ thống <strong>Microservice</strong> bằng JWT.</p>
 <p>Chúng ta sẽ tạo 1 service mới là <code>auth service</code> có nhiệm vụ xác minh danh tính và tạo jwt token khi user login
 Còn việc xác thực token sẽ do Zuul gateway đảm nhận, khi có 1 request gửi đến thì Zuul gateway sẽ dựa vào token được cung cấp và xác thực quyền truy cập, xác thực thành công thì mới tiến hành điều hướng request tới các service bussiness khác.</p>
-<h1 id="1-jwt-json-based-token">1. JWT (Json Based Token)</h1>
+<h2 id="1-jwt-json-based-token">1. JWT (Json Based Token)</h2>
 <p><strong>Token</strong> là 1 chuỗi string được mã hoá được tạo ra từ hệ thống của chúng ta sau khi xác thực thành công. Và được đính kèm trong các request để cung cấp quyền truy cập vào ứng dụng.</p>
 <p><strong>JWT</strong> là 1 chuẩn JSON để tạo token, được bao gồm bởi 3 phần</p>
 <ul>
@@ -373,7 +373,7 @@ Còn việc xác thực token sẽ do Zuul gateway đảm nhận, khi có 1 requ
 <code>{username: &quot;Omar&quot;, email: &quot;omar@example.com&quot;, admin: true }</code></li>
 <li>Signature: là giá trị hash của <code>Header + “.” + Payload + Secret key</code></li>
 </ul>
-<h1 id="2-zuul-gateway">2. Zuul gateway</h1>
+<h2 id="2-zuul-gateway">2. Zuul gateway</h2>
 <p>Ở trong gateway sẽ thực hiện 2 chức năng: một xác thực token và 2 là chặn tất cả request nếu xác thực không thành công.
 Trong file <code>pom.xml</code> chúng ta cần thêm spring security và JWT</p>
 <pre tabindex="0"><code>&lt;dependency&gt;
@@ -510,7 +510,7 @@ security:
     prefix: Bearer
     expiration: 86400
     secret: JwtSecretKey
-</code></pre><h1 id="4-common-service">4. Common service</h1>
+</code></pre><h2 id="3-common-service">3. Common service</h2>
 <p>Service này sẽ chứa những config được sử dụng chung cho nhiều service khác
 Chúng ta sẽ tạo class JwtConfig để chứa các config JWT và class này sẽ được sử dụng trong Auth service và Zuul gateway</p>
 <p>Cũng tương tự như việc tạo các service khác hãy tạo mới project Spring boot và config file <code>pom.xml</code> như sau:</p>
@@ -600,7 +600,7 @@ public class JwtConfig {
 </blockquote>
 <p><strong>Note</strong>: <em>Các service khác sẽ dùng chung class JwtConfig, còn về các value security.jwt.uri, security.jwt.header, &hellip; sẽ được config riêng trong file <code>application.yml</code> của từng service.</em></p>
 <p>Như vậy là đã xong phần security trong <strong>Zuull gateway</strong>, tiếp theo đây sẽ tạo mới <strong>Auth service</strong></p>
-<h1 id="5-auth-service">5. Auth Service</h1>
+<h2 id="4-auth-service">4. Auth Service</h2>
 <p>Trong auth service, chúng ta sẽ làm hai việc: một là xác thực định danh mà người dùng cung cấp và hai là gen ra một token trong trường hợp xác thực hợp lệ hoặc trả về một exception nếu nó không hợp lệ.
 Trong file <code>pom.xml</code> chúng ta cần các dependencies sau: Web, Eureka Client, Spring Security và JWT.</p>
 <pre tabindex="0"><code>    &lt;dependencies&gt;
@@ -938,7 +938,7 @@ public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePassword
 </code></pre><blockquote>
 <p>Trong Auth service cũng đã sử dụng đến JwtConfig việc này tránh trùng lặp code</p>
 </blockquote>
-<h1 id="6-testing">6. Testing</h1>
+<h2 id="5-testing">5. Testing</h2>
 <p>Chạy lần lượt các service Eureka, Zuul, Auth và User.</p>
 <p>Đầu tiên chúng ta thử truy cập vào user service thông qua đường dẫn <code>localhost:8762/user/user-info</code> mà không có token. Chúng ta sẽ nhận về một lỗi 401 như sau:</p>
 <pre tabindex="0"><code>{
@@ -1101,7 +1101,20 @@ public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePassword
     </div>
 
     
-    
+    <nav class="toc" id="toc">
+    <div class="toc-title">Nội dung bài viết</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-jwt-json-based-token">1. JWT (Json Based Token)</a></li>
+    <li><a href="#2-zuul-gateway">2. Zuul gateway</a></li>
+    <li><a href="#3-common-service">3. Common service</a></li>
+    <li><a href="#4-auth-service">4. Auth Service</a></li>
+    <li><a href="#5-testing">5. Testing</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
 
 
   </div>

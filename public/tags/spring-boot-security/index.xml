@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Spring Boot Security on Cuong Vu - A super concise theme for Hugo</title>
+    <title>Spring Boot Security on Cuong Vu</title>
     <link>https://cuongvndev.github.io/tags/spring-boot-security/</link>
-    <description>Recent content in Spring Boot Security on Cuong Vu - A super concise theme for Hugo</description>
+    <description>Recent content in Spring Boot Security on Cuong Vu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 14 Aug 2023 15:33:23 +0700</lastBuildDate><atom:link href="https://cuongvndev.github.io/tags/spring-boot-security/index.xml" rel="self" type="application/rss+xml" />

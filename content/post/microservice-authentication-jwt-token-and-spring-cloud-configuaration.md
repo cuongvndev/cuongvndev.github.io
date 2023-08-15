@@ -12,7 +12,7 @@ Trong bài viết này chúng ta sẽ cùng tìm hiểu về **JWT** và cách �
 Chúng ta sẽ tạo 1 service mới là ```auth service``` có nhiệm vụ xác minh danh tính và tạo jwt token khi user login
 Còn việc xác thực token sẽ do Zuul gateway đảm nhận, khi có 1 request gửi đến thì Zuul gateway sẽ dựa vào token được cung cấp và xác thực quyền truy cập, xác thực thành công thì mới tiến hành điều hướng request tới các service bussiness khác.
 
-# 1. JWT (Json Based Token)
+## 1. JWT (Json Based Token)
 **Token** là 1 chuỗi string được mã hoá được tạo ra từ hệ thống của chúng ta sau khi xác thực thành công. Và được đính kèm trong các request để cung cấp quyền truy cập vào ứng dụng.
 
 **JWT** là 1 chuẩn JSON để tạo token, được bao gồm bởi 3 phần
@@ -22,7 +22,7 @@ Còn việc xác thực token sẽ do Zuul gateway đảm nhận, khi có 1 requ
 ```{username: "Omar", email: "omar@example.com", admin: true }```
 * Signature: là giá trị hash của ```Header + “.” + Payload + Secret key```
 
-# 2. Zuul gateway
+## 2. Zuul gateway
 Ở trong gateway sẽ thực hiện 2 chức năng: một xác thực token và 2 là chặn tất cả request nếu xác thực không thành công.
 Trong file ```pom.xml``` chúng ta cần thêm spring security và JWT
 ```
@@ -169,7 +169,7 @@ security:
     expiration: 86400
     secret: JwtSecretKey
 ```
-# 4. Common service
+## 3. Common service
 Service này sẽ chứa những config được sử dụng chung cho nhiều service khác
 Chúng ta sẽ tạo class JwtConfig để chứa các config JWT và class này sẽ được sử dụng trong Auth service và Zuul gateway
 
@@ -269,7 +269,7 @@ Tiếp theo ở các service khác, chẳng hạn như ở Zuul gateway chúng t
 
 Như vậy là đã xong phần security trong **Zuull gateway**, tiếp theo đây sẽ tạo mới **Auth service**
 
-# 5. Auth Service
+## 4. Auth Service
 Trong auth service, chúng ta sẽ làm hai việc: một là xác thực định danh mà người dùng cung cấp và hai là gen ra một token trong trường hợp xác thực hợp lệ hoặc trả về một exception nếu nó không hợp lệ.
 Trong file ```pom.xml``` chúng ta cần các dependencies sau: Web, Eureka Client, Spring Security và JWT.
 ```
@@ -619,7 +619,7 @@ public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePassword
 ```
 >Trong Auth service cũng đã sử dụng đến JwtConfig việc này tránh trùng lặp code
 
-# 6. Testing
+## 5. Testing
 Chạy lần lượt các service Eureka, Zuul, Auth và User.
 
 Đầu tiên chúng ta thử truy cập vào user service thông qua đường dẫn ```localhost:8762/user/user-info``` mà không có token. Chúng ta sẽ nhận về một lỗi 401 như sau:
