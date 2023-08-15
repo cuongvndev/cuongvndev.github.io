@@ -5,7 +5,6 @@ on:
     branches:
       - master  # Set a branch to deploy
 
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -47,22 +46,3 @@ jobs:
         destination_repo: 'cuongvndev/cuongvndev.github.io'
         destination_branch: gh-pages
         commit_message: 'update blog'
-      
-# jobs:
-#   copy-file: // coppy folder public to branch master of another repo
-#     runs-on: ubuntu-latest
-#     steps:
-#     - name: Checkout
-#       uses: actions/checkout@v2
-
-#     - name: Push to another repo
-#       uses: dmnemec/copy_file_to_another_repo_action@main
-#       env:
-#         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }} 
-#       with:
-#         source_file: public
-#         destination_repo: 'cuongvndev/cuongvndev.github.io'
-#         destination_branch: master
-#         user_email: 'vucuong1112@email.com'# your email
-#         user_name: 'cuongvndev'           # your login
-#         commit_message: 'update blog'
