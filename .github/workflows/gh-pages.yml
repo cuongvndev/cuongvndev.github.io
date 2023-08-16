@@ -48,4 +48,4 @@ jobs:
         run: |
           git remote add www git@github.com:cuongvndev/cuongvndev.github.io.git
             git fetch www
-            git push -u www gh-pages:master
+            git push -u gh-pages:master
