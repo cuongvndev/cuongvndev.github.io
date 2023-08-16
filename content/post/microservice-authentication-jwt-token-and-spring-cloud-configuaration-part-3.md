@@ -9,6 +9,5 @@ featured: false
 Comming soon.
 
 <!--more-->
-{{ partial "search-google.html" . }}
 
 Comming soon.
