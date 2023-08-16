@@ -52,7 +52,7 @@ params:
   dateFormatToUse: 2006-01-02
   toc: true
   photoswipe: true
-  customCSS: []
+  customCSS: ['custom.css']
   customJS: []
   social:
     g-github: https://cuongvndev.github.io
