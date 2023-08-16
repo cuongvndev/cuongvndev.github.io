@@ -47,5 +47,5 @@ jobs:
       - name: Deploy Files
         run: |
           git remote add www git@github.com:cuongvndev/cuongvndev.github.io.git
-            git fetch
-            git push -u gh-pages:master
+            git fetch www
+            git push -u www gh-pages:master
