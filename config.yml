@@ -3,12 +3,11 @@ title: Cuong Vu
 enableRobotsTXT: true
 enableEmoji: true
 theme: jane
-hasCJKLanguage: true
+hasCJKLanguage: false
 paginate: 3
 rssLimit: 20
-disqusShortname: ""
+disqusShortname: "cuongvndev"
 googleAnalytics: "G-MPBTRXJEZK"
-copyright: ""
 defaultContentLanguage: en
 languages:
   en:
@@ -43,6 +42,8 @@ params:
   homeFullContent: false
   rssFullContent: true
   logoTitle: Cuong Vu
+  moreMeta: true
+  showMenuLanguageChooser: true
   keywords:
     - Hugo
     - theme
@@ -51,11 +52,12 @@ params:
   dateFormatToUse: 2006-01-02
   toc: true
   photoswipe: true
-  contentCopyright: <a rel="license noopener"
-    href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC
-    BY-NC-ND 4.0</a>
   customCSS: []
   customJS: []
   social:
     g-github: https://cuongvndev.github.io
-disqusShortname: cuongvndev
+  search:
+    google:
+      enable: true
+      id: "c6448581e63304f73"
+      title: "Search"

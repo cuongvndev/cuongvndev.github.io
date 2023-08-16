@@ -1,0 +1,45 @@
+<div class="disqus-comment">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      let mountNode = document.querySelector("#disqus_thread");
+    let options = {
+      rootMargin: "0px",
+      threshold: 0,
+    };
+  
+    let observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          console.log("Initialize Disqus!");
+  
+          //-- Copied from their documentation: START
+  
+          var disqus_config = function () {
+            this.page.url = {{ .Permalink }};
+          };
+          var disqus_shortname = '{{ .Site.DisqusShortname }}';
+  
+          var d = document,
+            s = d.createElement("script");
+          s.src = "https://"+disqus_shortname+".disqus.com/embed.js";
+  
+          s.setAttribute("data-timestamp", +new Date());
+          (d.head || d.body).appendChild(s);
+  
+          //-- Copied from their documentation: END
+  
+          // After initializing, we don't need this observer anymore.
+          observer.unobserve(mountNode);
+          return;
+        }
+      });
+    }, options);
+  
+    observer.observe(mountNode);
+    </script>
+    <noscript
+      >Please enable JavaScript to view the
+      <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+    </noscript>
+    <!-- <a href="http://disqus.com/" class="dsq-brlink" target="_blank">comments powered by <span class="logo-disqus">Disqus</span></a> -->
+  </div>
