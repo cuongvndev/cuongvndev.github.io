@@ -13,7 +13,8 @@
       <pubDate>Mon, 14 Aug 2023 15:33:23 +0700</pubDate>
       
       <guid>https://cuongvndev.github.io/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/</guid>
-      <description>&lt;p&gt;Comming soon.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Trong phần này chúng ta sẽ cùng tìm hiểu về Spring Cloud Configuaration.&lt;/p&gt;
+&lt;p&gt;Spring Cloud Configuration là một module trong hệ sinh thái Spring Cloud, cung cấp các công cụ để xây dựng các hệ thống phân tán và ứng dụng dịch vụ nhỏ. Spring Cloud Configuration tập trung cụ thể vào việc quản lý cấu hình của các ứng dụng trong một cách tập trung và linh hoạt.&lt;/p&gt;</description>
     </item>
     
     <item>
