@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Cuong Vu - Going to the moon 🌑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 14 Aug 2023 15:33:23 +0700</lastBuildDate><atom:link href="https://cuongvndev.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Aug 2023 10:41:55 +0700</lastBuildDate><atom:link href="https://cuongvndev.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cơ bản về Redux Saga</title>
+      <link>https://cuongvndev.github.io/post/react-native-redux-saga/</link>
+      <pubDate>Wed, 23 Aug 2023 10:41:55 +0700</pubDate>
+      
+      <guid>https://cuongvndev.github.io/post/react-native-redux-saga/</guid>
+      <description>&lt;p&gt;Xin chào tất cả các bạn, bài viết này mình xin chia sẻ một chút kiến thức mình tìm hiểu được về &lt;em&gt;&lt;strong&gt;Redux Saga&lt;/strong&gt;&lt;/em&gt;, mong mọi người theo dõi.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 3</title>
       <link>https://cuongvndev.github.io/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/</link>
