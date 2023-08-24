@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zuul Gateway on Cuong Vu - Going to the moon 🌑</title>
+    <link>https://cuongvndev.github.io/en/tags/zuul-gateway/</link>
+    <description>Recent content in Zuul Gateway on Cuong Vu - Going to the moon 🌑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 14 Aug 2023 15:33:23 +0700</lastBuildDate><atom:link href="https://cuongvndev.github.io/en/tags/zuul-gateway/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microservices, Eureka and Zuul Gateway User Manual - Part 3</title>
+      <link>https://cuongvndev.github.io/en/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/</link>
+      <pubDate>Mon, 14 Aug 2023 15:33:23 +0700</pubDate>
+      
+      <guid>https://cuongvndev.github.io/en/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/</guid>
+      <description>&lt;p&gt;Trong phần này chúng ta sẽ cùng tìm hiểu về Spring Cloud Configuaration.&lt;/p&gt;
+&lt;p&gt;Spring Cloud Configuration là một module trong hệ sinh thái Spring Cloud, cung cấp các công cụ để xây dựng các hệ thống phân tán và ứng dụng dịch vụ nhỏ. Spring Cloud Configuration tập trung cụ thể vào việc quản lý cấu hình của các ứng dụng trong một cách tập trung và linh hoạt.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Microservices, Eureka and Zuul Gateway User Manual - Part 2</title>
+      <link>https://cuongvndev.github.io/en/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration/</link>
+      <pubDate>Fri, 11 Aug 2023 09:25:25 +0700</pubDate>
+      
+      <guid>https://cuongvndev.github.io/en/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration/</guid>
+      <description>&lt;p&gt;Ở bài trước chúng ta đã dựng được một hệ thống microservice đơn giản với User service, Eureka server và Zuul gateway.
+Trong bài viết này chúng ta sẽ cùng tìm hiểu về &lt;strong&gt;JWT&lt;/strong&gt; và cách để &lt;strong&gt;xác thực và bảo mật&lt;/strong&gt; trong hệ thống &lt;strong&gt;Microservice&lt;/strong&gt; bằng JWT.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Microservices, Eureka and Zuul Gateway User Manual - Part 1</title>
+      <link>https://cuongvndev.github.io/en/post/microservice-with-spring-boot-eureka-and-zuul-gateway/</link>
+      <pubDate>Thu, 10 Aug 2023 11:18:56 +0700</pubDate>
+      
+      <guid>https://cuongvndev.github.io/en/post/microservice-with-spring-boot-eureka-and-zuul-gateway/</guid>
+      <description>&lt;p&gt;Bài viết này cung cấp một hướng dẫn chi tiết về việc triển khai và sử dụng kiến trúc &lt;strong&gt;Microservice&lt;/strong&gt; kết hợp với các công cụ &lt;strong&gt;Eureka&lt;/strong&gt; và Zuul &lt;strong&gt;Gateway&lt;/strong&gt;. Đây là những bước cơ bản để xây dựng một hệ thống phân tán linh hoạt và có khả năng mở rộng.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
