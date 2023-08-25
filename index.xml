@@ -1168,7 +1168,7 @@ This way, you can centralize the configuration while allowing each service to sp
       <guid>https://cuongvndev.github.io/post/microservice-with-spring-boot-eureka-and-zuul-gateway/</guid>
       
         <description>&lt;p&gt;This article provides a detailed guide on deploying and using the &lt;em&gt;&lt;strong&gt;Microservice&lt;/strong&gt;&lt;/em&gt; architecture in combination with the &lt;em&gt;&lt;strong&gt;Eureka&lt;/strong&gt;&lt;/em&gt; and &lt;em&gt;&lt;strong&gt;Zuul Gateway&lt;/strong&gt;&lt;/em&gt; tools. These steps outline the fundamentals of building a flexible and scalable distributed system.&lt;/p&gt;
-&lt;h2 id=&#34;1-giới-thệu&#34;&gt;1. Giới thệu&lt;/h2&gt;
+&lt;h2 id=&#34;1-introduction&#34;&gt;1. Introduction&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Microservices&lt;/strong&gt; is a revolutionary software architecture model that involves breaking down applications into smaller, independent components known as &amp;ldquo;microservices.&amp;rdquo; Each microservice can be developed, deployed, and managed separately, optimizing scalability and maintenance.&lt;/p&gt;
 &lt;p&gt;Now, let&amp;rsquo;s proceed with deploying a simple system as follows:
 &lt;img src=&#34;https://cuongvndev.github.io/blog/microservice/model.png&#34; alt=&#34;Scenario 1: Across columns&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
