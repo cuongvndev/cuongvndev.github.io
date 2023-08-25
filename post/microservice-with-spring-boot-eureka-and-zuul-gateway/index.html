@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html
-  lang="vi"
+  lang="en"
   itemscope
   itemtype="http://schema.org/WebPage"
 >
@@ -8,10 +8,10 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>
-          Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 1 - Cuong Vu - Going to the moon 🌑
+          Microservices, Eureka and Zuul Gateway User Manual - Part 1 - Cuong Vu - Going to the moon 🌑
         </title>
     
-<link rel="alternate" hreflang="en" href="https://cuongvndev.github.io/en/post/microservice-with-spring-boot-eureka-and-zuul-gateway/" />
+<link rel="alternate" hreflang="vi" href="https://cuongvndev.github.io/vi/post/microservice-with-spring-boot-eureka-and-zuul-gateway/" />
 
 
 <meta name="renderer" content="webkit" />
@@ -31,7 +31,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Cuong Vu" />
-  <meta name="description" content="Bài viết này cung cấp một hướng dẫn chi tiết về việc triển khai và sử dụng kiến trúc Microservice kết hợp với các công cụ Eureka và Zuul Gateway. Đây là những bước cơ bản để xây dựng một hệ thống phân tán linh hoạt và có khả năng mở rộng.
+  <meta name="description" content="This article provides a detailed guide on deploying and using the Microservice architecture in combination with the Eureka and Zuul Gateway tools. These steps outline the fundamentals of building a flexible and scalable distributed system.
 " />
 
   <meta name="keywords" content="Spring Boot, Microservice, Java, Cuong vu" />
@@ -72,19 +72,19 @@
 <link rel="stylesheet" href="/css/custom.css">
 
 
-<meta property="og:title" content="Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 1" />
-<meta property="og:description" content="Bài viết này cung cấp một hướng dẫn chi tiết về việc triển khai và sử dụng kiến trúc Microservice kết hợp với các công cụ Eureka và Zuul Gateway. Đây là những bước cơ bản để xây dựng một hệ thống phân tán linh hoạt và có khả năng mở rộng." />
+<meta property="og:title" content="Microservices, Eureka and Zuul Gateway User Manual - Part 1" />
+<meta property="og:description" content="This article provides a detailed guide on deploying and using the Microservice architecture in combination with the Eureka and Zuul Gateway tools. These steps outline the fundamentals of building a flexible and scalable distributed system." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://cuongvndev.github.io/post/microservice-with-spring-boot-eureka-and-zuul-gateway/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2023-08-10T11:18:56+07:00" />
 <meta property="article:modified_time" content="2023-08-10T11:18:56+07:00" />
-<meta itemprop="name" content="Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 1">
-<meta itemprop="description" content="Bài viết này cung cấp một hướng dẫn chi tiết về việc triển khai và sử dụng kiến trúc Microservice kết hợp với các công cụ Eureka và Zuul Gateway. Đây là những bước cơ bản để xây dựng một hệ thống phân tán linh hoạt và có khả năng mở rộng."><meta itemprop="datePublished" content="2023-08-10T11:18:56+07:00" />
+<meta itemprop="name" content="Microservices, Eureka and Zuul Gateway User Manual - Part 1">
+<meta itemprop="description" content="This article provides a detailed guide on deploying and using the Microservice architecture in combination with the Eureka and Zuul Gateway tools. These steps outline the fundamentals of building a flexible and scalable distributed system."><meta itemprop="datePublished" content="2023-08-10T11:18:56+07:00" />
 <meta itemprop="dateModified" content="2023-08-10T11:18:56+07:00" />
-<meta itemprop="wordCount" content="946">
+<meta itemprop="wordCount" content="859">
 <meta itemprop="keywords" content="Microservice,Eureka,Zuul Gateway,Spring Boot Security,Spring Cloud Configuration,Spring Cloud Netflix," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 1"/>
-<meta name="twitter:description" content="Bài viết này cung cấp một hướng dẫn chi tiết về việc triển khai và sử dụng kiến trúc Microservice kết hợp với các công cụ Eureka và Zuul Gateway. Đây là những bước cơ bản để xây dựng một hệ thống phân tán linh hoạt và có khả năng mở rộng."/>
+<meta name="twitter:title" content="Microservices, Eureka and Zuul Gateway User Manual - Part 1"/>
+<meta name="twitter:description" content="This article provides a detailed guide on deploying and using the Microservice architecture in combination with the Eureka and Zuul Gateway tools. These steps outline the fundamentals of building a flexible and scalable distributed system."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -129,28 +129,28 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://cuongvndev.github.io/">Home</a>
+            <a class="menu-item-link" href="https://cuongvndev.github.io/vi/">Home</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://cuongvndev.github.io/post/">Archives</a>
+            <a class="menu-item-link" href="https://cuongvndev.github.io/vi/post/">Archives</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://cuongvndev.github.io/tags/">Tags</a>
+            <a class="menu-item-link" href="https://cuongvndev.github.io/vi/tags/">Tags</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://cuongvndev.github.io/categories/">Categories</a>
+            <a class="menu-item-link" href="https://cuongvndev.github.io/vi/categories/">Categories</a>
           
         
       </li><li class="mobile-menu-item">
@@ -180,13 +180,13 @@ if (!doNotTrack) {
           
             <li>
               
-                <a href="https://cuongvndev.github.io/"><strong>VN</strong></a>
+                <a href="https://cuongvndev.github.io/vi/">VN</a>
               
             </li>
           
             <li>
               
-                <a href="https://cuongvndev.github.io/en/">EN</a>
+                <a href="https://cuongvndev.github.io/"><strong>EN</strong></a>
               
             </li>
           
@@ -322,7 +322,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://cuongvndev.github.io/">Home</a>
+            <a class="menu-item-link" href="https://cuongvndev.github.io/vi/">Home</a>
           
 
         
@@ -333,7 +333,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://cuongvndev.github.io/post/">Archives</a>
+            <a class="menu-item-link" href="https://cuongvndev.github.io/vi/post/">Archives</a>
           
 
         
@@ -344,7 +344,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://cuongvndev.github.io/tags/">Tags</a>
+            <a class="menu-item-link" href="https://cuongvndev.github.io/vi/tags/">Tags</a>
           
 
         
@@ -355,7 +355,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://cuongvndev.github.io/categories/">Categories</a>
+            <a class="menu-item-link" href="https://cuongvndev.github.io/vi/categories/">Categories</a>
           
 
         
@@ -385,16 +385,16 @@ if (!doNotTrack) {
 </svg>
 
           </i>
-          VN
+          EN
         </a>
         <ul class="submenu">
           
             
-          
-            
               <li class="submenu-item">
-                <a href="https://cuongvndev.github.io/en/">EN</a>
+                <a href="https://cuongvndev.github.io/vi/">VN</a>
               </li>
+            
+          
             
           
         </ul>
@@ -428,12 +428,12 @@ if (!doNotTrack) {
       <article class="post">
         
         <header class="post-header">
-          <h1 class="post-title">Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 1</h1>
+          <h1 class="post-title">Microservices, Eureka and Zuul Gateway User Manual - Part 1</h1>
           
   <div class="post-title-i18n">
     
       <div>
-        : <a href="https://cuongvndev.github.io/en/post/microservice-with-spring-boot-eureka-and-zuul-gateway/">Microservices, Eureka and Zuul Gateway User Manual - Part 1</a>
+        : <a href="https://cuongvndev.github.io/vi/post/microservice-with-spring-boot-eureka-and-zuul-gateway/">Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 1</a>
       </div>
     
   </div>
@@ -461,7 +461,7 @@ if (!doNotTrack) {
 
   <div class="post-meta__right">
     <span class="post-meta-more">
-        946 words -
+        859 words -
         5 min read
       </span>
 
@@ -484,15 +484,15 @@ if (!doNotTrack) {
 
         
         <div class="post-content">
-          <p>Bài viết này cung cấp một hướng dẫn chi tiết về việc triển khai và sử dụng kiến trúc <strong>Microservice</strong> kết hợp với các công cụ <strong>Eureka</strong> và Zuul <strong>Gateway</strong>. Đây là những bước cơ bản để xây dựng một hệ thống phân tán linh hoạt và có khả năng mở rộng.</p>
+          <p>This article provides a detailed guide on deploying and using the <em><strong>Microservice</strong></em> architecture in combination with the <em><strong>Eureka</strong></em> and <em><strong>Zuul Gateway</strong></em> tools. These steps outline the fundamentals of building a flexible and scalable distributed system.</p>
 <h2 id="1-giới-thệu">1. Giới thệu</h2>
-<p><strong>Microservices</strong> là một mô hình kiến trúc phần mềm đột phá, cho phép các ứng dụng được chia thành các phần nhỏ hơn và độc lập, được gọi là &ldquo;microservices&rdquo;. Mỗi microservice có thể phát triển, triển khai và quản lý riêng biệt, giúp tối ưu hóa khả năng mở rộng và duy trì.</p>
-<p>Bây giờ tôi sẽ triển khai một hệ thống đơn giản như sau:
+<p><strong>Microservices</strong> is a revolutionary software architecture model that involves breaking down applications into smaller, independent components known as &ldquo;microservices.&rdquo; Each microservice can be developed, deployed, and managed separately, optimizing scalability and maintenance.</p>
+<p>Now, let&rsquo;s proceed with deploying a simple system as follows:
 <img src="/blog/microservice/model.png" alt="Scenario 1: Across columns" loading="lazy" class="zoom-image center"/></p>
 <h2 id="2-eureka-server">2. Eureka server</h2>
-<p>Là máy chủ dùng để quản lý, đặt tên cho các service hay còn gọi là <code>service registry</code>, mục đích của nó là thay vì phải nhớ 64.233.181.99 thì bạn có thể vào trực tiếp google bằng địa chỉ google.com và khi mà các service thay đổi địa chỉ thì Eureka sẽ tự động cập nhật mà bạn không cần phải thay đổi code.</p>
-<p>Mỗi service sẽ được đăng ký với Eureka và sẽ ping cho Eureka để đảm bảo chúng vẫn còn hoạt động, Nếu Eureka không nhận được thông báo nào từ service thì service đó sẽ tự động bị xoá.</p>
-<p>Ok bây giờ hãy tạo mới project spring boot dùng Maven để quản lý dependencies và khai báo file <code>pom.xml</code> như sau:</p>
+<p>The Eureka server is used to manage and name services, also known as a <code>service registry</code>. Its purpose is to provide a human-friendly way to access services without remembering their IP addresses. For example, instead of remembering the IP address 64.233.181.99, you can access Google directly using the address google.com. When services change their addresses, Eureka will automatically update the registry, eliminating the need to modify code.</p>
+<p>Each service registers with Eureka and sends regular pings to let Eureka know it&rsquo;s still operational. If Eureka doesn&rsquo;t receive any pings from a service, that service will be automatically removed.</p>
+<p>Now, let&rsquo;s create a new Spring Boot project using Maven for dependency management and set up the pom.xml file as follows:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">&lt;</span>dependencies<span style="color:#f92672">&gt;</span>  
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>  
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">springframework</span><span style="color:#f92672">.</span><span style="color:#a6e22e">boot</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>  
@@ -513,7 +513,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>scope<span style="color:#f92672">&gt;</span>test<span style="color:#f92672">&lt;/</span>scope<span style="color:#f92672">&gt;</span>  
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>  
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/</span>dependencies<span style="color:#f92672">&gt;</span>
-</span></span></code></pre></div><p>Tiếp theo trong file <code>application.yml</code> cần config như sau:</p>
+</span></span></code></pre></div><p>Next, in the <code>application.yml</code> file, we need to configure it as follows:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>server:
 </span></span><span style="display:flex;"><span>  port<span style="color:#f92672">:</span> 8761
 </span></span><span style="display:flex;"><span>spring:
@@ -523,7 +523,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>  client<span style="color:#f92672">:</span>
 </span></span><span style="display:flex;"><span>    register<span style="color:#f92672">-</span>with<span style="color:#f92672">-</span>eureka<span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>
 </span></span><span style="display:flex;"><span>    fetch<span style="color:#f92672">-</span>registry<span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
-</span></span></code></pre></div><p>Cuối cùng trong class Application, chúng ta sử dụng <code>@EnableEurekaServer</code> để khai báo đây là một Eureka Server:</p>
+</span></span></code></pre></div><p>Finally, in the <code>Application</code> class, we use <code>@EnableEurekaServer</code> to declare that this is a Eureka Server:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@SpringBootApplication</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">@EnableEurekaServer</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">EurekaServerApplication</span> <span style="color:#f92672">{</span>
@@ -532,14 +532,14 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><h2 id="3-zuul-gateway">3. Zuul Gateway</h2>
-<p>Zuul là thành phần của hệ thống microservices được phát triển bởi Netflix. Nó hoạt động như một dịch vụ cổng (gateway) trong mô hình kiến trúc ứng dụng microservices, giúp quản lý và điều phối yêu cầu từ clients tới các dịch vụ microservices tương ứng.</p>
-<p>Zuul Gateway có các chức năng chính sau:</p>
+<p>Zuul is a component of the microservices system developed by Netflix. It operates as a gateway service in the microservices architecture, helping to manage and route requests from clients to corresponding microservices.</p>
+<p>Zuul Gateway has the following main functions:</p>
 <ul>
-<li>Routing (Định tuyến): client sẽ không thể gửi request đến từng serive được, chưa kể việc các service còn giao tiếp qua lại với nhau, thay vào đó client sẽ gửi request trực tiếp tới 1 địa chỉ duy nhất của gateway, lúc này gateway có nhiệm vụ tiếp nhận và phân phối đến các service tương ứng.</li>
-<li>Load Balancing (Cân bằng tải): phân phối request đến nhiều instance của 1 service.</li>
-<li>Authentication và Security (xác thực và bảo mật).</li>
+<li>Routing: Clients cannot send requests directly to each individual service, not to mention the communication between services. Instead, clients send requests directly to a single address of the gateway. At this point, the gateway is responsible for receiving and distributing the requests to the appropriate services.</li>
+<li>Load Balancing: Distributing requests to multiple instances of a service.</li>
+<li>Authentication and Security.</li>
 </ul>
-<p>Tiến hành cài đặt Zuul Gateway bằng cách tạo mới project Spring boot sử dụng các dependency sau:</p>
+<p>Proceed to install Zuul Gateway by creating a new Spring Boot project with the following dependencies:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">springframework</span><span style="color:#f92672">.</span><span style="color:#a6e22e">boot</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>spring<span style="color:#f92672">-</span>boot<span style="color:#f92672">-</span>starter<span style="color:#f92672">-</span>web<span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>
@@ -552,7 +552,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">springframework</span><span style="color:#f92672">.</span><span style="color:#a6e22e">cloud</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>spring<span style="color:#f92672">-</span>cloud<span style="color:#f92672">-</span>starter<span style="color:#f92672">-</span>netflix<span style="color:#f92672">-</span>eureka<span style="color:#f92672">-</span>client<span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
-</span></span></code></pre></div><p>Sử dụng anotation <code>@EnableZuulProxy</code> và <code>@EnableEurekaClient</code> để khai báo đây là Zuul và Eureka Client:</p>
+</span></span></code></pre></div><p>Use the annotations <code>@EnableZuulProxy</code> and <code>@EnableEurekaClient</code> to declare that this is a Zuul Gateway and a Eureka Client:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@SpringBootApplication</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">@EnableZuulProxy</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">@EnableEurekaClient</span>
@@ -561,7 +561,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>        SpringApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>ZuulServerApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> args<span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>Và đừng quên config nữa nhé:</p>
+</span></span></code></pre></div><p>And don&rsquo;t forget the configuration as well:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>server:
 </span></span><span style="display:flex;"><span>  port<span style="color:#f92672">:</span> 8080
 </span></span><span style="display:flex;"><span>
@@ -587,13 +587,13 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>  instance<span style="color:#f92672">:</span>
 </span></span><span style="display:flex;"><span>    prefer<span style="color:#f92672">-</span>ip<span style="color:#f92672">-</span>address<span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
 </span></span></code></pre></div><blockquote>
-<p>Định nghĩa routers ở trong zuul nói cho zuul biết rằng khi user truy cập với đường dẫn <code>/user/**</code> thì chuyển hướng tới user-service
-, còn service-id như ở trên mình đã nói Eureka sẽ đăng ký user service với cái tên là user-service thay vì sử dụng <code>http://localhost:8083</code></p>
+<p>Defining routers in Zuul informs it that when a user accesses the path /user/**, it should redirect to the user-service.
+, The service-id, as mentioned before, is registered by Eureka with the name &ldquo;user-service&rdquo; instead of using <code>http://localhost:8083</code>.</p>
 </blockquote>
 <h2 id="4-bussiness-service">4. Bussiness service</h2>
-<p>Các Eureka client service là một service độc lập trong kiến trúc microservice. Mỗi client service chỉ thực hiện duy nhất một nghiệp vụ nào đó trong hệ thống như thanh toán, tài khoản, thông báo, xác thực, cấu hình,…</p>
+<p>Each Eureka client service is an independent service within the microservice architecture. Each client service performs only a specific business function in the system, such as payments, accounts, notifications, authentication, configuration, etc.</p>
 <p><strong>User Service</strong></p>
-<p>Ok, cũng như Eureka Server, chúng ta sẽ tạo một project Spring Boot mới nhưng sử dụng Eureka Client trong file <code>pom.xml</code>:</p>
+<p>Alright, similar to the Eureka Server, we will create a new Spring Boot project, but this time as a Eureka Client in the <code>pom.xml</code> file:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span>dependencies<span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">springframework</span><span style="color:#f92672">.</span><span style="color:#a6e22e">boot</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
@@ -609,7 +609,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>scope<span style="color:#f92672">&gt;</span>test<span style="color:#f92672">&lt;/</span>scope<span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/</span>dependencies<span style="color:#f92672">&gt;</span>
-</span></span></code></pre></div><p>Trong file <code>application.yml</code> chúng ta sẽ ghi nhận lại địa chỉ của Eureka Server:</p>
+</span></span></code></pre></div><p>In the <code>application.yml</code> file, we will record the address of the Eureka Server:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>server:
 </span></span><span style="display:flex;"><span>  port<span style="color:#f92672">:</span> 8083
 </span></span><span style="display:flex;"><span>spring:
@@ -619,7 +619,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>  client<span style="color:#f92672">:</span>
 </span></span><span style="display:flex;"><span>    service<span style="color:#f92672">-</span>url<span style="color:#f92672">:</span>
 </span></span><span style="display:flex;"><span>      defaultZone<span style="color:#f92672">:</span> http<span style="color:#f92672">:</span><span style="color:#75715e">//localhost:8761/eureka/
-</span></span></span></code></pre></div><p>Sau đó để chỉ cho Spring Boot biết đây là một Eureka client, chúng ta dùng annotation <code>@EnableEurekaClient</code> trong class main:</p>
+</span></span></span></code></pre></div><p>After that, to let Spring Boot know that this is a Eureka client, we use the <code>@EnableEurekaClient</code> annotation in the main class:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@SpringBootApplication</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">@EnableEurekaClient</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserServiceApplication</span> <span style="color:#f92672">{</span>
@@ -627,7 +627,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>        SpringApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>UserServiceApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> args<span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>Tiến hành tạo controller để test:</p>
+</span></span></code></pre></div><p>Proceed to create a controller for testing purposes:</p>
 <ul>
 <li><strong>UserController.java</strong></li>
 </ul>
@@ -646,24 +646,23 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><blockquote>
-<p>ở đây mình sẽ hardcode cho nhanh gọn lẹ</p>
+<p>Here, I will hardcode it for the sake of simplicity and convenience.</p>
 </blockquote>
 <h2 id="5-testing">5. Testing</h2>
-<p>Ok, như vậy là chúng ta đã tạo xong bộ khung cho hệ thống microservice
-Tiến hành run các service theo thứ tự: Eureka, Zuul và User
-Để kiểm tra các service của chúng ta vào <code>localhost://8761</code> đây là cổng của Eureka Server, và bạn có thể thấy các service đang chạy như hình:
+<p>Great, that means we have successfully set up the framework for the microservices system. Proceed to run the services in the following order: Eureka, Zuul, and User.</p>
+<p>To check the status of our services, visit <code>http://localhost:8761</code> which is the port of the Eureka Server. Here, you will be able to see the running services as depicted in the image:
 <img src="/blog/microservice/service-eureka.png" alt="Scenario 1: Across columns" loading="lazy" class="zoom-image center"/></p>
-<p>Tiến hành run api để get user info
+<p>Please proceed to run the API to retrieve user information.
 <img src="/blog/microservice/api-user-info.png" alt="Scenario 2: Across columns" loading="lazy" class="zoom-image center"/></p>
 <blockquote>
-<p>khi call api <code>http://localhost:8083/user-info</code> đang thực hiện call trực tiếp đến user service port 8083</p>
+<p>When calling the API <code>http://localhost:8083/user-info</code>, it is being directly called to the user service on port 8083.</p>
 </blockquote>
 <p><img src="/blog/microservice/api-user-info2.png" alt="Scenario 2: Across columns" loading="lazy" class="zoom-image center"/></p>
 <blockquote>
-<p>khi call api <code>http://localhost:8080/user/user-info</code> đang thực hiện call thông qua zuul gateway port 8080
-zuul gateway sẽ dựa vào path: /user/** để điều hướng tới user service</p>
+<p>When calling the API <code>http://localhost:8080/user/user-info</code>, it is being routed through the Zuul gateway on port 8080.
+The Zuul gateway will use the path /user/** to route to the user service.</p>
 </blockquote>
-<p>Kết thúc phần đầu tiên ở đây, ở phần tiếp theo chúng ta sẽ tìm hiều về cách để xác thực user trong hệ thống microservice và tạo common sử dụng chung cho nhiều service nhé!</p>
+<p>This concludes the first part here. In the next section, we will delve into how to authenticate users within the microservices system and create common shared functionality across multiple services.</p>
         </div>
 
         
@@ -675,15 +674,15 @@ zuul gateway sẽ dựa vào path: /user/** để điều hướng tới user se
         
 
 
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
 <div id="sharing" class="icon-bar">
   <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fcuongvndev.github.io%2fpost%2fmicroservice-with-spring-boot-eureka-and-zuul-gateway%2f" class="fa fa-facebook" aria-label="share on Facebook">
   </a>
 
-  <a href="http://twitter.com/share?url=https%3a%2f%2fcuongvndev.github.io%2fpost%2fmicroservice-with-spring-boot-eureka-and-zuul-gateway%2f&text=H%c6%b0%e1%bb%9bng%20d%e1%ba%abn%20s%e1%bb%ad%20d%e1%bb%a5ng%20Microservice%2c%20Eureka%20v%c3%a0%20Zuul%20Gateway%20-%20Ph%e1%ba%a7n%201&via=" class="fa fa-twitter" aria-label="share on Twitter">
+  <a href="http://twitter.com/share?url=https%3a%2f%2fcuongvndev.github.io%2fpost%2fmicroservice-with-spring-boot-eureka-and-zuul-gateway%2f&text=Microservices%2c%20Eureka%20and%20Zuul%20Gateway%20User%20Manual%20-%20Part%201&via=" class="fa fa-twitter" aria-label="share on Twitter">
   </a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fcuongvndev.github.io%2fpost%2fmicroservice-with-spring-boot-eureka-and-zuul-gateway%2f&amp;source=https%3a%2f%2fcuongvndev.github.io%2fpost%2fmicroservice-with-spring-boot-eureka-and-zuul-gateway%2f&amp;title=H%c6%b0%e1%bb%9bng%20d%e1%ba%abn%20s%e1%bb%ad%20d%e1%bb%a5ng%20Microservice%2c%20Eureka%20v%c3%a0%20Zuul%20Gateway%20-%20Ph%e1%ba%a7n%201&amp;summary=H%c6%b0%e1%bb%9bng%20d%e1%ba%abn%20s%e1%bb%ad%20d%e1%bb%a5ng%20Microservice%2c%20Eureka%20v%c3%a0%20Zuul%20Gateway%20-%20Ph%e1%ba%a7n%201" class="fa fa-linkedin" aria-label="share on LinkedIn">
+  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fcuongvndev.github.io%2fpost%2fmicroservice-with-spring-boot-eureka-and-zuul-gateway%2f&amp;source=https%3a%2f%2fcuongvndev.github.io%2fpost%2fmicroservice-with-spring-boot-eureka-and-zuul-gateway%2f&amp;title=Microservices%2c%20Eureka%20and%20Zuul%20Gateway%20User%20Manual%20-%20Part%201&amp;summary=Microservices%2c%20Eureka%20and%20Zuul%20Gateway%20User%20Manual%20-%20Part%201" class="fa fa-linkedin" aria-label="share on LinkedIn">
   </a>
 </div>
 		
@@ -735,7 +734,7 @@ zuul gateway sẽ dựa vào path: /user/** để điều hướng tới user se
 </svg>
 
                 </i>
-                <span class="prev-text nav-default">Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 2</span>
+                <span class="prev-text nav-default">Microservices, Eureka and Zuul Gateway User Manual - Part 2</span>
                 <span class="prev-text nav-mobile">Prev</span>
               </a>
             
@@ -817,7 +816,7 @@ zuul gateway sẽ dựa vào path: /user/** để điều hướng tới user se
 
     
     <nav class="toc" id="toc">
-    <div class="toc-title">Nội dung bài viết</div>
+    <div class="toc-title">Table of Contents</div>
     <div class="toc-content custom-scrollbar">
       <nav id="TableOfContents">
   <ul>
@@ -834,7 +833,6 @@ zuul gateway sẽ dựa vào path: /user/** để điều hướng tới user se
 
   </div>
   <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.2/dist/medium-zoom.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
   <script>
     mediumZoom('img.zoom-image', {
     margin: 24,

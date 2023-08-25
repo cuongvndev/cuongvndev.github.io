@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html
-  lang="vi"
+  lang="en"
   itemscope
   itemtype="http://schema.org/WebPage"
 >
@@ -8,10 +8,10 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>
-          Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 2 - Cuong Vu - Going to the moon 🌑
+          Microservices, Eureka and Zuul Gateway User Manual - Part 2 - Cuong Vu - Going to the moon 🌑
         </title>
     
-<link rel="alternate" hreflang="en" href="https://cuongvndev.github.io/en/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration/" />
+<link rel="alternate" hreflang="vi" href="https://cuongvndev.github.io/vi/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration/" />
 
 
 <meta name="renderer" content="webkit" />
@@ -31,7 +31,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Cuong Vu" />
-  <meta name="description" content="Ở bài trước chúng ta đã dựng được một hệ thống microservice đơn giản với User service, Eureka server và Zuul gateway. Trong bài viết này chúng ta sẽ cùng tìm hiểu về JWT và cách để xác thực và bảo mật trong hệ thống Microservice bằng JWT.
+  <meta name="description" content="In the previous article, we successfully built a simple microservice system consisting of the User service, Eureka server, and Zuul gateway.
+In this article, we will delve into understanding JWT and the approach to authentication and security within the Microservice architecture using JWT.
 " />
 
   <meta name="keywords" content="Spring Boot, Microservice, Java, Cuong vu" />
@@ -72,22 +73,22 @@
 <link rel="stylesheet" href="/css/custom.css">
 
 
-<meta property="og:title" content="Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 2" />
-<meta property="og:description" content="Ở bài trước chúng ta đã dựng được một hệ thống microservice đơn giản với User service, Eureka server và Zuul gateway.
-Trong bài viết này chúng ta sẽ cùng tìm hiểu về JWT và cách để xác thực và bảo mật trong hệ thống Microservice bằng JWT." />
+<meta property="og:title" content="Microservices, Eureka and Zuul Gateway User Manual - Part 2" />
+<meta property="og:description" content="In the previous article, we successfully built a simple microservice system consisting of the User service, Eureka server, and Zuul gateway.
+In this article, we will delve into understanding JWT and the approach to authentication and security within the Microservice architecture using JWT." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://cuongvndev.github.io/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2023-08-11T09:25:25+07:00" />
 <meta property="article:modified_time" content="2023-08-11T09:25:25+07:00" />
-<meta itemprop="name" content="Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 2">
-<meta itemprop="description" content="Ở bài trước chúng ta đã dựng được một hệ thống microservice đơn giản với User service, Eureka server và Zuul gateway.
-Trong bài viết này chúng ta sẽ cùng tìm hiểu về JWT và cách để xác thực và bảo mật trong hệ thống Microservice bằng JWT."><meta itemprop="datePublished" content="2023-08-11T09:25:25+07:00" />
+<meta itemprop="name" content="Microservices, Eureka and Zuul Gateway User Manual - Part 2">
+<meta itemprop="description" content="In the previous article, we successfully built a simple microservice system consisting of the User service, Eureka server, and Zuul gateway.
+In this article, we will delve into understanding JWT and the approach to authentication and security within the Microservice architecture using JWT."><meta itemprop="datePublished" content="2023-08-11T09:25:25+07:00" />
 <meta itemprop="dateModified" content="2023-08-11T09:25:25+07:00" />
-<meta itemprop="wordCount" content="2345">
+<meta itemprop="wordCount" content="2315">
 <meta itemprop="keywords" content="Microservice,Eureka,Zuul Gateway,Spring Boot Security,Spring Cloud Configuration,Spring Cloud Netflix," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 2"/>
-<meta name="twitter:description" content="Ở bài trước chúng ta đã dựng được một hệ thống microservice đơn giản với User service, Eureka server và Zuul gateway.
-Trong bài viết này chúng ta sẽ cùng tìm hiểu về JWT và cách để xác thực và bảo mật trong hệ thống Microservice bằng JWT."/>
+<meta name="twitter:title" content="Microservices, Eureka and Zuul Gateway User Manual - Part 2"/>
+<meta name="twitter:description" content="In the previous article, we successfully built a simple microservice system consisting of the User service, Eureka server, and Zuul gateway.
+In this article, we will delve into understanding JWT and the approach to authentication and security within the Microservice architecture using JWT."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -132,28 +133,28 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://cuongvndev.github.io/">Home</a>
+            <a class="menu-item-link" href="https://cuongvndev.github.io/vi/">Home</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://cuongvndev.github.io/post/">Archives</a>
+            <a class="menu-item-link" href="https://cuongvndev.github.io/vi/post/">Archives</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://cuongvndev.github.io/tags/">Tags</a>
+            <a class="menu-item-link" href="https://cuongvndev.github.io/vi/tags/">Tags</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://cuongvndev.github.io/categories/">Categories</a>
+            <a class="menu-item-link" href="https://cuongvndev.github.io/vi/categories/">Categories</a>
           
         
       </li><li class="mobile-menu-item">
@@ -183,13 +184,13 @@ if (!doNotTrack) {
           
             <li>
               
-                <a href="https://cuongvndev.github.io/"><strong>VN</strong></a>
+                <a href="https://cuongvndev.github.io/vi/">VN</a>
               
             </li>
           
             <li>
               
-                <a href="https://cuongvndev.github.io/en/">EN</a>
+                <a href="https://cuongvndev.github.io/"><strong>EN</strong></a>
               
             </li>
           
@@ -325,7 +326,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://cuongvndev.github.io/">Home</a>
+            <a class="menu-item-link" href="https://cuongvndev.github.io/vi/">Home</a>
           
 
         
@@ -336,7 +337,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://cuongvndev.github.io/post/">Archives</a>
+            <a class="menu-item-link" href="https://cuongvndev.github.io/vi/post/">Archives</a>
           
 
         
@@ -347,7 +348,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://cuongvndev.github.io/tags/">Tags</a>
+            <a class="menu-item-link" href="https://cuongvndev.github.io/vi/tags/">Tags</a>
           
 
         
@@ -358,7 +359,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://cuongvndev.github.io/categories/">Categories</a>
+            <a class="menu-item-link" href="https://cuongvndev.github.io/vi/categories/">Categories</a>
           
 
         
@@ -388,16 +389,16 @@ if (!doNotTrack) {
 </svg>
 
           </i>
-          VN
+          EN
         </a>
         <ul class="submenu">
           
             
-          
-            
               <li class="submenu-item">
-                <a href="https://cuongvndev.github.io/en/">EN</a>
+                <a href="https://cuongvndev.github.io/vi/">VN</a>
               </li>
+            
+          
             
           
         </ul>
@@ -431,12 +432,12 @@ if (!doNotTrack) {
       <article class="post">
         
         <header class="post-header">
-          <h1 class="post-title">Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 2</h1>
+          <h1 class="post-title">Microservices, Eureka and Zuul Gateway User Manual - Part 2</h1>
           
   <div class="post-title-i18n">
     
       <div>
-        : <a href="https://cuongvndev.github.io/en/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration/">Microservices, Eureka and Zuul Gateway User Manual - Part 2</a>
+        : <a href="https://cuongvndev.github.io/vi/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration/">Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 2</a>
       </div>
     
   </div>
@@ -464,8 +465,8 @@ if (!doNotTrack) {
 
   <div class="post-meta__right">
     <span class="post-meta-more">
-        2345 words -
-        12 min read
+        2315 words -
+        11 min read
       </span>
 
     <div class="post-meta-category">
@@ -487,23 +488,22 @@ if (!doNotTrack) {
 
         
         <div class="post-content">
-          <p>Ở bài trước chúng ta đã dựng được một hệ thống microservice đơn giản với User service, Eureka server và Zuul gateway.
-Trong bài viết này chúng ta sẽ cùng tìm hiểu về <strong>JWT</strong> và cách để <strong>xác thực và bảo mật</strong> trong hệ thống <strong>Microservice</strong> bằng JWT.</p>
-<p>Chúng ta sẽ tạo 1 service mới là <code>auth service</code> có nhiệm vụ xác minh danh tính và tạo jwt token khi user login
-Còn việc xác thực token sẽ do Zuul gateway đảm nhận, khi có 1 request gửi đến thì Zuul gateway sẽ dựa vào token được cung cấp và xác thực quyền truy cập, xác thực thành công thì mới tiến hành điều hướng request tới các service bussiness khác.</p>
+          <p>In the previous article, we successfully built a simple microservice system consisting of the User service, Eureka server, and Zuul gateway.</p>
+<p>In this article, we will delve into understanding <strong>JWT</strong> and the approach to <strong>authentication and security</strong> within the Microservice architecture using JWT.</p>
+<p>We will create a new service called the <code>auth service</code>, which will be responsible for verifying identities and generating JWT tokens upon user login. The task of token authentication will be handled by the Zuul gateway. When a request is received, the Zuul gateway will verify the provided token, authenticate access rights. Only upon successful authentication will the Zuul gateway proceed to route the request to other business services.</p>
 <h2 id="1-jwt-json-based-token">1. JWT (Json Based Token)</h2>
-<p><strong>Token</strong> là 1 chuỗi string được mã hoá được tạo ra từ hệ thống của chúng ta sau khi xác thực thành công. Và được đính kèm trong các request để cung cấp quyền truy cập vào ứng dụng.</p>
-<p><strong>JWT</strong> là 1 chuẩn JSON để tạo token, được bao gồm bởi 3 phần</p>
+<p><strong>Token</strong> is a string of characters that is generated by our system after a successful authentication and is attached to requests to grant access to the application.</p>
+<p><strong>JWT</strong> (JSON Web Token) is a standard for creating tokens, consisting of three parts:</p>
 <ul>
-<li>Header: chứa thuật toán hash
-<code>{type: “JWT”, hash: “HS256”}</code></li>
-<li>Payload: chứa các thuộc tính user name, email,&hellip; và các giá trị của nó
-<code>{username: &quot;Omar&quot;, email: &quot;omar@example.com&quot;, admin: true }</code></li>
-<li>Signature: là giá trị hash của <code>Header + “.” + Payload + Secret key</code></li>
+<li>Header: Contains the hash algorithm.
+<code>{type: &quot;JWT&quot;, hash: &quot;HS256&quot;}</code></li>
+<li>Payload: Contains attributes like username, email, and their values.
+<code>{username: &quot;Omar&quot;, email: &quot;omar@example.com&quot;, admin: true}</code></li>
+<li>Signature: This is the hash value of <code>Header + &quot;.&quot; + Payload + Secret key</code>.</li>
 </ul>
 <h2 id="2-zuul-gateway">2. Zuul gateway</h2>
-<p>Ở trong gateway sẽ thực hiện 2 chức năng: một xác thực token và 2 là chặn tất cả request nếu xác thực không thành công.
-Trong file <code>pom.xml</code> chúng ta cần thêm spring security và JWT</p>
+<p>In the gateway, two functions will be performed: firstly, token authentication, and secondly, blocking all requests if authentication fails.</p>
+<p>In the <code>pom.xml</code> file, we need to add Spring Security and JWT dependencies.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">springframework</span><span style="color:#f92672">.</span><span style="color:#a6e22e">boot</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>spring<span style="color:#f92672">-</span>boot<span style="color:#f92672">-</span>starter<span style="color:#f92672">-</span>security<span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>
@@ -512,7 +512,7 @@ Trong file <code>pom.xml</code> chúng ta cần thêm spring security và JWT</p
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>io<span style="color:#f92672">.</span><span style="color:#a6e22e">jsonwebtoken</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>jjwt<span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
-</span></span></code></pre></div><p>Để sử dụng security thì chúng ta cần tạo 1 class extend từ <code>WebSecurityConfigurerAdapter</code> và dùng anotation <code>@EnableWebSecurity</code></p>
+</span></span></code></pre></div><p>To use security, we need to create a class that extends <code>WebSecurityConfigurerAdapter</code> and use the <code>@EnableWebSecurity</code> annotation.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example.zuulserver.security<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.example.commonservice.security.JwtConfig<span style="color:#f92672">;</span>
@@ -559,9 +559,9 @@ Trong file <code>pom.xml</code> chúng ta cần thêm spring security và JWT</p
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><blockquote>
-<p>Class JwtConfig sẽ được tạo sau ở trong phần common service</p>
+<p>The <code>JwtConfig</code> class will be created later in the common service.</p>
 </blockquote>
-<p>Tiếp theo chúng ta sẽ viết class filter để xác thực token được đặt tên là <code>JwtTokenAuthenticationFilter</code>, class này sẽ extend từ <code>OncePerRequestFilter</code> filter này sẽ được kích hoạt mỗi khi request được gửi tới.</p>
+<p>Next, we will write a filter class to authenticate tokens, named <code>JwtTokenAuthenticationFilter</code>. This class will extend from <code>OncePerRequestFilter</code>, and this filter will be activated whenever a request is sent.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example.zuulserver.security<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.example.commonservice.security.JwtConfig<span style="color:#f92672">;</span>
@@ -629,7 +629,7 @@ Trong file <code>pom.xml</code> chúng ta cần thêm spring security và JWT</p
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        filterChain<span style="color:#f92672">.</span><span style="color:#a6e22e">doFilter</span><span style="color:#f92672">(</span>request<span style="color:#f92672">,</span> response<span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>Và đừng quên thêm security config để sử dụng cho class JwtConfig nhé:</p>
+</span></span></code></pre></div><p>And don&rsquo;t forget to add security config to use the JwtConfig class:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">...</span>
 </span></span><span style="display:flex;"><span>security:
 </span></span><span style="display:flex;"><span>  jwt<span style="color:#f92672">:</span>
@@ -639,9 +639,8 @@ Trong file <code>pom.xml</code> chúng ta cần thêm spring security và JWT</p
 </span></span><span style="display:flex;"><span>    expiration<span style="color:#f92672">:</span> 86400
 </span></span><span style="display:flex;"><span>    secret<span style="color:#f92672">:</span> JwtSecretKey
 </span></span></code></pre></div><h2 id="3-common-service">3. Common service</h2>
-<p>Service này sẽ chứa những config được sử dụng chung cho nhiều service khác
-Chúng ta sẽ tạo class JwtConfig để chứa các config JWT và class này sẽ được sử dụng trong Auth service và Zuul gateway</p>
-<p>Cũng tương tự như việc tạo các service khác hãy tạo mới project Spring boot và config file <code>pom.xml</code> như sau:</p>
+<p>This service will contain shared configurations for multiple services. We will create a class named JwtConfig to hold the JWT configurations, and this class will be used in both the Auth service and Zuul Gateway.</p>
+<p>Similar to creating other services, let&rsquo;s create a new Spring Boot project and configure the <code>pom.xml</code> file as follows:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">&lt;</span>dependencies<span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">springframework</span><span style="color:#f92672">.</span><span style="color:#a6e22e">boot</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
@@ -653,7 +652,7 @@ Chúng ta sẽ tạo class JwtConfig để chứa các config JWT và class này
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>scope<span style="color:#f92672">&gt;</span>test<span style="color:#f92672">&lt;/</span>scope<span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/</span>dependencies<span style="color:#f92672">&gt;</span>
-</span></span></code></pre></div><p>Tạo class JwtConfig như sau:</p>
+</span></span></code></pre></div><p>Create the <code>JwtConfig</code> class as follows:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example.commonservice.security<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.beans.factory.annotation.Value<span style="color:#f92672">;</span>
@@ -715,7 +714,7 @@ Chúng ta sẽ tạo class JwtConfig để chứa các config JWT và class này
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">secret</span> <span style="color:#f92672">=</span> secret<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>Tiếp theo ở các service khác, chẳng hạn như ở Zuul gateway chúng ta cần khai báo dependency common service trong file <code>pom.xml</code>:</p>
+</span></span></code></pre></div><p>Next, in other services such as the Zuul gateway, we need to declare the dependency on the common service in the <code>pom.xml</code> file:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">&lt;!--</span> common dependency<span style="color:#f92672">--&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>com<span style="color:#f92672">.</span><span style="color:#a6e22e">example</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
@@ -723,14 +722,14 @@ Chúng ta sẽ tạo class JwtConfig để chứa các config JWT và class này
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span>version<span style="color:#f92672">&gt;</span>0<span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#f92672">.</span><span style="color:#a6e22e">1</span><span style="color:#f92672">-</span>SNAPSHOT<span style="color:#f92672">&lt;/</span>version<span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
 </span></span></code></pre></div><blockquote>
-<p>Thêm dependency common-service vào trong các service muốn sử dụng JwtConfig
-Ở đây tạm thời chỉ có 1 class JwtConfig là sẽ được dùng chung, tương lai sẽ có nhiều hơn nên mình tách ra thành common luôn để sử dụng sau này</p>
+<p>By adding the common-service dependency to the services that need to use the JwtConfig, you are making sure that multiple services can share this common configuration.
+This way, you can centralize the configuration while allowing each service to specify their own specific configuration values through their respective application.yml files. This approach enhances reusability and maintainability in your microservices architecture.</p>
 </blockquote>
-<p><strong>Note</strong>: <em>Các service khác sẽ dùng chung class JwtConfig, còn về các value security.jwt.uri, security.jwt.header, &hellip; sẽ được config riêng trong file <code>application.yml</code> của từng service.</em></p>
-<p>Như vậy là đã xong phần security trong <strong>Zuull gateway</strong>, tiếp theo đây sẽ tạo mới <strong>Auth service</strong></p>
+<p><strong>Note</strong>: *The JwtConfig class will be shared among multiple services, ensuring consistent JWT configuration logic. However, each service can have its own specific configuration values such as security.jwt.uri, security.jwt.header, and others, which can be configured individually in the application.yml file of each service. *</p>
+<p>With this in mind, the security setup for the <strong>Zuul gateway</strong> is completed. Next, you will create the <strong>Auth service</strong>.</p>
 <h2 id="4-auth-service">4. Auth Service</h2>
-<p>Trong auth service, chúng ta sẽ làm hai việc: một là xác thực định danh mà người dùng cung cấp và hai là gen ra một token trong trường hợp xác thực hợp lệ hoặc trả về một exception nếu nó không hợp lệ.
-Trong file <code>pom.xml</code> chúng ta cần các dependencies sau: Web, Eureka Client, Spring Security và JWT.</p>
+<p>In the auth service, we will perform two tasks: one is to authenticate the provided user credentials, and the other is to generate a token if the authentication is successful or return an exception if it&rsquo;s not valid.</p>
+<p>In the <code>pom.xml</code> file, you will need the following dependencies for the auth service: Web, Eureka Client, Spring Security, and JWT.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span>dependencies<span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">springframework</span><span style="color:#f92672">.</span><span style="color:#a6e22e">boot</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
@@ -763,7 +762,7 @@ Trong file <code>pom.xml</code> chúng ta cần các dependencies sau: Web, Eure
 </span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span>scope<span style="color:#f92672">&gt;</span>test<span style="color:#f92672">&lt;/</span>scope<span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/</span>dependencies<span style="color:#f92672">&gt;</span>
-</span></span></code></pre></div><p>File <code>application.yml</code> khai báo như các service khác:</p>
+</span></span></code></pre></div><p>The <code>application.yml</code> file is declared as follows:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>server:
 </span></span><span style="display:flex;"><span>  port<span style="color:#f92672">:</span> 8082
 </span></span><span style="display:flex;"><span>
@@ -786,7 +785,7 @@ Trong file <code>pom.xml</code> chúng ta cần các dependencies sau: Web, Eure
 </span></span><span style="display:flex;"><span>    prefix<span style="color:#f92672">:</span> Bearer
 </span></span><span style="display:flex;"><span>    expiration<span style="color:#f92672">:</span> 86400
 </span></span><span style="display:flex;"><span>    secret<span style="color:#f92672">:</span> JwtSecretKey
-</span></span></code></pre></div><p>Ở trong class application cũng cần khai báo đây là Eureka client và đánh anotation <code>@EnableWebSecurity</code> cho nó:</p>
+</span></span></code></pre></div><p>Inside the application class, we also need to declare it as an Eureka client and annotate it with <code>@EnableWebSecurity</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example.authservice<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.boot.SpringApplication<span style="color:#f92672">;</span>
@@ -800,7 +799,7 @@ Trong file <code>pom.xml</code> chúng ta cần các dependencies sau: Web, Eure
 </span></span><span style="display:flex;"><span>        SpringApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>AuthServiceApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> args<span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>Giống như cấu hình cổng Gateway, chúng ta cần tạo một lớp extends từ <code>WebSecurityConfigurerAdapter</code>:</p>
+</span></span></code></pre></div><p>Similar to configuring the Gateway port, we need to create a class that extends from <code>WebSecurityConfigurerAdapter</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example.authservice.security<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.example.commonservice.security.JwtConfig<span style="color:#f92672">;</span>
@@ -865,7 +864,7 @@ Trong file <code>pom.xml</code> chúng ta cần các dependencies sau: Web, Eure
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> JwtConfig<span style="color:#f92672">();</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>Trong đoạn code trên, chúng ta sử dụng interface <code>UserDetailsService</code> nên chúng ta cần implement nó:</p>
+</span></span></code></pre></div><p>In the above code snippet, we use the <code>UserDetailsService</code> interface, so we need to implement it:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example.authservice.security<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.beans.factory.annotation.Autowired<span style="color:#f92672">;</span>
@@ -961,7 +960,7 @@ Trong file <code>pom.xml</code> chúng ta cần các dependencies sau: Web, Eure
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>Bước tiếp theo cũng là bước cuối cùng, chúng ta cần một filter. Ở đây chúng ta sử dụng <code>JwtUsernameAndPasswordAuthenticationFilter</code> để xác thực định danh người dùng và tạo token. Các thông tin về username hay password phải được gửi dưới dạng POST request.</p>
+</span></span></code></pre></div><p>The next and final step involves implementing a filter. Here, we use the <code>JwtUsernameAndPasswordAuthenticationFilter</code> to authenticate user credentials and generate tokens. User information such as the username and password must be sent as a POST request.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example.authservice.security<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.example.commonservice.security.JwtConfig<span style="color:#f92672">;</span>
@@ -1064,11 +1063,11 @@ Trong file <code>pom.xml</code> chúng ta cần các dependencies sau: Web, Eure
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><blockquote>
-<p>Trong Auth service cũng đã sử dụng đến JwtConfig việc này tránh trùng lặp code</p>
+<p>In the Auth service, we have also utilized the JwtConfig to avoid code duplication.</p>
 </blockquote>
 <h2 id="5-testing">5. Testing</h2>
-<p>Chạy lần lượt các service Eureka, Zuul, Auth và User.</p>
-<p>Đầu tiên chúng ta thử truy cập vào user service thông qua đường dẫn <code>localhost:8762/user/user-info</code> mà không có token. Chúng ta sẽ nhận về một lỗi 401 như sau:</p>
+<p>Run the Eureka, Zuul, Auth, and User services in sequence.</p>
+<p>First, let&rsquo;s try accessing the user service through the path <code>localhost:8762/user/user-info</code> without a token. You will receive a 401 error as follows:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;timestamp&#34;</span>: <span style="color:#e6db74">&#34;2023-08-11T09:26:08.131+0000&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;status&#34;</span>: <span style="color:#ae81ff">401</span>,
@@ -1076,11 +1075,11 @@ Trong file <code>pom.xml</code> chúng ta cần các dependencies sau: Web, Eure
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;No message available&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;/user/user-info&#34;</span>
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Để nhận <strong>token</strong>, chúng ta call api authentication <code>localhost:8762/auth</code>
+</span></span></code></pre></div><p>To obtain a <strong>token</strong>, we need to call the authentication API at <code>localhost:8762/auth</code>
 <img src="/blog/microservice/authen.png" alt="Scenario 1: Across columns" loading="lazy" class="zoom-image center"/></p>
-<p>Bây giờ gọi lại <strong>user service</strong> kèm theo một <strong>token</strong> trong header:
+<p>Now, call the <strong>user service</strong> again with a <strong>token</strong> included in the header:
 <img src="/blog/microservice/user-info-auth.png" alt="Scenario 1: Across columns" loading="lazy" class="zoom-image center"/></p>
-<p>Ngoài ta thì bạn có thể thử chạy nhiều instance của user service để test xem các request được phân tán như thế nào. Trong phần tiếp theo, chúng ta sẽ tìm hiểu các xử lý lỗi và theo dõi trong mô hình microservice.</p>
+<p>Furthermore, you can try running multiple instances of the user service to test how requests are distributed. In the next section, we will explore error handling and monitoring in the microservice architecture.</p>
         </div>
 
         
@@ -1092,15 +1091,15 @@ Trong file <code>pom.xml</code> chúng ta cần các dependencies sau: Web, Eure
         
 
 
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
 <div id="sharing" class="icon-bar">
   <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fcuongvndev.github.io%2fpost%2fmicroservice-authentication-jwt-token-and-spring-cloud-configuaration%2f" class="fa fa-facebook" aria-label="share on Facebook">
   </a>
 
-  <a href="http://twitter.com/share?url=https%3a%2f%2fcuongvndev.github.io%2fpost%2fmicroservice-authentication-jwt-token-and-spring-cloud-configuaration%2f&text=H%c6%b0%e1%bb%9bng%20d%e1%ba%abn%20s%e1%bb%ad%20d%e1%bb%a5ng%20Microservice%2c%20Eureka%20v%c3%a0%20Zuul%20Gateway%20-%20Ph%e1%ba%a7n%202&via=" class="fa fa-twitter" aria-label="share on Twitter">
+  <a href="http://twitter.com/share?url=https%3a%2f%2fcuongvndev.github.io%2fpost%2fmicroservice-authentication-jwt-token-and-spring-cloud-configuaration%2f&text=Microservices%2c%20Eureka%20and%20Zuul%20Gateway%20User%20Manual%20-%20Part%202&via=" class="fa fa-twitter" aria-label="share on Twitter">
   </a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fcuongvndev.github.io%2fpost%2fmicroservice-authentication-jwt-token-and-spring-cloud-configuaration%2f&amp;source=https%3a%2f%2fcuongvndev.github.io%2fpost%2fmicroservice-authentication-jwt-token-and-spring-cloud-configuaration%2f&amp;title=H%c6%b0%e1%bb%9bng%20d%e1%ba%abn%20s%e1%bb%ad%20d%e1%bb%a5ng%20Microservice%2c%20Eureka%20v%c3%a0%20Zuul%20Gateway%20-%20Ph%e1%ba%a7n%202&amp;summary=H%c6%b0%e1%bb%9bng%20d%e1%ba%abn%20s%e1%bb%ad%20d%e1%bb%a5ng%20Microservice%2c%20Eureka%20v%c3%a0%20Zuul%20Gateway%20-%20Ph%e1%ba%a7n%202" class="fa fa-linkedin" aria-label="share on LinkedIn">
+  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fcuongvndev.github.io%2fpost%2fmicroservice-authentication-jwt-token-and-spring-cloud-configuaration%2f&amp;source=https%3a%2f%2fcuongvndev.github.io%2fpost%2fmicroservice-authentication-jwt-token-and-spring-cloud-configuaration%2f&amp;title=Microservices%2c%20Eureka%20and%20Zuul%20Gateway%20User%20Manual%20-%20Part%202&amp;summary=Microservices%2c%20Eureka%20and%20Zuul%20Gateway%20User%20Manual%20-%20Part%202" class="fa fa-linkedin" aria-label="share on LinkedIn">
   </a>
 </div>
 		
@@ -1152,12 +1151,12 @@ Trong file <code>pom.xml</code> chúng ta cần các dependencies sau: Web, Eure
 </svg>
 
                 </i>
-                <span class="prev-text nav-default">Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 3</span>
+                <span class="prev-text nav-default">Microservices, Eureka and Zuul Gateway User Manual - Part 3</span>
                 <span class="prev-text nav-mobile">Prev</span>
               </a>
             
               <a class="next" href="/post/microservice-with-spring-boot-eureka-and-zuul-gateway/">
-                <span class="next-text nav-default">Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 1</span>
+                <span class="next-text nav-default">Microservices, Eureka and Zuul Gateway User Manual - Part 1</span>
                 <span class="prev-text nav-mobile">Next</span>
                 
                 <i class="iconfont">
@@ -1247,7 +1246,7 @@ Trong file <code>pom.xml</code> chúng ta cần các dependencies sau: Web, Eure
 
     
     <nav class="toc" id="toc">
-    <div class="toc-title">Nội dung bài viết</div>
+    <div class="toc-title">Table of Contents</div>
     <div class="toc-content custom-scrollbar">
       <nav id="TableOfContents">
   <ul>
@@ -1264,7 +1263,6 @@ Trong file <code>pom.xml</code> chúng ta cần các dependencies sau: Web, Eure
 
   </div>
   <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.2/dist/medium-zoom.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
   <script>
     mediumZoom('img.zoom-image', {
     margin: 24,

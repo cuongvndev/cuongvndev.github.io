@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html
-  lang="vi"
+  lang="en"
   itemscope
   itemtype="http://schema.org/WebPage"
 >
@@ -8,11 +8,9 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>
-          React Native - Cơ bản về Redux Saga - Cuong Vu - Going to the moon 🌑
+          React Native - Redux Saga Basics - Cuong Vu - Going to the moon 🌑
         </title>
     
-<link rel="alternate" hreflang="en" href="https://cuongvndev.github.io/en/post/react-native-redux-saga/" />
-
 
 <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
@@ -30,7 +28,7 @@
 
 <meta name="mobile-web-app-capable" content="yes">
 
-<meta name="author" content="Cuong Vu" /><meta name="description" content="Cơ bản về Redux Saga" />
+<meta name="author" content="Cuong Vu" /><meta name="description" content="Basics of Redux Saga" />
 
   <meta name="keywords" content="Spring Boot, Microservice, Java, Cuong vu" />
 
@@ -70,19 +68,19 @@
 <link rel="stylesheet" href="/css/custom.css">
 
 
-<meta property="og:title" content="React Native - Cơ bản về Redux Saga" />
-<meta property="og:description" content="Cơ bản về Redux Saga" />
+<meta property="og:title" content="React Native - Redux Saga Basics" />
+<meta property="og:description" content="Basics of Redux Saga" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://cuongvndev.github.io/post/react-native-redux-saga/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2023-08-23T10:41:55+07:00" />
 <meta property="article:modified_time" content="2023-08-23T10:41:55+07:00" />
-<meta itemprop="name" content="React Native - Cơ bản về Redux Saga">
-<meta itemprop="description" content="Cơ bản về Redux Saga"><meta itemprop="datePublished" content="2023-08-23T10:41:55+07:00" />
+<meta itemprop="name" content="React Native - Redux Saga Basics">
+<meta itemprop="description" content="Basics of Redux Saga"><meta itemprop="datePublished" content="2023-08-23T10:41:55+07:00" />
 <meta itemprop="dateModified" content="2023-08-23T10:41:55+07:00" />
-<meta itemprop="wordCount" content="1206">
+<meta itemprop="wordCount" content="1040">
 <meta itemprop="keywords" content="React Native,Redux Saga," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="React Native - Cơ bản về Redux Saga"/>
-<meta name="twitter:description" content="Cơ bản về Redux Saga"/>
+<meta name="twitter:title" content="React Native - Redux Saga Basics"/>
+<meta name="twitter:description" content="Basics of Redux Saga"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -127,28 +125,28 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://cuongvndev.github.io/">Home</a>
+            <a class="menu-item-link" href="https://cuongvndev.github.io/vi/">Home</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://cuongvndev.github.io/post/">Archives</a>
+            <a class="menu-item-link" href="https://cuongvndev.github.io/vi/post/">Archives</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://cuongvndev.github.io/tags/">Tags</a>
+            <a class="menu-item-link" href="https://cuongvndev.github.io/vi/tags/">Tags</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://cuongvndev.github.io/categories/">Categories</a>
+            <a class="menu-item-link" href="https://cuongvndev.github.io/vi/categories/">Categories</a>
           
         
       </li><li class="mobile-menu-item">
@@ -178,13 +176,13 @@ if (!doNotTrack) {
           
             <li>
               
-                <a href="https://cuongvndev.github.io/"><strong>VN</strong></a>
+                <a href="https://cuongvndev.github.io/vi/">VN</a>
               
             </li>
           
             <li>
               
-                <a href="https://cuongvndev.github.io/en/">EN</a>
+                <a href="https://cuongvndev.github.io/"><strong>EN</strong></a>
               
             </li>
           
@@ -320,7 +318,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://cuongvndev.github.io/">Home</a>
+            <a class="menu-item-link" href="https://cuongvndev.github.io/vi/">Home</a>
           
 
         
@@ -331,7 +329,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://cuongvndev.github.io/post/">Archives</a>
+            <a class="menu-item-link" href="https://cuongvndev.github.io/vi/post/">Archives</a>
           
 
         
@@ -342,7 +340,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://cuongvndev.github.io/tags/">Tags</a>
+            <a class="menu-item-link" href="https://cuongvndev.github.io/vi/tags/">Tags</a>
           
 
         
@@ -353,7 +351,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://cuongvndev.github.io/categories/">Categories</a>
+            <a class="menu-item-link" href="https://cuongvndev.github.io/vi/categories/">Categories</a>
           
 
         
@@ -383,16 +381,16 @@ if (!doNotTrack) {
 </svg>
 
           </i>
-          VN
+          EN
         </a>
         <ul class="submenu">
           
             
-          
-            
               <li class="submenu-item">
-                <a href="https://cuongvndev.github.io/en/">EN</a>
+                <a href="https://cuongvndev.github.io/vi/">VN</a>
               </li>
+            
+          
             
           
         </ul>
@@ -426,16 +424,8 @@ if (!doNotTrack) {
       <article class="post">
         
         <header class="post-header">
-          <h1 class="post-title">React Native - Cơ bản về Redux Saga</h1>
+          <h1 class="post-title">React Native - Redux Saga Basics</h1>
           
-  <div class="post-title-i18n">
-    
-      <div>
-        : <a href="https://cuongvndev.github.io/en/post/react-native-redux-saga/">React Native - Redux Saga Basics</a>
-      </div>
-    
-  </div>
-
 
           <div class="post-meta">
   <div class="post-meta-author">
@@ -459,8 +449,8 @@ if (!doNotTrack) {
 
   <div class="post-meta__right">
     <span class="post-meta-more">
-        1206 words -
-        6 min read
+        1040 words -
+        5 min read
       </span>
 
     <div class="post-meta-category">
@@ -482,48 +472,45 @@ if (!doNotTrack) {
 
         
         <div class="post-content">
-          <p>Xin chào tất cả các bạn, bài viết này mình xin chia sẻ một chút kiến thức mình tìm hiểu được về <em><strong>Redux Saga</strong></em>, mong mọi người theo dõi.</p>
-<p>Nếu ai đã từng tìm hiểu qua về <em><strong>redux</strong></em> thì sẽ biết giữa quá trình <em><strong>dispatch một action và reducer</strong></em> chúng ta thường sẽ gọi một API nào đó từ server trả về không ít người sẽ gặp trường hợp mà API chưa kịp trả về kết quả mà các dòng code tiếp theo đã được thực thi sẽ dẫn đến trường hợp không mong muốn, và để khác phục điều đó chúng ta có một thư viện giúp chúng ta xử lý các điều này dễ dàng hơn đó là <code>Redux saga</code>. (trước khi được bài này thì các bạn nên hiểu qua một chút về redux và react).</p>
-<h2 id="1-redux-saga-là-gì">1. Redux Saga là gì?</h2>
-<p>Redux-Saga là một thư viện redux middleware, giúp chúng ta quản lý những side effect trong ứng dụng redux trở nên một cách đơn giản hơn và dễ kiểm soát hơn.
+          <p>Hello everyone, in this article, I would like to share some of the knowledge I&rsquo;ve gathered about <em><strong>Redux Saga</strong></em>. I hope you all find it informative.</p>
+<p>For those who have previously delved into <em><strong>redux</strong></em>, you may be aware that between the process of <em><strong>dispatching an action and a reducer</strong></em>, we often encounter situations where an API call to the server is involved. This API call might not return results before subsequent lines of code execute, leading to undesirable outcomes. To address this, there&rsquo;s a library that makes dealing with such scenarios easier - <em><strong>Redux Saga</strong></em>. (Before diving into this article, it&rsquo;s recommended to have a basic understanding of redux and react).</p>
+<h2 id="1-what-is-redux-saga">1. What is Redux Saga?</h2>
+<p>Redux-Saga is a redux middleware library that simplifies the management of side effects in a redux application, making them more manageable and controllable.
 <img src="/blog/redux-saga/redux-saga.gif" alt="redux saga" loading="lazy" class="zoom-image center"/></p>
-<p>Để hiểu được sự hoạt động của redux saga bạn cần hiểu một số khái niệm cơ bản như generator function.</p>
-<blockquote>
-<p>Generator function là function có khả năng hoãn lại quá trình thực thi mà vẫn giữ nguyên được context. Hơi khó hiểu phải không, nói một cách đơn giản thì generator function là 1 function có khả năng tạm ngưng trước khi hàm kết thúc (khác với pure function khi được gọi sẽ thực thi hết các câu lệnh trong hàm), và có thể tiếp tục chạy tại một thời điểm khác. Chính chức năng mới này giúp ta giải quyết được việc bất đồng bộ, hàm sẽ dừng và đợi async chạy xong rồi tiếp tục thực thi. Chi tiết thì bạn có thể tham khảo <a href="https://davidwalsh.name/es6-generators">tại đây</a></p>
-</blockquote>
+<p>Generator functions are capable of pausing the execution process and maintaining the context. Sounds a bit tricky, right? Put simply, a generator function can pause before it completes (unlike pure functions that execute all statements when called). It can later resume execution at a different point in time. This unique feature helps solve asynchronous issues; the function pauses and waits for asynchronous tasks to finish before continuing. For more details, you can refer to <a href="https://davidwalsh.name/es6-generators">here.</a></p>
 <ul>
-<li>Hãy nhình vào sơ đồ dưới đây:
+<li>Let&rsquo;s take a look at the following diagram:
 <img src="/blog/redux-saga/redux-saga-fow.webp" alt="redux saga flow" loading="lazy" class="zoom-image center"/></li>
 </ul>
 <blockquote>
-<p>Từ phía redux saga chúng ta gửi request đến Server để chúng ta lấy các API về sau đó ta có response trả về redux saga, sau khi có dữ liệu thì chúng ta sử dụng các effects, trong các effect này chúng ta có các hàm để dispatch sang phía reducers.</p>
+<p>From the redux saga side, we send a request to the Server to fetch certain APIs. After obtaining the response, we use effects to handle these APIs and dispatch the necessary actions to reducers.</p>
 </blockquote>
-<h2 id="2-các-kiến-thức-cơ-bản-về-redux-saga">2. Các kiến thức cơ bản về Redux Saga</h2>
-<p>Redux saga cung cấp cho chúng ta một số method gọi là effect như sau:</p>
+<h2 id="2-basic-concepts-of-redux-saga">2. Basic Concepts of Redux Saga</h2>
+<p>Redux saga provides several methods called effects, such as:</p>
 <ul>
-<li><code>Fork()</code>: sử dụng cơ chế non - blocking call trên function</li>
-<li><code>Call()</code>: Gọi function. Nếu nó return về một promise, tạm dừng saga cho đến khi promise được giải quyết</li>
-<li><code>Take()</code>: tạm dừng cho đến khi nhận được action</li>
-<li><code>Put()</code>: Dùng để dispatch một action</li>
-<li><code>takeEvery()</code>: Theo dõi một action nào đó thay đổi thì gọi một saga nào đó</li>
-<li><code>akeLastest()</code> : Có nghĩa là nếu chúng ta thực hiện một loạt các actions, nó sẽ chỉ thực thi và trả lại kết quả của của actions cuối cùng</li>
-<li><code>yield()</code>: Có nghĩa là chạy tuần tự khi nào trả ra kết quả mới thực thi tiếp</li>
-<li><code>Select()</code>: Chạy một selector function để lấy data từ state</li>
+<li><code>Fork()</code>: Uses non-blocking call mechanism on function.</li>
+<li><code>Call()</code>: Calls a function. If it returns a promise, the saga pauses until the promise resolves.</li>
+<li><code>Take()</code>: Pauses until a specific action is received.</li>
+<li><code>Put()</code>: Used to dispatch an action.</li>
+<li><code>takeEvery()</code>: Watches for a particular action and triggers a specified saga when the action occurs.</li>
+<li><code>akeLastest()</code> : If a series of actions are dispatched, it will only execute and return the result of the final action.</li>
+<li><code>yield()</code>: Runs sequentially, only moving to the next step after the result is obtained.</li>
+<li><code>Select()</code>: Runs a selector function to retrieve data from the state.</li>
 </ul>
-<h2 id="3-tạo-project-react-native-sử-dụng-redux-saga">3. Tạo project React Native sử dụng Redux Saga</h2>
-<p>Đầu tiên chúng ta khởi tạo project thông qua lệnh sau:</p>
+<h2 id="3-creating-a-react-native-project-using-redux-saga">3. Creating a React Native Project using Redux Saga</h2>
+<p>First, let&rsquo;s initialize the project with the following command:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>npx react-native init AwesomeApp
 </span></span></code></pre></div><blockquote>
-<p>Bạn cần phải install react-native cli trước khi chạy lệnh trên nhé</p>
+<p>Make sure to install the react-native cli before running the above command.</p>
 </blockquote>
-<p>Tiếp theo cần install các thư viện sau:</p>
+<p>Next, install the necessary libraries:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>npm install redux
 </span></span><span style="display:flex;"><span>npm install redux-saga
 </span></span><span style="display:flex;"><span>npm install react-redux
-</span></span></code></pre></div><p>Chúng ta sẽ cùng tạo 1 App counter đơn giản với 2 nút + - update giá trị khi người dùng click vào</p>
-<p>Cấu trúc của project như sau:</p>
+</span></span></code></pre></div><p>Now, let&rsquo;s create a simple counter app with buttons &ldquo;+&rdquo; and &ldquo;-&rdquo; that update the count when clicked.</p>
+<p>The project structure should be as follows:</p>
 <p><img src="/blog/redux-saga/awesomeapp.png" alt="Awesome app" loading="lazy" class="zoom-image center"/></p>
-<p>Sau khi khởi tạo project và cài đặt một số thư viện liên quan chúng ta sẽ vào file AwesomeApp/index.js để cấu hình redux-saga vào trong project:</p>
+<p>After initializing the project and installing relevant libraries, navigate to the file <code>AwesomeApp/index.js</code> to configure redux-saga in the project:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, {<span style="color:#a6e22e">Component</span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">AppRegistry</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-native&#39;</span>;
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">name</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">appName</span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./app.json&#39;</span>;
@@ -533,7 +520,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Provider</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react-redux&#34;</span>;
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">rootSaga</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./src/sagas&#39;</span>;
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">CountrerComponent</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./src/component/CountrerComponent&#39;</span>;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sagaMiddleware</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createSagaMiddleware</span>(); <span style="color:#75715e">// Hàm này có nhiệm vụ tạo ra một middleware năm giữa action và reducer trong redux
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sagaMiddleware</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createSagaMiddleware</span>(); <span style="color:#75715e">// This function is responsible for creating a middleware that sits between actions and reducers in Redux.
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">store</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createStore</span>(<span style="color:#a6e22e">allReducers</span>, <span style="color:#a6e22e">applyMiddleware</span>(<span style="color:#a6e22e">sagaMiddleware</span>));
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">App</span> <span style="color:#f92672">=</span> () =&gt; {
@@ -544,9 +531,9 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>    )
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">sagaMiddleware</span>.<span style="color:#a6e22e">run</span>(<span style="color:#a6e22e">rootSaga</span>); <span style="color:#75715e">// Hàm này là chạy các saga
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">sagaMiddleware</span>.<span style="color:#a6e22e">run</span>(<span style="color:#a6e22e">rootSaga</span>); <span style="color:#75715e">// This function is used to run the sagas.
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">AppRegistry</span>.<span style="color:#a6e22e">registerComponent</span>(<span style="color:#a6e22e">appName</span>, ()=&gt;<span style="color:#a6e22e">App</span>);
-</span></span></code></pre></div><p>Tạo lần lượt các thành phần chính của Redux Saga là reducer, saga, action ở trong src nhé</p>
+</span></span></code></pre></div><p>Now, let&rsquo;s create the core components of Redux Saga: reducer, saga, and action, all within the <em><strong>src</strong></em> directory.</p>
 <p><em><strong>Actions</strong></em></p>
 <ul>
 <li>actions/index.js</li>
@@ -630,7 +617,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">yield</span> <span style="color:#a6e22e">takeEvery</span>(<span style="color:#a6e22e">DECREMENT</span>, <span style="color:#a6e22e">decrement</span>);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><blockquote>
-<p>Khi action có type là DECREMENT, INCREMENT được gọi thì hàm decrement sẽ được thực thi và các side effect sẽ được xử lý ở trong này.</p>
+<p>When an action with the type DECREMENT or INCREMENT is called, the decrement function will be executed, and the associated side effects will be handled within this function.</p>
 </blockquote>
 <ul>
 <li>sagas/index.js</li>
@@ -644,9 +631,9 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>]);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><blockquote>
-<p>Tại đây các saga sẽ được gom lại trong effect all để chạy.</p>
+<p>Here, the sagas are grouped together within the all effect to run collectively.</p>
 </blockquote>
-<p>Và cuối cùng là Counter Component</p>
+<p>Finally, let&rsquo;s create the Counter Component:</p>
 <ul>
 <li>component/CountrerComponent.js</li>
 </ul>
@@ -723,18 +710,18 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">fontSize</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">20</span>
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>  };
-</span></span></code></pre></div><p><em><strong>Ưu điểm</strong></em></p>
+</span></span></code></pre></div><p><em><strong>Advantages</strong></em></p>
 <ul>
-<li>Do tách riêng side-effect ra khỏi action nên việc testing là dễ dàng hơn Redux-Thunk</li>
-<li>Giữ cho action pure synchronos theo chuẩn redux và loại bỏ hoàn toàn callback theo javascript truyền thống</li>
+<li>Separating side effects from actions makes testing easier compared to Redux-Thunk.</li>
+<li>Keeps actions purely synchronous following redux standards and eliminates traditional JavaScript callbacks.</li>
 </ul>
-<p><em><strong>Nhược điểm</strong></em></p>
+<p><em><strong>Disadvantages</strong></em></p>
 <ul>
-<li>Function ko viết được dạng arrow-function.</li>
-<li>Phải hiểu về Generator function và các khái niệm trong saga pattern</li>
+<li>Functions cannot be written as arrow functions.</li>
+<li>Requires understanding of Generator functions and concepts in the saga pattern.</li>
 </ul>
-<p><em><strong>Kết luận</strong></em></p>
-<p>Trên đây là một chút kiến thức mà mình tìm hiểu được về các thành phần trong redux-saga, rất mong được sự góp ý của mọi người. Cảm ơn mọi người đã theo dõi bài viết của mình</p>
+<p><em><strong>Conclusion</strong></em></p>
+<p>The above information provides a glimpse into the components of Redux Saga that I&rsquo;ve explored. I sincerely appreciate any feedback or suggestions from all of you. Thank you for following along with my article.</p>
         </div>
 
         
@@ -746,15 +733,15 @@ if (!doNotTrack) {
         
 
 
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
 <div id="sharing" class="icon-bar">
   <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fcuongvndev.github.io%2fpost%2freact-native-redux-saga%2f" class="fa fa-facebook" aria-label="share on Facebook">
   </a>
 
-  <a href="http://twitter.com/share?url=https%3a%2f%2fcuongvndev.github.io%2fpost%2freact-native-redux-saga%2f&text=React%20Native%20-%20C%c6%a1%20b%e1%ba%a3n%20v%e1%bb%81%20Redux%20Saga&via=" class="fa fa-twitter" aria-label="share on Twitter">
+  <a href="http://twitter.com/share?url=https%3a%2f%2fcuongvndev.github.io%2fpost%2freact-native-redux-saga%2f&text=React%20Native%20-%20Redux%20Saga%20Basics&via=" class="fa fa-twitter" aria-label="share on Twitter">
   </a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fcuongvndev.github.io%2fpost%2freact-native-redux-saga%2f&amp;source=https%3a%2f%2fcuongvndev.github.io%2fpost%2freact-native-redux-saga%2f&amp;title=React%20Native%20-%20C%c6%a1%20b%e1%ba%a3n%20v%e1%bb%81%20Redux%20Saga&amp;summary=React%20Native%20-%20C%c6%a1%20b%e1%ba%a3n%20v%e1%bb%81%20Redux%20Saga" class="fa fa-linkedin" aria-label="share on LinkedIn">
+  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fcuongvndev.github.io%2fpost%2freact-native-redux-saga%2f&amp;source=https%3a%2f%2fcuongvndev.github.io%2fpost%2freact-native-redux-saga%2f&amp;title=React%20Native%20-%20Redux%20Saga%20Basics&amp;summary=React%20Native%20-%20Redux%20Saga%20Basics" class="fa fa-linkedin" aria-label="share on LinkedIn">
   </a>
 </div>
 		
@@ -792,9 +779,22 @@ if (!doNotTrack) {
           
           <nav class="post-nav">
             
+              <a class="prev" href="/post/differences-between-props-and-state-in-react/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">Differences between Props and State in React</span>
+                <span class="prev-text nav-mobile">Prev</span>
+              </a>
             
               <a class="next" href="/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/">
-                <span class="next-text nav-default">Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 3</span>
+                <span class="next-text nav-default">Microservices, Eureka and Zuul Gateway User Manual - Part 3</span>
                 <span class="prev-text nav-mobile">Next</span>
                 
                 <i class="iconfont">
@@ -884,13 +884,13 @@ if (!doNotTrack) {
 
     
     <nav class="toc" id="toc">
-    <div class="toc-title">Nội dung bài viết</div>
+    <div class="toc-title">Table of Contents</div>
     <div class="toc-content custom-scrollbar">
       <nav id="TableOfContents">
   <ul>
-    <li><a href="#1-redux-saga-là-gì">1. Redux Saga là gì?</a></li>
-    <li><a href="#2-các-kiến-thức-cơ-bản-về-redux-saga">2. Các kiến thức cơ bản về Redux Saga</a></li>
-    <li><a href="#3-tạo-project-react-native-sử-dụng-redux-saga">3. Tạo project React Native sử dụng Redux Saga</a></li>
+    <li><a href="#1-what-is-redux-saga">1. What is Redux Saga?</a></li>
+    <li><a href="#2-basic-concepts-of-redux-saga">2. Basic Concepts of Redux Saga</a></li>
+    <li><a href="#3-creating-a-react-native-project-using-redux-saga">3. Creating a React Native Project using Redux Saga</a></li>
   </ul>
 </nav>
     </div>
@@ -899,7 +899,6 @@ if (!doNotTrack) {
 
   </div>
   <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.2/dist/medium-zoom.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
   <script>
     mediumZoom('img.zoom-image', {
     margin: 24,

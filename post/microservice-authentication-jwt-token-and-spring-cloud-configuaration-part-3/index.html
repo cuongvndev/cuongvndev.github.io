@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html
-  lang="vi"
+  lang="en"
   itemscope
   itemtype="http://schema.org/WebPage"
 >
@@ -8,10 +8,10 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>
-          Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 3 - Cuong Vu - Going to the moon 🌑
+          Microservices, Eureka and Zuul Gateway User Manual - Part 3 - Cuong Vu - Going to the moon 🌑
         </title>
     
-<link rel="alternate" hreflang="en" href="https://cuongvndev.github.io/en/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/" />
+<link rel="alternate" hreflang="vi" href="https://cuongvndev.github.io/vi/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/" />
 
 
 <meta name="renderer" content="webkit" />
@@ -31,8 +31,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Cuong Vu" />
-  <meta name="description" content="Trong phần này chúng ta sẽ cùng tìm hiểu về Spring Cloud Configuaration.
-Spring Cloud Configuration là một module trong hệ sinh thái Spring Cloud, cung cấp các công cụ để xây dựng các hệ thống phân tán và ứng dụng dịch vụ nhỏ. Spring Cloud Configuration tập trung cụ thể vào việc quản lý cấu hình của các ứng dụng trong một cách tập trung và linh hoạt.
+  <meta name="description" content="In this section, let&amp;rsquo;s explore Spring Cloud Configuration.
+Spring Cloud Configuration is a module within the Spring Cloud ecosystem that provides tools for building distributed systems and microservices applications. Spring Cloud Configuration specifically focuses on centralized and flexible management of application configurations.
 " />
 
   <meta name="keywords" content="Spring Boot, Microservice, Java, Cuong vu" />
@@ -73,22 +73,22 @@ Spring Cloud Configuration là một module trong hệ sinh thái Spring Cloud, 
 <link rel="stylesheet" href="/css/custom.css">
 
 
-<meta property="og:title" content="Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 3" />
-<meta property="og:description" content="Trong phần này chúng ta sẽ cùng tìm hiểu về Spring Cloud Configuaration.
-Spring Cloud Configuration là một module trong hệ sinh thái Spring Cloud, cung cấp các công cụ để xây dựng các hệ thống phân tán và ứng dụng dịch vụ nhỏ. Spring Cloud Configuration tập trung cụ thể vào việc quản lý cấu hình của các ứng dụng trong một cách tập trung và linh hoạt." />
+<meta property="og:title" content="Microservices, Eureka and Zuul Gateway User Manual - Part 3" />
+<meta property="og:description" content="In this section, let&rsquo;s explore Spring Cloud Configuration.
+Spring Cloud Configuration is a module within the Spring Cloud ecosystem that provides tools for building distributed systems and microservices applications. Spring Cloud Configuration specifically focuses on centralized and flexible management of application configurations." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://cuongvndev.github.io/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2023-08-14T15:33:23+07:00" />
 <meta property="article:modified_time" content="2023-08-14T15:33:23+07:00" />
-<meta itemprop="name" content="Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 3">
-<meta itemprop="description" content="Trong phần này chúng ta sẽ cùng tìm hiểu về Spring Cloud Configuaration.
-Spring Cloud Configuration là một module trong hệ sinh thái Spring Cloud, cung cấp các công cụ để xây dựng các hệ thống phân tán và ứng dụng dịch vụ nhỏ. Spring Cloud Configuration tập trung cụ thể vào việc quản lý cấu hình của các ứng dụng trong một cách tập trung và linh hoạt."><meta itemprop="datePublished" content="2023-08-14T15:33:23+07:00" />
+<meta itemprop="name" content="Microservices, Eureka and Zuul Gateway User Manual - Part 3">
+<meta itemprop="description" content="In this section, let&rsquo;s explore Spring Cloud Configuration.
+Spring Cloud Configuration is a module within the Spring Cloud ecosystem that provides tools for building distributed systems and microservices applications. Spring Cloud Configuration specifically focuses on centralized and flexible management of application configurations."><meta itemprop="datePublished" content="2023-08-14T15:33:23+07:00" />
 <meta itemprop="dateModified" content="2023-08-14T15:33:23+07:00" />
-<meta itemprop="wordCount" content="533">
+<meta itemprop="wordCount" content="509">
 <meta itemprop="keywords" content="Microservice,Eureka,Zuul Gateway,Spring Boot Security,Spring Cloud Configuration,Spring Cloud Netflix," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 3"/>
-<meta name="twitter:description" content="Trong phần này chúng ta sẽ cùng tìm hiểu về Spring Cloud Configuaration.
-Spring Cloud Configuration là một module trong hệ sinh thái Spring Cloud, cung cấp các công cụ để xây dựng các hệ thống phân tán và ứng dụng dịch vụ nhỏ. Spring Cloud Configuration tập trung cụ thể vào việc quản lý cấu hình của các ứng dụng trong một cách tập trung và linh hoạt."/>
+<meta name="twitter:title" content="Microservices, Eureka and Zuul Gateway User Manual - Part 3"/>
+<meta name="twitter:description" content="In this section, let&rsquo;s explore Spring Cloud Configuration.
+Spring Cloud Configuration is a module within the Spring Cloud ecosystem that provides tools for building distributed systems and microservices applications. Spring Cloud Configuration specifically focuses on centralized and flexible management of application configurations."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -133,28 +133,28 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://cuongvndev.github.io/">Home</a>
+            <a class="menu-item-link" href="https://cuongvndev.github.io/vi/">Home</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://cuongvndev.github.io/post/">Archives</a>
+            <a class="menu-item-link" href="https://cuongvndev.github.io/vi/post/">Archives</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://cuongvndev.github.io/tags/">Tags</a>
+            <a class="menu-item-link" href="https://cuongvndev.github.io/vi/tags/">Tags</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://cuongvndev.github.io/categories/">Categories</a>
+            <a class="menu-item-link" href="https://cuongvndev.github.io/vi/categories/">Categories</a>
           
         
       </li><li class="mobile-menu-item">
@@ -184,13 +184,13 @@ if (!doNotTrack) {
           
             <li>
               
-                <a href="https://cuongvndev.github.io/"><strong>VN</strong></a>
+                <a href="https://cuongvndev.github.io/vi/">VN</a>
               
             </li>
           
             <li>
               
-                <a href="https://cuongvndev.github.io/en/">EN</a>
+                <a href="https://cuongvndev.github.io/"><strong>EN</strong></a>
               
             </li>
           
@@ -326,7 +326,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://cuongvndev.github.io/">Home</a>
+            <a class="menu-item-link" href="https://cuongvndev.github.io/vi/">Home</a>
           
 
         
@@ -337,7 +337,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://cuongvndev.github.io/post/">Archives</a>
+            <a class="menu-item-link" href="https://cuongvndev.github.io/vi/post/">Archives</a>
           
 
         
@@ -348,7 +348,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://cuongvndev.github.io/tags/">Tags</a>
+            <a class="menu-item-link" href="https://cuongvndev.github.io/vi/tags/">Tags</a>
           
 
         
@@ -359,7 +359,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="https://cuongvndev.github.io/categories/">Categories</a>
+            <a class="menu-item-link" href="https://cuongvndev.github.io/vi/categories/">Categories</a>
           
 
         
@@ -389,16 +389,16 @@ if (!doNotTrack) {
 </svg>
 
           </i>
-          VN
+          EN
         </a>
         <ul class="submenu">
           
             
-          
-            
               <li class="submenu-item">
-                <a href="https://cuongvndev.github.io/en/">EN</a>
+                <a href="https://cuongvndev.github.io/vi/">VN</a>
               </li>
+            
+          
             
           
         </ul>
@@ -432,12 +432,12 @@ if (!doNotTrack) {
       <article class="post">
         
         <header class="post-header">
-          <h1 class="post-title">Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 3</h1>
+          <h1 class="post-title">Microservices, Eureka and Zuul Gateway User Manual - Part 3</h1>
           
   <div class="post-title-i18n">
     
       <div>
-        : <a href="https://cuongvndev.github.io/en/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/">Microservices, Eureka and Zuul Gateway User Manual - Part 3</a>
+        : <a href="https://cuongvndev.github.io/vi/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/">Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 3</a>
       </div>
     
   </div>
@@ -465,7 +465,7 @@ if (!doNotTrack) {
 
   <div class="post-meta__right">
     <span class="post-meta-more">
-        533 words -
+        509 words -
         3 min read
       </span>
 
@@ -488,12 +488,11 @@ if (!doNotTrack) {
 
         
         <div class="post-content">
-          <p>Trong phần này chúng ta sẽ cùng tìm hiểu về Spring Cloud Configuaration.</p>
-<p>Spring Cloud Configuration là một module trong hệ sinh thái Spring Cloud, cung cấp các công cụ để xây dựng các hệ thống phân tán và ứng dụng dịch vụ nhỏ. Spring Cloud Configuration tập trung cụ thể vào việc quản lý cấu hình của các ứng dụng trong một cách tập trung và linh hoạt.</p>
+          <p>In this section, let&rsquo;s explore Spring Cloud Configuration.</p>
+<p>Spring Cloud Configuration is a module within the Spring Cloud ecosystem that provides tools for building distributed systems and microservices applications. Spring Cloud Configuration specifically focuses on centralized and flexible management of application configurations.</p>
 <h2 id="1-spring-cloud-config-serve">1. Spring Cloud Config Serve</h2>
-<p>Đầu tiên chúng ta cần tạo 1 git repo để lưu trữ file config</p>
-<p>Mục đích của việc này là để gom các hết tất cả các config trong hệ thống microservice lại 1 chỗ để dễ ràng cho việc quản lý và update
-chúng ta sẽ tạo config cho 2 service Auth và Zuul như sau:
+<p>Firstly, we need to create a Git repository to store the configuration files.</p>
+<p>The purpose of this is to consolidate all the configurations for the microservices in one place, making it easier for management and updates. We will create configurations for the Auth and Zuul services as follows:
 <code>auth-service.yml</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">security</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">jwt</span>:
@@ -502,7 +501,7 @@ chúng ta sẽ tạo config cho 2 service Auth và Zuul như sau:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">prefix</span>: <span style="color:#ae81ff">Bearer</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">expiration</span>: <span style="color:#ae81ff">86400</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">secret</span>: <span style="color:#ae81ff">JwtSecretKey</span>
-</span></span></code></pre></div><p>Tương tự như vậy với <code>zuul-server.yml</code></p>
+</span></span></code></pre></div><p>Similarly, follow the same approach with <code>zuul-server.yml</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">security</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">jwt</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">uri</span>: <span style="color:#ae81ff">/auth/**</span>
@@ -511,15 +510,14 @@ chúng ta sẽ tạo config cho 2 service Auth và Zuul như sau:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">expiration</span>: <span style="color:#ae81ff">86400</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">secret</span>: <span style="color:#ae81ff">JwtSecretKey</span>
 </span></span></code></pre></div><blockquote>
-<p>Ở đây chúng ta cần lưu ý việc đặt tên file phải trùng với tên của service tương ứng với giá trị <code>spring.application.name</code> trong file <strong>application.yml</strong> việc đặt tên trùng để giúp cho Spring mapping đúng config cho từng service</p>
+<p>Here, it&rsquo;s important to note that the filename must match the name of the corresponding service, which should be the same as the value of <code>spring.application.name</code> in the <code>application.yml</code> file. This naming consistency helps Spring map the correct configuration to each service.</p>
 </blockquote>
-<p>Bước tiếp theo cần tạo project config-server
-sử dụng dependency như sau:</p>
+<p>The next step is to create the <code>config-server</code> project and use the following dependencies:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.cloud<span style="color:#f92672">&lt;/groupId&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;artifactId&gt;</span>spring-cloud-config-server<span style="color:#f92672">&lt;/artifactId&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
-</span></span></code></pre></div><p>Trong class main application sử dụng anotation <code>@EnableConfigServer</code> để khai báo đây là config server</p>
+</span></span></code></pre></div><p>In the main application class, use the annotation <code>@EnableConfigServer</code> to declare that this is a config server:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@SpringBootApplication</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">@EnableConfigServer</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ConfigServiceApplication</span> <span style="color:#f92672">{</span>
@@ -529,7 +527,7 @@ sử dụng dependency như sau:</p>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>Ở trong file <code>application.yml</code> như sau:</p>
+</span></span></code></pre></div><p>In the <code>application.yml</code> file, it should be as follows:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">server</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">port</span>: <span style="color:#ae81ff">8888</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">spring</span>:
@@ -544,14 +542,14 @@ sử dụng dependency như sau:</p>
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e">#   username: xxxx</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e">#   password: xxxx</span>
 </span></span></code></pre></div><blockquote>
-<p>Ở đây mình sẽ lưu config tại <a href="https://github.com/cuongvndev/config-files.git">git repo.</a>
-Hãy thêm username và password nếu cần khi bị lỗi authorize</p>
+<p>Here, I will store the configuration in this <a href="https://github.com/cuongvndev/config-files.git">Git repository.</a>
+Please add your username and password if needed for authorization errors.</p>
 </blockquote>
-<p>Bây giờ chúng ta truy cập vào đường dẫn <code>http://localhost:8888/auth-service.yml</code> thì sẽ thấy kết quả như hình:</p>
+<p>Now, if we access the URL <code>http://localhost:8888/auth-service.yml</code>, we will see the result as shown in the image:</p>
 <p><img src="/blog/microservice/config-server.png" alt="Config server" loading="lazy" class="zoom-image center"/></p>
 <h2 id="2-config-client">2. Config Client</h2>
-<p>Tiếp theo ở Auth service và Zuul Server gateway sẽ lấy thông tin config thông qua config server.</p>
-<p>Thêm dependency config-client ở Auth service và Zuul Server:</p>
+<p>Next, in the Auth service and Zuul Server gateway, you will retrieve configuration information from the config server.</p>
+<p>To achieve this, add the config-client dependency to both the Auth service and the Zuul Server:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.cloud<span style="color:#f92672">&lt;/groupId&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;artifactId&gt;</span>spring-cloud-starter-config<span style="color:#f92672">&lt;/artifactId&gt;</span>
@@ -578,8 +576,8 @@ Hãy thêm username và password nếu cần khi bị lỗi authorize</p>
 </span></span><span style="display:flex;"><span>        SpringApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>ZuulServerApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> args<span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>Sử dụng <code>@RefreshScope</code> trên một Spring Bean, bạn đang yêu cầu Spring Boot làm mới (refresh) lại bean đó khi có sự thay đổi cấu hình được áp dụng (thông qua cơ chế &ldquo;Refresh Scope&rdquo;). Điều này cho phép bạn cập nhật các giá trị cấu hình mà bean sử dụng mà không cần khởi động lại ứng dụng.</p>
-<p>Thêm Spring cloud config uri trong Auth và Zuul server:</p>
+</span></span></code></pre></div><p>By using <code>@RefreshScope</code> on a Spring Bean, you&rsquo;re instructing Spring Boot to refresh that bean when there are changes applied to the configuration (through the &ldquo;Refresh Scope&rdquo; mechanism). This allows you to update configuration values used by the bean without needing to restart the application.</p>
+<p>Additionally, you need to add the Spring Cloud Config URI within the Auth and Zuul server configurations:</p>
 <ul>
 <li>Auth-service</li>
 </ul>
@@ -632,7 +630,7 @@ Hãy thêm username và password nếu cần khi bị lỗi authorize</p>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">fetch-registry</span>: <span style="color:#66d9ef">true</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">instance</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">prefer-ip-address</span>: <span style="color:#66d9ef">true</span>
-</span></span></code></pre></div><p>Việc config cho các service đã xong tiếp theo hãy chạy Auth và Zuul Server lên để testing nhé!</p>
+</span></span></code></pre></div><p>The configuration for the services is now complete. Next, let&rsquo;s start the Auth and Zuul servers to proceed with testing!</p>
         </div>
 
         
@@ -644,15 +642,15 @@ Hãy thêm username và password nếu cần khi bị lỗi authorize</p>
         
 
 
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
 <div id="sharing" class="icon-bar">
   <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fcuongvndev.github.io%2fpost%2fmicroservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3%2f" class="fa fa-facebook" aria-label="share on Facebook">
   </a>
 
-  <a href="http://twitter.com/share?url=https%3a%2f%2fcuongvndev.github.io%2fpost%2fmicroservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3%2f&text=H%c6%b0%e1%bb%9bng%20d%e1%ba%abn%20s%e1%bb%ad%20d%e1%bb%a5ng%20Microservice%2c%20Eureka%20v%c3%a0%20Zuul%20Gateway%20-%20Ph%e1%ba%a7n%203&via=" class="fa fa-twitter" aria-label="share on Twitter">
+  <a href="http://twitter.com/share?url=https%3a%2f%2fcuongvndev.github.io%2fpost%2fmicroservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3%2f&text=Microservices%2c%20Eureka%20and%20Zuul%20Gateway%20User%20Manual%20-%20Part%203&via=" class="fa fa-twitter" aria-label="share on Twitter">
   </a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fcuongvndev.github.io%2fpost%2fmicroservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3%2f&amp;source=https%3a%2f%2fcuongvndev.github.io%2fpost%2fmicroservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3%2f&amp;title=H%c6%b0%e1%bb%9bng%20d%e1%ba%abn%20s%e1%bb%ad%20d%e1%bb%a5ng%20Microservice%2c%20Eureka%20v%c3%a0%20Zuul%20Gateway%20-%20Ph%e1%ba%a7n%203&amp;summary=H%c6%b0%e1%bb%9bng%20d%e1%ba%abn%20s%e1%bb%ad%20d%e1%bb%a5ng%20Microservice%2c%20Eureka%20v%c3%a0%20Zuul%20Gateway%20-%20Ph%e1%ba%a7n%203" class="fa fa-linkedin" aria-label="share on LinkedIn">
+  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fcuongvndev.github.io%2fpost%2fmicroservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3%2f&amp;source=https%3a%2f%2fcuongvndev.github.io%2fpost%2fmicroservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3%2f&amp;title=Microservices%2c%20Eureka%20and%20Zuul%20Gateway%20User%20Manual%20-%20Part%203&amp;summary=Microservices%2c%20Eureka%20and%20Zuul%20Gateway%20User%20Manual%20-%20Part%203" class="fa fa-linkedin" aria-label="share on LinkedIn">
   </a>
 </div>
 		
@@ -704,12 +702,12 @@ Hãy thêm username và password nếu cần khi bị lỗi authorize</p>
 </svg>
 
                 </i>
-                <span class="prev-text nav-default">React Native - Cơ bản về Redux Saga</span>
+                <span class="prev-text nav-default">React Native - Redux Saga Basics</span>
                 <span class="prev-text nav-mobile">Prev</span>
               </a>
             
               <a class="next" href="/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration/">
-                <span class="next-text nav-default">Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 2</span>
+                <span class="next-text nav-default">Microservices, Eureka and Zuul Gateway User Manual - Part 2</span>
                 <span class="prev-text nav-mobile">Next</span>
                 
                 <i class="iconfont">
@@ -799,7 +797,7 @@ Hãy thêm username và password nếu cần khi bị lỗi authorize</p>
 
     
     <nav class="toc" id="toc">
-    <div class="toc-title">Nội dung bài viết</div>
+    <div class="toc-title">Table of Contents</div>
     <div class="toc-content custom-scrollbar">
       <nav id="TableOfContents">
   <ul>
@@ -813,7 +811,6 @@ Hãy thêm username và password nếu cần khi bị lỗi authorize</p>
 
   </div>
   <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.2/dist/medium-zoom.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
   <script>
     mediumZoom('img.zoom-image', {
     margin: 24,

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>React on Cuong Vu - Going to the moon 🌑</title>
+    <link>https://cuongvndev.github.io/categories/react/</link>
+    <description>Recent content in React on Cuong Vu - Going to the moon 🌑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 23 Aug 2023 10:41:55 +0700</lastBuildDate><atom:link href="https://cuongvndev.github.io/categories/react/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Differences between Props and State in React</title>
+      <link>https://cuongvndev.github.io/post/differences-between-props-and-state-in-react/</link>
+      <pubDate>Wed, 23 Aug 2023 10:41:55 +0700</pubDate>
+      
+      <guid>https://cuongvndev.github.io/post/differences-between-props-and-state-in-react/</guid>
+      <description>&lt;p&gt;Recently, I&amp;rsquo;ve been exploring React, and during my research, I&amp;rsquo;ve come across the use of &lt;code&gt;Props and State&lt;/code&gt; quite frequently. So, what are they and how do they differ? Let&amp;rsquo;s delve into that in this article!&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

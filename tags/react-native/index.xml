@@ -5,15 +5,15 @@
     <link>https://cuongvndev.github.io/tags/react-native/</link>
     <description>Recent content in React Native on Cuong Vu - Going to the moon 🌑</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>vi</language>
+    <language>en</language>
     <lastBuildDate>Wed, 23 Aug 2023 10:41:55 +0700</lastBuildDate><atom:link href="https://cuongvndev.github.io/tags/react-native/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>React Native - Cơ bản về Redux Saga</title>
+      <title>React Native - Redux Saga Basics</title>
       <link>https://cuongvndev.github.io/post/react-native-redux-saga/</link>
       <pubDate>Wed, 23 Aug 2023 10:41:55 +0700</pubDate>
       
       <guid>https://cuongvndev.github.io/post/react-native-redux-saga/</guid>
-      <description>&lt;p&gt;Xin chào tất cả các bạn, bài viết này mình xin chia sẻ một chút kiến thức mình tìm hiểu được về &lt;em&gt;&lt;strong&gt;Redux Saga&lt;/strong&gt;&lt;/em&gt;, mong mọi người theo dõi.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Hello everyone, in this article, I would like to share some of the knowledge I&amp;rsquo;ve gathered about &lt;em&gt;&lt;strong&gt;Redux Saga&lt;/strong&gt;&lt;/em&gt;. I hope you all find it informative.&lt;/p&gt;</description>
     </item>
     
   </channel>

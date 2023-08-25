@@ -2,133 +2,154 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://cuongvndev.github.io/en/about/</loc>
+    <loc>https://cuongvndev.github.io/about/</loc>
     <lastmod>2023-08-10T11:18:56+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://cuongvndev.github.io/en/categories/</loc>
+    <loc>https://cuongvndev.github.io/categories/</loc>
     <lastmod>2023-08-23T10:41:55+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://cuongvndev.github.io/en/</loc>
+    <loc>https://cuongvndev.github.io/</loc>
     <lastmod>2023-08-23T10:41:55+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://cuongvndev.github.io/en/post/</loc>
+    <loc>https://cuongvndev.github.io/post/differences-between-props-and-state-in-react/</loc>
     <lastmod>2023-08-23T10:41:55+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://cuongvndev.github.io/en/tags/react-native/</loc>
+    <loc>https://cuongvndev.github.io/post/</loc>
     <lastmod>2023-08-23T10:41:55+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://cuongvndev.github.io/en/categories/react-native/</loc>
+    <loc>https://cuongvndev.github.io/tags/react/</loc>
     <lastmod>2023-08-23T10:41:55+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://cuongvndev.github.io/en/post/react-native-redux-saga/</loc>
+    <loc>https://cuongvndev.github.io/categories/react/</loc>
     <lastmod>2023-08-23T10:41:55+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://cuongvndev.github.io/en/tags/redux-saga/</loc>
+    <loc>https://cuongvndev.github.io/tags/react-native/</loc>
     <lastmod>2023-08-23T10:41:55+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://cuongvndev.github.io/en/tags/</loc>
+    <loc>https://cuongvndev.github.io/categories/react-native/</loc>
     <lastmod>2023-08-23T10:41:55+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://cuongvndev.github.io/en/tags/eureka/</loc>
+    <loc>https://cuongvndev.github.io/post/react-native-redux-saga/</loc>
+    <lastmod>2023-08-23T10:41:55+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cuongvndev.github.io/tags/redux-saga/</loc>
+    <lastmod>2023-08-23T10:41:55+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cuongvndev.github.io/tags/</loc>
+    <lastmod>2023-08-23T10:41:55+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cuongvndev.github.io/tags/eureka/</loc>
     <lastmod>2023-08-14T15:33:23+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://cuongvndev.github.io/en/tags/microservice/</loc>
+    <loc>https://cuongvndev.github.io/tags/microservice/</loc>
     <lastmod>2023-08-14T15:33:23+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://cuongvndev.github.io/en/categories/microservice/</loc>
+    <loc>https://cuongvndev.github.io/categories/microservice/</loc>
     <lastmod>2023-08-14T15:33:23+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://cuongvndev.github.io/en/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/</loc>
+    <loc>https://cuongvndev.github.io/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/</loc>
     <lastmod>2023-08-14T15:33:23+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://cuongvndev.github.io/en/tags/spring-boot-security/</loc>
+    <loc>https://cuongvndev.github.io/tags/spring-boot-security/</loc>
     <lastmod>2023-08-14T15:33:23+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://cuongvndev.github.io/en/tags/spring-cloud-configuration/</loc>
+    <loc>https://cuongvndev.github.io/tags/spring-cloud-configuration/</loc>
     <lastmod>2023-08-14T15:33:23+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://cuongvndev.github.io/en/tags/spring-cloud-netflix/</loc>
+    <loc>https://cuongvndev.github.io/tags/spring-cloud-netflix/</loc>
     <lastmod>2023-08-14T15:33:23+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://cuongvndev.github.io/en/tags/zuul-gateway/</loc>
+    <loc>https://cuongvndev.github.io/tags/zuul-gateway/</loc>
     <lastmod>2023-08-14T15:33:23+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://cuongvndev.github.io/en/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration/</loc>
+    <loc>https://cuongvndev.github.io/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration/</loc>
     <lastmod>2023-08-11T09:25:25+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://cuongvndev.github.io/en/post/microservice-with-spring-boot-eureka-and-zuul-gateway/</loc>
+    <loc>https://cuongvndev.github.io/post/microservice-with-spring-boot-eureka-and-zuul-gateway/</loc>
     <lastmod>2023-08-10T11:18:56+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

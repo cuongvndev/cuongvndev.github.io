@@ -5,7 +5,7 @@
     <link>https://cuongvndev.github.io/</link>
     <description>Recent content on Cuong Vu - Going to the moon 🌑</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>vi</language>
+    <language>en</language>
     <lastBuildDate>Wed, 23 Aug 2023 10:41:55 +0700</lastBuildDate>
     
         <atom:link href="https://cuongvndev.github.io/index.xml" rel="self" type="application/rss+xml" />
@@ -18,61 +18,179 @@
       
       <guid>https://cuongvndev.github.io/about/</guid>
       
-        <description>&lt;p&gt;Cứ mãi ở ao làng rồi sẽ cạn, sao không ra biển lớn để vẫy vùng.&lt;/p&gt;
-&lt;p&gt;Đây là blog cá nhân, tôi ghi chép và chia sẻ những gì tôi học được ở đây về kiến thức lập trình Java&lt;/p&gt;
+        <description>&lt;p&gt;This is my personal blog, I take notes and share what I learn here about Java programming knowledge&lt;/p&gt;
 </description>
       
     </item>
     
     <item>
-      <title>React Native - Cơ bản về Redux Saga</title>
+      <title>Differences between Props and State in React</title>
+      <link>https://cuongvndev.github.io/post/differences-between-props-and-state-in-react/</link>
+      <pubDate>Wed, 23 Aug 2023 10:41:55 +0700</pubDate>
+      
+      <guid>https://cuongvndev.github.io/post/differences-between-props-and-state-in-react/</guid>
+      
+        <description>&lt;p&gt;Recently, I&amp;rsquo;ve been exploring React, and during my research, I&amp;rsquo;ve come across the use of &lt;code&gt;Props and State&lt;/code&gt; quite frequently. So, what are they and how do they differ? Let&amp;rsquo;s delve into that in this article!&lt;/p&gt;
+&lt;h2 id=&#34;1-what-are-props&#34;&gt;1. What are Props?&lt;/h2&gt;
+&lt;p&gt;Props is short for &lt;code&gt;properties&lt;/code&gt;. In React, it refers to an object that stores the values of attributes within a component. Components can receive values of attributes passed from outside, and this is how components communicate with each other.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Example:&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Welcome&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;props&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;h1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Hello&lt;/span&gt;, {&lt;span style=&#34;color:#a6e22e&#34;&gt;props&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt;}&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;/h1&amp;gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Welcome&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ReactJS&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;/&amp;gt;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;ReactDOM&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;render&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  document.&lt;span style=&#34;color:#a6e22e&#34;&gt;getElementById&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;root&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In the above example, the line &lt;code&gt;&amp;lt;Welcome name=&amp;quot;ReactJS&amp;quot; /&amp;gt;&lt;/code&gt; creates a Welcome component with an attribute named name and a value of ReactJS. Above it, we have a function component that returns &lt;code&gt;Hello, {props.name}&lt;/code&gt;. Here, &lt;code&gt;{props.name}&lt;/code&gt; will have the value passed into the Welcome component, which is ReactJS. Finally, upon rendering, it will produce the output: &lt;code&gt;Hello, ReactJS.&lt;/code&gt; It&amp;rsquo;s somewhat akin to calling a function in JavaScript, isn&amp;rsquo;t it? 😄&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Props can be modified using functions like setProps or replaceProps, but this is not encouraged by React &lt;a href=&#34;https://legacy.reactjs.org/docs/components-and-props.html#props-are-read-only&#34;&gt;(Props are Read-Only)&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;2-what-is-state&#34;&gt;2. What is State?&lt;/h2&gt;
+&lt;p&gt;Similar to &lt;em&gt;props&lt;/em&gt;, &lt;em&gt;state&lt;/em&gt; also holds information about a component, but it stores dynamic data specific to a component.&lt;/p&gt;
+&lt;p&gt;State is dynamic data; when its value changes, the component gets re-rendered.&lt;/p&gt;
+&lt;p&gt;State is only accessible within the component it belongs to. This means you cannot directly access the state of component A from component B. Instead, you would need to use props to pass the state&amp;rsquo;s value from component A to B.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s consider the following example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Clock&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;extends&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;React&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Component&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;constructor&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;props&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;super&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;props&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;state&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {&lt;span style=&#34;color:#a6e22e&#34;&gt;date&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; Date()};
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;componentDidMount&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;timerID&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;setInterval&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      () =&amp;gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;tick&lt;/span&gt;(),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    );
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;componentWillUnmount&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;clearInterval&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;timerID&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;tick&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;setState&lt;/span&gt;({
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#a6e22e&#34;&gt;date&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; Date()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    });
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;render&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; (
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;div&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;h1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Hello&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;world&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;!&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;/h1&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;h2&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;It&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;is&lt;/span&gt; {&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;state&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;date&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;toLocaleTimeString&lt;/span&gt;()}.&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;/h2&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;/div&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    );
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;ReactDOM&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;render&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Clock&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;/&amp;gt;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  document.&lt;span style=&#34;color:#a6e22e&#34;&gt;getElementById&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;root&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;This code works as follows:&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;The component initializes with a state containing the current time.&lt;/li&gt;
+&lt;li&gt;After the component is initialized and its state is set, &lt;code&gt;componentDidMount&lt;/code&gt; runs, initializing an interval and assigning it to this.timerID.&lt;/li&gt;
+&lt;li&gt;As the interval runs, the state is updated every second using the &lt;code&gt;this.setState()&lt;/code&gt; method.&lt;/li&gt;
+&lt;li&gt;When the state changes, a change event is triggered, and the render method updates the UI with the latest information.&lt;/li&gt;
+&lt;li&gt;Before leaving the page, the &lt;code&gt;componentWillUnmount()&lt;/code&gt; function runs and clears the interval.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;3-comparing-props-and-state&#34;&gt;3. Comparing Props and State&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;em&gt;&lt;strong&gt;Props&lt;/strong&gt;&lt;/em&gt;&lt;/th&gt;
+&lt;th&gt;&lt;em&gt;&lt;strong&gt;State&lt;/strong&gt;&lt;/em&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Can receive initial values from parent component&lt;/td&gt;
+&lt;td&gt;Yes&lt;/td&gt;
+&lt;td&gt;Yes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Can be changed by parent component&lt;/td&gt;
+&lt;td&gt;Yes&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Can have default values set within the component&lt;/td&gt;
+&lt;td&gt;Yes&lt;/td&gt;
+&lt;td&gt;Yes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Can be changed within the component&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;Yes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Can set initial values for child components&lt;/td&gt;
+&lt;td&gt;Yes&lt;/td&gt;
+&lt;td&gt;Yes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Can be changed within child components&lt;/td&gt;
+&lt;td&gt;Yes&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;I hope this article helps you understand more about props and state. If there&amp;rsquo;s anything incorrect, feel free to provide feedback! 😄&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>React Native - Redux Saga Basics</title>
       <link>https://cuongvndev.github.io/post/react-native-redux-saga/</link>
       <pubDate>Wed, 23 Aug 2023 10:41:55 +0700</pubDate>
       
       <guid>https://cuongvndev.github.io/post/react-native-redux-saga/</guid>
       
-        <description>&lt;p&gt;Xin chào tất cả các bạn, bài viết này mình xin chia sẻ một chút kiến thức mình tìm hiểu được về &lt;em&gt;&lt;strong&gt;Redux Saga&lt;/strong&gt;&lt;/em&gt;, mong mọi người theo dõi.&lt;/p&gt;
-&lt;p&gt;Nếu ai đã từng tìm hiểu qua về &lt;em&gt;&lt;strong&gt;redux&lt;/strong&gt;&lt;/em&gt; thì sẽ biết giữa quá trình &lt;em&gt;&lt;strong&gt;dispatch một action và reducer&lt;/strong&gt;&lt;/em&gt; chúng ta thường sẽ gọi một API nào đó từ server trả về không ít người sẽ gặp trường hợp mà API chưa kịp trả về kết quả mà các dòng code tiếp theo đã được thực thi sẽ dẫn đến trường hợp không mong muốn, và để khác phục điều đó chúng ta có một thư viện giúp chúng ta xử lý các điều này dễ dàng hơn đó là &lt;code&gt;Redux saga&lt;/code&gt;. (trước khi được bài này thì các bạn nên hiểu qua một chút về redux và react).&lt;/p&gt;
-&lt;h2 id=&#34;1-redux-saga-là-gì&#34;&gt;1. Redux Saga là gì?&lt;/h2&gt;
-&lt;p&gt;Redux-Saga là một thư viện redux middleware, giúp chúng ta quản lý những side effect trong ứng dụng redux trở nên một cách đơn giản hơn và dễ kiểm soát hơn.
+        <description>&lt;p&gt;Hello everyone, in this article, I would like to share some of the knowledge I&amp;rsquo;ve gathered about &lt;em&gt;&lt;strong&gt;Redux Saga&lt;/strong&gt;&lt;/em&gt;. I hope you all find it informative.&lt;/p&gt;
+&lt;p&gt;For those who have previously delved into &lt;em&gt;&lt;strong&gt;redux&lt;/strong&gt;&lt;/em&gt;, you may be aware that between the process of &lt;em&gt;&lt;strong&gt;dispatching an action and a reducer&lt;/strong&gt;&lt;/em&gt;, we often encounter situations where an API call to the server is involved. This API call might not return results before subsequent lines of code execute, leading to undesirable outcomes. To address this, there&amp;rsquo;s a library that makes dealing with such scenarios easier - &lt;em&gt;&lt;strong&gt;Redux Saga&lt;/strong&gt;&lt;/em&gt;. (Before diving into this article, it&amp;rsquo;s recommended to have a basic understanding of redux and react).&lt;/p&gt;
+&lt;h2 id=&#34;1-what-is-redux-saga&#34;&gt;1. What is Redux Saga?&lt;/h2&gt;
+&lt;p&gt;Redux-Saga is a redux middleware library that simplifies the management of side effects in a redux application, making them more manageable and controllable.
 &lt;img src=&#34;https://cuongvndev.github.io/blog/redux-saga/redux-saga.gif&#34; alt=&#34;redux saga&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
-&lt;p&gt;Để hiểu được sự hoạt động của redux saga bạn cần hiểu một số khái niệm cơ bản như generator function.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Generator function là function có khả năng hoãn lại quá trình thực thi mà vẫn giữ nguyên được context. Hơi khó hiểu phải không, nói một cách đơn giản thì generator function là 1 function có khả năng tạm ngưng trước khi hàm kết thúc (khác với pure function khi được gọi sẽ thực thi hết các câu lệnh trong hàm), và có thể tiếp tục chạy tại một thời điểm khác. Chính chức năng mới này giúp ta giải quyết được việc bất đồng bộ, hàm sẽ dừng và đợi async chạy xong rồi tiếp tục thực thi. Chi tiết thì bạn có thể tham khảo &lt;a href=&#34;https://davidwalsh.name/es6-generators&#34;&gt;tại đây&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Generator functions are capable of pausing the execution process and maintaining the context. Sounds a bit tricky, right? Put simply, a generator function can pause before it completes (unlike pure functions that execute all statements when called). It can later resume execution at a different point in time. This unique feature helps solve asynchronous issues; the function pauses and waits for asynchronous tasks to finish before continuing. For more details, you can refer to &lt;a href=&#34;https://davidwalsh.name/es6-generators&#34;&gt;here.&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Hãy nhình vào sơ đồ dưới đây:
+&lt;li&gt;Let&amp;rsquo;s take a look at the following diagram:
 &lt;img src=&#34;https://cuongvndev.github.io/blog/redux-saga/redux-saga-fow.webp&#34; alt=&#34;redux saga flow&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Từ phía redux saga chúng ta gửi request đến Server để chúng ta lấy các API về sau đó ta có response trả về redux saga, sau khi có dữ liệu thì chúng ta sử dụng các effects, trong các effect này chúng ta có các hàm để dispatch sang phía reducers.&lt;/p&gt;
+&lt;p&gt;From the redux saga side, we send a request to the Server to fetch certain APIs. After obtaining the response, we use effects to handle these APIs and dispatch the necessary actions to reducers.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;2-các-kiến-thức-cơ-bản-về-redux-saga&#34;&gt;2. Các kiến thức cơ bản về Redux Saga&lt;/h2&gt;
-&lt;p&gt;Redux saga cung cấp cho chúng ta một số method gọi là effect như sau:&lt;/p&gt;
+&lt;h2 id=&#34;2-basic-concepts-of-redux-saga&#34;&gt;2. Basic Concepts of Redux Saga&lt;/h2&gt;
+&lt;p&gt;Redux saga provides several methods called effects, such as:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;Fork()&lt;/code&gt;: sử dụng cơ chế non - blocking call trên function&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Call()&lt;/code&gt;: Gọi function. Nếu nó return về một promise, tạm dừng saga cho đến khi promise được giải quyết&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Take()&lt;/code&gt;: tạm dừng cho đến khi nhận được action&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Put()&lt;/code&gt;: Dùng để dispatch một action&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;takeEvery()&lt;/code&gt;: Theo dõi một action nào đó thay đổi thì gọi một saga nào đó&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;akeLastest()&lt;/code&gt; : Có nghĩa là nếu chúng ta thực hiện một loạt các actions, nó sẽ chỉ thực thi và trả lại kết quả của của actions cuối cùng&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;yield()&lt;/code&gt;: Có nghĩa là chạy tuần tự khi nào trả ra kết quả mới thực thi tiếp&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Select()&lt;/code&gt;: Chạy một selector function để lấy data từ state&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Fork()&lt;/code&gt;: Uses non-blocking call mechanism on function.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Call()&lt;/code&gt;: Calls a function. If it returns a promise, the saga pauses until the promise resolves.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Take()&lt;/code&gt;: Pauses until a specific action is received.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Put()&lt;/code&gt;: Used to dispatch an action.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;takeEvery()&lt;/code&gt;: Watches for a particular action and triggers a specified saga when the action occurs.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;akeLastest()&lt;/code&gt; : If a series of actions are dispatched, it will only execute and return the result of the final action.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;yield()&lt;/code&gt;: Runs sequentially, only moving to the next step after the result is obtained.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Select()&lt;/code&gt;: Runs a selector function to retrieve data from the state.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;3-tạo-project-react-native-sử-dụng-redux-saga&#34;&gt;3. Tạo project React Native sử dụng Redux Saga&lt;/h2&gt;
-&lt;p&gt;Đầu tiên chúng ta khởi tạo project thông qua lệnh sau:&lt;/p&gt;
+&lt;h2 id=&#34;3-creating-a-react-native-project-using-redux-saga&#34;&gt;3. Creating a React Native Project using Redux Saga&lt;/h2&gt;
+&lt;p&gt;First, let&amp;rsquo;s initialize the project with the following command:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cmd&#34; data-lang=&#34;cmd&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npx react-native init AwesomeApp
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;Bạn cần phải install react-native cli trước khi chạy lệnh trên nhé&lt;/p&gt;
+&lt;p&gt;Make sure to install the react-native cli before running the above command.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Tiếp theo cần install các thư viện sau:&lt;/p&gt;
+&lt;p&gt;Next, install the necessary libraries:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cmd&#34; data-lang=&#34;cmd&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm install redux
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm install redux-saga
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm install react-redux
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Chúng ta sẽ cùng tạo 1 App counter đơn giản với 2 nút + - update giá trị khi người dùng click vào&lt;/p&gt;
-&lt;p&gt;Cấu trúc của project như sau:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now, let&amp;rsquo;s create a simple counter app with buttons &amp;ldquo;+&amp;rdquo; and &amp;ldquo;-&amp;rdquo; that update the count when clicked.&lt;/p&gt;
+&lt;p&gt;The project structure should be as follows:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://cuongvndev.github.io/blog/redux-saga/awesomeapp.png&#34; alt=&#34;Awesome app&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
-&lt;p&gt;Sau khi khởi tạo project và cài đặt một số thư viện liên quan chúng ta sẽ vào file AwesomeApp/index.js để cấu hình redux-saga vào trong project:&lt;/p&gt;
+&lt;p&gt;After initializing the project and installing relevant libraries, navigate to the file &lt;code&gt;AwesomeApp/index.js&lt;/code&gt; to configure redux-saga in the project:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;React&lt;/span&gt;, {&lt;span style=&#34;color:#a6e22e&#34;&gt;Component&lt;/span&gt;} &lt;span style=&#34;color:#a6e22e&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;react&amp;#39;&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; { &lt;span style=&#34;color:#a6e22e&#34;&gt;AppRegistry&lt;/span&gt; } &lt;span style=&#34;color:#a6e22e&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;react-native&amp;#39;&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; {&lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;as&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;appName&lt;/span&gt;} &lt;span style=&#34;color:#a6e22e&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;./app.json&amp;#39;&lt;/span&gt;;
@@ -82,7 +200,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; { &lt;span style=&#34;color:#a6e22e&#34;&gt;Provider&lt;/span&gt; } &lt;span style=&#34;color:#a6e22e&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;react-redux&amp;#34;&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;rootSaga&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;./src/sagas&amp;#39;&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;CountrerComponent&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;./src/component/CountrerComponent&amp;#39;&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;sagaMiddleware&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;createSagaMiddleware&lt;/span&gt;(); &lt;span style=&#34;color:#75715e&#34;&gt;// Hàm này có nhiệm vụ tạo ra một middleware năm giữa action và reducer trong redux
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;sagaMiddleware&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;createSagaMiddleware&lt;/span&gt;(); &lt;span style=&#34;color:#75715e&#34;&gt;// This function is responsible for creating a middleware that sits between actions and reducers in Redux.
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;store&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;createStore&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;allReducers&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;applyMiddleware&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;sagaMiddleware&lt;/span&gt;));
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;App&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; () =&amp;gt; {
@@ -93,9 +211,9 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    )
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;sagaMiddleware&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;run&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;rootSaga&lt;/span&gt;); &lt;span style=&#34;color:#75715e&#34;&gt;// Hàm này là chạy các saga
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;sagaMiddleware&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;run&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;rootSaga&lt;/span&gt;); &lt;span style=&#34;color:#75715e&#34;&gt;// This function is used to run the sagas.
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;AppRegistry&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;registerComponent&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;appName&lt;/span&gt;, ()=&amp;gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;App&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Tạo lần lượt các thành phần chính của Redux Saga là reducer, saga, action ở trong src nhé&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now, let&amp;rsquo;s create the core components of Redux Saga: reducer, saga, and action, all within the &lt;em&gt;&lt;strong&gt;src&lt;/strong&gt;&lt;/em&gt; directory.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;&lt;strong&gt;Actions&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;actions/index.js&lt;/li&gt;
@@ -179,7 +297,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;yield&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;takeEvery&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;DECREMENT&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;decrement&lt;/span&gt;);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;Khi action có type là DECREMENT, INCREMENT được gọi thì hàm decrement sẽ được thực thi và các side effect sẽ được xử lý ở trong này.&lt;/p&gt;
+&lt;p&gt;When an action with the type DECREMENT or INCREMENT is called, the decrement function will be executed, and the associated side effects will be handled within this function.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;sagas/index.js&lt;/li&gt;
@@ -193,9 +311,9 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;]);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;Tại đây các saga sẽ được gom lại trong effect all để chạy.&lt;/p&gt;
+&lt;p&gt;Here, the sagas are grouped together within the all effect to run collectively.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Và cuối cùng là Counter Component&lt;/p&gt;
+&lt;p&gt;Finally, let&amp;rsquo;s create the Counter Component:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;component/CountrerComponent.js&lt;/li&gt;
 &lt;/ul&gt;
@@ -272,34 +390,33 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#a6e22e&#34;&gt;fontSize&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  };
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;&lt;strong&gt;Ưu điểm&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;&lt;strong&gt;Advantages&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Do tách riêng side-effect ra khỏi action nên việc testing là dễ dàng hơn Redux-Thunk&lt;/li&gt;
-&lt;li&gt;Giữ cho action pure synchronos theo chuẩn redux và loại bỏ hoàn toàn callback theo javascript truyền thống&lt;/li&gt;
+&lt;li&gt;Separating side effects from actions makes testing easier compared to Redux-Thunk.&lt;/li&gt;
+&lt;li&gt;Keeps actions purely synchronous following redux standards and eliminates traditional JavaScript callbacks.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;Nhược điểm&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Disadvantages&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Function ko viết được dạng arrow-function.&lt;/li&gt;
-&lt;li&gt;Phải hiểu về Generator function và các khái niệm trong saga pattern&lt;/li&gt;
+&lt;li&gt;Functions cannot be written as arrow functions.&lt;/li&gt;
+&lt;li&gt;Requires understanding of Generator functions and concepts in the saga pattern.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;Kết luận&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Trên đây là một chút kiến thức mà mình tìm hiểu được về các thành phần trong redux-saga, rất mong được sự góp ý của mọi người. Cảm ơn mọi người đã theo dõi bài viết của mình&lt;/p&gt;</description>
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Conclusion&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The above information provides a glimpse into the components of Redux Saga that I&amp;rsquo;ve explored. I sincerely appreciate any feedback or suggestions from all of you. Thank you for following along with my article.&lt;/p&gt;</description>
       
     </item>
     
     <item>
-      <title>Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 3</title>
+      <title>Microservices, Eureka and Zuul Gateway User Manual - Part 3</title>
       <link>https://cuongvndev.github.io/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/</link>
       <pubDate>Mon, 14 Aug 2023 15:33:23 +0700</pubDate>
       
       <guid>https://cuongvndev.github.io/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/</guid>
       
-        <description>&lt;p&gt;Trong phần này chúng ta sẽ cùng tìm hiểu về Spring Cloud Configuaration.&lt;/p&gt;
-&lt;p&gt;Spring Cloud Configuration là một module trong hệ sinh thái Spring Cloud, cung cấp các công cụ để xây dựng các hệ thống phân tán và ứng dụng dịch vụ nhỏ. Spring Cloud Configuration tập trung cụ thể vào việc quản lý cấu hình của các ứng dụng trong một cách tập trung và linh hoạt.&lt;/p&gt;
+        <description>&lt;p&gt;In this section, let&amp;rsquo;s explore Spring Cloud Configuration.&lt;/p&gt;
+&lt;p&gt;Spring Cloud Configuration is a module within the Spring Cloud ecosystem that provides tools for building distributed systems and microservices applications. Spring Cloud Configuration specifically focuses on centralized and flexible management of application configurations.&lt;/p&gt;
 &lt;h2 id=&#34;1-spring-cloud-config-serve&#34;&gt;1. Spring Cloud Config Serve&lt;/h2&gt;
-&lt;p&gt;Đầu tiên chúng ta cần tạo 1 git repo để lưu trữ file config&lt;/p&gt;
-&lt;p&gt;Mục đích của việc này là để gom các hết tất cả các config trong hệ thống microservice lại 1 chỗ để dễ ràng cho việc quản lý và update
-chúng ta sẽ tạo config cho 2 service Auth và Zuul như sau:
+&lt;p&gt;Firstly, we need to create a Git repository to store the configuration files.&lt;/p&gt;
+&lt;p&gt;The purpose of this is to consolidate all the configurations for the microservices in one place, making it easier for management and updates. We will create configurations for the Auth and Zuul services as follows:
 &lt;code&gt;auth-service.yml&lt;/code&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;security&lt;/span&gt;:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;jwt&lt;/span&gt;:
@@ -308,7 +425,7 @@ chúng ta sẽ tạo config cho 2 service Auth và Zuul như sau:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;prefix&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Bearer&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;expiration&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;86400&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;secret&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;JwtSecretKey&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Tương tự như vậy với &lt;code&gt;zuul-server.yml&lt;/code&gt;&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Similarly, follow the same approach with &lt;code&gt;zuul-server.yml&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;security&lt;/span&gt;:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;jwt&lt;/span&gt;:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;uri&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;/auth/**&lt;/span&gt;
@@ -317,15 +434,14 @@ chúng ta sẽ tạo config cho 2 service Auth và Zuul như sau:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;expiration&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;86400&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;secret&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;JwtSecretKey&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;Ở đây chúng ta cần lưu ý việc đặt tên file phải trùng với tên của service tương ứng với giá trị &lt;code&gt;spring.application.name&lt;/code&gt; trong file &lt;strong&gt;application.yml&lt;/strong&gt; việc đặt tên trùng để giúp cho Spring mapping đúng config cho từng service&lt;/p&gt;
+&lt;p&gt;Here, it&amp;rsquo;s important to note that the filename must match the name of the corresponding service, which should be the same as the value of &lt;code&gt;spring.application.name&lt;/code&gt; in the &lt;code&gt;application.yml&lt;/code&gt; file. This naming consistency helps Spring map the correct configuration to each service.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Bước tiếp theo cần tạo project config-server
-sử dụng dependency như sau:&lt;/p&gt;
+&lt;p&gt;The next step is to create the &lt;code&gt;config-server&lt;/code&gt; project and use the following dependencies:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.cloud&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-cloud-config-server&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Trong class main application sử dụng anotation &lt;code&gt;@EnableConfigServer&lt;/code&gt; để khai báo đây là config server&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In the main application class, use the annotation &lt;code&gt;@EnableConfigServer&lt;/code&gt; to declare that this is a config server:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@SpringBootApplication&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@EnableConfigServer&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ConfigServiceApplication&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
@@ -335,7 +451,7 @@ sử dụng dependency như sau:&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Ở trong file &lt;code&gt;application.yml&lt;/code&gt; như sau:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In the &lt;code&gt;application.yml&lt;/code&gt; file, it should be as follows:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;server&lt;/span&gt;:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;port&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;8888&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;spring&lt;/span&gt;:
@@ -350,14 +466,14 @@ sử dụng dependency như sau:&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;#   username: xxxx&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;#   password: xxxx&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;Ở đây mình sẽ lưu config tại &lt;a href=&#34;https://github.com/cuongvndev/config-files.git&#34;&gt;git repo.&lt;/a&gt;
-Hãy thêm username và password nếu cần khi bị lỗi authorize&lt;/p&gt;
+&lt;p&gt;Here, I will store the configuration in this &lt;a href=&#34;https://github.com/cuongvndev/config-files.git&#34;&gt;Git repository.&lt;/a&gt;
+Please add your username and password if needed for authorization errors.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Bây giờ chúng ta truy cập vào đường dẫn &lt;code&gt;http://localhost:8888/auth-service.yml&lt;/code&gt; thì sẽ thấy kết quả như hình:&lt;/p&gt;
+&lt;p&gt;Now, if we access the URL &lt;code&gt;http://localhost:8888/auth-service.yml&lt;/code&gt;, we will see the result as shown in the image:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://cuongvndev.github.io/blog/microservice/config-server.png&#34; alt=&#34;Config server&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
 &lt;h2 id=&#34;2-config-client&#34;&gt;2. Config Client&lt;/h2&gt;
-&lt;p&gt;Tiếp theo ở Auth service và Zuul Server gateway sẽ lấy thông tin config thông qua config server.&lt;/p&gt;
-&lt;p&gt;Thêm dependency config-client ở Auth service và Zuul Server:&lt;/p&gt;
+&lt;p&gt;Next, in the Auth service and Zuul Server gateway, you will retrieve configuration information from the config server.&lt;/p&gt;
+&lt;p&gt;To achieve this, add the config-client dependency to both the Auth service and the Zuul Server:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.cloud&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-cloud-starter-config&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
@@ -384,8 +500,8 @@ Hãy thêm username và password nếu cần khi bị lỗi authorize&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        SpringApplication&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;run&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;ZuulServerApplication&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; args&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Sử dụng &lt;code&gt;@RefreshScope&lt;/code&gt; trên một Spring Bean, bạn đang yêu cầu Spring Boot làm mới (refresh) lại bean đó khi có sự thay đổi cấu hình được áp dụng (thông qua cơ chế &amp;ldquo;Refresh Scope&amp;rdquo;). Điều này cho phép bạn cập nhật các giá trị cấu hình mà bean sử dụng mà không cần khởi động lại ứng dụng.&lt;/p&gt;
-&lt;p&gt;Thêm Spring cloud config uri trong Auth và Zuul server:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;By using &lt;code&gt;@RefreshScope&lt;/code&gt; on a Spring Bean, you&amp;rsquo;re instructing Spring Boot to refresh that bean when there are changes applied to the configuration (through the &amp;ldquo;Refresh Scope&amp;rdquo; mechanism). This allows you to update configuration values used by the bean without needing to restart the application.&lt;/p&gt;
+&lt;p&gt;Additionally, you need to add the Spring Cloud Config URI within the Auth and Zuul server configurations:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Auth-service&lt;/li&gt;
 &lt;/ul&gt;
@@ -438,34 +554,33 @@ Hãy thêm username và password nếu cần khi bị lỗi authorize&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;fetch-registry&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;instance&lt;/span&gt;:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;prefer-ip-address&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Việc config cho các service đã xong tiếp theo hãy chạy Auth và Zuul Server lên để testing nhé!&lt;/p&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The configuration for the services is now complete. Next, let&amp;rsquo;s start the Auth and Zuul servers to proceed with testing!&lt;/p&gt;</description>
       
     </item>
     
     <item>
-      <title>Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 2</title>
+      <title>Microservices, Eureka and Zuul Gateway User Manual - Part 2</title>
       <link>https://cuongvndev.github.io/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration/</link>
       <pubDate>Fri, 11 Aug 2023 09:25:25 +0700</pubDate>
       
       <guid>https://cuongvndev.github.io/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration/</guid>
       
-        <description>&lt;p&gt;Ở bài trước chúng ta đã dựng được một hệ thống microservice đơn giản với User service, Eureka server và Zuul gateway.
-Trong bài viết này chúng ta sẽ cùng tìm hiểu về &lt;strong&gt;JWT&lt;/strong&gt; và cách để &lt;strong&gt;xác thực và bảo mật&lt;/strong&gt; trong hệ thống &lt;strong&gt;Microservice&lt;/strong&gt; bằng JWT.&lt;/p&gt;
-&lt;p&gt;Chúng ta sẽ tạo 1 service mới là &lt;code&gt;auth service&lt;/code&gt; có nhiệm vụ xác minh danh tính và tạo jwt token khi user login
-Còn việc xác thực token sẽ do Zuul gateway đảm nhận, khi có 1 request gửi đến thì Zuul gateway sẽ dựa vào token được cung cấp và xác thực quyền truy cập, xác thực thành công thì mới tiến hành điều hướng request tới các service bussiness khác.&lt;/p&gt;
+        <description>&lt;p&gt;In the previous article, we successfully built a simple microservice system consisting of the User service, Eureka server, and Zuul gateway.&lt;/p&gt;
+&lt;p&gt;In this article, we will delve into understanding &lt;strong&gt;JWT&lt;/strong&gt; and the approach to &lt;strong&gt;authentication and security&lt;/strong&gt; within the Microservice architecture using JWT.&lt;/p&gt;
+&lt;p&gt;We will create a new service called the &lt;code&gt;auth service&lt;/code&gt;, which will be responsible for verifying identities and generating JWT tokens upon user login. The task of token authentication will be handled by the Zuul gateway. When a request is received, the Zuul gateway will verify the provided token, authenticate access rights. Only upon successful authentication will the Zuul gateway proceed to route the request to other business services.&lt;/p&gt;
 &lt;h2 id=&#34;1-jwt-json-based-token&#34;&gt;1. JWT (Json Based Token)&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Token&lt;/strong&gt; là 1 chuỗi string được mã hoá được tạo ra từ hệ thống của chúng ta sau khi xác thực thành công. Và được đính kèm trong các request để cung cấp quyền truy cập vào ứng dụng.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;JWT&lt;/strong&gt; là 1 chuẩn JSON để tạo token, được bao gồm bởi 3 phần&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Token&lt;/strong&gt; is a string of characters that is generated by our system after a successful authentication and is attached to requests to grant access to the application.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;JWT&lt;/strong&gt; (JSON Web Token) is a standard for creating tokens, consisting of three parts:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Header: chứa thuật toán hash
-&lt;code&gt;{type: “JWT”, hash: “HS256”}&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Payload: chứa các thuộc tính user name, email,&amp;hellip; và các giá trị của nó
-&lt;code&gt;{username: &amp;quot;Omar&amp;quot;, email: &amp;quot;omar@example.com&amp;quot;, admin: true }&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Signature: là giá trị hash của &lt;code&gt;Header + “.” + Payload + Secret key&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Header: Contains the hash algorithm.
+&lt;code&gt;{type: &amp;quot;JWT&amp;quot;, hash: &amp;quot;HS256&amp;quot;}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Payload: Contains attributes like username, email, and their values.
+&lt;code&gt;{username: &amp;quot;Omar&amp;quot;, email: &amp;quot;omar@example.com&amp;quot;, admin: true}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Signature: This is the hash value of &lt;code&gt;Header + &amp;quot;.&amp;quot; + Payload + Secret key&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;2-zuul-gateway&#34;&gt;2. Zuul gateway&lt;/h2&gt;
-&lt;p&gt;Ở trong gateway sẽ thực hiện 2 chức năng: một xác thực token và 2 là chặn tất cả request nếu xác thực không thành công.
-Trong file &lt;code&gt;pom.xml&lt;/code&gt; chúng ta cần thêm spring security và JWT&lt;/p&gt;
+&lt;p&gt;In the gateway, two functions will be performed: firstly, token authentication, and secondly, blocking all requests if authentication fails.&lt;/p&gt;
+&lt;p&gt;In the &lt;code&gt;pom.xml&lt;/code&gt; file, we need to add Spring Security and JWT dependencies.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;dependency&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;groupId&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;org&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;springframework&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;boot&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/&lt;/span&gt;groupId&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;artifactId&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;spring&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;boot&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;starter&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;security&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/&lt;/span&gt;artifactId&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
@@ -474,7 +589,7 @@ Trong file &lt;code&gt;pom.xml&lt;/code&gt; chúng ta cần thêm spring securit
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;groupId&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;io&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;jsonwebtoken&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/&lt;/span&gt;groupId&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;artifactId&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;jjwt&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/&lt;/span&gt;artifactId&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/&lt;/span&gt;dependency&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Để sử dụng security thì chúng ta cần tạo 1 class extend từ &lt;code&gt;WebSecurityConfigurerAdapter&lt;/code&gt; và dùng anotation &lt;code&gt;@EnableWebSecurity&lt;/code&gt;&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To use security, we need to create a class that extends &lt;code&gt;WebSecurityConfigurerAdapter&lt;/code&gt; and use the &lt;code&gt;@EnableWebSecurity&lt;/code&gt; annotation.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; com.example.zuulserver.security&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; com.example.commonservice.security.JwtConfig&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
@@ -521,9 +636,9 @@ Trong file &lt;code&gt;pom.xml&lt;/code&gt; chúng ta cần thêm spring securit
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;Class JwtConfig sẽ được tạo sau ở trong phần common service&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;JwtConfig&lt;/code&gt; class will be created later in the common service.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Tiếp theo chúng ta sẽ viết class filter để xác thực token được đặt tên là &lt;code&gt;JwtTokenAuthenticationFilter&lt;/code&gt;, class này sẽ extend từ &lt;code&gt;OncePerRequestFilter&lt;/code&gt; filter này sẽ được kích hoạt mỗi khi request được gửi tới.&lt;/p&gt;
+&lt;p&gt;Next, we will write a filter class to authenticate tokens, named &lt;code&gt;JwtTokenAuthenticationFilter&lt;/code&gt;. This class will extend from &lt;code&gt;OncePerRequestFilter&lt;/code&gt;, and this filter will be activated whenever a request is sent.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; com.example.zuulserver.security&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; com.example.commonservice.security.JwtConfig&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
@@ -591,7 +706,7 @@ Trong file &lt;code&gt;pom.xml&lt;/code&gt; chúng ta cần thêm spring securit
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;        filterChain&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;doFilter&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;request&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; response&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Và đừng quên thêm security config để sử dụng cho class JwtConfig nhé:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And don&amp;rsquo;t forget to add security config to use the JwtConfig class:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;security:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  jwt&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;
@@ -601,9 +716,8 @@ Trong file &lt;code&gt;pom.xml&lt;/code&gt; chúng ta cần thêm spring securit
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    expiration&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; 86400
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    secret&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; JwtSecretKey
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;3-common-service&#34;&gt;3. Common service&lt;/h2&gt;
-&lt;p&gt;Service này sẽ chứa những config được sử dụng chung cho nhiều service khác
-Chúng ta sẽ tạo class JwtConfig để chứa các config JWT và class này sẽ được sử dụng trong Auth service và Zuul gateway&lt;/p&gt;
-&lt;p&gt;Cũng tương tự như việc tạo các service khác hãy tạo mới project Spring boot và config file &lt;code&gt;pom.xml&lt;/code&gt; như sau:&lt;/p&gt;
+&lt;p&gt;This service will contain shared configurations for multiple services. We will create a class named JwtConfig to hold the JWT configurations, and this class will be used in both the Auth service and Zuul Gateway.&lt;/p&gt;
+&lt;p&gt;Similar to creating other services, let&amp;rsquo;s create a new Spring Boot project and configure the &lt;code&gt;pom.xml&lt;/code&gt; file as follows:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;dependencies&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;dependency&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;groupId&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;org&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;springframework&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;boot&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/&lt;/span&gt;groupId&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
@@ -615,7 +729,7 @@ Chúng ta sẽ tạo class JwtConfig để chứa các config JWT và class này
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;scope&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;test&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/&lt;/span&gt;scope&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/&lt;/span&gt;dependency&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/&lt;/span&gt;dependencies&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Tạo class JwtConfig như sau:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Create the &lt;code&gt;JwtConfig&lt;/code&gt; class as follows:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; com.example.commonservice.security&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; org.springframework.beans.factory.annotation.Value&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
@@ -677,7 +791,7 @@ Chúng ta sẽ tạo class JwtConfig để chứa các config JWT và class này
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;secret&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; secret&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Tiếp theo ở các service khác, chẳng hạn như ở Zuul gateway chúng ta cần khai báo dependency common service trong file &lt;code&gt;pom.xml&lt;/code&gt;:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Next, in other services such as the Zuul gateway, we need to declare the dependency on the common service in the &lt;code&gt;pom.xml&lt;/code&gt; file:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;!--&lt;/span&gt; common dependency&lt;span style=&#34;color:#f92672&#34;&gt;--&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;dependency&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;groupId&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;com&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;example&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/&lt;/span&gt;groupId&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
@@ -685,14 +799,14 @@ Chúng ta sẽ tạo class JwtConfig để chứa các config JWT và class này
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;version&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;0&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;SNAPSHOT&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/&lt;/span&gt;version&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/&lt;/span&gt;dependency&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;Thêm dependency common-service vào trong các service muốn sử dụng JwtConfig
-Ở đây tạm thời chỉ có 1 class JwtConfig là sẽ được dùng chung, tương lai sẽ có nhiều hơn nên mình tách ra thành common luôn để sử dụng sau này&lt;/p&gt;
+&lt;p&gt;By adding the common-service dependency to the services that need to use the JwtConfig, you are making sure that multiple services can share this common configuration.
+This way, you can centralize the configuration while allowing each service to specify their own specific configuration values through their respective application.yml files. This approach enhances reusability and maintainability in your microservices architecture.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: &lt;em&gt;Các service khác sẽ dùng chung class JwtConfig, còn về các value security.jwt.uri, security.jwt.header, &amp;hellip; sẽ được config riêng trong file &lt;code&gt;application.yml&lt;/code&gt; của từng service.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Như vậy là đã xong phần security trong &lt;strong&gt;Zuull gateway&lt;/strong&gt;, tiếp theo đây sẽ tạo mới &lt;strong&gt;Auth service&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: *The JwtConfig class will be shared among multiple services, ensuring consistent JWT configuration logic. However, each service can have its own specific configuration values such as security.jwt.uri, security.jwt.header, and others, which can be configured individually in the application.yml file of each service. *&lt;/p&gt;
+&lt;p&gt;With this in mind, the security setup for the &lt;strong&gt;Zuul gateway&lt;/strong&gt; is completed. Next, you will create the &lt;strong&gt;Auth service&lt;/strong&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;4-auth-service&#34;&gt;4. Auth Service&lt;/h2&gt;
-&lt;p&gt;Trong auth service, chúng ta sẽ làm hai việc: một là xác thực định danh mà người dùng cung cấp và hai là gen ra một token trong trường hợp xác thực hợp lệ hoặc trả về một exception nếu nó không hợp lệ.
-Trong file &lt;code&gt;pom.xml&lt;/code&gt; chúng ta cần các dependencies sau: Web, Eureka Client, Spring Security và JWT.&lt;/p&gt;
+&lt;p&gt;In the auth service, we will perform two tasks: one is to authenticate the provided user credentials, and the other is to generate a token if the authentication is successful or return an exception if it&amp;rsquo;s not valid.&lt;/p&gt;
+&lt;p&gt;In the &lt;code&gt;pom.xml&lt;/code&gt; file, you will need the following dependencies for the auth service: Web, Eureka Client, Spring Security, and JWT.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;dependencies&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;dependency&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;groupId&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;org&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;springframework&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;boot&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/&lt;/span&gt;groupId&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
@@ -725,7 +839,7 @@ Trong file &lt;code&gt;pom.xml&lt;/code&gt; chúng ta cần các dependencies sa
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;scope&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;test&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/&lt;/span&gt;scope&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/&lt;/span&gt;dependency&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/&lt;/span&gt;dependencies&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;File &lt;code&gt;application.yml&lt;/code&gt; khai báo như các service khác:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The &lt;code&gt;application.yml&lt;/code&gt; file is declared as follows:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;server:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  port&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; 8082
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
@@ -748,7 +862,7 @@ Trong file &lt;code&gt;pom.xml&lt;/code&gt; chúng ta cần các dependencies sa
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    prefix&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; Bearer
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    expiration&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; 86400
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    secret&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; JwtSecretKey
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Ở trong class application cũng cần khai báo đây là Eureka client và đánh anotation &lt;code&gt;@EnableWebSecurity&lt;/code&gt; cho nó:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Inside the application class, we also need to declare it as an Eureka client and annotate it with &lt;code&gt;@EnableWebSecurity&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; com.example.authservice&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; org.springframework.boot.SpringApplication&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
@@ -762,7 +876,7 @@ Trong file &lt;code&gt;pom.xml&lt;/code&gt; chúng ta cần các dependencies sa
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        SpringApplication&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;run&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;AuthServiceApplication&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; args&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Giống như cấu hình cổng Gateway, chúng ta cần tạo một lớp extends từ &lt;code&gt;WebSecurityConfigurerAdapter&lt;/code&gt;:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Similar to configuring the Gateway port, we need to create a class that extends from &lt;code&gt;WebSecurityConfigurerAdapter&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; com.example.authservice.security&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; com.example.commonservice.security.JwtConfig&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
@@ -827,7 +941,7 @@ Trong file &lt;code&gt;pom.xml&lt;/code&gt; chúng ta cần các dependencies sa
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; JwtConfig&lt;span style=&#34;color:#f92672&#34;&gt;();&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Trong đoạn code trên, chúng ta sử dụng interface &lt;code&gt;UserDetailsService&lt;/code&gt; nên chúng ta cần implement nó:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In the above code snippet, we use the &lt;code&gt;UserDetailsService&lt;/code&gt; interface, so we need to implement it:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; com.example.authservice.security&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; org.springframework.beans.factory.annotation.Autowired&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
@@ -923,7 +1037,7 @@ Trong file &lt;code&gt;pom.xml&lt;/code&gt; chúng ta cần các dependencies sa
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Bước tiếp theo cũng là bước cuối cùng, chúng ta cần một filter. Ở đây chúng ta sử dụng &lt;code&gt;JwtUsernameAndPasswordAuthenticationFilter&lt;/code&gt; để xác thực định danh người dùng và tạo token. Các thông tin về username hay password phải được gửi dưới dạng POST request.&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The next and final step involves implementing a filter. Here, we use the &lt;code&gt;JwtUsernameAndPasswordAuthenticationFilter&lt;/code&gt; to authenticate user credentials and generate tokens. User information such as the username and password must be sent as a POST request.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; com.example.authservice.security&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; com.example.commonservice.security.JwtConfig&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
@@ -1026,11 +1140,11 @@ Trong file &lt;code&gt;pom.xml&lt;/code&gt; chúng ta cần các dependencies sa
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;Trong Auth service cũng đã sử dụng đến JwtConfig việc này tránh trùng lặp code&lt;/p&gt;
+&lt;p&gt;In the Auth service, we have also utilized the JwtConfig to avoid code duplication.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;5-testing&#34;&gt;5. Testing&lt;/h2&gt;
-&lt;p&gt;Chạy lần lượt các service Eureka, Zuul, Auth và User.&lt;/p&gt;
-&lt;p&gt;Đầu tiên chúng ta thử truy cập vào user service thông qua đường dẫn &lt;code&gt;localhost:8762/user/user-info&lt;/code&gt; mà không có token. Chúng ta sẽ nhận về một lỗi 401 như sau:&lt;/p&gt;
+&lt;p&gt;Run the Eureka, Zuul, Auth, and User services in sequence.&lt;/p&gt;
+&lt;p&gt;First, let&amp;rsquo;s try accessing the user service through the path &lt;code&gt;localhost:8762/user/user-info&lt;/code&gt; without a token. You will receive a 401 error as follows:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;timestamp&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;2023-08-11T09:26:08.131+0000&amp;#34;&lt;/span&gt;,
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;status&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;401&lt;/span&gt;,
@@ -1038,30 +1152,30 @@ Trong file &lt;code&gt;pom.xml&lt;/code&gt; chúng ta cần các dependencies sa
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;message&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;No message available&amp;#34;&lt;/span&gt;,
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;path&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/user/user-info&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Để nhận &lt;strong&gt;token&lt;/strong&gt;, chúng ta call api authentication &lt;code&gt;localhost:8762/auth&lt;/code&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To obtain a &lt;strong&gt;token&lt;/strong&gt;, we need to call the authentication API at &lt;code&gt;localhost:8762/auth&lt;/code&gt;
 &lt;img src=&#34;https://cuongvndev.github.io/blog/microservice/authen.png&#34; alt=&#34;Scenario 1: Across columns&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
-&lt;p&gt;Bây giờ gọi lại &lt;strong&gt;user service&lt;/strong&gt; kèm theo một &lt;strong&gt;token&lt;/strong&gt; trong header:
+&lt;p&gt;Now, call the &lt;strong&gt;user service&lt;/strong&gt; again with a &lt;strong&gt;token&lt;/strong&gt; included in the header:
 &lt;img src=&#34;https://cuongvndev.github.io/blog/microservice/user-info-auth.png&#34; alt=&#34;Scenario 1: Across columns&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
-&lt;p&gt;Ngoài ta thì bạn có thể thử chạy nhiều instance của user service để test xem các request được phân tán như thế nào. Trong phần tiếp theo, chúng ta sẽ tìm hiểu các xử lý lỗi và theo dõi trong mô hình microservice.&lt;/p&gt;</description>
+&lt;p&gt;Furthermore, you can try running multiple instances of the user service to test how requests are distributed. In the next section, we will explore error handling and monitoring in the microservice architecture.&lt;/p&gt;</description>
       
     </item>
     
     <item>
-      <title>Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 1</title>
+      <title>Microservices, Eureka and Zuul Gateway User Manual - Part 1</title>
       <link>https://cuongvndev.github.io/post/microservice-with-spring-boot-eureka-and-zuul-gateway/</link>
       <pubDate>Thu, 10 Aug 2023 11:18:56 +0700</pubDate>
       
       <guid>https://cuongvndev.github.io/post/microservice-with-spring-boot-eureka-and-zuul-gateway/</guid>
       
-        <description>&lt;p&gt;Bài viết này cung cấp một hướng dẫn chi tiết về việc triển khai và sử dụng kiến trúc &lt;strong&gt;Microservice&lt;/strong&gt; kết hợp với các công cụ &lt;strong&gt;Eureka&lt;/strong&gt; và Zuul &lt;strong&gt;Gateway&lt;/strong&gt;. Đây là những bước cơ bản để xây dựng một hệ thống phân tán linh hoạt và có khả năng mở rộng.&lt;/p&gt;
+        <description>&lt;p&gt;This article provides a detailed guide on deploying and using the &lt;em&gt;&lt;strong&gt;Microservice&lt;/strong&gt;&lt;/em&gt; architecture in combination with the &lt;em&gt;&lt;strong&gt;Eureka&lt;/strong&gt;&lt;/em&gt; and &lt;em&gt;&lt;strong&gt;Zuul Gateway&lt;/strong&gt;&lt;/em&gt; tools. These steps outline the fundamentals of building a flexible and scalable distributed system.&lt;/p&gt;
 &lt;h2 id=&#34;1-giới-thệu&#34;&gt;1. Giới thệu&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Microservices&lt;/strong&gt; là một mô hình kiến trúc phần mềm đột phá, cho phép các ứng dụng được chia thành các phần nhỏ hơn và độc lập, được gọi là &amp;ldquo;microservices&amp;rdquo;. Mỗi microservice có thể phát triển, triển khai và quản lý riêng biệt, giúp tối ưu hóa khả năng mở rộng và duy trì.&lt;/p&gt;
-&lt;p&gt;Bây giờ tôi sẽ triển khai một hệ thống đơn giản như sau:
+&lt;p&gt;&lt;strong&gt;Microservices&lt;/strong&gt; is a revolutionary software architecture model that involves breaking down applications into smaller, independent components known as &amp;ldquo;microservices.&amp;rdquo; Each microservice can be developed, deployed, and managed separately, optimizing scalability and maintenance.&lt;/p&gt;
+&lt;p&gt;Now, let&amp;rsquo;s proceed with deploying a simple system as follows:
 &lt;img src=&#34;https://cuongvndev.github.io/blog/microservice/model.png&#34; alt=&#34;Scenario 1: Across columns&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
 &lt;h2 id=&#34;2-eureka-server&#34;&gt;2. Eureka server&lt;/h2&gt;
-&lt;p&gt;Là máy chủ dùng để quản lý, đặt tên cho các service hay còn gọi là &lt;code&gt;service registry&lt;/code&gt;, mục đích của nó là thay vì phải nhớ 64.233.181.99 thì bạn có thể vào trực tiếp google bằng địa chỉ google.com và khi mà các service thay đổi địa chỉ thì Eureka sẽ tự động cập nhật mà bạn không cần phải thay đổi code.&lt;/p&gt;
-&lt;p&gt;Mỗi service sẽ được đăng ký với Eureka và sẽ ping cho Eureka để đảm bảo chúng vẫn còn hoạt động, Nếu Eureka không nhận được thông báo nào từ service thì service đó sẽ tự động bị xoá.&lt;/p&gt;
-&lt;p&gt;Ok bây giờ hãy tạo mới project spring boot dùng Maven để quản lý dependencies và khai báo file &lt;code&gt;pom.xml&lt;/code&gt; như sau:&lt;/p&gt;
+&lt;p&gt;The Eureka server is used to manage and name services, also known as a &lt;code&gt;service registry&lt;/code&gt;. Its purpose is to provide a human-friendly way to access services without remembering their IP addresses. For example, instead of remembering the IP address 64.233.181.99, you can access Google directly using the address google.com. When services change their addresses, Eureka will automatically update the registry, eliminating the need to modify code.&lt;/p&gt;
+&lt;p&gt;Each service registers with Eureka and sends regular pings to let Eureka know it&amp;rsquo;s still operational. If Eureka doesn&amp;rsquo;t receive any pings from a service, that service will be automatically removed.&lt;/p&gt;
+&lt;p&gt;Now, let&amp;rsquo;s create a new Spring Boot project using Maven for dependency management and set up the pom.xml file as follows:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;dependencies&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;  
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;dependency&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;  
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;groupId&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;org&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;springframework&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;boot&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/&lt;/span&gt;groupId&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;  
@@ -1082,7 +1196,7 @@ Trong file &lt;code&gt;pom.xml&lt;/code&gt; chúng ta cần các dependencies sa
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;scope&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;test&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/&lt;/span&gt;scope&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;  
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/&lt;/span&gt;dependency&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;  
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/&lt;/span&gt;dependencies&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Tiếp theo trong file &lt;code&gt;application.yml&lt;/code&gt; cần config như sau:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Next, in the &lt;code&gt;application.yml&lt;/code&gt; file, we need to configure it as follows:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;server:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  port&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; 8761
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;spring:
@@ -1092,7 +1206,7 @@ Trong file &lt;code&gt;pom.xml&lt;/code&gt; chúng ta cần các dependencies sa
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  client&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    register&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;with&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;eureka&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    fetch&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;registry&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Cuối cùng trong class Application, chúng ta sử dụng &lt;code&gt;@EnableEurekaServer&lt;/code&gt; để khai báo đây là một Eureka Server:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Finally, in the &lt;code&gt;Application&lt;/code&gt; class, we use &lt;code&gt;@EnableEurekaServer&lt;/code&gt; to declare that this is a Eureka Server:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@SpringBootApplication&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@EnableEurekaServer&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;EurekaServerApplication&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
@@ -1101,14 +1215,14 @@ Trong file &lt;code&gt;pom.xml&lt;/code&gt; chúng ta cần các dependencies sa
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;3-zuul-gateway&#34;&gt;3. Zuul Gateway&lt;/h2&gt;
-&lt;p&gt;Zuul là thành phần của hệ thống microservices được phát triển bởi Netflix. Nó hoạt động như một dịch vụ cổng (gateway) trong mô hình kiến trúc ứng dụng microservices, giúp quản lý và điều phối yêu cầu từ clients tới các dịch vụ microservices tương ứng.&lt;/p&gt;
-&lt;p&gt;Zuul Gateway có các chức năng chính sau:&lt;/p&gt;
+&lt;p&gt;Zuul is a component of the microservices system developed by Netflix. It operates as a gateway service in the microservices architecture, helping to manage and route requests from clients to corresponding microservices.&lt;/p&gt;
+&lt;p&gt;Zuul Gateway has the following main functions:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Routing (Định tuyến): client sẽ không thể gửi request đến từng serive được, chưa kể việc các service còn giao tiếp qua lại với nhau, thay vào đó client sẽ gửi request trực tiếp tới 1 địa chỉ duy nhất của gateway, lúc này gateway có nhiệm vụ tiếp nhận và phân phối đến các service tương ứng.&lt;/li&gt;
-&lt;li&gt;Load Balancing (Cân bằng tải): phân phối request đến nhiều instance của 1 service.&lt;/li&gt;
-&lt;li&gt;Authentication và Security (xác thực và bảo mật).&lt;/li&gt;
+&lt;li&gt;Routing: Clients cannot send requests directly to each individual service, not to mention the communication between services. Instead, clients send requests directly to a single address of the gateway. At this point, the gateway is responsible for receiving and distributing the requests to the appropriate services.&lt;/li&gt;
+&lt;li&gt;Load Balancing: Distributing requests to multiple instances of a service.&lt;/li&gt;
+&lt;li&gt;Authentication and Security.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Tiến hành cài đặt Zuul Gateway bằng cách tạo mới project Spring boot sử dụng các dependency sau:&lt;/p&gt;
+&lt;p&gt;Proceed to install Zuul Gateway by creating a new Spring Boot project with the following dependencies:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;dependency&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;groupId&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;org&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;springframework&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;boot&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/&lt;/span&gt;groupId&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;artifactId&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;spring&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;boot&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;starter&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;web&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/&lt;/span&gt;artifactId&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
@@ -1121,7 +1235,7 @@ Trong file &lt;code&gt;pom.xml&lt;/code&gt; chúng ta cần các dependencies sa
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;groupId&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;org&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;springframework&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;cloud&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/&lt;/span&gt;groupId&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;artifactId&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;spring&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;cloud&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;starter&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;netflix&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;eureka&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;client&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/&lt;/span&gt;artifactId&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/&lt;/span&gt;dependency&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Sử dụng anotation &lt;code&gt;@EnableZuulProxy&lt;/code&gt; và &lt;code&gt;@EnableEurekaClient&lt;/code&gt; để khai báo đây là Zuul và Eureka Client:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Use the annotations &lt;code&gt;@EnableZuulProxy&lt;/code&gt; and &lt;code&gt;@EnableEurekaClient&lt;/code&gt; to declare that this is a Zuul Gateway and a Eureka Client:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@SpringBootApplication&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@EnableZuulProxy&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@EnableEurekaClient&lt;/span&gt;
@@ -1130,7 +1244,7 @@ Trong file &lt;code&gt;pom.xml&lt;/code&gt; chúng ta cần các dependencies sa
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        SpringApplication&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;run&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;ZuulServerApplication&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; args&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Và đừng quên config nữa nhé:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And don&amp;rsquo;t forget the configuration as well:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;server:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  port&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; 8080
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
@@ -1156,13 +1270,13 @@ Trong file &lt;code&gt;pom.xml&lt;/code&gt; chúng ta cần các dependencies sa
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  instance&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    prefer&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;ip&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;address&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;Định nghĩa routers ở trong zuul nói cho zuul biết rằng khi user truy cập với đường dẫn &lt;code&gt;/user/**&lt;/code&gt; thì chuyển hướng tới user-service
-, còn service-id như ở trên mình đã nói Eureka sẽ đăng ký user service với cái tên là user-service thay vì sử dụng &lt;code&gt;http://localhost:8083&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Defining routers in Zuul informs it that when a user accesses the path /user/**, it should redirect to the user-service.
+, The service-id, as mentioned before, is registered by Eureka with the name &amp;ldquo;user-service&amp;rdquo; instead of using &lt;code&gt;http://localhost:8083&lt;/code&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;4-bussiness-service&#34;&gt;4. Bussiness service&lt;/h2&gt;
-&lt;p&gt;Các Eureka client service là một service độc lập trong kiến trúc microservice. Mỗi client service chỉ thực hiện duy nhất một nghiệp vụ nào đó trong hệ thống như thanh toán, tài khoản, thông báo, xác thực, cấu hình,…&lt;/p&gt;
+&lt;p&gt;Each Eureka client service is an independent service within the microservice architecture. Each client service performs only a specific business function in the system, such as payments, accounts, notifications, authentication, configuration, etc.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;User Service&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Ok, cũng như Eureka Server, chúng ta sẽ tạo một project Spring Boot mới nhưng sử dụng Eureka Client trong file &lt;code&gt;pom.xml&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;Alright, similar to the Eureka Server, we will create a new Spring Boot project, but this time as a Eureka Client in the &lt;code&gt;pom.xml&lt;/code&gt; file:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;dependencies&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;dependency&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;groupId&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;org&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;springframework&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;boot&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/&lt;/span&gt;groupId&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
@@ -1178,7 +1292,7 @@ Trong file &lt;code&gt;pom.xml&lt;/code&gt; chúng ta cần các dependencies sa
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;scope&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;test&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/&lt;/span&gt;scope&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/&lt;/span&gt;dependency&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/&lt;/span&gt;dependencies&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Trong file &lt;code&gt;application.yml&lt;/code&gt; chúng ta sẽ ghi nhận lại địa chỉ của Eureka Server:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In the &lt;code&gt;application.yml&lt;/code&gt; file, we will record the address of the Eureka Server:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;server:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  port&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; 8083
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;spring:
@@ -1188,7 +1302,7 @@ Trong file &lt;code&gt;pom.xml&lt;/code&gt; chúng ta cần các dependencies sa
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  client&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    service&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;url&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      defaultZone&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; http&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//localhost:8761/eureka/
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Sau đó để chỉ cho Spring Boot biết đây là một Eureka client, chúng ta dùng annotation &lt;code&gt;@EnableEurekaClient&lt;/code&gt; trong class main:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After that, to let Spring Boot know that this is a Eureka client, we use the &lt;code&gt;@EnableEurekaClient&lt;/code&gt; annotation in the main class:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@SpringBootApplication&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@EnableEurekaClient&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;UserServiceApplication&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
@@ -1196,7 +1310,7 @@ Trong file &lt;code&gt;pom.xml&lt;/code&gt; chúng ta cần các dependencies sa
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        SpringApplication&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;run&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;UserServiceApplication&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; args&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Tiến hành tạo controller để test:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Proceed to create a controller for testing purposes:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;UserController.java&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -1215,24 +1329,23 @@ Trong file &lt;code&gt;pom.xml&lt;/code&gt; chúng ta cần các dependencies sa
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;ở đây mình sẽ hardcode cho nhanh gọn lẹ&lt;/p&gt;
+&lt;p&gt;Here, I will hardcode it for the sake of simplicity and convenience.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;5-testing&#34;&gt;5. Testing&lt;/h2&gt;
-&lt;p&gt;Ok, như vậy là chúng ta đã tạo xong bộ khung cho hệ thống microservice
-Tiến hành run các service theo thứ tự: Eureka, Zuul và User
-Để kiểm tra các service của chúng ta vào &lt;code&gt;localhost://8761&lt;/code&gt; đây là cổng của Eureka Server, và bạn có thể thấy các service đang chạy như hình:
+&lt;p&gt;Great, that means we have successfully set up the framework for the microservices system. Proceed to run the services in the following order: Eureka, Zuul, and User.&lt;/p&gt;
+&lt;p&gt;To check the status of our services, visit &lt;code&gt;http://localhost:8761&lt;/code&gt; which is the port of the Eureka Server. Here, you will be able to see the running services as depicted in the image:
 &lt;img src=&#34;https://cuongvndev.github.io/blog/microservice/service-eureka.png&#34; alt=&#34;Scenario 1: Across columns&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
-&lt;p&gt;Tiến hành run api để get user info
+&lt;p&gt;Please proceed to run the API to retrieve user information.
 &lt;img src=&#34;https://cuongvndev.github.io/blog/microservice/api-user-info.png&#34; alt=&#34;Scenario 2: Across columns&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;khi call api &lt;code&gt;http://localhost:8083/user-info&lt;/code&gt; đang thực hiện call trực tiếp đến user service port 8083&lt;/p&gt;
+&lt;p&gt;When calling the API &lt;code&gt;http://localhost:8083/user-info&lt;/code&gt;, it is being directly called to the user service on port 8083.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;img src=&#34;https://cuongvndev.github.io/blog/microservice/api-user-info2.png&#34; alt=&#34;Scenario 2: Across columns&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;khi call api &lt;code&gt;http://localhost:8080/user/user-info&lt;/code&gt; đang thực hiện call thông qua zuul gateway port 8080
-zuul gateway sẽ dựa vào path: /user/** để điều hướng tới user service&lt;/p&gt;
+&lt;p&gt;When calling the API &lt;code&gt;http://localhost:8080/user/user-info&lt;/code&gt;, it is being routed through the Zuul gateway on port 8080.
+The Zuul gateway will use the path /user/** to route to the user service.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Kết thúc phần đầu tiên ở đây, ở phần tiếp theo chúng ta sẽ tìm hiều về cách để xác thực user trong hệ thống microservice và tạo common sử dụng chung cho nhiều service nhé!&lt;/p&gt;</description>
+&lt;p&gt;This concludes the first part here. In the next section, we will delve into how to authenticate users within the microservices system and create common shared functionality across multiple services.&lt;/p&gt;</description>
       
     </item>
     

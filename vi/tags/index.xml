@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Cuong Vu - Going to the moon 🌑</title>
+    <link>https://cuongvndev.github.io/vi/tags/</link>
+    <description>Recent content in Tags on Cuong Vu - Going to the moon 🌑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>vi</language>
+    <lastBuildDate>Wed, 23 Aug 2023 10:41:55 +0700</lastBuildDate><atom:link href="https://cuongvndev.github.io/vi/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>React</title>
+      <link>https://cuongvndev.github.io/vi/tags/react/</link>
+      <pubDate>Wed, 23 Aug 2023 10:41:55 +0700</pubDate>
+      
+      <guid>https://cuongvndev.github.io/vi/tags/react/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Eureka</title>
+      <link>https://cuongvndev.github.io/vi/tags/eureka/</link>
+      <pubDate>Mon, 14 Aug 2023 15:33:23 +0700</pubDate>
+      
+      <guid>https://cuongvndev.github.io/vi/tags/eureka/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Microservice</title>
+      <link>https://cuongvndev.github.io/vi/tags/microservice/</link>
+      <pubDate>Mon, 14 Aug 2023 15:33:23 +0700</pubDate>
+      
+      <guid>https://cuongvndev.github.io/vi/tags/microservice/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spring Boot Security</title>
+      <link>https://cuongvndev.github.io/vi/tags/spring-boot-security/</link>
+      <pubDate>Mon, 14 Aug 2023 15:33:23 +0700</pubDate>
+      
+      <guid>https://cuongvndev.github.io/vi/tags/spring-boot-security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spring Cloud Configuration</title>
+      <link>https://cuongvndev.github.io/vi/tags/spring-cloud-configuration/</link>
+      <pubDate>Mon, 14 Aug 2023 15:33:23 +0700</pubDate>
+      
+      <guid>https://cuongvndev.github.io/vi/tags/spring-cloud-configuration/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spring Cloud Netflix</title>
+      <link>https://cuongvndev.github.io/vi/tags/spring-cloud-netflix/</link>
+      <pubDate>Mon, 14 Aug 2023 15:33:23 +0700</pubDate>
+      
+      <guid>https://cuongvndev.github.io/vi/tags/spring-cloud-netflix/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Zuul Gateway</title>
+      <link>https://cuongvndev.github.io/vi/tags/zuul-gateway/</link>
+      <pubDate>Mon, 14 Aug 2023 15:33:23 +0700</pubDate>
+      
+      <guid>https://cuongvndev.github.io/vi/tags/zuul-gateway/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
