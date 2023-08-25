@@ -34,14 +34,14 @@
 &lt;p&gt;Nếu ai đã từng tìm hiểu qua về &lt;em&gt;&lt;strong&gt;redux&lt;/strong&gt;&lt;/em&gt; thì sẽ biết giữa quá trình &lt;em&gt;&lt;strong&gt;dispatch một action và reducer&lt;/strong&gt;&lt;/em&gt; chúng ta thường sẽ gọi một API nào đó từ server trả về không ít người sẽ gặp trường hợp mà API chưa kịp trả về kết quả mà các dòng code tiếp theo đã được thực thi sẽ dẫn đến trường hợp không mong muốn, và để khác phục điều đó chúng ta có một thư viện giúp chúng ta xử lý các điều này dễ dàng hơn đó là &lt;code&gt;Redux saga&lt;/code&gt;. (trước khi được bài này thì các bạn nên hiểu qua một chút về redux và react).&lt;/p&gt;
 &lt;h2 id=&#34;1-redux-saga-là-gì&#34;&gt;1. Redux Saga là gì?&lt;/h2&gt;
 &lt;p&gt;Redux-Saga là một thư viện redux middleware, giúp chúng ta quản lý những side effect trong ứng dụng redux trở nên một cách đơn giản hơn và dễ kiểm soát hơn.
-&lt;img src=&#34;https://cuongvndev.github.io/blog/redux-saga/redux-saga.gif#zoom-image&#34; alt=&#34;redux saga&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://cuongvndev.github.io/blog/redux-saga/redux-saga.gif&#34; alt=&#34;redux saga&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
 &lt;p&gt;Để hiểu được sự hoạt động của redux saga bạn cần hiểu một số khái niệm cơ bản như generator function.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Generator function là function có khả năng hoãn lại quá trình thực thi mà vẫn giữ nguyên được context. Hơi khó hiểu phải không, nói một cách đơn giản thì generator function là 1 function có khả năng tạm ngưng trước khi hàm kết thúc (khác với pure function khi được gọi sẽ thực thi hết các câu lệnh trong hàm), và có thể tiếp tục chạy tại một thời điểm khác. Chính chức năng mới này giúp ta giải quyết được việc bất đồng bộ, hàm sẽ dừng và đợi async chạy xong rồi tiếp tục thực thi. Chi tiết thì bạn có thể tham khảo &lt;a href=&#34;https://davidwalsh.name/es6-generators&#34;&gt;tại đây&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;Hãy nhình vào sơ đồ dưới đây:
-&lt;img src=&#34;https://cuongvndev.github.io/blog/redux-saga/redux-saga-fow.webp#zoom-image&#34; alt=&#34;redux saga flow&#34;&gt;&lt;/li&gt;
+&lt;img src=&#34;https://cuongvndev.github.io/blog/redux-saga/redux-saga-fow.webp&#34; alt=&#34;redux saga flow&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Từ phía redux saga chúng ta gửi request đến Server để chúng ta lấy các API về sau đó ta có response trả về redux saga, sau khi có dữ liệu thì chúng ta sử dụng các effects, trong các effect này chúng ta có các hàm để dispatch sang phía reducers.&lt;/p&gt;
@@ -70,7 +70,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm install react-redux
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Chúng ta sẽ cùng tạo 1 App counter đơn giản với 2 nút + - update giá trị khi người dùng click vào&lt;/p&gt;
 &lt;p&gt;Cấu trúc của project như sau:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://cuongvndev.github.io/blog/redux-saga/awesomeapp.png#zoom-image&#34; alt=&#34;Awesome app&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cuongvndev.github.io/blog/redux-saga/awesomeapp.png&#34; alt=&#34;Awesome app&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
 &lt;p&gt;Sau khi khởi tạo project và cài đặt một số thư viện liên quan chúng ta sẽ vào file AwesomeApp/index.js để cấu hình redux-saga vào trong project:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;React&lt;/span&gt;, {&lt;span style=&#34;color:#a6e22e&#34;&gt;Component&lt;/span&gt;} &lt;span style=&#34;color:#a6e22e&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;react&amp;#39;&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; { &lt;span style=&#34;color:#a6e22e&#34;&gt;AppRegistry&lt;/span&gt; } &lt;span style=&#34;color:#a6e22e&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;react-native&amp;#39;&lt;/span&gt;;
@@ -353,7 +353,7 @@ sử dụng dependency như sau:&lt;/p&gt;
 Hãy thêm username và password nếu cần khi bị lỗi authorize&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Bây giờ chúng ta truy cập vào đường dẫn &lt;code&gt;http://localhost:8888/auth-service.yml&lt;/code&gt; thì sẽ thấy kết quả như hình:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://cuongvndev.github.io/blog/microservice/config-server.png#zoom-image&#34; alt=&#34;Config server&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cuongvndev.github.io/blog/microservice/config-server.png&#34; alt=&#34;Config server&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
 &lt;h2 id=&#34;2-config-client&#34;&gt;2. Config Client&lt;/h2&gt;
 &lt;p&gt;Tiếp theo ở Auth service và Zuul Server gateway sẽ lấy thông tin config thông qua config server.&lt;/p&gt;
 &lt;p&gt;Thêm dependency config-client ở Auth service và Zuul Server:&lt;/p&gt;
@@ -1038,9 +1038,9 @@ Trong file &lt;code&gt;pom.xml&lt;/code&gt; chúng ta cần các dependencies sa
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;path&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/user/user-info&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Để nhận &lt;strong&gt;token&lt;/strong&gt;, chúng ta call api authentication &lt;code&gt;localhost:8762/auth&lt;/code&gt;
-&lt;img src=&#34;https://cuongvndev.github.io/blog/microservice/authen.png#zoom-image&#34; alt=&#34;Scenario 1: Across columns&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://cuongvndev.github.io/blog/microservice/authen.png&#34; alt=&#34;Scenario 1: Across columns&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
 &lt;p&gt;Bây giờ gọi lại &lt;strong&gt;user service&lt;/strong&gt; kèm theo một &lt;strong&gt;token&lt;/strong&gt; trong header:
-&lt;img src=&#34;https://cuongvndev.github.io/blog/microservice/user-info-auth.png#zoom-image&#34; alt=&#34;Scenario 1: Across columns&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://cuongvndev.github.io/blog/microservice/user-info-auth.png&#34; alt=&#34;Scenario 1: Across columns&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
 &lt;p&gt;Ngoài ta thì bạn có thể thử chạy nhiều instance của user service để test xem các request được phân tán như thế nào. Trong phần tiếp theo, chúng ta sẽ tìm hiểu các xử lý lỗi và theo dõi trong mô hình microservice.&lt;/p&gt;</description>
       
     </item>
@@ -1056,7 +1056,7 @@ Trong file &lt;code&gt;pom.xml&lt;/code&gt; chúng ta cần các dependencies sa
 &lt;h2 id=&#34;1-giới-thệu&#34;&gt;1. Giới thệu&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Microservices&lt;/strong&gt; là một mô hình kiến trúc phần mềm đột phá, cho phép các ứng dụng được chia thành các phần nhỏ hơn và độc lập, được gọi là &amp;ldquo;microservices&amp;rdquo;. Mỗi microservice có thể phát triển, triển khai và quản lý riêng biệt, giúp tối ưu hóa khả năng mở rộng và duy trì.&lt;/p&gt;
 &lt;p&gt;Bây giờ tôi sẽ triển khai một hệ thống đơn giản như sau:
-&lt;img src=&#34;https://cuongvndev.github.io/blog/microservice/model.png#zoom-image&#34; alt=&#34;Scenario 1: Across columns&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://cuongvndev.github.io/blog/microservice/model.png&#34; alt=&#34;Scenario 1: Across columns&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
 &lt;h2 id=&#34;2-eureka-server&#34;&gt;2. Eureka server&lt;/h2&gt;
 &lt;p&gt;Là máy chủ dùng để quản lý, đặt tên cho các service hay còn gọi là &lt;code&gt;service registry&lt;/code&gt;, mục đích của nó là thay vì phải nhớ 64.233.181.99 thì bạn có thể vào trực tiếp google bằng địa chỉ google.com và khi mà các service thay đổi địa chỉ thì Eureka sẽ tự động cập nhật mà bạn không cần phải thay đổi code.&lt;/p&gt;
 &lt;p&gt;Mỗi service sẽ được đăng ký với Eureka và sẽ ping cho Eureka để đảm bảo chúng vẫn còn hoạt động, Nếu Eureka không nhận được thông báo nào từ service thì service đó sẽ tự động bị xoá.&lt;/p&gt;
@@ -1220,13 +1220,13 @@ Trong file &lt;code&gt;pom.xml&lt;/code&gt; chúng ta cần các dependencies sa
 &lt;p&gt;Ok, như vậy là chúng ta đã tạo xong bộ khung cho hệ thống microservice
 Tiến hành run các service theo thứ tự: Eureka, Zuul và User
 Để kiểm tra các service của chúng ta vào &lt;code&gt;localhost://8761&lt;/code&gt; đây là cổng của Eureka Server, và bạn có thể thấy các service đang chạy như hình:
-&lt;img src=&#34;https://cuongvndev.github.io/blog/microservice/service-eureka.png#zoom-image&#34; alt=&#34;Scenario 1: Across columns&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://cuongvndev.github.io/blog/microservice/service-eureka.png&#34; alt=&#34;Scenario 1: Across columns&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
 &lt;p&gt;Tiến hành run api để get user info
-&lt;img src=&#34;https://cuongvndev.github.io/blog/microservice/api-user-info.png#zoom-image&#34; alt=&#34;Scenario 2: Across columns&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://cuongvndev.github.io/blog/microservice/api-user-info.png&#34; alt=&#34;Scenario 2: Across columns&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;khi call api &lt;code&gt;http://localhost:8083/user-info&lt;/code&gt; đang thực hiện call trực tiếp đến user service port 8083&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://cuongvndev.github.io/blog/microservice/api-user-info2.png#zoom-image&#34; alt=&#34;Scenario 2: Across columns&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cuongvndev.github.io/blog/microservice/api-user-info2.png&#34; alt=&#34;Scenario 2: Across columns&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;khi call api &lt;code&gt;http://localhost:8080/user/user-info&lt;/code&gt; đang thực hiện call thông qua zuul gateway port 8080
 zuul gateway sẽ dựa vào path: /user/** để điều hướng tới user service&lt;/p&gt;

@@ -1,44 +1,61 @@
 .icon-bar {
-    position: fixed;
-    top: 50%;
-    right:0;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-  }
-  
-  .icon-bar a {
-    display: block;
-    text-align: center;
-    padding: 6px;
-    transition: all 0.3s ease;
-    color: white;
-    font-size: 20px;
-  }
-  
-  .icon-bar a:hover {
-    background-color: #000;
-  }
+  position: fixed;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
 
-img[src$='#zoom-image']
-{
-    display: block;
-    margin: 0.7rem auto; /* you can replace the vertical '0.7rem' by
+.icon-bar a {
+  display: block;
+  text-align: center;
+  padding: 6px;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+@media only screen and (max-width: 600px) {
+  .icon-bar a {
+    padding: 2px;
+    margin: 5px 0;
+  }
+}
+
+.icon-bar a:hover {
+  background-color: #000;
+}
+
+.icon-bar a.fa-facebook {
+  background-color: #3b5998;
+}
+
+.icon-bar a.fa-linkedin {
+  background-color: #007bb5;
+}
+
+.icon-bar a.fa-twitter {
+  background-color: #55acee;
+}
+
+img.center {
+  display: block;
+  margin: 0.7rem auto; /* you can replace the vertical '0.7rem' by
                             whatever floats your boat, but keep the
                             horizontal 'auto' for this to work */
-    /* whatever else styles you fancy here */
+  /* whatever else styles you fancy here */
 }
 
-img[src$='#floatleft']
-{
-    float:left;
-    margin: 0.7rem;      /* this margin is totally up to you */
-    /* whatever else styles you fancy here */
+img.floatleft {
+  float: left;
+  margin: 0.7rem; /* this margin is totally up to you */
+  /* whatever else styles you fancy here */
 }
 
-img[src$='#floatright']
-{
-    float:right;
-    margin: 0.7rem;      /* this margin is totally up to you */
-    /* whatever else styles you fancy here */
+img.floatright {
+  float: right;
+  margin: 0.7rem; /* this margin is totally up to you */
+  /* whatever else styles you fancy here */
 }

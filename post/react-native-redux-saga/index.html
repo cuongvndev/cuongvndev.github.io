@@ -486,14 +486,14 @@ if (!doNotTrack) {
 <p>Nếu ai đã từng tìm hiểu qua về <em><strong>redux</strong></em> thì sẽ biết giữa quá trình <em><strong>dispatch một action và reducer</strong></em> chúng ta thường sẽ gọi một API nào đó từ server trả về không ít người sẽ gặp trường hợp mà API chưa kịp trả về kết quả mà các dòng code tiếp theo đã được thực thi sẽ dẫn đến trường hợp không mong muốn, và để khác phục điều đó chúng ta có một thư viện giúp chúng ta xử lý các điều này dễ dàng hơn đó là <code>Redux saga</code>. (trước khi được bài này thì các bạn nên hiểu qua một chút về redux và react).</p>
 <h2 id="1-redux-saga-là-gì">1. Redux Saga là gì?</h2>
 <p>Redux-Saga là một thư viện redux middleware, giúp chúng ta quản lý những side effect trong ứng dụng redux trở nên một cách đơn giản hơn và dễ kiểm soát hơn.
-<img src="/blog/redux-saga/redux-saga.gif#zoom-image" alt="redux saga"></p>
+<img src="/blog/redux-saga/redux-saga.gif" alt="redux saga" loading="lazy" class="zoom-image center"/></p>
 <p>Để hiểu được sự hoạt động của redux saga bạn cần hiểu một số khái niệm cơ bản như generator function.</p>
 <blockquote>
 <p>Generator function là function có khả năng hoãn lại quá trình thực thi mà vẫn giữ nguyên được context. Hơi khó hiểu phải không, nói một cách đơn giản thì generator function là 1 function có khả năng tạm ngưng trước khi hàm kết thúc (khác với pure function khi được gọi sẽ thực thi hết các câu lệnh trong hàm), và có thể tiếp tục chạy tại một thời điểm khác. Chính chức năng mới này giúp ta giải quyết được việc bất đồng bộ, hàm sẽ dừng và đợi async chạy xong rồi tiếp tục thực thi. Chi tiết thì bạn có thể tham khảo <a href="https://davidwalsh.name/es6-generators">tại đây</a></p>
 </blockquote>
 <ul>
 <li>Hãy nhình vào sơ đồ dưới đây:
-<img src="/blog/redux-saga/redux-saga-fow.webp#zoom-image" alt="redux saga flow"></li>
+<img src="/blog/redux-saga/redux-saga-fow.webp" alt="redux saga flow" loading="lazy" class="zoom-image center"/></li>
 </ul>
 <blockquote>
 <p>Từ phía redux saga chúng ta gửi request đến Server để chúng ta lấy các API về sau đó ta có response trả về redux saga, sau khi có dữ liệu thì chúng ta sử dụng các effects, trong các effect này chúng ta có các hàm để dispatch sang phía reducers.</p>
@@ -522,7 +522,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>npm install react-redux
 </span></span></code></pre></div><p>Chúng ta sẽ cùng tạo 1 App counter đơn giản với 2 nút + - update giá trị khi người dùng click vào</p>
 <p>Cấu trúc của project như sau:</p>
-<p><img src="/blog/redux-saga/awesomeapp.png#zoom-image" alt="Awesome app"></p>
+<p><img src="/blog/redux-saga/awesomeapp.png" alt="Awesome app" loading="lazy" class="zoom-image center"/></p>
 <p>Sau khi khởi tạo project và cài đặt một số thư viện liên quan chúng ta sẽ vào file AwesomeApp/index.js để cấu hình redux-saga vào trong project:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, {<span style="color:#a6e22e">Component</span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">AppRegistry</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-native&#39;</span>;
@@ -746,23 +746,15 @@ if (!doNotTrack) {
         
 
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
 <div id="sharing" class="icon-bar">
-  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fcuongvndev.github.io%2fpost%2freact-native-redux-saga%2f" class="facebook" aria-label="share on Facebook">
-    
-  <img src="/images/facebook.png" width="64" height="64">
-
+  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fcuongvndev.github.io%2fpost%2freact-native-redux-saga%2f" class="facebook fa-facebook" aria-label="share on Facebook">
   </a>
 
-  <a href="http://twitter.com/share?url=https%3a%2f%2fcuongvndev.github.io%2fpost%2freact-native-redux-saga%2f&text=React%20Native%20-%20C%c6%a1%20b%e1%ba%a3n%20v%e1%bb%81%20Redux%20Saga&via=" class="twitter" aria-label="share on Twitter">
-    
-    <img src="/images/twitter.png" width="64" height="64">
-  
+  <a href="http://twitter.com/share?url=https%3a%2f%2fcuongvndev.github.io%2fpost%2freact-native-redux-saga%2f&text=React%20Native%20-%20C%c6%a1%20b%e1%ba%a3n%20v%e1%bb%81%20Redux%20Saga&via=" class="twitter fa-twitter" aria-label="share on Twitter">
   </a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fcuongvndev.github.io%2fpost%2freact-native-redux-saga%2f&amp;source=https%3a%2f%2fcuongvndev.github.io%2fpost%2freact-native-redux-saga%2f&amp;title=React%20Native%20-%20C%c6%a1%20b%e1%ba%a3n%20v%e1%bb%81%20Redux%20Saga&amp;summary=React%20Native%20-%20C%c6%a1%20b%e1%ba%a3n%20v%e1%bb%81%20Redux%20Saga" class="linkedin" aria-label="share on LinkedIn">
-    
-    <img src="/images/linkedin.png" width="64" height="64">
-  
+  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fcuongvndev.github.io%2fpost%2freact-native-redux-saga%2f&amp;source=https%3a%2f%2fcuongvndev.github.io%2fpost%2freact-native-redux-saga%2f&amp;title=React%20Native%20-%20C%c6%a1%20b%e1%ba%a3n%20v%e1%bb%81%20Redux%20Saga&amp;summary=React%20Native%20-%20C%c6%a1%20b%e1%ba%a3n%20v%e1%bb%81%20Redux%20Saga" class="linkedin fa-linkedin" aria-label="share on LinkedIn">
   </a>
 </div>
 		
@@ -908,7 +900,7 @@ if (!doNotTrack) {
   </div>
   <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.2/dist/medium-zoom.min.js"></script>
   <script>
-    mediumZoom('img[src$="#zoom-image"]', {
+    mediumZoom('img.zoom-image', {
     margin: 24,
     background: '#ffffff',
     scrollOffset: 40

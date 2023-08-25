@@ -1077,9 +1077,9 @@ Trong file <code>pom.xml</code> chúng ta cần các dependencies sau: Web, Eure
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;/user/user-info&#34;</span>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Để nhận <strong>token</strong>, chúng ta call api authentication <code>localhost:8762/auth</code>
-<img src="/blog/microservice/authen.png#zoom-image" alt="Scenario 1: Across columns"></p>
+<img src="/blog/microservice/authen.png" alt="Scenario 1: Across columns" loading="lazy" class="zoom-image center"/></p>
 <p>Bây giờ gọi lại <strong>user service</strong> kèm theo một <strong>token</strong> trong header:
-<img src="/blog/microservice/user-info-auth.png#zoom-image" alt="Scenario 1: Across columns"></p>
+<img src="/blog/microservice/user-info-auth.png" alt="Scenario 1: Across columns" loading="lazy" class="zoom-image center"/></p>
 <p>Ngoài ta thì bạn có thể thử chạy nhiều instance của user service để test xem các request được phân tán như thế nào. Trong phần tiếp theo, chúng ta sẽ tìm hiểu các xử lý lỗi và theo dõi trong mô hình microservice.</p>
         </div>
 
@@ -1092,23 +1092,15 @@ Trong file <code>pom.xml</code> chúng ta cần các dependencies sau: Web, Eure
         
 
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
 <div id="sharing" class="icon-bar">
-  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fcuongvndev.github.io%2fen%2fpost%2fmicroservice-authentication-jwt-token-and-spring-cloud-configuaration%2f" class="facebook" aria-label="share on Facebook">
-    
-  <img src="/images/facebook.png" width="64" height="64">
-
+  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fcuongvndev.github.io%2fen%2fpost%2fmicroservice-authentication-jwt-token-and-spring-cloud-configuaration%2f" class="facebook fa-facebook" aria-label="share on Facebook">
   </a>
 
-  <a href="http://twitter.com/share?url=https%3a%2f%2fcuongvndev.github.io%2fen%2fpost%2fmicroservice-authentication-jwt-token-and-spring-cloud-configuaration%2f&text=Microservices%2c%20Eureka%20and%20Zuul%20Gateway%20User%20Manual%20-%20Part%202&via=" class="twitter" aria-label="share on Twitter">
-    
-    <img src="/images/twitter.png" width="64" height="64">
-  
+  <a href="http://twitter.com/share?url=https%3a%2f%2fcuongvndev.github.io%2fen%2fpost%2fmicroservice-authentication-jwt-token-and-spring-cloud-configuaration%2f&text=Microservices%2c%20Eureka%20and%20Zuul%20Gateway%20User%20Manual%20-%20Part%202&via=" class="twitter fa-twitter" aria-label="share on Twitter">
   </a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fcuongvndev.github.io%2fen%2fpost%2fmicroservice-authentication-jwt-token-and-spring-cloud-configuaration%2f&amp;source=https%3a%2f%2fcuongvndev.github.io%2fen%2fpost%2fmicroservice-authentication-jwt-token-and-spring-cloud-configuaration%2f&amp;title=Microservices%2c%20Eureka%20and%20Zuul%20Gateway%20User%20Manual%20-%20Part%202&amp;summary=Microservices%2c%20Eureka%20and%20Zuul%20Gateway%20User%20Manual%20-%20Part%202" class="linkedin" aria-label="share on LinkedIn">
-    
-    <img src="/images/linkedin.png" width="64" height="64">
-  
+  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fcuongvndev.github.io%2fen%2fpost%2fmicroservice-authentication-jwt-token-and-spring-cloud-configuaration%2f&amp;source=https%3a%2f%2fcuongvndev.github.io%2fen%2fpost%2fmicroservice-authentication-jwt-token-and-spring-cloud-configuaration%2f&amp;title=Microservices%2c%20Eureka%20and%20Zuul%20Gateway%20User%20Manual%20-%20Part%202&amp;summary=Microservices%2c%20Eureka%20and%20Zuul%20Gateway%20User%20Manual%20-%20Part%202" class="linkedin fa-linkedin" aria-label="share on LinkedIn">
   </a>
 </div>
 		
@@ -1273,7 +1265,7 @@ Trong file <code>pom.xml</code> chúng ta cần các dependencies sau: Web, Eure
   </div>
   <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.2/dist/medium-zoom.min.js"></script>
   <script>
-    mediumZoom('img[src$="#zoom-image"]', {
+    mediumZoom('img.zoom-image', {
     margin: 24,
     background: '#ffffff',
     scrollOffset: 40

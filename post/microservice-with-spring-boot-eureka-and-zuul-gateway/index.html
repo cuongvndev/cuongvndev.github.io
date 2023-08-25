@@ -488,7 +488,7 @@ if (!doNotTrack) {
 <h2 id="1-giới-thệu">1. Giới thệu</h2>
 <p><strong>Microservices</strong> là một mô hình kiến trúc phần mềm đột phá, cho phép các ứng dụng được chia thành các phần nhỏ hơn và độc lập, được gọi là &ldquo;microservices&rdquo;. Mỗi microservice có thể phát triển, triển khai và quản lý riêng biệt, giúp tối ưu hóa khả năng mở rộng và duy trì.</p>
 <p>Bây giờ tôi sẽ triển khai một hệ thống đơn giản như sau:
-<img src="/blog/microservice/model.png#zoom-image" alt="Scenario 1: Across columns"></p>
+<img src="/blog/microservice/model.png" alt="Scenario 1: Across columns" loading="lazy" class="zoom-image center"/></p>
 <h2 id="2-eureka-server">2. Eureka server</h2>
 <p>Là máy chủ dùng để quản lý, đặt tên cho các service hay còn gọi là <code>service registry</code>, mục đích của nó là thay vì phải nhớ 64.233.181.99 thì bạn có thể vào trực tiếp google bằng địa chỉ google.com và khi mà các service thay đổi địa chỉ thì Eureka sẽ tự động cập nhật mà bạn không cần phải thay đổi code.</p>
 <p>Mỗi service sẽ được đăng ký với Eureka và sẽ ping cho Eureka để đảm bảo chúng vẫn còn hoạt động, Nếu Eureka không nhận được thông báo nào từ service thì service đó sẽ tự động bị xoá.</p>
@@ -652,13 +652,13 @@ if (!doNotTrack) {
 <p>Ok, như vậy là chúng ta đã tạo xong bộ khung cho hệ thống microservice
 Tiến hành run các service theo thứ tự: Eureka, Zuul và User
 Để kiểm tra các service của chúng ta vào <code>localhost://8761</code> đây là cổng của Eureka Server, và bạn có thể thấy các service đang chạy như hình:
-<img src="/blog/microservice/service-eureka.png#zoom-image" alt="Scenario 1: Across columns"></p>
+<img src="/blog/microservice/service-eureka.png" alt="Scenario 1: Across columns" loading="lazy" class="zoom-image center"/></p>
 <p>Tiến hành run api để get user info
-<img src="/blog/microservice/api-user-info.png#zoom-image" alt="Scenario 2: Across columns"></p>
+<img src="/blog/microservice/api-user-info.png" alt="Scenario 2: Across columns" loading="lazy" class="zoom-image center"/></p>
 <blockquote>
 <p>khi call api <code>http://localhost:8083/user-info</code> đang thực hiện call trực tiếp đến user service port 8083</p>
 </blockquote>
-<p><img src="/blog/microservice/api-user-info2.png#zoom-image" alt="Scenario 2: Across columns"></p>
+<p><img src="/blog/microservice/api-user-info2.png" alt="Scenario 2: Across columns" loading="lazy" class="zoom-image center"/></p>
 <blockquote>
 <p>khi call api <code>http://localhost:8080/user/user-info</code> đang thực hiện call thông qua zuul gateway port 8080
 zuul gateway sẽ dựa vào path: /user/** để điều hướng tới user service</p>
@@ -675,23 +675,15 @@ zuul gateway sẽ dựa vào path: /user/** để điều hướng tới user se
         
 
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
 <div id="sharing" class="icon-bar">
-  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fcuongvndev.github.io%2fpost%2fmicroservice-with-spring-boot-eureka-and-zuul-gateway%2f" class="facebook" aria-label="share on Facebook">
-    
-  <img src="/images/facebook.png" width="64" height="64">
-
+  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fcuongvndev.github.io%2fpost%2fmicroservice-with-spring-boot-eureka-and-zuul-gateway%2f" class="facebook fa-facebook" aria-label="share on Facebook">
   </a>
 
-  <a href="http://twitter.com/share?url=https%3a%2f%2fcuongvndev.github.io%2fpost%2fmicroservice-with-spring-boot-eureka-and-zuul-gateway%2f&text=H%c6%b0%e1%bb%9bng%20d%e1%ba%abn%20s%e1%bb%ad%20d%e1%bb%a5ng%20Microservice%2c%20Eureka%20v%c3%a0%20Zuul%20Gateway%20-%20Ph%e1%ba%a7n%201&via=" class="twitter" aria-label="share on Twitter">
-    
-    <img src="/images/twitter.png" width="64" height="64">
-  
+  <a href="http://twitter.com/share?url=https%3a%2f%2fcuongvndev.github.io%2fpost%2fmicroservice-with-spring-boot-eureka-and-zuul-gateway%2f&text=H%c6%b0%e1%bb%9bng%20d%e1%ba%abn%20s%e1%bb%ad%20d%e1%bb%a5ng%20Microservice%2c%20Eureka%20v%c3%a0%20Zuul%20Gateway%20-%20Ph%e1%ba%a7n%201&via=" class="twitter fa-twitter" aria-label="share on Twitter">
   </a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fcuongvndev.github.io%2fpost%2fmicroservice-with-spring-boot-eureka-and-zuul-gateway%2f&amp;source=https%3a%2f%2fcuongvndev.github.io%2fpost%2fmicroservice-with-spring-boot-eureka-and-zuul-gateway%2f&amp;title=H%c6%b0%e1%bb%9bng%20d%e1%ba%abn%20s%e1%bb%ad%20d%e1%bb%a5ng%20Microservice%2c%20Eureka%20v%c3%a0%20Zuul%20Gateway%20-%20Ph%e1%ba%a7n%201&amp;summary=H%c6%b0%e1%bb%9bng%20d%e1%ba%abn%20s%e1%bb%ad%20d%e1%bb%a5ng%20Microservice%2c%20Eureka%20v%c3%a0%20Zuul%20Gateway%20-%20Ph%e1%ba%a7n%201" class="linkedin" aria-label="share on LinkedIn">
-    
-    <img src="/images/linkedin.png" width="64" height="64">
-  
+  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fcuongvndev.github.io%2fpost%2fmicroservice-with-spring-boot-eureka-and-zuul-gateway%2f&amp;source=https%3a%2f%2fcuongvndev.github.io%2fpost%2fmicroservice-with-spring-boot-eureka-and-zuul-gateway%2f&amp;title=H%c6%b0%e1%bb%9bng%20d%e1%ba%abn%20s%e1%bb%ad%20d%e1%bb%a5ng%20Microservice%2c%20Eureka%20v%c3%a0%20Zuul%20Gateway%20-%20Ph%e1%ba%a7n%201&amp;summary=H%c6%b0%e1%bb%9bng%20d%e1%ba%abn%20s%e1%bb%ad%20d%e1%bb%a5ng%20Microservice%2c%20Eureka%20v%c3%a0%20Zuul%20Gateway%20-%20Ph%e1%ba%a7n%201" class="linkedin fa-linkedin" aria-label="share on LinkedIn">
   </a>
 </div>
 		
@@ -843,7 +835,7 @@ zuul gateway sẽ dựa vào path: /user/** để điều hướng tới user se
   </div>
   <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.2/dist/medium-zoom.min.js"></script>
   <script>
-    mediumZoom('img[src$="#zoom-image"]', {
+    mediumZoom('img.zoom-image', {
     margin: 24,
     background: '#ffffff',
     scrollOffset: 40
