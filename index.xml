@@ -25,10 +25,10 @@
     
     <item>
       <title>Differences between Props and State in React</title>
-      <link>https://cuongvndev.github.io/post/differences-between-props-and-state-in-react/</link>
+      <link>https://cuongvndev.github.io/post/react/differences-between-props-and-state-in-react/</link>
       <pubDate>Wed, 23 Aug 2023 10:41:55 +0700</pubDate>
       
-      <guid>https://cuongvndev.github.io/post/differences-between-props-and-state-in-react/</guid>
+      <guid>https://cuongvndev.github.io/post/react/differences-between-props-and-state-in-react/</guid>
       
         <description>&lt;p&gt;Recently, I&amp;rsquo;ve been exploring React, and during my research, I&amp;rsquo;ve come across the use of &lt;code&gt;Props and State&lt;/code&gt; quite frequently. So, what are they and how do they differ? Let&amp;rsquo;s delve into that in this article!&lt;/p&gt;
 &lt;h2 id=&#34;1-what-are-props&#34;&gt;1. What are Props?&lt;/h2&gt;
@@ -147,10 +147,10 @@
     
     <item>
       <title>React Native - Redux Saga Basics</title>
-      <link>https://cuongvndev.github.io/post/react-native-redux-saga/</link>
+      <link>https://cuongvndev.github.io/post/react/react-native-redux-saga/</link>
       <pubDate>Wed, 23 Aug 2023 10:41:55 +0700</pubDate>
       
-      <guid>https://cuongvndev.github.io/post/react-native-redux-saga/</guid>
+      <guid>https://cuongvndev.github.io/post/react/react-native-redux-saga/</guid>
       
         <description>&lt;p&gt;Hello everyone, in this article, I would like to share some of the knowledge I&amp;rsquo;ve gathered about &lt;em&gt;&lt;strong&gt;Redux Saga&lt;/strong&gt;&lt;/em&gt;. I hope you all find it informative.&lt;/p&gt;
 &lt;p&gt;For those who have previously delved into &lt;em&gt;&lt;strong&gt;redux&lt;/strong&gt;&lt;/em&gt;, you may be aware that between the process of &lt;em&gt;&lt;strong&gt;dispatching an action and a reducer&lt;/strong&gt;&lt;/em&gt;, we often encounter situations where an API call to the server is involved. This API call might not return results before subsequent lines of code execute, leading to undesirable outcomes. To address this, there&amp;rsquo;s a library that makes dealing with such scenarios easier - &lt;em&gt;&lt;strong&gt;Redux Saga&lt;/strong&gt;&lt;/em&gt;. (Before diving into this article, it&amp;rsquo;s recommended to have a basic understanding of redux and react).&lt;/p&gt;
@@ -407,10 +407,10 @@
     
     <item>
       <title>Microservices, Eureka and Zuul Gateway User Manual - Part 3</title>
-      <link>https://cuongvndev.github.io/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/</link>
+      <link>https://cuongvndev.github.io/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/</link>
       <pubDate>Mon, 14 Aug 2023 15:33:23 +0700</pubDate>
       
-      <guid>https://cuongvndev.github.io/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/</guid>
+      <guid>https://cuongvndev.github.io/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/</guid>
       
         <description>&lt;p&gt;In this section, let&amp;rsquo;s explore Spring Cloud Configuration.&lt;/p&gt;
 &lt;p&gt;Spring Cloud Configuration is a module within the Spring Cloud ecosystem that provides tools for building distributed systems and microservices applications. Spring Cloud Configuration specifically focuses on centralized and flexible management of application configurations.&lt;/p&gt;
@@ -560,10 +560,10 @@ Please add your username and password if needed for authorization errors.&lt;/p&
     
     <item>
       <title>Microservices, Eureka and Zuul Gateway User Manual - Part 2</title>
-      <link>https://cuongvndev.github.io/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration/</link>
+      <link>https://cuongvndev.github.io/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration/</link>
       <pubDate>Fri, 11 Aug 2023 09:25:25 +0700</pubDate>
       
-      <guid>https://cuongvndev.github.io/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration/</guid>
+      <guid>https://cuongvndev.github.io/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration/</guid>
       
         <description>&lt;p&gt;In the previous article, we successfully built a simple microservice system consisting of the User service, Eureka server, and Zuul gateway.&lt;/p&gt;
 &lt;p&gt;In this article, we will delve into understanding &lt;strong&gt;JWT&lt;/strong&gt; and the approach to &lt;strong&gt;authentication and security&lt;/strong&gt; within the Microservice architecture using JWT.&lt;/p&gt;
@@ -1162,10 +1162,10 @@ This way, you can centralize the configuration while allowing each service to sp
     
     <item>
       <title>Microservices, Eureka and Zuul Gateway User Manual - Part 1</title>
-      <link>https://cuongvndev.github.io/post/microservice-with-spring-boot-eureka-and-zuul-gateway/</link>
+      <link>https://cuongvndev.github.io/post/java/microservice-with-spring-boot-eureka-and-zuul-gateway/</link>
       <pubDate>Thu, 10 Aug 2023 11:18:56 +0700</pubDate>
       
-      <guid>https://cuongvndev.github.io/post/microservice-with-spring-boot-eureka-and-zuul-gateway/</guid>
+      <guid>https://cuongvndev.github.io/post/java/microservice-with-spring-boot-eureka-and-zuul-gateway/</guid>
       
         <description>&lt;p&gt;This article provides a detailed guide on deploying and using the &lt;em&gt;&lt;strong&gt;Microservice&lt;/strong&gt;&lt;/em&gt; architecture in combination with the &lt;em&gt;&lt;strong&gt;Eureka&lt;/strong&gt;&lt;/em&gt; and &lt;em&gt;&lt;strong&gt;Zuul Gateway&lt;/strong&gt;&lt;/em&gt; tools. These steps outline the fundamentals of building a flexible and scalable distributed system.&lt;/p&gt;
 &lt;h2 id=&#34;1-introduction&#34;&gt;1. Introduction&lt;/h2&gt;

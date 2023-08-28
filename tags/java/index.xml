@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>java on Cuong Vu - Going to the moon 🌑</title>
+    <link>https://cuongvndev.github.io/tags/java/</link>
+    <description>Recent content in java on Cuong Vu - Going to the moon 🌑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 14 Aug 2023 15:33:23 +0700</lastBuildDate><atom:link href="https://cuongvndev.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microservices, Eureka and Zuul Gateway User Manual - Part 3</title>
+      <link>https://cuongvndev.github.io/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/</link>
+      <pubDate>Mon, 14 Aug 2023 15:33:23 +0700</pubDate>
+      
+      <guid>https://cuongvndev.github.io/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/</guid>
+      <description>&lt;p&gt;In this section, let&amp;rsquo;s explore Spring Cloud Configuration.&lt;/p&gt;
+&lt;p&gt;Spring Cloud Configuration is a module within the Spring Cloud ecosystem that provides tools for building distributed systems and microservices applications. Spring Cloud Configuration specifically focuses on centralized and flexible management of application configurations.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Microservices, Eureka and Zuul Gateway User Manual - Part 2</title>
+      <link>https://cuongvndev.github.io/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration/</link>
+      <pubDate>Fri, 11 Aug 2023 09:25:25 +0700</pubDate>
+      
+      <guid>https://cuongvndev.github.io/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration/</guid>
+      <description>&lt;p&gt;In the previous article, we successfully built a simple microservice system consisting of the User service, Eureka server, and Zuul gateway.&lt;/p&gt;
+&lt;p&gt;In this article, we will delve into understanding &lt;strong&gt;JWT&lt;/strong&gt; and the approach to &lt;strong&gt;authentication and security&lt;/strong&gt; within the Microservice architecture using JWT.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Microservices, Eureka and Zuul Gateway User Manual - Part 1</title>
+      <link>https://cuongvndev.github.io/post/java/microservice-with-spring-boot-eureka-and-zuul-gateway/</link>
+      <pubDate>Thu, 10 Aug 2023 11:18:56 +0700</pubDate>
+      
+      <guid>https://cuongvndev.github.io/post/java/microservice-with-spring-boot-eureka-and-zuul-gateway/</guid>
+      <description>&lt;p&gt;This article provides a detailed guide on deploying and using the &lt;em&gt;&lt;strong&gt;Microservice&lt;/strong&gt;&lt;/em&gt; architecture in combination with the &lt;em&gt;&lt;strong&gt;Eureka&lt;/strong&gt;&lt;/em&gt; and &lt;em&gt;&lt;strong&gt;Zuul Gateway&lt;/strong&gt;&lt;/em&gt; tools. These steps outline the fundamentals of building a flexible and scalable distributed system.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

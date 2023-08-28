@@ -8,41 +8,50 @@
     <language>vi</language>
     <lastBuildDate>Wed, 23 Aug 2023 10:41:55 +0700</lastBuildDate><atom:link href="https://cuongvndev.github.io/vi/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Sự khác nhau giữa Props và State trong React</title>
-      <link>https://cuongvndev.github.io/vi/post/differences-between-props-and-state-in-react/</link>
+      <title>React Native - Cơ bản về Redux Saga</title>
+      <link>https://cuongvndev.github.io/vi/post/react/react-native-redux-saga/</link>
       <pubDate>Wed, 23 Aug 2023 10:41:55 +0700</pubDate>
       
-      <guid>https://cuongvndev.github.io/vi/post/differences-between-props-and-state-in-react/</guid>
+      <guid>https://cuongvndev.github.io/vi/post/react/react-native-redux-saga/</guid>
+      <description>&lt;p&gt;Xin chào tất cả các bạn, bài viết này mình xin chia sẻ một chút kiến thức mình tìm hiểu được về &lt;em&gt;&lt;strong&gt;Redux Saga&lt;/strong&gt;&lt;/em&gt;, mong mọi người theo dõi.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Sự khác nhau giữa Props và State trong React</title>
+      <link>https://cuongvndev.github.io/vi/post/react/differences-between-props-and-state-in-react/</link>
+      <pubDate>Wed, 23 Aug 2023 10:41:55 +0700</pubDate>
+      
+      <guid>https://cuongvndev.github.io/vi/post/react/differences-between-props-and-state-in-react/</guid>
       <description>&lt;p&gt;Gần đây mình có tìm hiều về React, trong quá trình tìm hiểu mình thấy &lt;code&gt;Props và State&lt;/code&gt; được sử dụng khá nhiều.
 Vậy chúng là gì và khác nhau như thế nào, cùng tìm hiểu trong bài viết này nhé!&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 3</title>
-      <link>https://cuongvndev.github.io/vi/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/</link>
+      <link>https://cuongvndev.github.io/vi/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/</link>
       <pubDate>Mon, 14 Aug 2023 15:33:23 +0700</pubDate>
       
-      <guid>https://cuongvndev.github.io/vi/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/</guid>
+      <guid>https://cuongvndev.github.io/vi/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/</guid>
       <description>&lt;p&gt;Trong phần này chúng ta sẽ cùng tìm hiểu về Spring Cloud Configuaration.&lt;/p&gt;
 &lt;p&gt;Spring Cloud Configuration là một module trong hệ sinh thái Spring Cloud, cung cấp các công cụ để xây dựng các hệ thống phân tán và ứng dụng dịch vụ nhỏ. Spring Cloud Configuration tập trung cụ thể vào việc quản lý cấu hình của các ứng dụng trong một cách tập trung và linh hoạt.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 2</title>
-      <link>https://cuongvndev.github.io/vi/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration/</link>
+      <link>https://cuongvndev.github.io/vi/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration/</link>
       <pubDate>Fri, 11 Aug 2023 09:25:25 +0700</pubDate>
       
-      <guid>https://cuongvndev.github.io/vi/post/microservice-authentication-jwt-token-and-spring-cloud-configuaration/</guid>
+      <guid>https://cuongvndev.github.io/vi/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration/</guid>
       <description>&lt;p&gt;Ở bài trước chúng ta đã dựng được một hệ thống microservice đơn giản với User service, Eureka server và Zuul gateway.
 Trong bài viết này chúng ta sẽ cùng tìm hiểu về &lt;strong&gt;JWT&lt;/strong&gt; và cách để &lt;strong&gt;xác thực và bảo mật&lt;/strong&gt; trong hệ thống &lt;strong&gt;Microservice&lt;/strong&gt; bằng JWT.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 1</title>
-      <link>https://cuongvndev.github.io/vi/post/microservice-with-spring-boot-eureka-and-zuul-gateway/</link>
+      <link>https://cuongvndev.github.io/vi/post/java/microservice-with-spring-boot-eureka-and-zuul-gateway/</link>
       <pubDate>Thu, 10 Aug 2023 11:18:56 +0700</pubDate>
       
-      <guid>https://cuongvndev.github.io/vi/post/microservice-with-spring-boot-eureka-and-zuul-gateway/</guid>
+      <guid>https://cuongvndev.github.io/vi/post/java/microservice-with-spring-boot-eureka-and-zuul-gateway/</guid>
       <description>&lt;p&gt;Bài viết này cung cấp một hướng dẫn chi tiết về việc triển khai và sử dụng kiến trúc &lt;strong&gt;Microservice&lt;/strong&gt; kết hợp với các công cụ &lt;strong&gt;Eureka&lt;/strong&gt; và Zuul &lt;strong&gt;Gateway&lt;/strong&gt;. Đây là những bước cơ bản để xây dựng một hệ thống phân tán linh hoạt và có khả năng mở rộng.&lt;/p&gt;</description>
     </item>
     
