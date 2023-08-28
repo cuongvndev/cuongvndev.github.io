@@ -759,7 +759,25 @@ The Zuul gateway will use the path /user/** to route to the user service.</p>
 
   
 
-  <div class="disqus-comment">
+  <div id="disqus_recommendations">
+  <script> 
+     (function() { 
+     var d = document, s = d.createElement('script'); 
+     var disqus_shortname = 'cuongvndev';
+     s.src = "https://"+disqus_shortname+".disqus.com/recommendations.js";
+     
+     s.setAttribute('data-timestamp', +new Date());
+     (d.head || d.body).appendChild(s);
+     })();
+  </script>
+  <noscript>
+     Please enable JavaScript to view the 
+     <a href="https://disqus.com/?ref_noscript" rel="nofollow">
+     comments powered by Disqus.
+     </a>
+  </noscript>
+</div>
+<div class="disqus-comment">
     <div id="disqus_thread"></div>
     <script type="text/javascript">
       let mountNode = document.querySelector("#disqus_thread");
