@@ -6,7 +6,16 @@
     <description>Recent content in React on Cuong Vu - Going to the moon 🌑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 23 Aug 2023 10:41:55 +0700</lastBuildDate><atom:link href="https://cuongvndev.github.io/categories/react/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 30 Aug 2023 15:53:57 +0700</lastBuildDate><atom:link href="https://cuongvndev.github.io/categories/react/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building splash screens in React Native</title>
+      <link>https://cuongvndev.github.io/post/react/building-splash-screens-react-native/</link>
+      <pubDate>Wed, 30 Aug 2023 15:53:57 +0700</pubDate>
+      
+      <guid>https://cuongvndev.github.io/post/react/building-splash-screens-react-native/</guid>
+      <description>&lt;p&gt;In this tutorial, we’ll demonstrate how to build a splash screen in &lt;strong&gt;React Native&lt;/strong&gt;. We’ll walk you through how to build stunning welcome displays for both iOS and Android apps using &lt;code&gt;react-native-splash-screen&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Differences between Props and State in React</title>
       <link>https://cuongvndev.github.io/post/react/differences-between-props-and-state-in-react/</link>

@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Cuong Vu - Going to the moon 🌑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>vi</language>
-    <lastBuildDate>Wed, 23 Aug 2023 10:41:55 +0700</lastBuildDate><atom:link href="https://cuongvndev.github.io/vi/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 30 Aug 2023 15:53:57 +0700</lastBuildDate><atom:link href="https://cuongvndev.github.io/vi/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tạo màn hình splash screen trong React Native</title>
+      <link>https://cuongvndev.github.io/vi/post/react/building-splash-screens-react-native/</link>
+      <pubDate>Wed, 30 Aug 2023 15:53:57 +0700</pubDate>
+      
+      <guid>https://cuongvndev.github.io/vi/post/react/building-splash-screens-react-native/</guid>
+      <description>&lt;p&gt;Trong hướng dẫn này, chúng tôi sẽ hướng dẫn cách tạo một màn hình splash screen trong &lt;strong&gt;React Native&lt;/strong&gt;. Chúng tôi sẽ hướng dẫn bạn cách xây dựng những màn hình chào đẹp mắt cho cả ứng dụng iOS và Android bằng cách sử dụng thư viện &lt;code&gt;react-native-splash-screen&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>React Native - Cơ bản về Redux Saga</title>
       <link>https://cuongvndev.github.io/vi/post/react/react-native-redux-saga/</link>
