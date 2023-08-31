@@ -31,7 +31,7 @@
       
       <guid>https://cuongvndev.github.io/vi/post/react/building-splash-screens-react-native/</guid>
       
-        <description>&lt;p&gt;Trong hướng dẫn này, chúng tôi sẽ hướng dẫn cách tạo một màn hình splash screen trong &lt;strong&gt;React Native&lt;/strong&gt;. Chúng tôi sẽ hướng dẫn bạn cách xây dựng những màn hình chào đẹp mắt cho cả ứng dụng iOS và Android bằng cách sử dụng thư viện &lt;code&gt;react-native-splash-screen&lt;/code&gt;.&lt;/p&gt;
+        <description>&lt;p&gt;Trong hướng dẫn này, tôi sẽ hướng dẫn cách tạo một màn hình splash screen trong &lt;strong&gt;React Native&lt;/strong&gt;. Chúng tôi sẽ hướng dẫn bạn cách xây dựng những màn hình chào đẹp mắt cho cả ứng dụng iOS và Android bằng cách sử dụng thư viện &lt;code&gt;react-native-splash-screen&lt;/code&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;splash-screen-là-gì&#34;&gt;Splash screen là gì?&lt;/h2&gt;
 &lt;p&gt;Một màn hình splash screen là màn hình xuất hiện ban đầu trước khi truy cập vào các tính năng chính của ứng dụng, đóng vai trò giới thiệu thương hiệu và biểu tượng của ứng dụng. Trong các ứng dụng web, các preloaders giải trí người dùng trong quá trình hoạt động của máy chủ, giúp duy trì người dùng.&lt;/p&gt;
 &lt;p&gt;Trong React Native, màn hình splash screen cung cấp những lợi ích như hiển thị các trình tải trong quá trình truy vấn dữ liệu từ API để cải thiện trải nghiệm người dùng. Tương tự, khi khởi động ứng dụng, một màn hình chào với trình tải sẽ tạo ra một hiển thị trau chuốt trong khi người dùng đợi.&lt;/p&gt;
