@@ -6,7 +6,18 @@
     <description>Recent content in React on Cuong Vu - Going to the moon 🌑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>vi</language>
-    <lastBuildDate>Wed, 30 Aug 2023 15:53:57 +0700</lastBuildDate><atom:link href="https://cuongvndev.github.io/vi/categories/react/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 31 Aug 2023 14:00:44 +0700</lastBuildDate><atom:link href="https://cuongvndev.github.io/vi/categories/react/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tạo màn hình Welcome với hiệu ứng Slider trong React Native</title>
+      <link>https://cuongvndev.github.io/vi/post/react/building-a-cool-welcome-screen-in-react-native/</link>
+      <pubDate>Thu, 31 Aug 2023 14:00:44 +0700</pubDate>
+      
+      <guid>https://cuongvndev.github.io/vi/post/react/building-a-cool-welcome-screen-in-react-native/</guid>
+      <description>Trong bài viết này tôi sẽ hướng dẫn cách để tạo 1 màn hình welcome thật là cool ngầu và đẹp mắt trong react native bằng cách sử dụng thư viện: react-native-app-intro-slider
+Màn hình Welcome sẽ bao gồm 3 slider cùng với hiệu ứng chuyển trang thật xinh động. Tạo mới project react native và cài đặt thư viện bằng lệnh sau:
+npx react-native init IntroSliderApp npm install react-native-app-intro-slider react-native-vector-icons Update lại App component như sau:</description>
+    </item>
+    
     <item>
       <title>Tạo màn hình splash screen trong React Native</title>
       <link>https://cuongvndev.github.io/vi/post/react/building-splash-screens-react-native/</link>
