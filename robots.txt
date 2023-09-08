@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://cuongvndev.github.io/sitemap.xml
+Sitemap: https://vcstack.github.io/sitemap.xml

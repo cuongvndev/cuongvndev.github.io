@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>React on Cuong Vu - Going to the moon 🌑</title>
-    <link>https://cuongvndev.github.io/categories/react/</link>
-    <description>Recent content in React on Cuong Vu - Going to the moon 🌑</description>
+    <title>React on VC Stack - Going to the moon 🌑</title>
+    <link>https://vcstack.github.io/categories/react/</link>
+    <description>Recent content in React on VC Stack - Going to the moon 🌑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 30 Aug 2023 15:53:57 +0700</lastBuildDate><atom:link href="https://cuongvndev.github.io/categories/react/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 30 Aug 2023 15:53:57 +0700</lastBuildDate><atom:link href="https://vcstack.github.io/categories/react/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Building splash screens in React Native</title>
-      <link>https://cuongvndev.github.io/post/react/building-splash-screens-react-native/</link>
+      <link>https://vcstack.github.io/post/react/building-splash-screens-react-native/</link>
       <pubDate>Wed, 30 Aug 2023 15:53:57 +0700</pubDate>
       
-      <guid>https://cuongvndev.github.io/post/react/building-splash-screens-react-native/</guid>
+      <guid>https://vcstack.github.io/post/react/building-splash-screens-react-native/</guid>
       <description>&lt;p&gt;In this tutorial, we’ll demonstrate how to build a splash screen in &lt;strong&gt;React Native&lt;/strong&gt;. We’ll walk you through how to build stunning welcome displays for both iOS and Android apps using &lt;code&gt;react-native-splash-screen&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Differences between Props and State in React</title>
-      <link>https://cuongvndev.github.io/post/react/differences-between-props-and-state-in-react/</link>
+      <link>https://vcstack.github.io/post/react/differences-between-props-and-state-in-react/</link>
       <pubDate>Wed, 23 Aug 2023 10:41:55 +0700</pubDate>
       
-      <guid>https://cuongvndev.github.io/post/react/differences-between-props-and-state-in-react/</guid>
+      <guid>https://vcstack.github.io/post/react/differences-between-props-and-state-in-react/</guid>
       <description>&lt;p&gt;Recently, I&amp;rsquo;ve been exploring React, and during my research, I&amp;rsquo;ve come across the use of &lt;code&gt;Props and State&lt;/code&gt; quite frequently. So, what are they and how do they differ? Let&amp;rsquo;s delve into that in this article!&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>React Native - Redux Saga Basics</title>
-      <link>https://cuongvndev.github.io/post/react/react-native-redux-saga/</link>
+      <link>https://vcstack.github.io/post/react/react-native-redux-saga/</link>
       <pubDate>Wed, 23 Aug 2023 10:41:55 +0700</pubDate>
       
-      <guid>https://cuongvndev.github.io/post/react/react-native-redux-saga/</guid>
+      <guid>https://vcstack.github.io/post/react/react-native-redux-saga/</guid>
       <description>&lt;p&gt;Hello everyone, in this article, I would like to share some of the knowledge I&amp;rsquo;ve gathered about &lt;em&gt;&lt;strong&gt;Redux Saga&lt;/strong&gt;&lt;/em&gt;. I hope you all find it informative.&lt;/p&gt;</description>
     </item>
     

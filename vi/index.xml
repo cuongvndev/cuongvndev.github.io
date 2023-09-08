@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Cuong Vu - Going to the moon 🌑</title>
-    <link>https://cuongvndev.github.io/vi/</link>
-    <description>Recent content on Cuong Vu - Going to the moon 🌑</description>
+    <title>VC Stack - Going to the moon 🌑</title>
+    <link>https://vcstack.github.io/vi/</link>
+    <description>Recent content on VC Stack - Going to the moon 🌑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>vi</language>
-    <lastBuildDate>Thu, 31 Aug 2023 14:00:44 +0700</lastBuildDate>
+    <lastBuildDate>Wed, 30 Aug 2023 15:53:57 +0700</lastBuildDate>
     
-        <atom:link href="https://cuongvndev.github.io/vi/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://vcstack.github.io/vi/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>About</title>
-      <link>https://cuongvndev.github.io/vi/about/</link>
+      <link>https://vcstack.github.io/vi/about/</link>
       <pubDate>Thu, 10 Aug 2023 11:18:56 +0700</pubDate>
       
-      <guid>https://cuongvndev.github.io/vi/about/</guid>
+      <guid>https://vcstack.github.io/vi/about/</guid>
       
         <description>&lt;p&gt;Cứ mãi ở ao làng rồi sẽ cạn, sao không ra biển lớn để vẫy vùng.&lt;/p&gt;
 &lt;p&gt;Đây là blog cá nhân, tôi ghi chép và chia sẻ những gì tôi học được ở đây về kiến thức lập trình Java&lt;/p&gt;
@@ -25,203 +25,21 @@
     </item>
     
     <item>
-      <title>Tạo màn hình Welcome với hiệu ứng Slider trong React Native</title>
-      <link>https://cuongvndev.github.io/vi/post/react/building-a-cool-welcome-screen-in-react-native/</link>
-      <pubDate>Thu, 31 Aug 2023 14:00:44 +0700</pubDate>
-      
-      <guid>https://cuongvndev.github.io/vi/post/react/building-a-cool-welcome-screen-in-react-native/</guid>
-      
-        <description>&lt;p&gt;Trong bài viết này tôi sẽ hướng dẫn cách để tạo 1 màn hình welcome thật là cool ngầu và đẹp mắt trong react native bằng cách sử dụng thư viện: &lt;code&gt;react-native-app-intro-slider&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Màn hình Welcome sẽ bao gồm 3 slider cùng với hiệu ứng chuyển trang thật xinh động.
-&lt;img src=&#34;https://cuongvndev.github.io/blog/react/welcome.gif&#34; alt=&#34;Welcome&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
-&lt;p&gt;Tạo mới project react native và cài đặt thư viện bằng lệnh sau:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cmd&#34; data-lang=&#34;cmd&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npx react-native init IntroSliderApp
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm install react-native-app-intro-slider
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;react-native-vector-icons
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Update lại App component như sau:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;React&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;react&amp;#39;&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; {&lt;span style=&#34;color:#a6e22e&#34;&gt;Image&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;StyleSheet&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;Text&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;View&lt;/span&gt;} &lt;span style=&#34;color:#a6e22e&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;react-native&amp;#39;&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;AppIntroSlider&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;react-native-app-intro-slider&amp;#39;&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; {&lt;span style=&#34;color:#a6e22e&#34;&gt;IMAGES&lt;/span&gt;} &lt;span style=&#34;color:#a6e22e&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;./assets/images&amp;#39;&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Ionicons&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;react-native-vector-icons/Ionicons&amp;#34;&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;sliders&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;key&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;one&amp;#39;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;title&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Title 1&amp;#39;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;text&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Description.\nSay something cool&amp;#39;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;image&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;IMAGES&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;intro1&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;backgroundColor&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;#59b2ab&amp;#39;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  },
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;key&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;two&amp;#39;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;title&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Title 2&amp;#39;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;text&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Other cool stuff&amp;#39;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;image&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;IMAGES&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;intro2&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;backgroundColor&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;#febe29&amp;#39;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  },
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;key&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;three&amp;#39;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;title&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Rocket guy&amp;#39;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;text&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;I&amp;#39;m already out of descriptions\n\nLorem ipsum bla bla bla&amp;#34;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;image&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;IMAGES&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;intro3&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;backgroundColor&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;#22bcb5&amp;#39;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  },
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;];
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;default&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;App&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;extends&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;React&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Component&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;constructor&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;props&lt;/span&gt;) {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;super&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;props&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;state&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#a6e22e&#34;&gt;showRealApp&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    };
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;_renderItem&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ({&lt;span style=&#34;color:#a6e22e&#34;&gt;item&lt;/span&gt;}) =&amp;gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; (
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;View&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;style&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;{&lt;span style=&#34;color:#a6e22e&#34;&gt;styles&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;slide&lt;/span&gt;}&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Text&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;style&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;{&lt;span style=&#34;color:#a6e22e&#34;&gt;styles&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;title&lt;/span&gt;}&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;{&lt;span style=&#34;color:#a6e22e&#34;&gt;item&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;title&lt;/span&gt;}&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;/Text&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Image&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;style&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;{&lt;span style=&#34;color:#a6e22e&#34;&gt;styles&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;image&lt;/span&gt;} &lt;span style=&#34;color:#a6e22e&#34;&gt;source&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;{&lt;span style=&#34;color:#a6e22e&#34;&gt;item&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;image&lt;/span&gt;} &lt;span style=&#34;color:#f92672&#34;&gt;/&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Text&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;style&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;{&lt;span style=&#34;color:#a6e22e&#34;&gt;styles&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;text&lt;/span&gt;}&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;{&lt;span style=&#34;color:#a6e22e&#34;&gt;item&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;text&lt;/span&gt;}&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;/Text&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;/View&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    );
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  };
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;_isDone&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; () =&amp;gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;setState&lt;/span&gt;({
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#a6e22e&#34;&gt;showRealApp&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    });
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  };
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;_renderNextButton&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; () =&amp;gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; (
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;View&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;style&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;{&lt;span style=&#34;color:#a6e22e&#34;&gt;styles&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;buttonCircle&lt;/span&gt;}&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Ionicons&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;arrow-forward&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#a6e22e&#34;&gt;color&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;rgba(255, 255, 255, .9)&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#a6e22e&#34;&gt;size&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;{&lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;/&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;/View&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    );
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  };
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;_renderDoneButton&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; () =&amp;gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; (
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;View&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;style&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;{&lt;span style=&#34;color:#a6e22e&#34;&gt;styles&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;buttonCircle&lt;/span&gt;}&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Ionicons&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;checkmark&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#a6e22e&#34;&gt;color&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;rgba(255, 255, 255, .9)&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#a6e22e&#34;&gt;size&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;{&lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;/&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;/View&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    );
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  };
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;render&lt;/span&gt;() {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;state&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;showRealApp&lt;/span&gt;) {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; (
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Text&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Login&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Screen&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;!&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;/Text&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      );
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    } &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; (
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;AppIntroSlider&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#a6e22e&#34;&gt;renderItem&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;{&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;_renderItem&lt;/span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#a6e22e&#34;&gt;data&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;{&lt;span style=&#34;color:#a6e22e&#34;&gt;sliders&lt;/span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#a6e22e&#34;&gt;onDone&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;{&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;_isDone&lt;/span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#a6e22e&#34;&gt;renderNextButton&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;{&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;_renderNextButton&lt;/span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#a6e22e&#34;&gt;renderDoneButton&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;{&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;_renderDoneButton&lt;/span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;/&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      );
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;styles&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;StyleSheet&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;create&lt;/span&gt;({
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;slide&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;flex&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;alignItems&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;center&amp;#39;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;justifyContent&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;center&amp;#39;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;backgroundColor&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;hsla(0, 100%, 50%, 0.1);&amp;#39;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  },
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;image&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;width&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;320&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;height&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;320&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;marginVertical&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;32&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  },
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;text&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;textAlign&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;center&amp;#39;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  },
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;title&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;fontSize&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;22&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;textAlign&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;center&amp;#39;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  },
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;buttonCircle&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;width&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;40&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;height&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;40&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;backgroundColor&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;rgba(0, 0, 0, .2)&amp;#39;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;borderRadius&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;justifyContent&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;center&amp;#39;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;alignItems&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;center&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;});
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Chuẩn bị 3 hình ảnh tương ứng với 3 slider, bạn có thể click vào để download bên dưới: 
- &lt;div id=&#34;temp-download&#34;&gt;&lt;/div&gt;
- &lt;script&gt;
-   var url = &#34;/blog/react/1.jpg;/blog/react/2.jpg;/blog/react/3.jpg&#34;;
-   url = url.split(&#34;;&#34;);
-   console.log(url);
-   if (url.length &gt; 0) {
-     var divTag = document.getElementById(&#34;temp-download&#34;);
-     var tag = &#34;&#34;;
-     for (let i = 0; i &lt; url.length; i++) {
-       tag +=
-         &#39;&lt;a href=&#34;&#39; +
-         url[i] +
-         &#39;&#34; download style=&#34;padding: 0 10px;&#34;&gt;&#39; +
-         &#39;&lt;img src=&#34;&#39; +
-         url[i] +
-         &#39;&#34; width=&#34;50&#34; height=&#34;50&#34;&gt;&#39; +
-         &#39;&lt;/a&gt;&#39;;
-     }
-     divTag.innerHTML = tag;
-   }
- &lt;/script&gt;
-&lt;/p&gt;
-&lt;p&gt;Tiếp theo bỏ hình hành vào thư mục &lt;code&gt;IntroSliderApp/scr/assets/images&lt;/code&gt;
-Tạo file &lt;code&gt;index.js&lt;/code&gt; trong thư mục images với nội dung như sau:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// IntroSliderApp\src\assets\images\index.js
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;IMAGES&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;intro1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;require&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;../images/1.jpg&amp;#39;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;intro2&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;require&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;../images/2.jpg&amp;#39;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;intro3&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;require&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;../images/3.jpg&amp;#39;&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;};
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Tới đây là xong rồi đó bạn hãy build là run lại app trên thiết bị android để trải nghiệm nhé!&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Có một lưu ý là mình đang sử dụng icon của react-native-vector-icons/Ionicons
-nếu icon không hoạt động thì hãy thêm dòng code:
-&lt;code&gt;apply from: &amp;quot;../../node_modules/react-native-vector-icons/fonts.gradle&amp;quot;&lt;/code&gt; trong file &lt;em&gt;android/app/build.gradle&lt;/em&gt; thì icon được hiển thị nhé&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-      
-    </item>
-    
-    <item>
       <title>Tạo màn hình splash screen trong React Native</title>
-      <link>https://cuongvndev.github.io/vi/post/react/building-splash-screens-react-native/</link>
+      <link>https://vcstack.github.io/vi/post/react/building-splash-screens-react-native/</link>
       <pubDate>Wed, 30 Aug 2023 15:53:57 +0700</pubDate>
       
-      <guid>https://cuongvndev.github.io/vi/post/react/building-splash-screens-react-native/</guid>
+      <guid>https://vcstack.github.io/vi/post/react/building-splash-screens-react-native/</guid>
       
         <description>&lt;p&gt;Trong hướng dẫn này, tôi sẽ hướng dẫn cách tạo một màn hình splash screen trong &lt;strong&gt;React Native&lt;/strong&gt;. Chúng tôi sẽ hướng dẫn bạn cách xây dựng những màn hình chào đẹp mắt cho cả ứng dụng iOS và Android bằng cách sử dụng thư viện &lt;code&gt;react-native-splash-screen&lt;/code&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;splash-screen-là-gì&#34;&gt;Splash screen là gì?&lt;/h2&gt;
 &lt;p&gt;Một màn hình splash screen là màn hình xuất hiện ban đầu trước khi truy cập vào các tính năng chính của ứng dụng, đóng vai trò giới thiệu thương hiệu và biểu tượng của ứng dụng. Trong các ứng dụng web, các preloaders giải trí người dùng trong quá trình hoạt động của máy chủ, giúp duy trì người dùng.&lt;/p&gt;
 &lt;p&gt;Trong React Native, màn hình splash screen cung cấp những lợi ích như hiển thị các trình tải trong quá trình truy vấn dữ liệu từ API để cải thiện trải nghiệm người dùng. Tương tự, khi khởi động ứng dụng, một màn hình chào với trình tải sẽ tạo ra một hiển thị trau chuốt trong khi người dùng đợi.&lt;/p&gt;
 &lt;p&gt;Bài demo của chúng tôi tạo màn hình chào React Native cho Android. Học cách chuẩn bị kích thước hình ảnh, cập nhật tệp, và ẩn màn hình chào khi ứng dụng được tải.
-&lt;img src=&#34;https://cuongvndev.github.io/blog/react/splash-screen.avif&#34; alt=&#34;splash screen&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
+&lt;img src=&#34;https://vcstack.github.io/blog/react/splash-screen.avif&#34; alt=&#34;splash screen&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
 &lt;h2 id=&#34;xây-dựng-một-màn-hình-splash-screen-trong-react-native&#34;&gt;Xây dựng một màn hình splash screen trong React Native&lt;/h2&gt;
 &lt;p&gt;Đầu tiên, hãy truy cập &lt;a href=&#34;https://www.appicon.co/#image-sets&#34;&gt;Appicon&lt;/a&gt;. Kéo hình ảnh của bạn vào ô được cung cấp và chọn kích thước cơ sở là 4x. Đánh dấu chọn iOS và Android, sau đó nhấn vào nút Generate:
-&lt;img src=&#34;https://cuongvndev.github.io/blog/react/app-icon.jpg&#34; alt=&#34;splash screen&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
+&lt;img src=&#34;https://vcstack.github.io/blog/react/app-icon.jpg&#34; alt=&#34;splash screen&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
 &lt;p&gt;Tiếp theo, giải nén tệp đã tải về và sao chép thư mục Android vào đường dẫn &lt;code&gt;android/app/src/main/res/&lt;/code&gt; trong dự án.&lt;/p&gt;
 &lt;p&gt;Việc xây dựng một màn hình chào trong React Native yêu cầu một số điều chỉnh tinh chỉnh. Để bắt đầu, trước tiên cài đặt &lt;code&gt;react-native-splash-screen&lt;/code&gt; bằng cách sử dụng một trong hai lệnh dưới đây:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cmd&#34; data-lang=&#34;cmd&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/* npm */
@@ -266,7 +84,7 @@ nếu icon không hoạt động thì hãy thêm dòng code:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;color&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;primary_dark&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;#000000&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/color&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/resources&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Chạy ứng dụng bằng lệnh &lt;code&gt;react-native run-android&lt;/code&gt; và bạn nên thấy kết quả tương tự như sau:
-&lt;img src=&#34;https://cuongvndev.github.io/blog/react/run-result.avif&#34; alt=&#34;run&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
+&lt;img src=&#34;https://vcstack.github.io/blog/react/run-result.avif&#34; alt=&#34;run&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Ẩn màn hình splash screen sau khi ứng dụng được tải&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Để ẩn màn hình chào khi ứng dụng được tải, chúng ta sẽ sử dụng  &lt;code&gt;react-native-splash-screen&lt;/code&gt; mà chúng ta đã cài đặt trước đó. Trong tệp App.js của bạn, sao chép đoạn mã dưới đây:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;React&lt;/span&gt;, {&lt;span style=&#34;color:#a6e22e&#34;&gt;useEffect&lt;/span&gt;} &lt;span style=&#34;color:#a6e22e&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;react&amp;#39;&lt;/span&gt;;
@@ -284,23 +102,23 @@ nếu icon không hoạt động thì hãy thêm dòng code:
     
     <item>
       <title>React Native - Cơ bản về Redux Saga</title>
-      <link>https://cuongvndev.github.io/vi/post/react/react-native-redux-saga/</link>
+      <link>https://vcstack.github.io/vi/post/react/react-native-redux-saga/</link>
       <pubDate>Wed, 23 Aug 2023 10:41:55 +0700</pubDate>
       
-      <guid>https://cuongvndev.github.io/vi/post/react/react-native-redux-saga/</guid>
+      <guid>https://vcstack.github.io/vi/post/react/react-native-redux-saga/</guid>
       
         <description>&lt;p&gt;Xin chào tất cả các bạn, bài viết này mình xin chia sẻ một chút kiến thức mình tìm hiểu được về &lt;em&gt;&lt;strong&gt;Redux Saga&lt;/strong&gt;&lt;/em&gt;, mong mọi người theo dõi.&lt;/p&gt;
 &lt;p&gt;Nếu ai đã từng tìm hiểu qua về &lt;em&gt;&lt;strong&gt;redux&lt;/strong&gt;&lt;/em&gt; thì sẽ biết giữa quá trình &lt;em&gt;&lt;strong&gt;dispatch một action và reducer&lt;/strong&gt;&lt;/em&gt; chúng ta thường sẽ gọi một API nào đó từ server trả về không ít người sẽ gặp trường hợp mà API chưa kịp trả về kết quả mà các dòng code tiếp theo đã được thực thi sẽ dẫn đến trường hợp không mong muốn, và để khác phục điều đó chúng ta có một thư viện giúp chúng ta xử lý các điều này dễ dàng hơn đó là &lt;code&gt;Redux saga&lt;/code&gt;. (trước khi được bài này thì các bạn nên hiểu qua một chút về redux và react).&lt;/p&gt;
 &lt;h2 id=&#34;1-redux-saga-là-gì&#34;&gt;1. Redux Saga là gì?&lt;/h2&gt;
 &lt;p&gt;Redux-Saga là một thư viện redux middleware, giúp chúng ta quản lý những side effect trong ứng dụng redux trở nên một cách đơn giản hơn và dễ kiểm soát hơn.
-&lt;img src=&#34;https://cuongvndev.github.io/blog/redux-saga/redux-saga.gif&#34; alt=&#34;redux saga&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
+&lt;img src=&#34;https://vcstack.github.io/blog/redux-saga/redux-saga.gif&#34; alt=&#34;redux saga&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
 &lt;p&gt;Để hiểu được sự hoạt động của redux saga bạn cần hiểu một số khái niệm cơ bản như generator function.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Generator function là function có khả năng hoãn lại quá trình thực thi mà vẫn giữ nguyên được context. Hơi khó hiểu phải không, nói một cách đơn giản thì generator function là 1 function có khả năng tạm ngưng trước khi hàm kết thúc (khác với pure function khi được gọi sẽ thực thi hết các câu lệnh trong hàm), và có thể tiếp tục chạy tại một thời điểm khác. Chính chức năng mới này giúp ta giải quyết được việc bất đồng bộ, hàm sẽ dừng và đợi async chạy xong rồi tiếp tục thực thi. Chi tiết thì bạn có thể tham khảo &lt;a href=&#34;https://davidwalsh.name/es6-generators&#34;&gt;tại đây&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;Hãy nhình vào sơ đồ dưới đây:
-&lt;img src=&#34;https://cuongvndev.github.io/blog/redux-saga/redux-saga-fow.webp&#34; alt=&#34;redux saga flow&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/li&gt;
+&lt;img src=&#34;https://vcstack.github.io/blog/redux-saga/redux-saga-fow.webp&#34; alt=&#34;redux saga flow&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Từ phía redux saga chúng ta gửi request đến Server để chúng ta lấy các API về sau đó ta có response trả về redux saga, sau khi có dữ liệu thì chúng ta sử dụng các effects, trong các effect này chúng ta có các hàm để dispatch sang phía reducers.&lt;/p&gt;
@@ -329,7 +147,7 @@ nếu icon không hoạt động thì hãy thêm dòng code:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm install react-redux
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Chúng ta sẽ cùng tạo 1 App counter đơn giản với 2 nút + - update giá trị khi người dùng click vào&lt;/p&gt;
 &lt;p&gt;Cấu trúc của project như sau:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://cuongvndev.github.io/blog/redux-saga/awesomeapp.png&#34; alt=&#34;Awesome app&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vcstack.github.io/blog/redux-saga/awesomeapp.png&#34; alt=&#34;Awesome app&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
 &lt;p&gt;Sau khi khởi tạo project và cài đặt một số thư viện liên quan chúng ta sẽ vào file AwesomeApp/index.js để cấu hình redux-saga vào trong project:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;React&lt;/span&gt;, {&lt;span style=&#34;color:#a6e22e&#34;&gt;Component&lt;/span&gt;} &lt;span style=&#34;color:#a6e22e&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;react&amp;#39;&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; { &lt;span style=&#34;color:#a6e22e&#34;&gt;AppRegistry&lt;/span&gt; } &lt;span style=&#34;color:#a6e22e&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;react-native&amp;#39;&lt;/span&gt;;
@@ -547,10 +365,10 @@ nếu icon không hoạt động thì hãy thêm dòng code:
     
     <item>
       <title>Sự khác nhau giữa Props và State trong React</title>
-      <link>https://cuongvndev.github.io/vi/post/react/differences-between-props-and-state-in-react/</link>
+      <link>https://vcstack.github.io/vi/post/react/differences-between-props-and-state-in-react/</link>
       <pubDate>Wed, 23 Aug 2023 10:41:55 +0700</pubDate>
       
-      <guid>https://cuongvndev.github.io/vi/post/react/differences-between-props-and-state-in-react/</guid>
+      <guid>https://vcstack.github.io/vi/post/react/differences-between-props-and-state-in-react/</guid>
       
         <description>&lt;p&gt;Gần đây mình có tìm hiều về React, trong quá trình tìm hiểu mình thấy &lt;code&gt;Props và State&lt;/code&gt; được sử dụng khá nhiều.
 Vậy chúng là gì và khác nhau như thế nào, cùng tìm hiểu trong bài viết này nhé!&lt;/p&gt;
@@ -670,10 +488,10 @@ Vậy chúng là gì và khác nhau như thế nào, cùng tìm hiểu trong bà
     
     <item>
       <title>Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 3</title>
-      <link>https://cuongvndev.github.io/vi/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/</link>
+      <link>https://vcstack.github.io/vi/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/</link>
       <pubDate>Mon, 14 Aug 2023 15:33:23 +0700</pubDate>
       
-      <guid>https://cuongvndev.github.io/vi/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/</guid>
+      <guid>https://vcstack.github.io/vi/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/</guid>
       
         <description>&lt;p&gt;Trong phần này chúng ta sẽ cùng tìm hiểu về Spring Cloud Configuaration.&lt;/p&gt;
 &lt;p&gt;Spring Cloud Configuration là một module trong hệ sinh thái Spring Cloud, cung cấp các công cụ để xây dựng các hệ thống phân tán và ứng dụng dịch vụ nhỏ. Spring Cloud Configuration tập trung cụ thể vào việc quản lý cấu hình của các ứng dụng trong một cách tập trung và linh hoạt.&lt;/p&gt;
@@ -735,7 +553,7 @@ sử dụng dependency như sau:&lt;/p&gt;
 Hãy thêm username và password nếu cần khi bị lỗi authorize&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Bây giờ chúng ta truy cập vào đường dẫn &lt;code&gt;http://localhost:8888/auth-service.yml&lt;/code&gt; thì sẽ thấy kết quả như hình:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://cuongvndev.github.io/blog/microservice/config-server.png&#34; alt=&#34;Config server&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vcstack.github.io/blog/microservice/config-server.png&#34; alt=&#34;Config server&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
 &lt;h2 id=&#34;2-config-client&#34;&gt;2. Config Client&lt;/h2&gt;
 &lt;p&gt;Tiếp theo ở Auth service và Zuul Server gateway sẽ lấy thông tin config thông qua config server.&lt;/p&gt;
 &lt;p&gt;Thêm dependency config-client ở Auth service và Zuul Server:&lt;/p&gt;
@@ -825,10 +643,10 @@ Hãy thêm username và password nếu cần khi bị lỗi authorize&lt;/p&gt;
     
     <item>
       <title>Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 2</title>
-      <link>https://cuongvndev.github.io/vi/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration/</link>
+      <link>https://vcstack.github.io/vi/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration/</link>
       <pubDate>Fri, 11 Aug 2023 09:25:25 +0700</pubDate>
       
-      <guid>https://cuongvndev.github.io/vi/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration/</guid>
+      <guid>https://vcstack.github.io/vi/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration/</guid>
       
         <description>&lt;p&gt;Ở bài trước chúng ta đã dựng được một hệ thống microservice đơn giản với User service, Eureka server và Zuul gateway.
 Trong bài viết này chúng ta sẽ cùng tìm hiểu về &lt;strong&gt;JWT&lt;/strong&gt; và cách để &lt;strong&gt;xác thực và bảo mật&lt;/strong&gt; trong hệ thống &lt;strong&gt;Microservice&lt;/strong&gt; bằng JWT.&lt;/p&gt;
@@ -1420,25 +1238,25 @@ Trong file &lt;code&gt;pom.xml&lt;/code&gt; chúng ta cần các dependencies sa
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;path&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/user/user-info&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Để nhận &lt;strong&gt;token&lt;/strong&gt;, chúng ta call api authentication &lt;code&gt;localhost:8762/auth&lt;/code&gt;
-&lt;img src=&#34;https://cuongvndev.github.io/blog/microservice/authen.png&#34; alt=&#34;Scenario 1: Across columns&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
+&lt;img src=&#34;https://vcstack.github.io/blog/microservice/authen.png&#34; alt=&#34;Scenario 1: Across columns&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
 &lt;p&gt;Bây giờ gọi lại &lt;strong&gt;user service&lt;/strong&gt; kèm theo một &lt;strong&gt;token&lt;/strong&gt; trong header:
-&lt;img src=&#34;https://cuongvndev.github.io/blog/microservice/user-info-auth.png&#34; alt=&#34;Scenario 1: Across columns&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
+&lt;img src=&#34;https://vcstack.github.io/blog/microservice/user-info-auth.png&#34; alt=&#34;Scenario 1: Across columns&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
 &lt;p&gt;Ngoài ta thì bạn có thể thử chạy nhiều instance của user service để test xem các request được phân tán như thế nào. Trong phần tiếp theo, chúng ta sẽ tìm hiểu các xử lý lỗi và theo dõi trong mô hình microservice.&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 1</title>
-      <link>https://cuongvndev.github.io/vi/post/java/microservice-with-spring-boot-eureka-and-zuul-gateway/</link>
+      <link>https://vcstack.github.io/vi/post/java/microservice-with-spring-boot-eureka-and-zuul-gateway/</link>
       <pubDate>Thu, 10 Aug 2023 11:18:56 +0700</pubDate>
       
-      <guid>https://cuongvndev.github.io/vi/post/java/microservice-with-spring-boot-eureka-and-zuul-gateway/</guid>
+      <guid>https://vcstack.github.io/vi/post/java/microservice-with-spring-boot-eureka-and-zuul-gateway/</guid>
       
         <description>&lt;p&gt;Bài viết này cung cấp một hướng dẫn chi tiết về việc triển khai và sử dụng kiến trúc &lt;strong&gt;Microservice&lt;/strong&gt; kết hợp với các công cụ &lt;strong&gt;Eureka&lt;/strong&gt; và Zuul &lt;strong&gt;Gateway&lt;/strong&gt;. Đây là những bước cơ bản để xây dựng một hệ thống phân tán linh hoạt và có khả năng mở rộng.&lt;/p&gt;
 &lt;h2 id=&#34;1-giới-thệu&#34;&gt;1. Giới thệu&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Microservices&lt;/strong&gt; là một mô hình kiến trúc phần mềm đột phá, cho phép các ứng dụng được chia thành các phần nhỏ hơn và độc lập, được gọi là &amp;ldquo;microservices&amp;rdquo;. Mỗi microservice có thể phát triển, triển khai và quản lý riêng biệt, giúp tối ưu hóa khả năng mở rộng và duy trì.&lt;/p&gt;
 &lt;p&gt;Bây giờ tôi sẽ triển khai một hệ thống đơn giản như sau:
-&lt;img src=&#34;https://cuongvndev.github.io/blog/microservice/model.png&#34; alt=&#34;Scenario 1: Across columns&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
+&lt;img src=&#34;https://vcstack.github.io/blog/microservice/model.png&#34; alt=&#34;Scenario 1: Across columns&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
 &lt;h2 id=&#34;2-eureka-server&#34;&gt;2. Eureka server&lt;/h2&gt;
 &lt;p&gt;Là máy chủ dùng để quản lý, đặt tên cho các service hay còn gọi là &lt;code&gt;service registry&lt;/code&gt;, mục đích của nó là thay vì phải nhớ 64.233.181.99 thì bạn có thể vào trực tiếp google bằng địa chỉ google.com và khi mà các service thay đổi địa chỉ thì Eureka sẽ tự động cập nhật mà bạn không cần phải thay đổi code.&lt;/p&gt;
 &lt;p&gt;Mỗi service sẽ được đăng ký với Eureka và sẽ ping cho Eureka để đảm bảo chúng vẫn còn hoạt động, Nếu Eureka không nhận được thông báo nào từ service thì service đó sẽ tự động bị xoá.&lt;/p&gt;
@@ -1602,13 +1420,13 @@ Trong file &lt;code&gt;pom.xml&lt;/code&gt; chúng ta cần các dependencies sa
 &lt;p&gt;Ok, như vậy là chúng ta đã tạo xong bộ khung cho hệ thống microservice
 Tiến hành run các service theo thứ tự: Eureka, Zuul và User
 Để kiểm tra các service của chúng ta vào &lt;code&gt;localhost://8761&lt;/code&gt; đây là cổng của Eureka Server, và bạn có thể thấy các service đang chạy như hình:
-&lt;img src=&#34;https://cuongvndev.github.io/blog/microservice/service-eureka.png&#34; alt=&#34;Scenario 1: Across columns&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
+&lt;img src=&#34;https://vcstack.github.io/blog/microservice/service-eureka.png&#34; alt=&#34;Scenario 1: Across columns&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
 &lt;p&gt;Tiến hành run api để get user info
-&lt;img src=&#34;https://cuongvndev.github.io/blog/microservice/api-user-info.png&#34; alt=&#34;Scenario 2: Across columns&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
+&lt;img src=&#34;https://vcstack.github.io/blog/microservice/api-user-info.png&#34; alt=&#34;Scenario 2: Across columns&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;khi call api &lt;code&gt;http://localhost:8083/user-info&lt;/code&gt; đang thực hiện call trực tiếp đến user service port 8083&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://cuongvndev.github.io/blog/microservice/api-user-info2.png&#34; alt=&#34;Scenario 2: Across columns&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vcstack.github.io/blog/microservice/api-user-info2.png&#34; alt=&#34;Scenario 2: Across columns&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;khi call api &lt;code&gt;http://localhost:8080/user/user-info&lt;/code&gt; đang thực hiện call thông qua zuul gateway port 8080
 zuul gateway sẽ dựa vào path: /user/** để điều hướng tới user service&lt;/p&gt;

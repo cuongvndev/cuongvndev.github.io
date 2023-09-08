@@ -1,113 +1,106 @@
-<?xml-stylesheet type="text/xsl" href="https://cuongvndev.github.io/sitemap.xsl"?>
+<?xml-stylesheet type="text/xsl" href="https://vcstack.github.io/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://cuongvndev.github.io/vi/about/</loc>
+    <loc>https://vcstack.github.io/vi/about/</loc>
     <lastmod>2023-08-10T11:18:56+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   
   <url>
-    <loc>https://cuongvndev.github.io/vi/categories/</loc>
-    <lastmod>2023-08-31T14:00:44+07:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1</priority>
-  </url>
-  
-  <url>
-    <loc>https://cuongvndev.github.io/vi/</loc>
-    <lastmod>2023-08-31T14:00:44+07:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1</priority>
-  </url>
-  
-  <url>
-    <loc>https://cuongvndev.github.io/vi/post/</loc>
-    <lastmod>2023-08-31T14:00:44+07:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1</priority>
-  </url>
-  
-  <url>
-    <loc>https://cuongvndev.github.io/vi/categories/react/</loc>
-    <lastmod>2023-08-31T14:00:44+07:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1</priority>
-  </url>
-  
-  <url>
-    <loc>https://cuongvndev.github.io/vi/post/react/building-a-cool-welcome-screen-in-react-native/</loc>
-    <lastmod>2023-08-31T14:00:44+07:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1</priority>
-  </url>
-  
-  <url>
-    <loc>https://cuongvndev.github.io/vi/post/react/building-splash-screens-react-native/</loc>
+    <loc>https://vcstack.github.io/vi/categories/</loc>
     <lastmod>2023-08-30T15:53:57+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   
   <url>
-    <loc>https://cuongvndev.github.io/vi/tags/react/</loc>
+    <loc>https://vcstack.github.io/vi/post/</loc>
+    <lastmod>2023-08-30T15:53:57+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  
+  <url>
+    <loc>https://vcstack.github.io/vi/categories/react/</loc>
+    <lastmod>2023-08-30T15:53:57+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  
+  <url>
+    <loc>https://vcstack.github.io/vi/post/react/building-splash-screens-react-native/</loc>
+    <lastmod>2023-08-30T15:53:57+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  
+  <url>
+    <loc>https://vcstack.github.io/vi/</loc>
+    <lastmod>2023-08-30T15:53:57+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  
+  <url>
+    <loc>https://vcstack.github.io/vi/tags/react/</loc>
     <lastmod>2023-08-23T10:41:55+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   
   <url>
-    <loc>https://cuongvndev.github.io/vi/post/react/react-native-redux-saga/</loc>
+    <loc>https://vcstack.github.io/vi/post/react/react-native-redux-saga/</loc>
     <lastmod>2023-08-23T10:41:55+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   
   <url>
-    <loc>https://cuongvndev.github.io/vi/post/react/differences-between-props-and-state-in-react/</loc>
+    <loc>https://vcstack.github.io/vi/post/react/differences-between-props-and-state-in-react/</loc>
     <lastmod>2023-08-23T10:41:55+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   
   <url>
-    <loc>https://cuongvndev.github.io/vi/tags/</loc>
+    <loc>https://vcstack.github.io/vi/tags/</loc>
     <lastmod>2023-08-23T10:41:55+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   
   <url>
-    <loc>https://cuongvndev.github.io/vi/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/</loc>
+    <loc>https://vcstack.github.io/vi/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/</loc>
     <lastmod>2023-08-14T15:33:23+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   
   <url>
-    <loc>https://cuongvndev.github.io/vi/tags/java/</loc>
+    <loc>https://vcstack.github.io/vi/tags/java/</loc>
     <lastmod>2023-08-14T15:33:23+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   
   <url>
-    <loc>https://cuongvndev.github.io/vi/categories/java/</loc>
+    <loc>https://vcstack.github.io/vi/categories/java/</loc>
     <lastmod>2023-08-14T15:33:23+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   
   <url>
-    <loc>https://cuongvndev.github.io/vi/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration/</loc>
+    <loc>https://vcstack.github.io/vi/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration/</loc>
     <lastmod>2023-08-11T09:25:25+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   
   <url>
-    <loc>https://cuongvndev.github.io/vi/post/java/microservice-with-spring-boot-eureka-and-zuul-gateway/</loc>
+    <loc>https://vcstack.github.io/vi/post/java/microservice-with-spring-boot-eureka-and-zuul-gateway/</loc>
     <lastmod>2023-08-10T11:18:56+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
