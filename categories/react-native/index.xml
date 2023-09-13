@@ -6,7 +6,19 @@
     <description>Recent content in React Native on VC Stack - Going to the moon 🌑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 30 Aug 2023 15:53:57 +0700</lastBuildDate><atom:link href="https://vcstack.github.io/categories/react-native/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 31 Aug 2023 14:00:44 +0700</lastBuildDate><atom:link href="https://vcstack.github.io/categories/react-native/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building a Cool Welcome Screen in React Native</title>
+      <link>https://vcstack.github.io/post/react/building-a-cool-welcome-screen-in-react-native/</link>
+      <pubDate>Thu, 31 Aug 2023 14:00:44 +0700</pubDate>
+      
+      <guid>https://vcstack.github.io/post/react/building-a-cool-welcome-screen-in-react-native/</guid>
+      <description>In this article, I will guide you on how to create a really cool and beautiful welcome screen in React Native using the library: react-native-app-intro-slider.
+The Welcome screen will include 3 sliders along with some lovely page transition animations. Create a new React Native project and install the library using the following command:
+npx react-native init IntroSliderApp npm install react-native-app-intro-slider react-native-vector-icons Update the App component as follows:
+import React from &amp;#39;react&amp;#39;; import {Image, StyleSheet, Text, View} from &amp;#39;react-native&amp;#39;; import AppIntroSlider from &amp;#39;react-native-app-intro-slider&amp;#39;; import {IMAGES} from &amp;#39;.</description>
+    </item>
+    
     <item>
       <title>Building splash screens in React Native</title>
       <link>https://vcstack.github.io/post/react/building-splash-screens-react-native/</link>

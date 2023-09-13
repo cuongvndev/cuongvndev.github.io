@@ -8,11 +8,9 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>
-          Building splash screens in React Native - VC Stack - Going to the moon 🌑
+          Building a Cool Welcome Screen in React Native - VC Stack - Going to the moon 🌑
         </title>
     
-<link rel="alternate" hreflang="vi" href="https://vcstack.github.io/vi/post/react/building-splash-screens-react-native/" />
-
 
 <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
@@ -30,9 +28,9 @@
 
 <meta name="mobile-web-app-capable" content="yes">
 
-<meta name="author" content="VC Stack" /><meta name="description" content="Building splash screens in React Native" />
+<meta name="author" content="VC Stack" /><meta name="description" content="Building a Cool Welcome Screen in React Native" />
+<meta name="keywords" content="React native, Welcome Screen" />
 
-  <meta name="keywords" content="Spring Boot, Microservice, Java, React, React Native, VC Stack" />
 
 
 
@@ -42,7 +40,7 @@
 <meta name="generator" content="Hugo 0.117.0" />
 
 
-<link rel="canonical" href="https://vcstack.github.io/post/react/building-splash-screens-react-native/" />
+<link rel="canonical" href="https://vcstack.github.io/post/react/building-a-cool-welcome-screen-in-react-native/" />
 
 
 
@@ -70,19 +68,19 @@
 <link rel="stylesheet" href="/css/custom.css">
 
 
-<meta property="og:title" content="Building splash screens in React Native" />
-<meta property="og:description" content="Building splash screens in React Native" />
+<meta property="og:title" content="Building a Cool Welcome Screen in React Native" />
+<meta property="og:description" content="Building a Cool Welcome Screen in React Native" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://vcstack.github.io/post/react/building-splash-screens-react-native/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2023-08-30T15:53:57+07:00" />
-<meta property="article:modified_time" content="2023-08-30T15:53:57+07:00" />
-<meta itemprop="name" content="Building splash screens in React Native">
-<meta itemprop="description" content="Building splash screens in React Native"><meta itemprop="datePublished" content="2023-08-30T15:53:57+07:00" />
-<meta itemprop="dateModified" content="2023-08-30T15:53:57+07:00" />
-<meta itemprop="wordCount" content="469">
+<meta property="og:url" content="https://vcstack.github.io/post/react/building-a-cool-welcome-screen-in-react-native/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-08-31T14:00:44+07:00" />
+<meta property="article:modified_time" content="2023-08-31T14:00:44+07:00" />
+<meta itemprop="name" content="Building a Cool Welcome Screen in React Native">
+<meta itemprop="description" content="Building a Cool Welcome Screen in React Native"><meta itemprop="datePublished" content="2023-08-31T14:00:44+07:00" />
+<meta itemprop="dateModified" content="2023-08-31T14:00:44+07:00" />
+<meta itemprop="wordCount" content="415">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Building splash screens in React Native"/>
-<meta name="twitter:description" content="Building splash screens in React Native"/>
+<meta name="twitter:title" content="Building a Cool Welcome Screen in React Native"/>
+<meta name="twitter:description" content="Building a Cool Welcome Screen in React Native"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -426,16 +424,8 @@ if (!doNotTrack) {
       <article class="post">
         
         <header class="post-header">
-          <h1 class="post-title">Building splash screens in React Native</h1>
+          <h1 class="post-title">Building a Cool Welcome Screen in React Native</h1>
           
-  <div class="post-title-i18n">
-    
-      <div>
-        Read in Vietnamese: <a href="https://vcstack.github.io/vi/post/react/building-splash-screens-react-native/">Tạo màn hình splash screen trong React Native</a>
-      </div>
-    
-  </div>
-
 
           <div class="post-meta">
   <div class="post-meta-author">
@@ -449,8 +439,8 @@ if (!doNotTrack) {
   </div>
 
   <div class="post-meta-time">
-    <time datetime="2023-08-30">
-      2023-08-30
+    <time datetime="2023-08-31">
+      2023-08-31
     </time>
   </div>
 
@@ -459,8 +449,8 @@ if (!doNotTrack) {
 
   <div class="post-meta__right">
     <span class="post-meta-more">
-        469 words -
-        3 min read
+        415 words -
+        2 min read
       </span>
 
     <div class="post-meta-category">
@@ -482,72 +472,177 @@ if (!doNotTrack) {
 
         
         <div class="post-content">
-          <p>In this tutorial, we’ll demonstrate how to build a splash screen in <strong>React Native</strong>. We’ll walk you through how to build stunning welcome displays for both iOS and Android apps using <code>react-native-splash-screen</code>.</p>
-<h2 id="what-is-a-splash-screen">What is a splash screen?</h2>
-<p>A splash screen is the initial screen seen before accessing an app&rsquo;s main features, serving as a brand and icon introduction. Preloaders in web apps entertain users during server operations, aiding user retention.</p>
-<p>In React Native, splash screens offer benefits like displaying loaders during API data fetch for a better user experience. Similarly, at app start, a splash screen with a loader presents a polished display while users wait.</p>
-<p>Our demo creates React Native splash screens for Android. Learn to prepare image sizes, update files, and hide the splash screen on app load.
-<img src="/blog/react/splash-screen.avif" alt="splash screen" loading="lazy" class="zoom-image center"/></p>
-<h2 id="building-a-react-native-splash-screen">Building a React Native splash screen</h2>
-<p>First, head over to <a href="https://www.appicon.co/#image-sets">Appicon</a>. Drag your image to the box provided, and select 4x as your base size. Check iOS and Android, and click Generate:
-<img src="/blog/react/app-icon.jpg" alt="splash screen" loading="lazy" class="zoom-image center"/></p>
-<p>Next, extract the downloaded file and copy the Android folder to the <code>android/app/src/main/res/</code> in project.</p>
-<p>Building a splash screen in React Native requires some fine-tuning. To begin, first install the <code>react-native-splash-screen</code> package using either of the commands below:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>/* npm */
-</span></span><span style="display:flex;"><span>npm i react-native-splash-screen --save
+          <p>In this article, I will guide you on how to create a really cool and beautiful welcome screen in React Native using the library: <code>react-native-app-intro-slider</code>.</p>
+<p>The Welcome screen will include 3 sliders along with some lovely page transition animations.
+<img src="/blog/react/welcome.gif" alt="Welcome" loading="lazy" class="zoom-image center"/></p>
+<p>Create a new React Native project and install the library using the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>npx react-native init IntroSliderApp
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>/* yarn */
-</span></span><span style="display:flex;"><span>yarn add react-native-splash-screen
-</span></span></code></pre></div><p>Edit  <code>MainActivity.java</code> file in Android folder:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/* android/app/src/main/java/MainActivity.java */</span>
+</span></span><span style="display:flex;"><span>npm install react-native-app-intro-slider
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> com.mysplashscreen<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> android.os.Bundle<span style="color:#f92672">;</span> <span style="color:#75715e">// Add this here
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">import</span> com.facebook.react.ReactActivity<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.devio.rn.splashscreen.SplashScreen<span style="color:#f92672">;</span> <span style="color:#75715e">// Add this here
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MainActivity</span> <span style="color:#66d9ef">extends</span> ReactActivity <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>react-native-vector-icons
+</span></span></code></pre></div><p>Update the App component as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">Image</span>, <span style="color:#a6e22e">StyleSheet</span>, <span style="color:#a6e22e">Text</span>, <span style="color:#a6e22e">View</span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-native&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">AppIntroSlider</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-native-app-intro-slider&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">IMAGES</span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./assets/images&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Ionicons</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react-native-vector-icons/Ionicons&#34;</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">protected</span> String <span style="color:#a6e22e">getMainComponentName</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;MySplashScreen&#34;</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sliders</span> <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;one&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Title 1&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Description.\nSay something cool&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">image</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">IMAGES</span>.<span style="color:#a6e22e">intro1</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">backgroundColor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#59b2ab&#39;</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;two&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Title 2&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Other cool stuff&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">image</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">IMAGES</span>.<span style="color:#a6e22e">intro2</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">backgroundColor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#febe29&#39;</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;three&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Rocket guy&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;I&#39;m already out of descriptions\n\nLorem ipsum bla bla bla&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">image</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">IMAGES</span>.<span style="color:#a6e22e">intro3</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">backgroundColor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#22bcb5&#39;</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>];
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span> <span style="color:#75715e">// Override this method if it does not exist.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onCreate</span><span style="color:#f92672">(</span>Bundle savedInstanceState<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        SplashScreen<span style="color:#f92672">.</span><span style="color:#a6e22e">show</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">);</span>  <span style="color:#75715e">// Add this here
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">onCreate</span><span style="color:#f92672">(</span>savedInstanceState<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>Next, create a file called launch_screen.xml in <code>app/src/main/res/layout</code>. Also, create the layout folder if it doesn’t exist:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;RelativeLayout</span> <span style="color:#a6e22e">xmlns:android=</span><span style="color:#e6db74">&#34;http://schemas.android.com/apk/res/android&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">android:orientation=</span><span style="color:#e6db74">&#34;vertical&#34;</span> <span style="color:#a6e22e">android:layout_width=</span><span style="color:#e6db74">&#34;match_parent&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">android:layout_height=</span><span style="color:#e6db74">&#34;match_parent&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;ImageView</span> <span style="color:#a6e22e">android:layout_width=</span><span style="color:#e6db74">&#34;match_parent&#34;</span> <span style="color:#a6e22e">android:layout_height=</span><span style="color:#e6db74">&#34;match_parent&#34;</span> <span style="color:#a6e22e">android:src=</span><span style="color:#e6db74">&#34;@drawable/launch_screen&#34;</span> <span style="color:#a6e22e">android:scaleType=</span><span style="color:#e6db74">&#34;centerCrop&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/RelativeLayout&gt;</span>
-</span></span></code></pre></div><p><code>&lt;ImageView android:src=&quot;@drawable/launch_screen&quot; /&gt;</code> is equivalent to <!-- raw HTML omitted --> in HTML, so be sure to replace launch_screen with the actual name of your custom image in the folder <code>android/app/src/main/res/drawable-hdpi</code> you just copied.</p>
-<p><strong>For Change splash screen color</strong></p>
-<p>To change the splash screen background color for Android apps, create a file called <code>colors.xml</code> in the values folder and copy the code below:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>/* app/src/main/res/values/colors.xml */
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">App</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">props</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">props</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">showRealApp</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;resources&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;color</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;primary_dark&#34;</span><span style="color:#f92672">&gt;</span>#000000<span style="color:#f92672">&lt;/color&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/resources&gt;</span>
-</span></span></code></pre></div><p>Run app with command <code>react-native run-android</code> and you should see a result similar to this:
-<img src="/blog/react/run-result.avif" alt="run" loading="lazy" class="zoom-image center"/></p>
-<p><strong>Hiding the splash screen after the app loads</strong></p>
-<p>To hide the splash screen on app load, we’ll use the <code>react-native-splash-screen</code> package that we installed earlier. In your App.js file, copy the code below:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, {<span style="color:#a6e22e">useEffect</span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">SplashScreen</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-native-splash-screen&#39;</span>;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App</span>(){
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ---
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">useEffect</span>(() =&gt; {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">SplashScreen</span>.<span style="color:#a6e22e">hide</span>(); <span style="color:#75715e">// hide the splash screen
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  }, []);
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ---
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
-</span></span></code></pre></div><p>Run the app again you will see the splash screen automatically turns off after the login screen is displayed.</p>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">_renderItem</span> <span style="color:#f92672">=</span> ({<span style="color:#a6e22e">item</span>}) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">View</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">slide</span>}<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">title</span>}<span style="color:#f92672">&gt;</span>{<span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">title</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Image</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">image</span>} <span style="color:#a6e22e">source</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">image</span>} <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">text</span>}<span style="color:#f92672">&gt;</span>{<span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">text</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/View&gt;</span>
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">_isDone</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>({
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">showRealApp</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">_renderNextButton</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">View</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">buttonCircle</span>}<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Ionicons</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;arrow-forward&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">color</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rgba(255, 255, 255, .9)&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">size</span><span style="color:#f92672">=</span>{<span style="color:#ae81ff">24</span>}
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/View&gt;</span>
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">_renderDoneButton</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">View</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">buttonCircle</span>}<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Ionicons</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;checkmark&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">color</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rgba(255, 255, 255, .9)&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">size</span><span style="color:#f92672">=</span>{<span style="color:#ae81ff">24</span>}
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/View&gt;</span>
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">render</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">showRealApp</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Login</span> <span style="color:#a6e22e">Screen</span><span style="color:#f92672">!&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">AppIntroSlider</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">renderItem</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_renderItem</span>}
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">data</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">sliders</span>}
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">onDone</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_isDone</span>}
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">renderNextButton</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_renderNextButton</span>}
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">renderDoneButton</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_renderDoneButton</span>}
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">styles</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">StyleSheet</span>.<span style="color:#a6e22e">create</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">slide</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">flex</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">alignItems</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;center&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">justifyContent</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;center&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">backgroundColor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;hsla(0, 100%, 50%, 0.1);&#39;</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">image</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">320</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">320</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">marginVertical</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">32</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">textAlign</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;center&#39;</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fontSize</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">22</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">textAlign</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;center&#39;</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">buttonCircle</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">40</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">40</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">backgroundColor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;rgba(0, 0, 0, .2)&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">borderRadius</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">20</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">justifyContent</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;center&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">alignItems</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;center&#39;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>Prepare three images corresponding to the three sliders, you can click to download them below: 
+ <div id="temp-download"></div>
+ <script>
+   var url = "/blog/react/1.jpg;/blog/react/2.jpg;/blog/react/3.jpg";
+   url = url.split(";");
+   console.log(url);
+   if (url.length > 0) {
+     var divTag = document.getElementById("temp-download");
+     var tag = "";
+     for (let i = 0; i < url.length; i++) {
+       tag +=
+         '<a href="' +
+         url[i] +
+         '" download style="padding: 0 10px;">' +
+         '<img src="' +
+         url[i] +
+         '" width="50" height="50">' +
+         '</a>';
+     }
+     divTag.innerHTML = tag;
+   }
+ </script>
+</p>
+<p>Next, put the images into the <code>IntroSliderApp/src/assets/images</code> folder.
+Create an <code>index.js</code> file in the images folder with the following content:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// IntroSliderApp\src\assets\images\index.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">IMAGES</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">intro1</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;../images/1.jpg&#39;</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">intro2</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;../images/2.jpg&#39;</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">intro3</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;../images/3.jpg&#39;</span>),
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>That&rsquo;s it! Now, build and run the app on your Android device to experience it!</p>
+<blockquote>
+<p>Please note that I am using icons from <code>react-native-vector-icons/Ionicons</code>. If the icons do not work, add the following line of code:
+<code>apply from: &quot;../../node_modules/react-native-vector-icons/fonts.gradle&quot;</code> In the <em>android/app/build.gradle</em> file, the icons will be displayed correctly.</p>
+</blockquote>
+
         </div>
 
         
@@ -561,13 +656,13 @@ if (!doNotTrack) {
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
 <div id="sharing" class="icon-bar">
-  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fvcstack.github.io%2fpost%2freact%2fbuilding-splash-screens-react-native%2f" class="fa fa-facebook" aria-label="share on Facebook">
+  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fvcstack.github.io%2fpost%2freact%2fbuilding-a-cool-welcome-screen-in-react-native%2f" class="fa fa-facebook" aria-label="share on Facebook">
   </a>
 
-  <a href="http://twitter.com/share?url=https%3a%2f%2fvcstack.github.io%2fpost%2freact%2fbuilding-splash-screens-react-native%2f&text=Building%20splash%20screens%20in%20React%20Native&via=" class="fa fa-twitter" aria-label="share on Twitter">
+  <a href="http://twitter.com/share?url=https%3a%2f%2fvcstack.github.io%2fpost%2freact%2fbuilding-a-cool-welcome-screen-in-react-native%2f&text=Building%20a%20Cool%20Welcome%20Screen%20in%20React%20Native&via=" class="fa fa-twitter" aria-label="share on Twitter">
   </a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fvcstack.github.io%2fpost%2freact%2fbuilding-splash-screens-react-native%2f&amp;source=https%3a%2f%2fvcstack.github.io%2fpost%2freact%2fbuilding-splash-screens-react-native%2f&amp;title=Building%20splash%20screens%20in%20React%20Native&amp;summary=Building%20splash%20screens%20in%20React%20Native" class="fa fa-linkedin" aria-label="share on LinkedIn">
+  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fvcstack.github.io%2fpost%2freact%2fbuilding-a-cool-welcome-screen-in-react-native%2f&amp;source=https%3a%2f%2fvcstack.github.io%2fpost%2freact%2fbuilding-a-cool-welcome-screen-in-react-native%2f&amp;title=Building%20a%20Cool%20Welcome%20Screen%20in%20React%20Native&amp;summary=Building%20a%20Cool%20Welcome%20Screen%20in%20React%20Native" class="fa fa-linkedin" aria-label="share on LinkedIn">
   </a>
 </div>
 		
@@ -601,22 +696,9 @@ if (!doNotTrack) {
           
           <nav class="post-nav">
             
-              <a class="prev" href="/post/react/building-a-cool-welcome-screen-in-react-native/">
-                
-                <i class="iconfont">
-                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="18" height="18">
-  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
-</svg>
-
-                </i>
-                <span class="prev-text nav-default">Building a Cool Welcome Screen in React Native</span>
-                <span class="prev-text nav-mobile">Prev</span>
-              </a>
             
-              <a class="next" href="/post/react/differences-between-props-and-state-in-react/">
-                <span class="next-text nav-default">Differences between Props and State in React</span>
+              <a class="next" href="/post/react/building-splash-screens-react-native/">
+                <span class="next-text nav-default">Building splash screens in React Native</span>
                 <span class="prev-text nav-mobile">Next</span>
                 
                 <i class="iconfont">
@@ -684,7 +766,7 @@ if (!doNotTrack) {
           
   
           var disqus_config = function () {
-            this.page.url = "https://vcstack.github.io/post/react/building-splash-screens-react-native/";
+            this.page.url = "https://vcstack.github.io/post/react/building-a-cool-welcome-screen-in-react-native/";
           };
           var disqus_shortname = 'cuongvndev';
   
@@ -723,17 +805,7 @@ if (!doNotTrack) {
     </div>
 
     
-    <nav class="toc" id="toc">
-    <div class="toc-title">Table of Contents</div>
-    <div class="toc-content custom-scrollbar">
-      <nav id="TableOfContents">
-  <ul>
-    <li><a href="#what-is-a-splash-screen">What is a splash screen?</a></li>
-    <li><a href="#building-a-react-native-splash-screen">Building a React Native splash screen</a></li>
-  </ul>
-</nav>
-    </div>
-  </nav>
+    
 
 
   </div>
