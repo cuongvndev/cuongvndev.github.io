@@ -6,7 +6,19 @@
     <description>Recent content in Java on VC Stack - Going to the moon 🌑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>vi</language>
-    <lastBuildDate>Mon, 14 Aug 2023 15:33:23 +0700</lastBuildDate><atom:link href="https://vcstack.github.io/vi/categories/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 26 Sep 2023 14:44:02 +0700</lastBuildDate><atom:link href="https://vcstack.github.io/vi/categories/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tạo mã QR code với Zxing</title>
+      <link>https://vcstack.github.io/vi/post/java/tao-qr-code-voi-zxing/</link>
+      <pubDate>Tue, 26 Sep 2023 14:44:02 +0700</pubDate>
+      
+      <guid>https://vcstack.github.io/vi/post/java/tao-qr-code-voi-zxing/</guid>
+      <description>Tạo mã QR code với Zxing
+Cài đặt dependency:
+implementation group: &amp;#39;com.google.zxing&amp;#39;, name: &amp;#39;core&amp;#39;, version: &amp;#39;3.5.2&amp;#39;implementation group: &amp;#39;com.google.zxing&amp;#39;, name: &amp;#39;javase&amp;#39;, version: &amp;#39;3.5.2&amp;#39; code để tạo mã QR:
+String data= &amp;#34;Tạo mã QR code&amp;#34;;QRCodeWriter qrCodeWriter = new QRCodeWriter();BitMatrix matrix = qrCodeWriter.encode(data, BarcodeFormat.QR_CODE, 200, 200);String outputFile = &amp;#34;D:/demo/test.png&amp;#34;;Path path = FileSystems.getDefault().getPath(outputFile);MatrixToImageWriter.writeToPath(matrix, &amp;#34;PNG&amp;#34;, path); </description>
+    </item>
+    
     <item>
       <title>Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 3</title>
       <link>https://vcstack.github.io/vi/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/</link>
