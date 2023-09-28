@@ -9,6 +9,41 @@
   </url>
   
   <url>
+    <loc>https://vcstack.github.io/tools/vietnamese-handwriting/</loc>
+    <lastmod>2023-09-28T11:30:15+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  
+  <url>
+    <loc>https://vcstack.github.io/tags/</loc>
+    <lastmod>2023-09-28T11:30:15+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  
+  <url>
+    <loc>https://vcstack.github.io/tools/</loc>
+    <lastmod>2023-09-28T11:30:15+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  
+  <url>
+    <loc>https://vcstack.github.io/</loc>
+    <lastmod>2023-09-28T11:30:15+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  
+  <url>
+    <loc>https://vcstack.github.io/tags/vietnamese-handwriting/</loc>
+    <lastmod>2023-09-28T11:30:15+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  
+  <url>
     <loc>https://vcstack.github.io/post/react/building-a-cool-welcome-screen-in-react-native/</loc>
     <lastmod>2023-08-31T14:00:44+07:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -37,13 +72,6 @@
   </url>
   
   <url>
-    <loc>https://vcstack.github.io/</loc>
-    <lastmod>2023-08-31T14:00:44+07:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1</priority>
-  </url>
-  
-  <url>
     <loc>https://vcstack.github.io/post/react/building-splash-screens-react-native/</loc>
     <lastmod>2023-08-30T15:53:57+07:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -66,13 +94,6 @@
   
   <url>
     <loc>https://vcstack.github.io/post/react/react-native-redux-saga/</loc>
-    <lastmod>2023-08-23T10:41:55+07:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1</priority>
-  </url>
-  
-  <url>
-    <loc>https://vcstack.github.io/tags/</loc>
     <lastmod>2023-08-23T10:41:55+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>

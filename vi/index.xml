@@ -6,7 +6,7 @@
     <description>Recent content on VC Stack - Going to the moon 🌑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>vi</language>
-    <lastBuildDate>Tue, 26 Sep 2023 14:44:02 +0700</lastBuildDate>
+    <lastBuildDate>Thu, 28 Sep 2023 11:30:15 +0700</lastBuildDate>
     
         <atom:link href="https://vcstack.github.io/vi/index.xml" rel="self" type="application/rss+xml" />
     
@@ -21,6 +21,249 @@
         <description>&lt;p&gt;Cứ mãi ở ao làng rồi sẽ cạn, sao không ra biển lớn để vẫy vùng.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vcstack.github.io/avatar.png&#34; alt=&#34;my avatar&#34; loading=&#34;lazy&#34; class=&#34;zoom-image center&#34;/&gt;
 Đây là blog cá nhân, tôi ghi chép và chia sẻ những gì tôi học được ở đây về kiến thức lập trình Java&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://vcstack.github.io/vi/tools/vietnamese-handwriting/</link>
+      <pubDate>Thu, 28 Sep 2023 11:30:15 +0700</pubDate>
+      
+      <guid>https://vcstack.github.io/vi/tools/vietnamese-handwriting/</guid>
+      
+        <description>&lt;p&gt;Đây là Tool AI chuyển đổi text thành chữ Tiếng Việt theo dạng viết tay&lt;/p&gt;
+&lt;script src=&#34;https://cdn.jsdelivr.net/npm/@tensorflow/tfjs&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-wasm/dist/tf-backend-wasm.js&#34;&gt;&lt;/script&gt;
+&lt;script defer language=&#34;javascript&#34; type=&#34;text/javascript&#34;  src=&#34;https://vcstack.github.io/js/vietnamese-handwriting/model_weights.js&#34;&gt;&lt;/script&gt;
+&lt;script defer language=&#34;javascript&#34; type=&#34;text/javascript&#34;  src=&#34;https://vcstack.github.io/js/vietnamese-handwriting/script.js&#34;&gt;&lt;/script&gt;
+&lt;input placeholder=&#34;Nhập câu tiếng việt&#34; id=&#34;user-input&#34;/&gt;
+&lt;select id=&#34;writers&#34; name=&#34;writers&#34;&gt;
+   &lt;option value=&#34;0&#34;&gt; Writer 0&lt;/option&gt;
+   &lt;option value=&#34;1&#34;&gt; Writer 1&lt;/option&gt;
+   &lt;option value=&#34;2&#34;&gt; Writer 2&lt;/option&gt;
+   &lt;option value=&#34;3&#34;&gt; Writer 3&lt;/option&gt;
+   &lt;option value=&#34;4&#34;&gt; Writer 4&lt;/option&gt;
+   &lt;option value=&#34;5&#34;&gt; Writer 5&lt;/option&gt;
+   &lt;option value=&#34;6&#34;&gt; Writer 6&lt;/option&gt;
+   &lt;option value=&#34;7&#34;&gt; Writer 7&lt;/option&gt;
+   &lt;option value=&#34;8&#34;&gt; Writer 8&lt;/option&gt;
+   &lt;option value=&#34;9&#34;&gt; Writer 9&lt;/option&gt;
+   &lt;option value=&#34;10&#34;&gt; Writer 10&lt;/option&gt;
+   &lt;option value=&#34;11&#34;&gt; Writer 11&lt;/option&gt;
+   &lt;option value=&#34;12&#34;&gt; Writer 12&lt;/option&gt;
+   &lt;option value=&#34;13&#34;&gt; Writer 13&lt;/option&gt;
+   &lt;option value=&#34;14&#34;&gt; Writer 14&lt;/option&gt;
+   &lt;option value=&#34;15&#34;&gt; Writer 15&lt;/option&gt;
+   &lt;option value=&#34;16&#34;&gt; Writer 16&lt;/option&gt;
+   &lt;option value=&#34;17&#34;&gt; Writer 17&lt;/option&gt;
+   &lt;option value=&#34;18&#34;&gt; Writer 18&lt;/option&gt;
+   &lt;option value=&#34;19&#34;&gt; Writer 19&lt;/option&gt;
+   &lt;option value=&#34;20&#34;&gt; Writer 20&lt;/option&gt;
+   &lt;option value=&#34;21&#34;&gt; Writer 21&lt;/option&gt;
+   &lt;option value=&#34;22&#34;&gt; Writer 22&lt;/option&gt;
+   &lt;option value=&#34;23&#34;&gt; Writer 23&lt;/option&gt;
+   &lt;option value=&#34;24&#34;&gt; Writer 24&lt;/option&gt;
+   &lt;option value=&#34;25&#34;&gt; Writer 25&lt;/option&gt;
+   &lt;option value=&#34;26&#34;&gt; Writer 26&lt;/option&gt;
+   &lt;option value=&#34;27&#34;&gt; Writer 27&lt;/option&gt;
+   &lt;option value=&#34;28&#34;&gt; Writer 28&lt;/option&gt;
+   &lt;option value=&#34;29&#34;&gt; Writer 29&lt;/option&gt;
+   &lt;option value=&#34;30&#34;&gt; Writer 30&lt;/option&gt;
+   &lt;option value=&#34;31&#34;&gt; Writer 31&lt;/option&gt;
+   &lt;option value=&#34;32&#34;&gt; Writer 32&lt;/option&gt;
+   &lt;option value=&#34;33&#34;&gt; Writer 33&lt;/option&gt;
+   &lt;option value=&#34;34&#34;&gt; Writer 34&lt;/option&gt;
+   &lt;option value=&#34;35&#34;&gt; Writer 35&lt;/option&gt;
+   &lt;option value=&#34;36&#34;&gt; Writer 36&lt;/option&gt;
+   &lt;option value=&#34;37&#34;&gt; Writer 37&lt;/option&gt;
+   &lt;option value=&#34;38&#34;&gt; Writer 38&lt;/option&gt;
+   &lt;option value=&#34;39&#34;&gt; Writer 39&lt;/option&gt;
+   &lt;option value=&#34;40&#34;&gt; Writer 40&lt;/option&gt;
+   &lt;option value=&#34;41&#34;&gt; Writer 41&lt;/option&gt;
+   &lt;option value=&#34;42&#34;&gt; Writer 42&lt;/option&gt;
+   &lt;option value=&#34;43&#34;&gt; Writer 43&lt;/option&gt;
+   &lt;option value=&#34;44&#34;&gt; Writer 44&lt;/option&gt;
+   &lt;option value=&#34;45&#34;&gt; Writer 45&lt;/option&gt;
+   &lt;option value=&#34;46&#34;&gt; Writer 46&lt;/option&gt;
+   &lt;option value=&#34;47&#34;&gt; Writer 47&lt;/option&gt;
+   &lt;option value=&#34;48&#34;&gt; Writer 48&lt;/option&gt;
+   &lt;option value=&#34;49&#34;&gt; Writer 49&lt;/option&gt;
+   &lt;option value=&#34;50&#34;&gt; Writer 50&lt;/option&gt;
+   &lt;option value=&#34;51&#34;&gt; Writer 51&lt;/option&gt;
+   &lt;option value=&#34;52&#34;&gt; Writer 52&lt;/option&gt;
+   &lt;option value=&#34;53&#34;&gt; Writer 53&lt;/option&gt;
+   &lt;option value=&#34;54&#34;&gt; Writer 54&lt;/option&gt;
+   &lt;option value=&#34;55&#34;&gt; Writer 55&lt;/option&gt;
+   &lt;option value=&#34;56&#34;&gt; Writer 56&lt;/option&gt;
+   &lt;option value=&#34;57&#34;&gt; Writer 57&lt;/option&gt;
+   &lt;option value=&#34;58&#34;&gt; Writer 58&lt;/option&gt;
+   &lt;option value=&#34;59&#34;&gt; Writer 59&lt;/option&gt;
+   &lt;option value=&#34;60&#34;&gt; Writer 60&lt;/option&gt;
+   &lt;option value=&#34;61&#34;&gt; Writer 61&lt;/option&gt;
+   &lt;option value=&#34;62&#34;&gt; Writer 62&lt;/option&gt;
+   &lt;option value=&#34;63&#34;&gt; Writer 63&lt;/option&gt;
+   &lt;option value=&#34;64&#34;&gt; Writer 64&lt;/option&gt;
+   &lt;option value=&#34;65&#34;&gt; Writer 65&lt;/option&gt;
+   &lt;option value=&#34;66&#34;&gt; Writer 66&lt;/option&gt;
+   &lt;option value=&#34;67&#34;&gt; Writer 67&lt;/option&gt;
+   &lt;option value=&#34;68&#34;&gt; Writer 68&lt;/option&gt;
+   &lt;option value=&#34;69&#34;&gt; Writer 69&lt;/option&gt;
+   &lt;option value=&#34;70&#34;&gt; Writer 70&lt;/option&gt;
+   &lt;option value=&#34;71&#34;&gt; Writer 71&lt;/option&gt;
+   &lt;option value=&#34;72&#34;&gt; Writer 72&lt;/option&gt;
+   &lt;option value=&#34;73&#34;&gt; Writer 73&lt;/option&gt;
+   &lt;option value=&#34;74&#34;&gt; Writer 74&lt;/option&gt;
+   &lt;option value=&#34;75&#34;&gt; Writer 75&lt;/option&gt;
+   &lt;option value=&#34;76&#34;&gt; Writer 76&lt;/option&gt;
+   &lt;option value=&#34;77&#34;&gt; Writer 77&lt;/option&gt;
+   &lt;option value=&#34;78&#34;&gt; Writer 78&lt;/option&gt;
+   &lt;option value=&#34;79&#34;&gt; Writer 79&lt;/option&gt;
+   &lt;option value=&#34;80&#34;&gt; Writer 80&lt;/option&gt;
+   &lt;option value=&#34;81&#34;&gt; Writer 81&lt;/option&gt;
+   &lt;option value=&#34;82&#34;&gt; Writer 82&lt;/option&gt;
+   &lt;option value=&#34;83&#34;&gt; Writer 83&lt;/option&gt;
+   &lt;option value=&#34;84&#34;&gt; Writer 84&lt;/option&gt;
+   &lt;option value=&#34;85&#34;&gt; Writer 85&lt;/option&gt;
+   &lt;option value=&#34;86&#34;&gt; Writer 86&lt;/option&gt;
+   &lt;option value=&#34;87&#34;&gt; Writer 87&lt;/option&gt;
+   &lt;option value=&#34;88&#34;&gt; Writer 88&lt;/option&gt;
+   &lt;option value=&#34;89&#34;&gt; Writer 89&lt;/option&gt;
+   &lt;option value=&#34;90&#34;&gt; Writer 90&lt;/option&gt;
+   &lt;option value=&#34;91&#34;&gt; Writer 91&lt;/option&gt;
+   &lt;option value=&#34;92&#34;&gt; Writer 92&lt;/option&gt;
+   &lt;option value=&#34;93&#34;&gt; Writer 93&lt;/option&gt;
+   &lt;option value=&#34;94&#34;&gt; Writer 94&lt;/option&gt;
+   &lt;option value=&#34;95&#34;&gt; Writer 95&lt;/option&gt;
+   &lt;option value=&#34;96&#34;&gt; Writer 96&lt;/option&gt;
+   &lt;option value=&#34;97&#34;&gt; Writer 97&lt;/option&gt;
+   &lt;option value=&#34;98&#34;&gt; Writer 98&lt;/option&gt;
+   &lt;option value=&#34;99&#34;&gt; Writer 99&lt;/option&gt;
+   &lt;option value=&#34;100&#34;&gt; Writer 100&lt;/option&gt;
+   &lt;option value=&#34;101&#34;&gt; Writer 101&lt;/option&gt;
+   &lt;option value=&#34;102&#34;&gt; Writer 102&lt;/option&gt;
+   &lt;option value=&#34;103&#34;&gt; Writer 103&lt;/option&gt;
+   &lt;option value=&#34;104&#34;&gt; Writer 104&lt;/option&gt;
+   &lt;option value=&#34;105&#34;&gt; Writer 105&lt;/option&gt;
+   &lt;option value=&#34;106&#34;&gt; Writer 106&lt;/option&gt;
+   &lt;option value=&#34;107&#34;&gt; Writer 107&lt;/option&gt;
+   &lt;option value=&#34;108&#34;&gt; Writer 108&lt;/option&gt;
+   &lt;option value=&#34;109&#34;&gt; Writer 109&lt;/option&gt;
+   &lt;option value=&#34;110&#34;&gt; Writer 110&lt;/option&gt;
+   &lt;option value=&#34;111&#34;&gt; Writer 111&lt;/option&gt;
+   &lt;option value=&#34;112&#34;&gt; Writer 112&lt;/option&gt;
+   &lt;option value=&#34;113&#34;&gt; Writer 113&lt;/option&gt;
+   &lt;option value=&#34;114&#34;&gt; Writer 114&lt;/option&gt;
+   &lt;option value=&#34;115&#34;&gt; Writer 115&lt;/option&gt;
+   &lt;option value=&#34;116&#34;&gt; Writer 116&lt;/option&gt;
+   &lt;option value=&#34;117&#34;&gt; Writer 117&lt;/option&gt;
+   &lt;option value=&#34;118&#34;&gt; Writer 118&lt;/option&gt;
+   &lt;option value=&#34;119&#34;&gt; Writer 119&lt;/option&gt;
+   &lt;option value=&#34;120&#34;&gt; Writer 120&lt;/option&gt;
+   &lt;option value=&#34;121&#34;&gt; Writer 121&lt;/option&gt;
+   &lt;option value=&#34;122&#34;&gt; Writer 122&lt;/option&gt;
+   &lt;option value=&#34;123&#34;&gt; Writer 123&lt;/option&gt;
+   &lt;option value=&#34;124&#34;&gt; Writer 124&lt;/option&gt;
+   &lt;option value=&#34;125&#34;&gt; Writer 125&lt;/option&gt;
+   &lt;option value=&#34;126&#34;&gt; Writer 126&lt;/option&gt;
+   &lt;option value=&#34;127&#34;&gt; Writer 127&lt;/option&gt;
+   &lt;option value=&#34;128&#34;&gt; Writer 128&lt;/option&gt;
+   &lt;option value=&#34;129&#34;&gt; Writer 129&lt;/option&gt;
+   &lt;option value=&#34;130&#34;&gt; Writer 130&lt;/option&gt;
+   &lt;option value=&#34;131&#34;&gt; Writer 131&lt;/option&gt;
+   &lt;option value=&#34;132&#34;&gt; Writer 132&lt;/option&gt;
+   &lt;option value=&#34;133&#34;&gt; Writer 133&lt;/option&gt;
+   &lt;option value=&#34;134&#34;&gt; Writer 134&lt;/option&gt;
+   &lt;option value=&#34;135&#34;&gt; Writer 135&lt;/option&gt;
+   &lt;option value=&#34;136&#34;&gt; Writer 136&lt;/option&gt;
+   &lt;option value=&#34;137&#34;&gt; Writer 137&lt;/option&gt;
+   &lt;option value=&#34;138&#34;&gt; Writer 138&lt;/option&gt;
+   &lt;option value=&#34;139&#34;&gt; Writer 139&lt;/option&gt;
+   &lt;option value=&#34;140&#34;&gt; Writer 140&lt;/option&gt;
+   &lt;option value=&#34;141&#34;&gt; Writer 141&lt;/option&gt;
+   &lt;option value=&#34;142&#34;&gt; Writer 142&lt;/option&gt;
+   &lt;option value=&#34;143&#34;&gt; Writer 143&lt;/option&gt;
+   &lt;option value=&#34;144&#34;&gt; Writer 144&lt;/option&gt;
+   &lt;option value=&#34;145&#34;&gt; Writer 145&lt;/option&gt;
+   &lt;option value=&#34;146&#34;&gt; Writer 146&lt;/option&gt;
+   &lt;option value=&#34;147&#34;&gt; Writer 147&lt;/option&gt;
+   &lt;option value=&#34;148&#34;&gt; Writer 148&lt;/option&gt;
+   &lt;option value=&#34;149&#34;&gt; Writer 149&lt;/option&gt;
+   &lt;option value=&#34;150&#34;&gt; Writer 150&lt;/option&gt;
+   &lt;option value=&#34;151&#34;&gt; Writer 151&lt;/option&gt;
+   &lt;option value=&#34;152&#34;&gt; Writer 152&lt;/option&gt;
+   &lt;option value=&#34;153&#34;&gt; Writer 153&lt;/option&gt;
+   &lt;option value=&#34;154&#34;&gt; Writer 154&lt;/option&gt;
+   &lt;option value=&#34;155&#34;&gt; Writer 155&lt;/option&gt;
+   &lt;option value=&#34;156&#34;&gt; Writer 156&lt;/option&gt;
+   &lt;option value=&#34;157&#34;&gt; Writer 157&lt;/option&gt;
+   &lt;option value=&#34;158&#34;&gt; Writer 158&lt;/option&gt;
+   &lt;option value=&#34;159&#34;&gt; Writer 159&lt;/option&gt;
+   &lt;option value=&#34;160&#34;&gt; Writer 160&lt;/option&gt;
+   &lt;option value=&#34;161&#34;&gt; Writer 161&lt;/option&gt;
+   &lt;option value=&#34;162&#34;&gt; Writer 162&lt;/option&gt;
+   &lt;option value=&#34;163&#34;&gt; Writer 163&lt;/option&gt;
+   &lt;option value=&#34;164&#34;&gt; Writer 164&lt;/option&gt;
+   &lt;option value=&#34;165&#34;&gt; Writer 165&lt;/option&gt;
+   &lt;option value=&#34;166&#34;&gt; Writer 166&lt;/option&gt;
+   &lt;option value=&#34;167&#34;&gt; Writer 167&lt;/option&gt;
+   &lt;option value=&#34;168&#34;&gt; Writer 168&lt;/option&gt;
+   &lt;option value=&#34;169&#34;&gt; Writer 169&lt;/option&gt;
+   &lt;option value=&#34;170&#34;&gt; Writer 170&lt;/option&gt;
+   &lt;option value=&#34;171&#34;&gt; Writer 171&lt;/option&gt;
+   &lt;option value=&#34;172&#34;&gt; Writer 172&lt;/option&gt;
+   &lt;option value=&#34;173&#34;&gt; Writer 173&lt;/option&gt;
+   &lt;option value=&#34;174&#34;&gt; Writer 174&lt;/option&gt;
+   &lt;option value=&#34;175&#34;&gt; Writer 175&lt;/option&gt;
+   &lt;option value=&#34;176&#34;&gt; Writer 176&lt;/option&gt;
+   &lt;option value=&#34;177&#34;&gt; Writer 177&lt;/option&gt;
+   &lt;option value=&#34;178&#34;&gt; Writer 178&lt;/option&gt;
+   &lt;option value=&#34;179&#34;&gt; Writer 179&lt;/option&gt;
+   &lt;option value=&#34;180&#34;&gt; Writer 180&lt;/option&gt;
+   &lt;option value=&#34;181&#34;&gt; Writer 181&lt;/option&gt;
+   &lt;option value=&#34;182&#34;&gt; Writer 182&lt;/option&gt;
+   &lt;option value=&#34;183&#34;&gt; Writer 183&lt;/option&gt;
+   &lt;option value=&#34;184&#34;&gt; Writer 184&lt;/option&gt;
+   &lt;option value=&#34;185&#34;&gt; Writer 185&lt;/option&gt;
+   &lt;option value=&#34;186&#34;&gt; Writer 186&lt;/option&gt;
+   &lt;option value=&#34;187&#34;&gt; Writer 187&lt;/option&gt;
+   &lt;option value=&#34;188&#34;&gt; Writer 188&lt;/option&gt;
+   &lt;option value=&#34;189&#34;&gt; Writer 189&lt;/option&gt;
+   &lt;option value=&#34;190&#34;&gt; Writer 190&lt;/option&gt;
+   &lt;option value=&#34;191&#34;&gt; Writer 191&lt;/option&gt;
+   &lt;option value=&#34;192&#34;&gt; Writer 192&lt;/option&gt;
+   &lt;option value=&#34;193&#34;&gt; Writer 193&lt;/option&gt;
+   &lt;option value=&#34;194&#34;&gt; Writer 194&lt;/option&gt;
+   &lt;option value=&#34;195&#34;&gt; Writer 195&lt;/option&gt;
+   &lt;option value=&#34;196&#34;&gt; Writer 196&lt;/option&gt;
+   &lt;option value=&#34;197&#34;&gt; Writer 197&lt;/option&gt;
+   &lt;option value=&#34;198&#34;&gt; Writer 198&lt;/option&gt;
+   &lt;option value=&#34;199&#34;&gt; Writer 199&lt;/option&gt;
+   &lt;option value=&#34;200&#34;&gt; Writer 200&lt;/option&gt;
+   &lt;option value=&#34;201&#34;&gt; Writer 201&lt;/option&gt;
+   &lt;option value=&#34;202&#34;&gt; Writer 202&lt;/option&gt;
+   &lt;option value=&#34;203&#34;&gt; Writer 203&lt;/option&gt;
+   &lt;option value=&#34;204&#34;&gt; Writer 204&lt;/option&gt;
+   &lt;option value=&#34;205&#34;&gt; Writer 205&lt;/option&gt;
+   &lt;option value=&#34;206&#34;&gt; Writer 206&lt;/option&gt;
+   &lt;option value=&#34;207&#34;&gt; Writer 207&lt;/option&gt;
+   &lt;option value=&#34;208&#34;&gt; Writer 208&lt;/option&gt;
+   &lt;option value=&#34;209&#34;&gt; Writer 209&lt;/option&gt;
+   &lt;option value=&#34;210&#34;&gt; Writer 210&lt;/option&gt;
+   &lt;option value=&#34;211&#34;&gt; Writer 211&lt;/option&gt;
+   &lt;option value=&#34;212&#34;&gt; Writer 212&lt;/option&gt;
+   &lt;option value=&#34;213&#34;&gt; Writer 213&lt;/option&gt;
+   &lt;option value=&#34;214&#34;&gt; Writer 214&lt;/option&gt;
+   &lt;option value=&#34;215&#34;&gt; Writer 215&lt;/option&gt;
+   &lt;option value=&#34;216&#34;&gt; Writer 216&lt;/option&gt;
+   &lt;option value=&#34;217&#34;&gt; Writer 217&lt;/option&gt;
+   &lt;option value=&#34;218&#34;&gt; Writer 218&lt;/option&gt;
+   &lt;option value=&#34;250&#34;&gt;Writer 250&lt;/option&gt;
+&lt;/select&gt;
+&lt;input id=&#34;bias&#34; type=&#34;range&#34; min=&#34;0&#34; max=&#34;100&#34; value=&#34;70&#34;&gt;
+&lt;button style=&#34;margin-left:20px;&#34; class=&#34;button button2&#34; id=&#34;btn&#34; class=&#34;button7&#34; onclick=&#34;generate()&#34;&gt;Loading model...&lt;/button&gt;
+
+&lt;canvas id=&#34;hw-canvas&#34; width=&#34;684&#34; height=&#34;175&#34; style=&#34;border: 1px solid;&#34;&gt;&lt;/canvas&gt;
 </description>
       
     </item>
