@@ -8,11 +8,9 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>
-          VC Stack - Going to the moon 🌑
+          Hướng dẫn React Native Firebase Authentication - VC Stack - Going to the moon 🌑
         </title>
     
-<link rel="alternate" hreflang="en" href="https://vcstack.github.io/" />
-
 
 <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
@@ -31,7 +29,11 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="VC Stack" />
-  <meta name="description" content="This is a personal blog where I document and share what I&#39;ve learned about Java programming." />
+  <meta name="description" content="Cài đặt thư viện: npm i @react-native-firebase/appnpm i @react-native-firebase/firestore Tạo mới dự án trên google firebase tạo mới app và tải file config: google-services.json về bỏ vào thư mục: \android\app\google-services.json
+Lưu ý: đặt package_name trùng với package_name trong project react native trong file AndroidManifest.xml Config cho Android ở trong file: /android/build.gradle thêm đoạn sau:
+apply plugin: &amp;#39;com.google.gms.google-services&amp;#39; ở trong file /android/build.gradle thêm đoạn sau:
+buildscript {dependencies {// ." />
+
   <meta name="keywords" content="Spring Boot, Microservice, Java, React, React Native, VC Stack" />
 
 
@@ -42,8 +44,8 @@
 <meta name="generator" content="Hugo 0.117.0" />
 
 
-<link rel="canonical" href="https://vcstack.github.io/vi/" />
-<link href="/vi/index.xml" rel="alternate" type="application/rss+xml" title="VC Stack - Going to the moon 🌑" />
+<link rel="canonical" href="https://vcstack.github.io/vi/post/react-native/huong-dan-react-native-firebase-authentication/" />
+
 
 
 
@@ -70,14 +72,28 @@
 <link rel="stylesheet" href="/css/custom.css">
 
 
-<meta property="og:title" content="VC Stack - Going to the moon 🌑" />
-<meta property="og:description" content="This is a personal blog where I document and share what I&#39;ve learned about Java programming." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://vcstack.github.io/vi/" />
-<meta itemprop="name" content="VC Stack - Going to the moon 🌑">
-<meta itemprop="description" content="This is a personal blog where I document and share what I&#39;ve learned about Java programming."><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="VC Stack - Going to the moon 🌑"/>
-<meta name="twitter:description" content="This is a personal blog where I document and share what I&#39;ve learned about Java programming."/>
+<meta property="og:title" content="Hướng dẫn React Native Firebase Authentication" />
+<meta property="og:description" content="Cài đặt thư viện: npm i @react-native-firebase/appnpm i @react-native-firebase/firestore Tạo mới dự án trên google firebase tạo mới app và tải file config: google-services.json về bỏ vào thư mục: \android\app\google-services.json
+Lưu ý: đặt package_name trùng với package_name trong project react native trong file AndroidManifest.xml Config cho Android ở trong file: /android/build.gradle thêm đoạn sau:
+apply plugin: &#39;com.google.gms.google-services&#39; ở trong file /android/build.gradle thêm đoạn sau:
+buildscript {dependencies {// ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://vcstack.github.io/vi/post/react-native/huong-dan-react-native-firebase-authentication/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-10-09T16:57:30+07:00" />
+<meta property="article:modified_time" content="2023-10-09T16:57:30+07:00" />
+<meta itemprop="name" content="Hướng dẫn React Native Firebase Authentication">
+<meta itemprop="description" content="Cài đặt thư viện: npm i @react-native-firebase/appnpm i @react-native-firebase/firestore Tạo mới dự án trên google firebase tạo mới app và tải file config: google-services.json về bỏ vào thư mục: \android\app\google-services.json
+Lưu ý: đặt package_name trùng với package_name trong project react native trong file AndroidManifest.xml Config cho Android ở trong file: /android/build.gradle thêm đoạn sau:
+apply plugin: &#39;com.google.gms.google-services&#39; ở trong file /android/build.gradle thêm đoạn sau:
+buildscript {dependencies {// ."><meta itemprop="datePublished" content="2023-10-09T16:57:30+07:00" />
+<meta itemprop="dateModified" content="2023-10-09T16:57:30+07:00" />
+<meta itemprop="wordCount" content="397">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Hướng dẫn React Native Firebase Authentication"/>
+<meta name="twitter:description" content="Cài đặt thư viện: npm i @react-native-firebase/appnpm i @react-native-firebase/firestore Tạo mới dự án trên google firebase tạo mới app và tải file config: google-services.json về bỏ vào thư mục: \android\app\google-services.json
+Lưu ý: đặt package_name trùng với package_name trong project react native trong file AndroidManifest.xml Config cho Android ở trong file: /android/build.gradle thêm đoạn sau:
+apply plugin: &#39;com.google.gms.google-services&#39; ở trong file /android/build.gradle thêm đoạn sau:
+buildscript {dependencies {// ."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -449,23 +465,15 @@ if (!doNotTrack) {
 
     <div id="mobile-panel">
       <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
         
-<section id="posts" class="posts">
-  
-  
-    
-  
-  
-  
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/vi/post/react-native/huong-dan-react-native-firebase-authentication/">Hướng dẫn React Native Firebase Authentication</a>
-    </h1>
-    
+        <header class="post-header">
+          <h1 class="post-title">Hướng dẫn React Native Firebase Authentication</h1>
+          
 
-    <div class="post-meta">
+          <div class="post-meta">
   <div class="post-meta-author">
     by
       <a href="/vi/about">
@@ -506,569 +514,297 @@ if (!doNotTrack) {
   </div>
 </div>
 
-  </header>
-  
-  <div class="post-content">
-    
-      <div class="post-summary">
-        Cài đặt thư viện: npm i @react-native-firebase/appnpm i @react-native-firebase/firestore Tạo mới dự án trên google firebase tạo mới app và tải file config: google-services.json về bỏ vào thư mục: \android\app\google-services.json
-Lưu ý: đặt package_name trùng với package_name trong project react native trong file AndroidManifest.xml Config cho Android ở trong file: /android/build.gradle thêm đoạn sau:
-apply plugin: &#39;com.google.gms.google-services&#39; ở trong file /android/build.gradle thêm đoạn sau:
-buildscript {dependencies {// .
-      </div>
-      <div class="read-more">
-        <a href="/vi/post/react-native/huong-dan-react-native-firebase-authentication/" class="read-more-link"
-          >Xem thêm</a
-        >
-      </div>
-    
-  </div>
-</article>
+        </header>
 
-  
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title">
+        
+        <div class="post-content">
+          <h1 id="cài-đặt-thư-viện">Cài đặt thư viện:</h1>
+<pre tabindex="0"><code>npm i @react-native-firebase/app
+
+npm i @react-native-firebase/firestore
+</code></pre><h1 id="tạo-mới-dự-án-trên-google-firebase">Tạo mới dự án trên google firebase</h1>
+<p>tạo mới app và tải file config: google-services.json về bỏ vào thư mục: \android\app\google-services.json</p>
+<ul>
+<li>Lưu ý: đặt package_name trùng với package_name trong project react native trong file AndroidManifest.xml</li>
+</ul>
+<h1 id="config-cho-android">Config cho Android</h1>
+<p>ở trong file: /android/build.gradle
+thêm đoạn sau:</p>
+<pre tabindex="0"><code>apply plugin: &#39;com.google.gms.google-services&#39;
+</code></pre><p>ở trong file /android/build.gradle
+thêm đoạn sau:</p>
+<pre tabindex="0"><code>buildscript {
+  dependencies {
+    // ... other dependencies
+    classpath &#39;com.google.gms:google-services:4.3.15&#39; // thêm dòng này
+    // Add me --- /\
+  }
+}
+</code></pre><h1 id="code-auth">Code Auth:</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">auth</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;@react-native-firebase/auth&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LoginScreen</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// hàm xử lý auth thông qua firebase
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">handleSubmit</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">values</span> =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">auth</span>().<span style="color:#a6e22e">signInWithEmailAndPassword</span>(<span style="color:#a6e22e">values</span>.<span style="color:#a6e22e">email</span>, <span style="color:#a6e22e">values</span>.<span style="color:#a6e22e">password</span>).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">response</span>) =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">ToastAndroid</span>.<span style="color:#a6e22e">show</span>(<span style="color:#e6db74">&#34;Login success!&#34;</span>, <span style="color:#a6e22e">ToastAndroid</span>.<span style="color:#a6e22e">SHORT</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Login Response:&#34;</span>, <span style="color:#a6e22e">response</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">goToPage</span>(<span style="color:#e6db74">&#34;TabNavigation&#34;</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>({
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">isShowMessage</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>    }).<span style="color:#66d9ef">catch</span>((<span style="color:#a6e22e">error</span>) =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>({
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">isShowMessage</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//   ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><h1 id="code-firestore-tạo-mới-user-và-lưu-thông-tin-vào-firestore">Code firestore tạo mới user và lưu thông tin vào firestore:</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">auth</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;@react-native-firebase/auth&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">firestore</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;@react-native-firebase/firestore&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Register</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// hàm xử lý khi bấm nút sign up
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">handleSubmit</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">values</span> =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">values</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// tạo mới user
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">auth</span>().<span style="color:#a6e22e">createUserWithEmailAndPassword</span>(<span style="color:#a6e22e">values</span>.<span style="color:#a6e22e">email</span>, <span style="color:#a6e22e">values</span>.<span style="color:#a6e22e">password</span>).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">response</span>) =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">uid</span>, <span style="color:#a6e22e">email</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">values</span>.<span style="color:#a6e22e">email</span>, <span style="color:#a6e22e">username</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">values</span>.<span style="color:#a6e22e">username</span> };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// save thông tin user vào firestore
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">saveUserToFireStore</span>(<span style="color:#a6e22e">user</span>);
+</span></span><span style="display:flex;"><span>    }).<span style="color:#66d9ef">catch</span>((<span style="color:#a6e22e">error</span>) =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">ToastAndroid</span>.<span style="color:#a6e22e">show</span>(<span style="color:#e6db74">&#34;Register Error!&#34;</span>, <span style="color:#a6e22e">ToastAndroid</span>.<span style="color:#a6e22e">SHORT</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Error from firebase:&#34;</span>, <span style="color:#a6e22e">error</span>);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// hàm xử lý lưu thông tin vào firestore
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">saveUserToFireStore</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">user</span> =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">usersRef</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">firestore</span>().<span style="color:#a6e22e">collection</span>(<span style="color:#e6db74">&#34;users&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">usersRef</span>.<span style="color:#a6e22e">doc</span>(<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">id</span>).<span style="color:#a6e22e">set</span>(<span style="color:#a6e22e">user</span>).<span style="color:#a6e22e">then</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">goToPage</span>(<span style="color:#e6db74">&#34;TabNavigation&#34;</span>);
+</span></span><span style="display:flex;"><span>    }).<span style="color:#66d9ef">catch</span>((<span style="color:#a6e22e">error</span>) =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">ToastAndroid</span>.<span style="color:#a6e22e">show</span>(<span style="color:#e6db74">&#34;Save User Error&#34;</span>, <span style="color:#a6e22e">ToastAndroid</span>.<span style="color:#a6e22e">SHORT</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Save User Error:&#34;</span>, <span style="color:#a6e22e">error</span>);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>Lưu ý khi sử dụng firestore:
+cần phải setting rule thì mới có thể truy cập data được
+để set quyền truy cập vào collection users thì sửa rule lại như sau:</li>
+</ul>
+<pre tabindex="0"><code>rules_version = &#39;2&#39;;
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow anyone to read from the &#34;users&#34; collection
+    match /users/{document=**} {
+      allow read;
       
-      <a class="post-link" href="/vi/post/java/tao-qr-code-voi-zxing/">Tạo mã QR code với Zxing</a>
-    </h1>
-    
+      // Only allow authenticated users to write to the &#34;users&#34; collection
+      allow write: if request.auth != null;
+    }
+  }
+}
+</code></pre><ul>
+<li>
+<p>Khi sử dụng auth của firebase tạo mới user thực tế nó đã lưu thông tin lại rồi, truy cập vào bảng users trong Authentications sẽ thấy</p>
+</li>
+<li>
+<p>nhưng ngoài ra nếu muốn lưu được nhiều thông tin hơn chẳng hạn lưu tên, sdt, note&hellip; thì cần lưu vào firestore còn nếu ko muốn lưu thì chỉ cần sử dụng Auth của firebase là đủ</p>
+</li>
+<li>
+<p>Nguồn tham khảo:</p>
+</li>
+</ul>
+<p><a href="https://rnfirebase.io/firestore/usage">https://rnfirebase.io/firestore/usage</a></p>
+<p><a href="https://rnfirebase.io/auth/usage">https://rnfirebase.io/auth/usage</a></p>
 
-    <div class="post-meta">
-  <div class="post-meta-author">
-    by
-      <a href="/vi/about">
-        <span class="post-meta-author-name">
-          VC Stack
-        </span>
-      </a>
-    
-  </div>
+        </div>
 
-  <div class="post-meta-time">
-    <time datetime="2023-09-26">
-      2023-09-26
-    </time>
-  </div>
+        
+        
 
-  
+        
 
-
-  <div class="post-meta__right">
-    <span class="post-meta-more">
-        57 words -
-        1 min read
-      </span>
-
-    <div class="post-meta-category">
-        <a href="https://vcstack.github.io/vi/categories/java/"> Java </a>
-          
-      </div>
+        
+        
 
 
-    
-    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+<div id="sharing" class="icon-bar">
+  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fvcstack.github.io%2fvi%2fpost%2freact-native%2fhuong-dan-react-native-firebase-authentication%2f" class="fa fa-facebook" aria-label="share on Facebook">
+  </a>
 
+  <a href="http://twitter.com/share?url=https%3a%2f%2fvcstack.github.io%2fvi%2fpost%2freact-native%2fhuong-dan-react-native-firebase-authentication%2f&text=H%c6%b0%e1%bb%9bng%20d%e1%ba%abn%20React%20Native%20Firebase%20Authentication&via=" class="fa fa-twitter" aria-label="share on Twitter">
+  </a>
 
-    
-    
-  </div>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fvcstack.github.io%2fvi%2fpost%2freact-native%2fhuong-dan-react-native-firebase-authentication%2f&amp;source=https%3a%2f%2fvcstack.github.io%2fvi%2fpost%2freact-native%2fhuong-dan-react-native-firebase-authentication%2f&amp;title=H%c6%b0%e1%bb%9bng%20d%e1%ba%abn%20React%20Native%20Firebase%20Authentication&amp;summary=H%c6%b0%e1%bb%9bng%20d%e1%ba%abn%20React%20Native%20Firebase%20Authentication" class="fa fa-linkedin" aria-label="share on LinkedIn">
+  </a>
 </div>
+		
+		
+		
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1994659374200706"
+     crossorigin="anonymous"></script>
 
-  </header>
-  
-  <div class="post-content">
-    
-      <div class="post-summary">
-        Tạo mã QR code với Zxing
-Cài đặt dependency:
-implementation group: &#39;com.google.zxing&#39;, name: &#39;core&#39;, version: &#39;3.5.2&#39;implementation group: &#39;com.google.zxing&#39;, name: &#39;javase&#39;, version: &#39;3.5.2&#39; code để tạo mã QR:
-String data= &#34;Tạo mã QR code&#34;;QRCodeWriter qrCodeWriter = new QRCodeWriter();BitMatrix matrix = qrCodeWriter.encode(data, BarcodeFormat.QR_CODE, 200, 200);String outputFile = &#34;D:/demo/test.png&#34;;Path path = FileSystems.getDefault().getPath(outputFile);MatrixToImageWriter.writeToPath(matrix, &#34;PNG&#34;, path); 
-      </div>
-      <div class="read-more">
-        <a href="/vi/post/java/tao-qr-code-voi-zxing/" class="read-more-link"
-          >Xem thêm</a
-        >
-      </div>
-    
-  </div>
-</article>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1994659374200706"
+     crossorigin="anonymous"></script>
 
-  
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1994659374200706"
+     data-ad-slot="8745361543"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+            
+              <a class="next" href="/vi/post/java/tao-qr-code-voi-zxing/">
+                <span class="next-text nav-default">Tạo mã QR code với Zxing</span>
+                <span class="prev-text nav-mobile">Next</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
       
-      <a class="post-link" href="/vi/post/react-native/building-splash-screens-react-native/">Tạo màn hình splash screen trong React Native</a>
-    </h1>
-    
-  <div class="post-title-i18n">
-    
-      <div>
-        Read in English: <a href="https://vcstack.github.io/post/react-native/building-splash-screens-react-native/">Building splash screens in React Native</a>
-      </div>
-    
-  </div>
-
-
-    <div class="post-meta">
-  <div class="post-meta-author">
-    by
-      <a href="/vi/about">
-        <span class="post-meta-author-name">
-          VC Stack
-        </span>
-      </a>
-    
-  </div>
-
-  <div class="post-meta-time">
-    <time datetime="2023-08-30">
-      2023-08-30
-    </time>
-  </div>
-
-  
-
-
-  <div class="post-meta__right">
-    <span class="post-meta-more">
-        625 words -
-        3 min read
-      </span>
-
-    <div class="post-meta-category">
-        <a href="https://vcstack.github.io/vi/categories/react-native/"> React Native </a>
-          
-      </div>
-
-
-    
-    
-
-
-    
-    
-  </div>
-</div>
-
-  </header>
-  
-  <div class="post-content">
-    
-      <div class="post-summary">
-        <p>Trong hướng dẫn này, tôi sẽ hướng dẫn cách tạo một màn hình splash screen trong <strong>React Native</strong>. Chúng tôi sẽ hướng dẫn bạn cách xây dựng những màn hình chào đẹp mắt cho cả ứng dụng iOS và Android bằng cách sử dụng thư viện <code>react-native-splash-screen</code>.</p>
-      </div>
-      <div class="read-more">
-        <a href="/vi/post/react-native/building-splash-screens-react-native/" class="read-more-link"
-          >Xem thêm</a
-        >
-      </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title">
       
-      <a class="post-link" href="/vi/post/react-native/react-native-redux-saga/">React Native - Cơ bản về Redux Saga</a>
-    </h1>
-    
-  <div class="post-title-i18n">
-    
-      <div>
-        Read in English: <a href="https://vcstack.github.io/post/react-native/react-native-redux-saga/">React Native - Redux Saga Basics</a>
-      </div>
-    
-  </div>
 
 
-    <div class="post-meta">
-  <div class="post-meta-author">
-    by
-      <a href="/vi/about">
-        <span class="post-meta-author-name">
-          VC Stack
-        </span>
-      </a>
-    
-  </div>
-
-  <div class="post-meta-time">
-    <time datetime="2023-08-23">
-      2023-08-23
-    </time>
-  </div>
-
-  
-
-
-  <div class="post-meta__right">
-    <span class="post-meta-more">
-        1206 words -
-        6 min read
-      </span>
-
-    <div class="post-meta-category">
-        <a href="https://vcstack.github.io/vi/categories/react-native/"> React Native </a>
-          
-      </div>
-
-
-    
-    
-
-
-    
-    
-  </div>
-</div>
-
-  </header>
-  
-  <div class="post-content">
-    
-      <div class="post-summary">
-        <p>Xin chào tất cả các bạn, bài viết này mình xin chia sẻ một chút kiến thức mình tìm hiểu được về <em><strong>Redux Saga</strong></em>, mong mọi người theo dõi.</p>
-      </div>
-      <div class="read-more">
-        <a href="/vi/post/react-native/react-native-redux-saga/" class="read-more-link"
-          >Xem thêm</a
-        >
-      </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title">
       
-      <a class="post-link" href="/vi/post/react-native/differences-between-props-and-state-in-react/">Sự khác nhau giữa Props và State trong React</a>
-    </h1>
-    
-  <div class="post-title-i18n">
-    
-      <div>
-        Read in English: <a href="https://vcstack.github.io/post/react-native/differences-between-props-and-state-in-react/">Differences between Props and State in React</a>
-      </div>
-    
-  </div>
-
-
-    <div class="post-meta">
-  <div class="post-meta-author">
-    by
-      <a href="/vi/about">
-        <span class="post-meta-author-name">
-          VC Stack
-        </span>
-      </a>
-    
-  </div>
-
-  <div class="post-meta-time">
-    <time datetime="2023-08-23">
-      2023-08-23
-    </time>
-  </div>
-
-  
-
-
-  <div class="post-meta__right">
-    <span class="post-meta-more">
-        563 words -
-        3 min read
-      </span>
-
-    <div class="post-meta-category">
-        <a href="https://vcstack.github.io/vi/categories/react-native/"> React Native </a>
-          
-      </div>
-
-
-    
-    
-
-
-    
-    
-  </div>
-</div>
-
-  </header>
-  
-  <div class="post-content">
-    
-      <div class="post-summary">
-        <p>Gần đây mình có tìm hiều về React, trong quá trình tìm hiểu mình thấy <code>Props và State</code> được sử dụng khá nhiều.
-Vậy chúng là gì và khác nhau như thế nào, cùng tìm hiểu trong bài viết này nhé!</p>
-      </div>
-      <div class="read-more">
-        <a href="/vi/post/react-native/differences-between-props-and-state-in-react/" class="read-more-link"
-          >Xem thêm</a
-        >
-      </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title">
       
-      <a class="post-link" href="/vi/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/">Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 3</a>
-    </h1>
-    
-  <div class="post-title-i18n">
-    
-      <div>
-        Read in English: <a href="https://vcstack.github.io/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/">Microservices, Eureka and Zuul Gateway User Manual - Part 3</a>
-      </div>
-    
-  </div>
-
-
-    <div class="post-meta">
-  <div class="post-meta-author">
-    by
-      <a href="/vi/about">
-        <span class="post-meta-author-name">
-          VC Stack
-        </span>
-      </a>
-    
-  </div>
-
-  <div class="post-meta-time">
-    <time datetime="2023-08-14">
-      2023-08-14
-    </time>
-  </div>
 
   
 
+  
+  
 
-  <div class="post-meta__right">
-    <span class="post-meta-more">
-        533 words -
-        3 min read
-      </span>
+  
+  
 
-    <div class="post-meta-category">
-        <a href="https://vcstack.github.io/vi/categories/java/"> Java </a>
-          
-      </div>
+  
 
-
-    
-    
-
-
-    
-    
-  </div>
+  <div id="disqus_recommendations">
+  <script> 
+     (function() { 
+     var d = document, s = d.createElement('script'); 
+     var disqus_shortname = 'cuongvndev';
+     s.src = "https://"+disqus_shortname+".disqus.com/recommendations.js";
+     
+     s.setAttribute('data-timestamp', +new Date());
+     (d.head || d.body).appendChild(s);
+     })();
+  </script>
+  <noscript>
+     Please enable JavaScript to view the 
+     <a href="https://disqus.com/?ref_noscript" rel="nofollow">
+     comments powered by Disqus.
+     </a>
+  </noscript>
 </div>
-
-  </header>
+<div class="disqus-comment">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      let mountNode = document.querySelector("#disqus_thread");
+    let options = {
+      rootMargin: "0px",
+      threshold: 0,
+    };
   
-  <div class="post-content">
-    
-      <div class="post-summary">
-        <p>Trong phần này chúng ta sẽ cùng tìm hiểu về Spring Cloud Configuaration.</p>
-<p>Spring Cloud Configuration là một module trong hệ sinh thái Spring Cloud, cung cấp các công cụ để xây dựng các hệ thống phân tán và ứng dụng dịch vụ nhỏ. Spring Cloud Configuration tập trung cụ thể vào việc quản lý cấu hình của các ứng dụng trong một cách tập trung và linh hoạt.</p>
-      </div>
-      <div class="read-more">
-        <a href="/vi/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/" class="read-more-link"
-          >Xem thêm</a
-        >
-      </div>
-    
-  </div>
-</article>
-
+    let observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          console.log("Initialize Disqus!");
   
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/vi/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration/">Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 2</a>
-    </h1>
-    
-  <div class="post-title-i18n">
-    
-      <div>
-        Read in English: <a href="https://vcstack.github.io/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration/">Microservices, Eureka and Zuul Gateway User Manual - Part 2</a>
-      </div>
-    
-  </div>
-
-
-    <div class="post-meta">
-  <div class="post-meta-author">
-    by
-      <a href="/vi/about">
-        <span class="post-meta-author-name">
-          VC Stack
-        </span>
-      </a>
-    
-  </div>
-
-  <div class="post-meta-time">
-    <time datetime="2023-08-11">
-      2023-08-11
-    </time>
-  </div>
-
-  
-
-
-  <div class="post-meta__right">
-    <span class="post-meta-more">
-        2345 words -
-        12 min read
-      </span>
-
-    <div class="post-meta-category">
-        <a href="https://vcstack.github.io/vi/categories/java/"> Java </a>
           
-      </div>
-
-
-    
-    
-
-
-    
-    
-  </div>
-</div>
-
-  </header>
   
-  <div class="post-content">
-    
-      <div class="post-summary">
-        <p>Ở bài trước chúng ta đã dựng được một hệ thống microservice đơn giản với User service, Eureka server và Zuul gateway.
-Trong bài viết này chúng ta sẽ cùng tìm hiểu về <strong>JWT</strong> và cách để <strong>xác thực và bảo mật</strong> trong hệ thống <strong>Microservice</strong> bằng JWT.</p>
-      </div>
-      <div class="read-more">
-        <a href="/vi/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration/" class="read-more-link"
-          >Xem thêm</a
-        >
-      </div>
-    
-  </div>
-</article>
-
+          var disqus_config = function () {
+            this.page.url = "https://vcstack.github.io/vi/post/react-native/huong-dan-react-native-firebase-authentication/";
+          };
+          var disqus_shortname = 'cuongvndev';
   
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/vi/post/java/microservice-with-spring-boot-eureka-and-zuul-gateway/">Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 1</a>
-    </h1>
-    
-  <div class="post-title-i18n">
-    
-      <div>
-        Read in English: <a href="https://vcstack.github.io/post/java/microservice-with-spring-boot-eureka-and-zuul-gateway/">Microservices, Eureka and Zuul Gateway User Manual - Part 1</a>
-      </div>
-    
-  </div>
-
-
-    <div class="post-meta">
-  <div class="post-meta-author">
-    by
-      <a href="/vi/about">
-        <span class="post-meta-author-name">
-          VC Stack
-        </span>
-      </a>
-    
-  </div>
-
-  <div class="post-meta-time">
-    <time datetime="2023-08-10">
-      2023-08-10
-    </time>
-  </div>
-
+          var d = document,
+            s = d.createElement("script");
+          s.src = "https://"+disqus_shortname+".disqus.com/embed.js";
   
-
-
-  <div class="post-meta__right">
-    <span class="post-meta-more">
-        946 words -
-        5 min read
-      </span>
-
-    <div class="post-meta-category">
-        <a href="https://vcstack.github.io/vi/categories/java/"> Java </a>
+          s.setAttribute("data-timestamp", +new Date());
+          (d.head || d.body).appendChild(s);
+  
           
-      </div>
-
-
-    
-    
-
-
-    
-    
-  </div>
-</div>
-
-  </header>
   
-  <div class="post-content">
-    
-      <div class="post-summary">
-        <p>Bài viết này cung cấp một hướng dẫn chi tiết về việc triển khai và sử dụng kiến trúc <strong>Microservice</strong> kết hợp với các công cụ <strong>Eureka</strong> và Zuul <strong>Gateway</strong>. Đây là những bước cơ bản để xây dựng một hệ thống phân tán linh hoạt và có khả năng mở rộng.</p>
-      </div>
-      <div class="read-more">
-        <a href="/vi/post/java/microservice-with-spring-boot-eureka-and-zuul-gateway/" class="read-more-link"
-          >Xem thêm</a
-        >
-      </div>
+          
+          observer.unobserve(mountNode);
+          return;
+        }
+      });
+    }, options);
+  
+    observer.observe(mountNode);
+    </script>
+    <noscript
+      >Please enable JavaScript to view the
+      <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+    </noscript>
     
   </div>
-</article>
 
-  
-</section>
+    
 
-
-
-
-
-
-  
-  
   
 
   
-  
-
-  
-  
-
-  
-  
-
-  
-  
 
 
+    </div>
+
+    
+    
 
 
-
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.2/dist/medium-zoom.min.js"></script>
+  <script>
+    mediumZoom('img.zoom-image', {
+    margin: 24,
+    background: '#ffffff',
+    scrollOffset: 40
+  })
+    </script>
 
       </main>
 

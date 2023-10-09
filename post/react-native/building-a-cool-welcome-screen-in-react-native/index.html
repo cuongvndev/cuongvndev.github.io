@@ -8,11 +8,9 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>
-          Microservices, Eureka and Zuul Gateway User Manual - Part 3 - VC Stack - Going to the moon 🌑
+          Building a Cool Welcome Screen in React Native - VC Stack - Going to the moon 🌑
         </title>
     
-<link rel="alternate" hreflang="vi" href="https://vcstack.github.io/vi/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/" />
-
 
 <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
@@ -30,12 +28,9 @@
 
 <meta name="mobile-web-app-capable" content="yes">
 
-<meta name="author" content="VC Stack" />
-  <meta name="description" content="In this section, let&amp;rsquo;s explore Spring Cloud Configuration.
-Spring Cloud Configuration is a module within the Spring Cloud ecosystem that provides tools for building distributed systems and microservices applications. Spring Cloud Configuration specifically focuses on centralized and flexible management of application configurations.
-" />
+<meta name="author" content="VC Stack" /><meta name="description" content="Building a Cool Welcome Screen in React Native" />
+<meta name="keywords" content="React native, Welcome Screen" />
 
-  <meta name="keywords" content="Spring Boot, Microservice, Java, React, React Native, VC Stack" />
 
 
 
@@ -45,7 +40,7 @@ Spring Cloud Configuration is a module within the Spring Cloud ecosystem that pr
 <meta name="generator" content="Hugo 0.117.0" />
 
 
-<link rel="canonical" href="https://vcstack.github.io/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/" />
+<link rel="canonical" href="https://vcstack.github.io/post/react-native/building-a-cool-welcome-screen-in-react-native/" />
 
 
 
@@ -73,22 +68,19 @@ Spring Cloud Configuration is a module within the Spring Cloud ecosystem that pr
 <link rel="stylesheet" href="/css/custom.css">
 
 
-<meta property="og:title" content="Microservices, Eureka and Zuul Gateway User Manual - Part 3" />
-<meta property="og:description" content="In this section, let&rsquo;s explore Spring Cloud Configuration.
-Spring Cloud Configuration is a module within the Spring Cloud ecosystem that provides tools for building distributed systems and microservices applications. Spring Cloud Configuration specifically focuses on centralized and flexible management of application configurations." />
+<meta property="og:title" content="Building a Cool Welcome Screen in React Native" />
+<meta property="og:description" content="Building a Cool Welcome Screen in React Native" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://vcstack.github.io/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2023-08-14T15:33:23+07:00" />
-<meta property="article:modified_time" content="2023-08-14T15:33:23+07:00" />
-<meta itemprop="name" content="Microservices, Eureka and Zuul Gateway User Manual - Part 3">
-<meta itemprop="description" content="In this section, let&rsquo;s explore Spring Cloud Configuration.
-Spring Cloud Configuration is a module within the Spring Cloud ecosystem that provides tools for building distributed systems and microservices applications. Spring Cloud Configuration specifically focuses on centralized and flexible management of application configurations."><meta itemprop="datePublished" content="2023-08-14T15:33:23+07:00" />
-<meta itemprop="dateModified" content="2023-08-14T15:33:23+07:00" />
-<meta itemprop="wordCount" content="509">
-<meta itemprop="keywords" content="java," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Microservices, Eureka and Zuul Gateway User Manual - Part 3"/>
-<meta name="twitter:description" content="In this section, let&rsquo;s explore Spring Cloud Configuration.
-Spring Cloud Configuration is a module within the Spring Cloud ecosystem that provides tools for building distributed systems and microservices applications. Spring Cloud Configuration specifically focuses on centralized and flexible management of application configurations."/>
+<meta property="og:url" content="https://vcstack.github.io/post/react-native/building-a-cool-welcome-screen-in-react-native/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-08-31T14:00:44+07:00" />
+<meta property="article:modified_time" content="2023-08-31T14:00:44+07:00" />
+<meta itemprop="name" content="Building a Cool Welcome Screen in React Native">
+<meta itemprop="description" content="Building a Cool Welcome Screen in React Native"><meta itemprop="datePublished" content="2023-08-31T14:00:44+07:00" />
+<meta itemprop="dateModified" content="2023-08-31T14:00:44+07:00" />
+<meta itemprop="wordCount" content="415">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Building a Cool Welcome Screen in React Native"/>
+<meta name="twitter:description" content="Building a Cool Welcome Screen in React Native"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -465,16 +457,8 @@ if (!doNotTrack) {
       <article class="post">
         
         <header class="post-header">
-          <h1 class="post-title">Microservices, Eureka and Zuul Gateway User Manual - Part 3</h1>
+          <h1 class="post-title">Building a Cool Welcome Screen in React Native</h1>
           
-  <div class="post-title-i18n">
-    
-      <div>
-        Read in Vietnamese: <a href="https://vcstack.github.io/vi/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/">Hướng dẫn sử dụng Microservice, Eureka và Zuul Gateway - Phần 3</a>
-      </div>
-    
-  </div>
-
 
           <div class="post-meta">
   <div class="post-meta-author">
@@ -488,8 +472,8 @@ if (!doNotTrack) {
   </div>
 
   <div class="post-meta-time">
-    <time datetime="2023-08-14">
-      2023-08-14
+    <time datetime="2023-08-31">
+      2023-08-31
     </time>
   </div>
 
@@ -498,12 +482,12 @@ if (!doNotTrack) {
 
   <div class="post-meta__right">
     <span class="post-meta-more">
-        509 words -
-        3 min read
+        415 words -
+        2 min read
       </span>
 
     <div class="post-meta-category">
-        <a href="https://vcstack.github.io/categories/java/"> Java </a>
+        <a href="https://vcstack.github.io/categories/react-native/"> React Native </a>
           
       </div>
 
@@ -521,149 +505,177 @@ if (!doNotTrack) {
 
         
         <div class="post-content">
-          <p>In this section, let&rsquo;s explore Spring Cloud Configuration.</p>
-<p>Spring Cloud Configuration is a module within the Spring Cloud ecosystem that provides tools for building distributed systems and microservices applications. Spring Cloud Configuration specifically focuses on centralized and flexible management of application configurations.</p>
-<h2 id="1-spring-cloud-config-serve">1. Spring Cloud Config Serve</h2>
-<p>Firstly, we need to create a Git repository to store the configuration files.</p>
-<p>The purpose of this is to consolidate all the configurations for the microservices in one place, making it easier for management and updates. We will create configurations for the Auth and Zuul services as follows:
-<code>auth-service.yml</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">security</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jwt</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">uri</span>: <span style="color:#ae81ff">/auth/**</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">header</span>: <span style="color:#ae81ff">Authorization</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">prefix</span>: <span style="color:#ae81ff">Bearer</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">expiration</span>: <span style="color:#ae81ff">86400</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">secret</span>: <span style="color:#ae81ff">JwtSecretKey</span>
-</span></span></code></pre></div><p>Similarly, follow the same approach with <code>zuul-server.yml</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">security</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jwt</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">uri</span>: <span style="color:#ae81ff">/auth/**</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">header</span>: <span style="color:#ae81ff">Authorization</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">prefix</span>: <span style="color:#ae81ff">Bearer</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">expiration</span>: <span style="color:#ae81ff">86400</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">secret</span>: <span style="color:#ae81ff">JwtSecretKey</span>
-</span></span></code></pre></div><blockquote>
-<p>Here, it&rsquo;s important to note that the filename must match the name of the corresponding service, which should be the same as the value of <code>spring.application.name</code> in the <code>application.yml</code> file. This naming consistency helps Spring map the correct configuration to each service.</p>
+          <p>In this article, I will guide you on how to create a really cool and beautiful welcome screen in React Native using the library: <code>react-native-app-intro-slider</code>.</p>
+<p>The Welcome screen will include 3 sliders along with some lovely page transition animations.
+<img src="/blog/react/welcome.gif" alt="Welcome" loading="lazy" class="zoom-image center"/></p>
+<p>Create a new React Native project and install the library using the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>npx react-native init IntroSliderApp
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>npm install react-native-app-intro-slider
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>react-native-vector-icons
+</span></span></code></pre></div><p>Update the App component as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">Image</span>, <span style="color:#a6e22e">StyleSheet</span>, <span style="color:#a6e22e">Text</span>, <span style="color:#a6e22e">View</span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-native&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">AppIntroSlider</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-native-app-intro-slider&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">IMAGES</span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./assets/images&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Ionicons</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react-native-vector-icons/Ionicons&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sliders</span> <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;one&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Title 1&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Description.\nSay something cool&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">image</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">IMAGES</span>.<span style="color:#a6e22e">intro1</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">backgroundColor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#59b2ab&#39;</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;two&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Title 2&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Other cool stuff&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">image</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">IMAGES</span>.<span style="color:#a6e22e">intro2</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">backgroundColor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#febe29&#39;</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;three&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Rocket guy&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;I&#39;m already out of descriptions\n\nLorem ipsum bla bla bla&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">image</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">IMAGES</span>.<span style="color:#a6e22e">intro3</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">backgroundColor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#22bcb5&#39;</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">App</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">props</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">props</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">showRealApp</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">_renderItem</span> <span style="color:#f92672">=</span> ({<span style="color:#a6e22e">item</span>}) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">View</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">slide</span>}<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">title</span>}<span style="color:#f92672">&gt;</span>{<span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">title</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Image</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">image</span>} <span style="color:#a6e22e">source</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">image</span>} <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">text</span>}<span style="color:#f92672">&gt;</span>{<span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">text</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/View&gt;</span>
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">_isDone</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>({
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">showRealApp</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">_renderNextButton</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">View</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">buttonCircle</span>}<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Ionicons</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;arrow-forward&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">color</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rgba(255, 255, 255, .9)&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">size</span><span style="color:#f92672">=</span>{<span style="color:#ae81ff">24</span>}
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/View&gt;</span>
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">_renderDoneButton</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">View</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">buttonCircle</span>}<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Ionicons</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;checkmark&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">color</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rgba(255, 255, 255, .9)&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">size</span><span style="color:#f92672">=</span>{<span style="color:#ae81ff">24</span>}
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/View&gt;</span>
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">render</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">showRealApp</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Login</span> <span style="color:#a6e22e">Screen</span><span style="color:#f92672">!&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">AppIntroSlider</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">renderItem</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_renderItem</span>}
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">data</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">sliders</span>}
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">onDone</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_isDone</span>}
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">renderNextButton</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_renderNextButton</span>}
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">renderDoneButton</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_renderDoneButton</span>}
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">styles</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">StyleSheet</span>.<span style="color:#a6e22e">create</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">slide</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">flex</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">alignItems</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;center&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">justifyContent</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;center&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">backgroundColor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;hsla(0, 100%, 50%, 0.1);&#39;</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">image</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">320</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">320</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">marginVertical</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">32</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">textAlign</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;center&#39;</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fontSize</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">22</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">textAlign</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;center&#39;</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">buttonCircle</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">40</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">40</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">backgroundColor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;rgba(0, 0, 0, .2)&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">borderRadius</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">20</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">justifyContent</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;center&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">alignItems</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;center&#39;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>Prepare three images corresponding to the three sliders, you can click to download them below: 
+ <div id="temp-download"></div>
+ <script>
+   var url = "/blog/react/1.jpg;/blog/react/2.jpg;/blog/react/3.jpg";
+   url = url.split(";");
+   console.log(url);
+   if (url.length > 0) {
+     var divTag = document.getElementById("temp-download");
+     var tag = "";
+     for (let i = 0; i < url.length; i++) {
+       tag +=
+         '<a href="' +
+         url[i] +
+         '" download style="padding: 0 10px;">' +
+         '<img src="' +
+         url[i] +
+         '" width="50" height="50">' +
+         '</a>';
+     }
+     divTag.innerHTML = tag;
+   }
+ </script>
+</p>
+<p>Next, put the images into the <code>IntroSliderApp/src/assets/images</code> folder.
+Create an <code>index.js</code> file in the images folder with the following content:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// IntroSliderApp\src\assets\images\index.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">IMAGES</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">intro1</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;../images/1.jpg&#39;</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">intro2</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;../images/2.jpg&#39;</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">intro3</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;../images/3.jpg&#39;</span>),
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>That&rsquo;s it! Now, build and run the app on your Android device to experience it!</p>
+<blockquote>
+<p>Please note that I am using icons from <code>react-native-vector-icons/Ionicons</code>. If the icons do not work, add the following line of code:
+<code>apply from: &quot;../../node_modules/react-native-vector-icons/fonts.gradle&quot;</code> In the <em>android/app/build.gradle</em> file, the icons will be displayed correctly.</p>
 </blockquote>
-<p>The next step is to create the <code>config-server</code> project and use the following dependencies:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.cloud<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;artifactId&gt;</span>spring-cloud-config-server<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
-</span></span></code></pre></div><p>In the main application class, use the annotation <code>@EnableConfigServer</code> to declare that this is a config server:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@SpringBootApplication</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@EnableConfigServer</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ConfigServiceApplication</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        SpringApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>ConfigServiceApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> args<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>In the <code>application.yml</code> file, it should be as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">server</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">port</span>: <span style="color:#ae81ff">8888</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">spring</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">application</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">config-service</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">cloud</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">config</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">server</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">git</span>:
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">uri</span>: <span style="color:#ae81ff">https://github.com/cuongvndev/config-files.git</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">clone-on-start</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">#   username: xxxx</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">#   password: xxxx</span>
-</span></span></code></pre></div><blockquote>
-<p>Here, I will store the configuration in this <a href="https://github.com/cuongvndev/config-files.git">Git repository.</a>
-Please add your username and password if needed for authorization errors.</p>
-</blockquote>
-<p>Now, if we access the URL <code>http://localhost:8888/auth-service.yml</code>, we will see the result as shown in the image:</p>
-<p><img src="/blog/microservice/config-server.png" alt="Config server" loading="lazy" class="zoom-image center"/></p>
-<h2 id="2-config-client">2. Config Client</h2>
-<p>Next, in the Auth service and Zuul Server gateway, you will retrieve configuration information from the config server.</p>
-<p>To achieve this, add the config-client dependency to both the Auth service and the Zuul Server:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.cloud<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;artifactId&gt;</span>spring-cloud-starter-config<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
-</span></span></code></pre></div><ul>
-<li>AuthServiceApplication</li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@SpringBootApplication</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@EnableEurekaClient</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@RefreshScope</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AuthServiceApplication</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        SpringApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>AuthServiceApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> args<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><ul>
-<li>ZuulServerApplication</li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@SpringBootApplication</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@EnableZuulProxy</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@EnableEurekaClient</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ZuulServerApplication</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        SpringApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>ZuulServerApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> args<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>By using <code>@RefreshScope</code> on a Spring Bean, you&rsquo;re instructing Spring Boot to refresh that bean when there are changes applied to the configuration (through the &ldquo;Refresh Scope&rdquo; mechanism). This allows you to update configuration values used by the bean without needing to restart the application.</p>
-<p>Additionally, you need to add the Spring Cloud Config URI within the Auth and Zuul server configurations:</p>
-<ul>
-<li>Auth-service</li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">server</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">port</span>: <span style="color:#ae81ff">8082</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">eureka</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">client</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">service-url</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">defaultZone</span>: <span style="color:#ae81ff">http://localhost:8761/eureka</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">spring</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">application</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">auth-service</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">cloud</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">config</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">uri</span>: <span style="color:#ae81ff">http://localhost:8888</span>
-</span></span></code></pre></div><ul>
-<li>Zuul-server</li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">server</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">port</span>: <span style="color:#ae81ff">8080</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">zuul</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">routes</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">user-service</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/user/**</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">service-id</span>: <span style="color:#ae81ff">user-service</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">product-service</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/product/**</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">service-id</span>: <span style="color:#ae81ff">product-service</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">auth-service</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/auth/**</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">service-id</span>: <span style="color:#ae81ff">auth-service</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">strip-prefix</span>: <span style="color:#66d9ef">false</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">sensitive-headers</span>: <span style="color:#ae81ff">Cookie,Set-Cookie</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">spring</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">application</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">zuul-server</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">cloud</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">config</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">uri</span>: <span style="color:#ae81ff">http://localhost:8888</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">eureka</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">client</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">serviceUrl</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">defaultZone</span>: <span style="color:#ae81ff">http://localhost:8761/eureka/</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">register-with-eureka</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">fetch-registry</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">instance</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">prefer-ip-address</span>: <span style="color:#66d9ef">true</span>
-</span></span></code></pre></div><p>The configuration for the services is now complete. Next, let&rsquo;s start the Auth and Zuul servers to proceed with testing!</p>
+
         </div>
 
         
@@ -677,13 +689,13 @@ Please add your username and password if needed for authorization errors.</p>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
 <div id="sharing" class="icon-bar">
-  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fvcstack.github.io%2fpost%2fjava%2fmicroservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3%2f" class="fa fa-facebook" aria-label="share on Facebook">
+  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fvcstack.github.io%2fpost%2freact-native%2fbuilding-a-cool-welcome-screen-in-react-native%2f" class="fa fa-facebook" aria-label="share on Facebook">
   </a>
 
-  <a href="http://twitter.com/share?url=https%3a%2f%2fvcstack.github.io%2fpost%2fjava%2fmicroservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3%2f&text=Microservices%2c%20Eureka%20and%20Zuul%20Gateway%20User%20Manual%20-%20Part%203&via=" class="fa fa-twitter" aria-label="share on Twitter">
+  <a href="http://twitter.com/share?url=https%3a%2f%2fvcstack.github.io%2fpost%2freact-native%2fbuilding-a-cool-welcome-screen-in-react-native%2f&text=Building%20a%20Cool%20Welcome%20Screen%20in%20React%20Native&via=" class="fa fa-twitter" aria-label="share on Twitter">
   </a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fvcstack.github.io%2fpost%2fjava%2fmicroservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3%2f&amp;source=https%3a%2f%2fvcstack.github.io%2fpost%2fjava%2fmicroservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3%2f&amp;title=Microservices%2c%20Eureka%20and%20Zuul%20Gateway%20User%20Manual%20-%20Part%203&amp;summary=Microservices%2c%20Eureka%20and%20Zuul%20Gateway%20User%20Manual%20-%20Part%203" class="fa fa-linkedin" aria-label="share on LinkedIn">
+  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fvcstack.github.io%2fpost%2freact-native%2fbuilding-a-cool-welcome-screen-in-react-native%2f&amp;source=https%3a%2f%2fvcstack.github.io%2fpost%2freact-native%2fbuilding-a-cool-welcome-screen-in-react-native%2f&amp;title=Building%20a%20Cool%20Welcome%20Screen%20in%20React%20Native&amp;summary=Building%20a%20Cool%20Welcome%20Screen%20in%20React%20Native" class="fa fa-linkedin" aria-label="share on LinkedIn">
   </a>
 </div>
 		
@@ -711,31 +723,15 @@ Please add your username and password if needed for authorization errors.</p>
 
 
         <footer class="post-footer">
-          <div class="post-tags">
-              <a href="https://vcstack.github.io/tags/java/">java</a>
-                
-            </div>
+          
 
 
           
           <nav class="post-nav">
             
-              <a class="prev" href="/post/react-native/react-native-redux-saga/">
-                
-                <i class="iconfont">
-                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="18" height="18">
-  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
-</svg>
-
-                </i>
-                <span class="prev-text nav-default">React Native - Redux Saga Basics</span>
-                <span class="prev-text nav-mobile">Prev</span>
-              </a>
             
-              <a class="next" href="/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration/">
-                <span class="next-text nav-default">Microservices, Eureka and Zuul Gateway User Manual - Part 2</span>
+              <a class="next" href="/post/react-native/building-splash-screens-react-native/">
+                <span class="next-text nav-default">Building splash screens in React Native</span>
                 <span class="prev-text nav-mobile">Next</span>
                 
                 <i class="iconfont">
@@ -803,7 +799,7 @@ Please add your username and password if needed for authorization errors.</p>
           
   
           var disqus_config = function () {
-            this.page.url = "https://vcstack.github.io/post/java/microservice-authentication-jwt-token-and-spring-cloud-configuaration-part-3/";
+            this.page.url = "https://vcstack.github.io/post/react-native/building-a-cool-welcome-screen-in-react-native/";
           };
           var disqus_shortname = 'cuongvndev';
   
@@ -842,17 +838,7 @@ Please add your username and password if needed for authorization errors.</p>
     </div>
 
     
-    <nav class="toc" id="toc">
-    <div class="toc-title">Table of Contents</div>
-    <div class="toc-content custom-scrollbar">
-      <nav id="TableOfContents">
-  <ul>
-    <li><a href="#1-spring-cloud-config-serve">1. Spring Cloud Config Serve</a></li>
-    <li><a href="#2-config-client">2. Config Client</a></li>
-  </ul>
-</nav>
-    </div>
-  </nav>
+    
 
 
   </div>

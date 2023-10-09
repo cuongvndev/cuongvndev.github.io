@@ -9,10 +9,10 @@
     <lastBuildDate>Thu, 31 Aug 2023 14:00:44 +0700</lastBuildDate><atom:link href="https://vcstack.github.io/categories/react-native/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Building a Cool Welcome Screen in React Native</title>
-      <link>https://vcstack.github.io/post/react/building-a-cool-welcome-screen-in-react-native/</link>
+      <link>https://vcstack.github.io/post/react-native/building-a-cool-welcome-screen-in-react-native/</link>
       <pubDate>Thu, 31 Aug 2023 14:00:44 +0700</pubDate>
       
-      <guid>https://vcstack.github.io/post/react/building-a-cool-welcome-screen-in-react-native/</guid>
+      <guid>https://vcstack.github.io/post/react-native/building-a-cool-welcome-screen-in-react-native/</guid>
       <description>In this article, I will guide you on how to create a really cool and beautiful welcome screen in React Native using the library: react-native-app-intro-slider.
 The Welcome screen will include 3 sliders along with some lovely page transition animations. Create a new React Native project and install the library using the following command:
 npx react-native init IntroSliderApp npm install react-native-app-intro-slider react-native-vector-icons Update the App component as follows:
@@ -21,28 +21,28 @@ import React from &amp;#39;react&amp;#39;; import {Image, StyleSheet, Text, View
     
     <item>
       <title>Building splash screens in React Native</title>
-      <link>https://vcstack.github.io/post/react/building-splash-screens-react-native/</link>
+      <link>https://vcstack.github.io/post/react-native/building-splash-screens-react-native/</link>
       <pubDate>Wed, 30 Aug 2023 15:53:57 +0700</pubDate>
       
-      <guid>https://vcstack.github.io/post/react/building-splash-screens-react-native/</guid>
+      <guid>https://vcstack.github.io/post/react-native/building-splash-screens-react-native/</guid>
       <description>&lt;p&gt;In this tutorial, we’ll demonstrate how to build a splash screen in &lt;strong&gt;React Native&lt;/strong&gt;. We’ll walk you through how to build stunning welcome displays for both iOS and Android apps using &lt;code&gt;react-native-splash-screen&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Differences between Props and State in React</title>
-      <link>https://vcstack.github.io/post/react/differences-between-props-and-state-in-react/</link>
+      <link>https://vcstack.github.io/post/react-native/differences-between-props-and-state-in-react/</link>
       <pubDate>Wed, 23 Aug 2023 10:41:55 +0700</pubDate>
       
-      <guid>https://vcstack.github.io/post/react/differences-between-props-and-state-in-react/</guid>
+      <guid>https://vcstack.github.io/post/react-native/differences-between-props-and-state-in-react/</guid>
       <description>&lt;p&gt;Recently, I&amp;rsquo;ve been exploring React, and during my research, I&amp;rsquo;ve come across the use of &lt;code&gt;Props and State&lt;/code&gt; quite frequently. So, what are they and how do they differ? Let&amp;rsquo;s delve into that in this article!&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>React Native - Redux Saga Basics</title>
-      <link>https://vcstack.github.io/post/react/react-native-redux-saga/</link>
+      <link>https://vcstack.github.io/post/react-native/react-native-redux-saga/</link>
       <pubDate>Wed, 23 Aug 2023 10:41:55 +0700</pubDate>
       
-      <guid>https://vcstack.github.io/post/react/react-native-redux-saga/</guid>
+      <guid>https://vcstack.github.io/post/react-native/react-native-redux-saga/</guid>
       <description>&lt;p&gt;Hello everyone, in this article, I would like to share some of the knowledge I&amp;rsquo;ve gathered about &lt;em&gt;&lt;strong&gt;Redux Saga&lt;/strong&gt;&lt;/em&gt;. I hope you all find it informative.&lt;/p&gt;</description>
     </item>
     

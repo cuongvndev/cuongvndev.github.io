@@ -269,10 +269,10 @@ This is my personal blog, I take notes and share what I learn here about Java pr
     
     <item>
       <title>Building a Cool Welcome Screen in React Native</title>
-      <link>https://vcstack.github.io/post/react/building-a-cool-welcome-screen-in-react-native/</link>
+      <link>https://vcstack.github.io/post/react-native/building-a-cool-welcome-screen-in-react-native/</link>
       <pubDate>Thu, 31 Aug 2023 14:00:44 +0700</pubDate>
       
-      <guid>https://vcstack.github.io/post/react/building-a-cool-welcome-screen-in-react-native/</guid>
+      <guid>https://vcstack.github.io/post/react-native/building-a-cool-welcome-screen-in-react-native/</guid>
       
         <description>&lt;p&gt;In this article, I will guide you on how to create a really cool and beautiful welcome screen in React Native using the library: &lt;code&gt;react-native-app-intro-slider&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;The Welcome screen will include 3 sliders along with some lovely page transition animations.
@@ -450,10 +450,10 @@ Create an &lt;code&gt;index.js&lt;/code&gt; file in the images folder with the f
     
     <item>
       <title>Building splash screens in React Native</title>
-      <link>https://vcstack.github.io/post/react/building-splash-screens-react-native/</link>
+      <link>https://vcstack.github.io/post/react-native/building-splash-screens-react-native/</link>
       <pubDate>Wed, 30 Aug 2023 15:53:57 +0700</pubDate>
       
-      <guid>https://vcstack.github.io/post/react/building-splash-screens-react-native/</guid>
+      <guid>https://vcstack.github.io/post/react-native/building-splash-screens-react-native/</guid>
       
         <description>&lt;p&gt;In this tutorial, we’ll demonstrate how to build a splash screen in &lt;strong&gt;React Native&lt;/strong&gt;. We’ll walk you through how to build stunning welcome displays for both iOS and Android apps using &lt;code&gt;react-native-splash-screen&lt;/code&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;what-is-a-splash-screen&#34;&gt;What is a splash screen?&lt;/h2&gt;
@@ -526,10 +526,10 @@ Create an &lt;code&gt;index.js&lt;/code&gt; file in the images folder with the f
     
     <item>
       <title>Differences between Props and State in React</title>
-      <link>https://vcstack.github.io/post/react/differences-between-props-and-state-in-react/</link>
+      <link>https://vcstack.github.io/post/react-native/differences-between-props-and-state-in-react/</link>
       <pubDate>Wed, 23 Aug 2023 10:41:55 +0700</pubDate>
       
-      <guid>https://vcstack.github.io/post/react/differences-between-props-and-state-in-react/</guid>
+      <guid>https://vcstack.github.io/post/react-native/differences-between-props-and-state-in-react/</guid>
       
         <description>&lt;p&gt;Recently, I&amp;rsquo;ve been exploring React, and during my research, I&amp;rsquo;ve come across the use of &lt;code&gt;Props and State&lt;/code&gt; quite frequently. So, what are they and how do they differ? Let&amp;rsquo;s delve into that in this article!&lt;/p&gt;
 &lt;h2 id=&#34;1-what-are-props&#34;&gt;1. What are Props?&lt;/h2&gt;
@@ -648,10 +648,10 @@ Create an &lt;code&gt;index.js&lt;/code&gt; file in the images folder with the f
     
     <item>
       <title>React Native - Redux Saga Basics</title>
-      <link>https://vcstack.github.io/post/react/react-native-redux-saga/</link>
+      <link>https://vcstack.github.io/post/react-native/react-native-redux-saga/</link>
       <pubDate>Wed, 23 Aug 2023 10:41:55 +0700</pubDate>
       
-      <guid>https://vcstack.github.io/post/react/react-native-redux-saga/</guid>
+      <guid>https://vcstack.github.io/post/react-native/react-native-redux-saga/</guid>
       
         <description>&lt;p&gt;Hello everyone, in this article, I would like to share some of the knowledge I&amp;rsquo;ve gathered about &lt;em&gt;&lt;strong&gt;Redux Saga&lt;/strong&gt;&lt;/em&gt;. I hope you all find it informative.&lt;/p&gt;
 &lt;p&gt;For those who have previously delved into &lt;em&gt;&lt;strong&gt;redux&lt;/strong&gt;&lt;/em&gt;, you may be aware that between the process of &lt;em&gt;&lt;strong&gt;dispatching an action and a reducer&lt;/strong&gt;&lt;/em&gt;, we often encounter situations where an API call to the server is involved. This API call might not return results before subsequent lines of code execute, leading to undesirable outcomes. To address this, there&amp;rsquo;s a library that makes dealing with such scenarios easier - &lt;em&gt;&lt;strong&gt;Redux Saga&lt;/strong&gt;&lt;/em&gt;. (Before diving into this article, it&amp;rsquo;s recommended to have a basic understanding of redux and react).&lt;/p&gt;

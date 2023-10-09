@@ -9,19 +9,19 @@
     <lastBuildDate>Wed, 23 Aug 2023 10:41:55 +0700</lastBuildDate><atom:link href="https://vcstack.github.io/tags/react/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Differences between Props and State in React</title>
-      <link>https://vcstack.github.io/post/react/differences-between-props-and-state-in-react/</link>
+      <link>https://vcstack.github.io/post/react-native/differences-between-props-and-state-in-react/</link>
       <pubDate>Wed, 23 Aug 2023 10:41:55 +0700</pubDate>
       
-      <guid>https://vcstack.github.io/post/react/differences-between-props-and-state-in-react/</guid>
+      <guid>https://vcstack.github.io/post/react-native/differences-between-props-and-state-in-react/</guid>
       <description>&lt;p&gt;Recently, I&amp;rsquo;ve been exploring React, and during my research, I&amp;rsquo;ve come across the use of &lt;code&gt;Props and State&lt;/code&gt; quite frequently. So, what are they and how do they differ? Let&amp;rsquo;s delve into that in this article!&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>React Native - Redux Saga Basics</title>
-      <link>https://vcstack.github.io/post/react/react-native-redux-saga/</link>
+      <link>https://vcstack.github.io/post/react-native/react-native-redux-saga/</link>
       <pubDate>Wed, 23 Aug 2023 10:41:55 +0700</pubDate>
       
-      <guid>https://vcstack.github.io/post/react/react-native-redux-saga/</guid>
+      <guid>https://vcstack.github.io/post/react-native/react-native-redux-saga/</guid>
       <description>&lt;p&gt;Hello everyone, in this article, I would like to share some of the knowledge I&amp;rsquo;ve gathered about &lt;em&gt;&lt;strong&gt;Redux Saga&lt;/strong&gt;&lt;/em&gt;. I hope you all find it informative.&lt;/p&gt;</description>
     </item>
     

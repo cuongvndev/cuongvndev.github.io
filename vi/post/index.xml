@@ -6,7 +6,19 @@
     <description>Recent content in Posts on VC Stack - Going to the moon 🌑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>vi</language>
-    <lastBuildDate>Tue, 26 Sep 2023 14:44:02 +0700</lastBuildDate><atom:link href="https://vcstack.github.io/vi/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 Oct 2023 16:57:30 +0700</lastBuildDate><atom:link href="https://vcstack.github.io/vi/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hướng dẫn React Native Firebase Authentication</title>
+      <link>https://vcstack.github.io/vi/post/react-native/huong-dan-react-native-firebase-authentication/</link>
+      <pubDate>Mon, 09 Oct 2023 16:57:30 +0700</pubDate>
+      
+      <guid>https://vcstack.github.io/vi/post/react-native/huong-dan-react-native-firebase-authentication/</guid>
+      <description>Cài đặt thư viện: npm i @react-native-firebase/appnpm i @react-native-firebase/firestore Tạo mới dự án trên google firebase tạo mới app và tải file config: google-services.json về bỏ vào thư mục: \android\app\google-services.json
+Lưu ý: đặt package_name trùng với package_name trong project react native trong file AndroidManifest.xml Config cho Android ở trong file: /android/build.gradle thêm đoạn sau:
+apply plugin: &amp;#39;com.google.gms.google-services&amp;#39; ở trong file /android/build.gradle thêm đoạn sau:
+buildscript {dependencies {// .</description>
+    </item>
+    
     <item>
       <title>Tạo mã QR code với Zxing</title>
       <link>https://vcstack.github.io/vi/post/java/tao-qr-code-voi-zxing/</link>
@@ -21,28 +33,28 @@ String data= &amp;#34;Tạo mã QR code&amp;#34;;QRCodeWriter qrCodeWriter = ne
     
     <item>
       <title>Tạo màn hình splash screen trong React Native</title>
-      <link>https://vcstack.github.io/vi/post/react/building-splash-screens-react-native/</link>
+      <link>https://vcstack.github.io/vi/post/react-native/building-splash-screens-react-native/</link>
       <pubDate>Wed, 30 Aug 2023 15:53:57 +0700</pubDate>
       
-      <guid>https://vcstack.github.io/vi/post/react/building-splash-screens-react-native/</guid>
+      <guid>https://vcstack.github.io/vi/post/react-native/building-splash-screens-react-native/</guid>
       <description>&lt;p&gt;Trong hướng dẫn này, tôi sẽ hướng dẫn cách tạo một màn hình splash screen trong &lt;strong&gt;React Native&lt;/strong&gt;. Chúng tôi sẽ hướng dẫn bạn cách xây dựng những màn hình chào đẹp mắt cho cả ứng dụng iOS và Android bằng cách sử dụng thư viện &lt;code&gt;react-native-splash-screen&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>React Native - Cơ bản về Redux Saga</title>
-      <link>https://vcstack.github.io/vi/post/react/react-native-redux-saga/</link>
+      <link>https://vcstack.github.io/vi/post/react-native/react-native-redux-saga/</link>
       <pubDate>Wed, 23 Aug 2023 10:41:55 +0700</pubDate>
       
-      <guid>https://vcstack.github.io/vi/post/react/react-native-redux-saga/</guid>
+      <guid>https://vcstack.github.io/vi/post/react-native/react-native-redux-saga/</guid>
       <description>&lt;p&gt;Xin chào tất cả các bạn, bài viết này mình xin chia sẻ một chút kiến thức mình tìm hiểu được về &lt;em&gt;&lt;strong&gt;Redux Saga&lt;/strong&gt;&lt;/em&gt;, mong mọi người theo dõi.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Sự khác nhau giữa Props và State trong React</title>
-      <link>https://vcstack.github.io/vi/post/react/differences-between-props-and-state-in-react/</link>
+      <link>https://vcstack.github.io/vi/post/react-native/differences-between-props-and-state-in-react/</link>
       <pubDate>Wed, 23 Aug 2023 10:41:55 +0700</pubDate>
       
-      <guid>https://vcstack.github.io/vi/post/react/differences-between-props-and-state-in-react/</guid>
+      <guid>https://vcstack.github.io/vi/post/react-native/differences-between-props-and-state-in-react/</guid>
       <description>&lt;p&gt;Gần đây mình có tìm hiều về React, trong quá trình tìm hiểu mình thấy &lt;code&gt;Props và State&lt;/code&gt; được sử dụng khá nhiều.
 Vậy chúng là gì và khác nhau như thế nào, cùng tìm hiểu trong bài viết này nhé!&lt;/p&gt;</description>
     </item>

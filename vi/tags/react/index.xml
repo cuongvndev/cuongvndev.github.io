@@ -9,19 +9,19 @@
     <lastBuildDate>Wed, 23 Aug 2023 10:41:55 +0700</lastBuildDate><atom:link href="https://vcstack.github.io/vi/tags/react/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>React Native - Cơ bản về Redux Saga</title>
-      <link>https://vcstack.github.io/vi/post/react/react-native-redux-saga/</link>
+      <link>https://vcstack.github.io/vi/post/react-native/react-native-redux-saga/</link>
       <pubDate>Wed, 23 Aug 2023 10:41:55 +0700</pubDate>
       
-      <guid>https://vcstack.github.io/vi/post/react/react-native-redux-saga/</guid>
+      <guid>https://vcstack.github.io/vi/post/react-native/react-native-redux-saga/</guid>
       <description>&lt;p&gt;Xin chào tất cả các bạn, bài viết này mình xin chia sẻ một chút kiến thức mình tìm hiểu được về &lt;em&gt;&lt;strong&gt;Redux Saga&lt;/strong&gt;&lt;/em&gt;, mong mọi người theo dõi.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Sự khác nhau giữa Props và State trong React</title>
-      <link>https://vcstack.github.io/vi/post/react/differences-between-props-and-state-in-react/</link>
+      <link>https://vcstack.github.io/vi/post/react-native/differences-between-props-and-state-in-react/</link>
       <pubDate>Wed, 23 Aug 2023 10:41:55 +0700</pubDate>
       
-      <guid>https://vcstack.github.io/vi/post/react/differences-between-props-and-state-in-react/</guid>
+      <guid>https://vcstack.github.io/vi/post/react-native/differences-between-props-and-state-in-react/</guid>
       <description>&lt;p&gt;Gần đây mình có tìm hiều về React, trong quá trình tìm hiểu mình thấy &lt;code&gt;Props và State&lt;/code&gt; được sử dụng khá nhiều.
 Vậy chúng là gì và khác nhau như thế nào, cùng tìm hiểu trong bài viết này nhé!&lt;/p&gt;</description>
     </item>
