@@ -9,7 +9,14 @@
   </url>
   
   <url>
-    <loc>https://vcstack.github.io/tools/vietnamese-handwriting/</loc>
+    <loc>https://vcstack.github.io/tags/handwriting-conversion-tool/</loc>
+    <lastmod>2023-09-28T11:30:15+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  
+  <url>
+    <loc>https://vcstack.github.io/tools/handwritten-letters/</loc>
     <lastmod>2023-09-28T11:30:15+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
@@ -31,13 +38,6 @@
   
   <url>
     <loc>https://vcstack.github.io/</loc>
-    <lastmod>2023-09-28T11:30:15+07:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1</priority>
-  </url>
-  
-  <url>
-    <loc>https://vcstack.github.io/tags/vietnamese-handwriting/</loc>
     <lastmod>2023-09-28T11:30:15+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>

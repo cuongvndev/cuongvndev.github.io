@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tools on VC Stack - Going to the moon 🌑</title>
-    <link>https://vcstack.github.io/vi/tools/</link>
-    <description>Recent content in Tools on VC Stack - Going to the moon 🌑</description>
+    <title>Handwriting conversion tool on VC Stack - Going to the moon 🌑</title>
+    <link>https://vcstack.github.io/vi/tags/handwriting-conversion-tool/</link>
+    <description>Recent content in Handwriting conversion tool on VC Stack - Going to the moon 🌑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>vi</language>
-    <lastBuildDate>Thu, 28 Sep 2023 11:30:15 +0700</lastBuildDate><atom:link href="https://vcstack.github.io/vi/tools/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 Sep 2023 11:30:15 +0700</lastBuildDate><atom:link href="https://vcstack.github.io/vi/tags/handwriting-conversion-tool/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tool chuyển đối chữ viết tay</title>
       <link>https://vcstack.github.io/vi/tools/handwritten-letters/</link>
