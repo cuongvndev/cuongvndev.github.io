@@ -9,6 +9,55 @@
   </url>
   
   <url>
+    <loc>https://vcstack.github.io/post/java/async-rest-api-spring-boot/</loc>
+    <lastmod>2024-05-03T10:41:48+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  
+  <url>
+    <loc>https://vcstack.github.io/categories/</loc>
+    <lastmod>2024-05-03T10:41:48+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  
+  <url>
+    <loc>https://vcstack.github.io/tags/java/</loc>
+    <lastmod>2024-05-03T10:41:48+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  
+  <url>
+    <loc>https://vcstack.github.io/categories/java/</loc>
+    <lastmod>2024-05-03T10:41:48+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  
+  <url>
+    <loc>https://vcstack.github.io/post/</loc>
+    <lastmod>2024-05-03T10:41:48+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  
+  <url>
+    <loc>https://vcstack.github.io/tags/</loc>
+    <lastmod>2024-05-03T10:41:48+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  
+  <url>
+    <loc>https://vcstack.github.io/</loc>
+    <lastmod>2024-05-03T10:41:48+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  
+  <url>
     <loc>https://vcstack.github.io/tags/handwriting-conversion-tool/</loc>
     <lastmod>2023-09-28T11:30:15+07:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -23,13 +72,6 @@
   </url>
   
   <url>
-    <loc>https://vcstack.github.io/tags/</loc>
-    <lastmod>2023-09-28T11:30:15+07:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1</priority>
-  </url>
-  
-  <url>
     <loc>https://vcstack.github.io/tools/</loc>
     <lastmod>2023-09-28T11:30:15+07:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -37,28 +79,7 @@
   </url>
   
   <url>
-    <loc>https://vcstack.github.io/</loc>
-    <lastmod>2023-09-28T11:30:15+07:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1</priority>
-  </url>
-  
-  <url>
     <loc>https://vcstack.github.io/post/react-native/building-a-cool-welcome-screen-in-react-native/</loc>
-    <lastmod>2023-08-31T14:00:44+07:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1</priority>
-  </url>
-  
-  <url>
-    <loc>https://vcstack.github.io/categories/</loc>
-    <lastmod>2023-08-31T14:00:44+07:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1</priority>
-  </url>
-  
-  <url>
-    <loc>https://vcstack.github.io/post/</loc>
     <lastmod>2023-08-31T14:00:44+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
@@ -95,20 +116,6 @@
   <url>
     <loc>https://vcstack.github.io/post/react-native/react-native-redux-saga/</loc>
     <lastmod>2023-08-23T10:41:55+07:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1</priority>
-  </url>
-  
-  <url>
-    <loc>https://vcstack.github.io/tags/java/</loc>
-    <lastmod>2023-08-14T15:33:23+07:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1</priority>
-  </url>
-  
-  <url>
-    <loc>https://vcstack.github.io/categories/java/</loc>
-    <lastmod>2023-08-14T15:33:23+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>

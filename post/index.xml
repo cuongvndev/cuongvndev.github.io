@@ -6,7 +6,16 @@
     <description>Recent content in Posts on VC Stack - Going to the moon 🌑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 31 Aug 2023 14:00:44 +0700</lastBuildDate><atom:link href="https://vcstack.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 03 May 2024 10:41:48 +0700</lastBuildDate><atom:link href="https://vcstack.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Async REST API Using Spring Boot</title>
+      <link>https://vcstack.github.io/post/java/async-rest-api-spring-boot/</link>
+      <pubDate>Fri, 03 May 2024 10:41:48 +0700</pubDate>
+      
+      <guid>https://vcstack.github.io/post/java/async-rest-api-spring-boot/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Building a Cool Welcome Screen in React Native</title>
       <link>https://vcstack.github.io/post/react-native/building-a-cool-welcome-screen-in-react-native/</link>
