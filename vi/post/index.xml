@@ -6,7 +6,21 @@
     <description>Recent content in Posts on VC Stack - Going to the moon 🌑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>vi</language>
-    <lastBuildDate>Fri, 03 May 2024 10:41:48 +0700</lastBuildDate><atom:link href="https://vcstack.github.io/vi/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 24 Sep 2024 12:54:25 +0700</lastBuildDate><atom:link href="https://vcstack.github.io/vi/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hướng dẫn sử dụng OpenCV trong Java</title>
+      <link>https://vcstack.github.io/vi/post/java/su-dung-opencv-de-compare-image/</link>
+      <pubDate>Tue, 24 Sep 2024 12:54:25 +0700</pubDate>
+      
+      <guid>https://vcstack.github.io/vi/post/java/su-dung-opencv-de-compare-image/</guid>
+      <description>Sử dụng OpenCV để compare 2 file image
+1. Cài đặt thư viện Sử dụng OpenPnP đã đóng gói OpenCV kèm native library
+Thêm dependency
+&amp;lt;!-- https://mvnrepository.com/artifact/org.openpnp/opencv --&amp;gt;&amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;org.openpnp&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;gt;opencv&amp;lt;/artifactId&amp;gt;&amp;lt;version&amp;gt;4.9.0-0&amp;lt;/version&amp;gt;&amp;lt;/dependency&amp;gt; or nếu sử dụng Gradle
+// https://mvnrepository.com/artifact/org.openpnp/opencv implementation group: &amp;#39;org.openpnp&amp;#39;, name: &amp;#39;opencv&amp;#39;, version: &amp;#39;4.9.0-0&amp;#39; 2. Code demo Sử dụng OpenCV.loadShared(); để load native library thay vì sử dụng System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+import nu.pattern.OpenCV; import org.opencv.core.Core; import org.opencv.core.Mat; import org.opencv.core.MatOfPoint; import org.</description>
+    </item>
+    
     <item>
       <title>Async REST API Using Spring Boot</title>
       <link>https://vcstack.github.io/vi/post/java/async-rest-api-spring-boot/</link>
