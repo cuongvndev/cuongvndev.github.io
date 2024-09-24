@@ -162,7 +162,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Ở hàm faceDetect có sử &lt;code&gt;haarcascade_frontalface_alt.xml&lt;/code&gt;
-Tải file ở đây &lt;!-- raw HTML omitted --&gt;Download XML&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+Tải file ở đây &lt;a href=&#34;https://github.com/vcstack/vcstack.github.io/blob/gh-pages/blog/haarcascade_frontalface_alt.xml&#34;&gt;https://github.com/vcstack/vcstack.github.io/blob/gh-pages/blog/haarcascade_frontalface_alt.xml&lt;/a&gt;&lt;/p&gt;
 </description>
       
     </item>
